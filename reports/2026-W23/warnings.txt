@@ -1,2 +1,4 @@
 DEBUG: ELEVENLABS_API_KEY length=64
 MP3 not generated: ElevenLabs API key restricted to allowlisted hosts (HTTP 403)
+DEBUG: ELEVENLABS_API_KEY length=64
+MP3 not generated: HTTP Error 403: Forbidden
