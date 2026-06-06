@@ -56,50 +56,44 @@ mkdir -p "$outdir"
 python3 scripts/build_report.py --in /tmp/trending_rich.json --outdir "$outdir"
 ```
 
-### 4. Generate MP3 narration via ElevenLabs TTS
+### 4. Generate MP3 narration via TTS proxy
 
 Write this Python script to `/tmp/tts.py`, then run it:
 
 ```python
 # /tmp/tts.py
-import json, os, sys, urllib.request
+import json, sys, urllib.request
 
 outdir = sys.argv[1]
 warn_file = f"{outdir}/warnings.txt"
 mp3_path = f"{outdir}/report.mp3"
 
-# Skip if MP3 already exists (may have been generated locally and committed)
-if os.path.exists(mp3_path):
-    print(f"MP3 already exists at {mp3_path}, skipping TTS")
+if __import__('os').path.exists(mp3_path):
+    print(f"MP3 already exists, skipping")
     sys.exit(0)
 
 text = open(f"{outdir}/narration.txt", encoding="utf-8").read()
-api_key = os.environ.get("ELEVENLABS_API_KEY", "").strip()
 
-if not api_key:
-    with open(warn_file, "a") as wf:
-        wf.write("MP3 skipped: ELEVENLABS_API_KEY not set\n")
-    print("MP3 skipped: no API key")
-    sys.exit(0)
+# Call the TTS proxy (routes through Google Cloud to avoid ElevenLabs IP block)
+PROXY_URL = "https://us-central1-learnwithavi-youtube.cloudfunctions.net/tts-proxy"
+PROXY_TOKEN = "tts-proxy-trending-repos-2026"
 
-voice_id = "TX3LPaxmHKxFdv7VOQHJ"  # Liam — eleven_v3 Hebrew
 payload = json.dumps({
     "text": text,
-    "model_id": "eleven_v3",
-    "voice_settings": {"stability": 0.5, "similarity_boost": 0.75}
+    "voice_id": "TX3LPaxmHKxFdv7VOQHJ",
+    "model_id": "eleven_v3"
 }).encode("utf-8")
 
 req = urllib.request.Request(
-    f"https://api.elevenlabs.io/v1/text-to-speech/{voice_id}",
+    PROXY_URL,
     data=payload,
     headers={
-        "xi-api-key": api_key,
         "Content-Type": "application/json",
-        "Accept": "audio/mpeg"
+        "X-Proxy-Token": PROXY_TOKEN
     }
 )
 try:
-    with urllib.request.urlopen(req, timeout=120) as resp:
+    with urllib.request.urlopen(req, timeout=180) as resp:
         audio = resp.read()
     with open(mp3_path, "wb") as f:
         f.write(audio)
