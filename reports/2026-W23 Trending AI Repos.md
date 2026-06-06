@@ -5,46 +5,46 @@ tags: [trending-repos, ai, llm, research]
 type: weekly-digest
 ---
 
-# 🔥 Trending AI/LLM Repos: 2026-W23
+# Trending AI/LLM Repos: 2026-W23
 
 Full report: https://booya1986.github.io/trending-ai-repos/reports/2026-W23/
 
-## [ClaudioDrews/memory-os](https://github.com/ClaudioDrews/memory-os)
-⭐ 890 · Python · 2026-05-31
-A 7-layer memory operating system for Hermes Agent — persistent memory with Qdrant, structured facts, fabric recall, auto-curated wiki, and surgical context injection. Runs locally, any LLM provider.
+## [PanisHandsome/ai-rules-sync](https://github.com/PanisHandsome/ai-rules-sync)
+Stars: 105 | JavaScript | 2026-06-01
+Keep one source of truth for your AI coding-agent rules. Convert and sync between AGENTS.md, CLAUDE.md, .cursorrules, Copilot, Windsurf, Cline, Aider & Gemini — or scaffold a fresh AGENTS.md. Zero dependencies.
 
-## [chaitanyagiri/munder-difflin](https://github.com/chaitanyagiri/munder-difflin)
-⭐ 343 · TypeScript · 2026-05-31
-local multi-agent harness
+## [ntd4996/agentpet](https://github.com/ntd4996/agentpet)
+Stars: 95 | Swift | 2026-05-31
+A native macOS menu bar app with a desktop pet that monitors your AI coding agents (Claude Code, Codex, Gemini CLI) in real time.
 
-## [LLMQuant/skills](https://github.com/LLMQuant/skills)
-⭐ 75 · Shell · 2026-05-30
-Reusable Skills for LLMQuant Agent, Claude Code, Claude.ai, Cursor, Hermes Agent, OpenClaw and Codex, grounded in LLMQuant Data
+## [helloianneo/ian-xiaohei-scenes](https://github.com/helloianneo/ian-xiaohei-scenes)
+Stars: 76 | Unknown | 2026-06-04
+Xiaohei 2.0 Codex Skill for Chinese real-object article illustrations and long-scroll story images
 
-## [ethanhq/cc-fleet](https://github.com/ethanhq/cc-fleet)
-⭐ 103 · Go · 2026-05-30
-🚢  Spawn any vendor LLM — DeepSeek · GLM · Qwen · Kimi · MiniMax … — as real Claude Code teammates or ⚡ one-shot subagents 🚀 ｜🤖 让 Claude Code 接入任意第三方模型(DeepSeek · GLM · Qwen · Kimi · MiniMax ……),作为原生 Agent Team Teammate 或 ⚡ 一次性 subagent 为你干活 🚀
+## [tastyeffectco/sandboxes](https://github.com/tastyeffectco/sandboxes)
+Stars: 441 | Go | 2026-06-03
+Self-hosted dev sandboxes with preview URLs. One command. No Kubernetes, perfect for coding agents and Saas factories
 
-## [PabloNAX/ultracode-skill](https://github.com/PabloNAX/ultracode-skill)
-⭐ 62 · Unknown · 2026-05-31
-Codex-first Ultracode skill for dynamic coding workflows
+## [PentesterFlow/agent](https://github.com/PentesterFlow/agent)
+Stars: 296 | TypeScript | 2026-05-31
+Agentic offensive-security in your terminal
 
-## [BillLucky/echocut](https://github.com/BillLucky/echocut)
-⭐ 51 · JavaScript · 2026-05-31
-Turn raw footage into brand-ready, platform-optimized video with one command. Local-first: FFmpeg + WhisperX/MLX + Ollama.
+## [duncatzat/vigils](https://github.com/duncatzat/vigils)
+Stars: 281 | Rust | 2026-05-31
+A local control plane for AI agents — see what they do, approve what matters, keep secrets out. Rust + Tauri + Chrome MV3.
 
-## [robzilla1738/Codex-Workflows](https://github.com/robzilla1738/Codex-Workflows)
-⭐ 51 · TypeScript · 2026-06-03
-Workflow-as-code orchestration for Codex
+## [Rimagination/good-question](https://github.com/Rimagination/good-question)
+Stars: 83 | PowerShell | 2026-06-01
+A portable agent skill for sharpening research questions.
 
-## [u7079256/paperjury](https://github.com/u7079256/paperjury)
-⭐ 50 · JavaScript · 2026-06-02
-Pre-submission AI review stress-test for research papers. A Claude Code skill: review, verdict, revise, verify.
+## [liyue-aigc/female-portrait-director](https://github.com/liyue-aigc/female-portrait-director)
+Stars: 521 | Unknown | 2026-05-30
+A modular Codex Skill for directing and expanding detailed AI female portrait prompts.
 
-## [stormneonnightraven4640692/DeepFake-AI-RealTime](https://github.com/stormneonnightraven4640692/DeepFake-AI-RealTime)
-⭐ 182 · C# · 2026-05-31
-An advanced, LLM-powered toolkit providing comprehensive capabilities for ethical synthetic media detection, analysis, and responsible content generation.
+## [ProxyShard/ShardBrowser](https://github.com/ProxyShard/ShardBrowser)
+Stars: 330 | TypeScript | 2026-05-30
+Free, open-source anti-detect browser launcher for web scraping and multi-accounting. By the ProxyShard team. Engine-level fingerprint spoofing in Chromium 148 (WebGL / WebGPU / Client Hints / fonts / TLS), 170+ device profiles bundled, stable QUIC + WebRTC over SOCKS5.
 
-## [couragec/LLMInternSkill](https://github.com/couragec/LLMInternSkill)
-⭐ 140 · Markdown · 2026-06-01
-LLMInternSkill: LLM internship resume and job-search Codex Skill for resume polish, JD tailoring, evidence guard, interview grilling, and Project Scout. 大模型实习简历与求职工具箱。
+## [Soul-AILab/SoulX-Transcriber](https://github.com/Soul-AILab/SoulX-Transcriber)
+Stars: 189 | Python | 2026-06-02
+An end-to-end framework for multi-speaker transcription that jointly models who spoke, when, and what.

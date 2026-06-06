@@ -1,24 +1,25 @@
-Your trending A.I. repos digest for 2026, week 23.
-Here are the 10 most relevant new repositories this week.
+שלום, זה הדוח השבועי שלך על הרפוזיטוריות המובילות בתחום הבינה המלאכותית.
+שבוע 23, 2026.
+השבוע יש לנו 10 רפוזיטוריות שרלוונטיות במיוחד לתחומים שלך.
 
-Number 1. memory-os is a 7-layer, local-first memory operating system for LLM agents that uses Qdrant for persistent vector storage and surgical context injection. For Avi, it is a direct path to an AI assistant that remembers everything across sessions, from Poalim project decisions to L&D research notes.
+מספר 1. ai rules sync. agentsync is a zero-dependency CLI that converts and syncs AI coding-agent rule files across Claude, Cursor, Copilot, Windsurf, and others from a single source of truth. If you run multiple AI tools or share projects with collaborators using different agents, it removes the manual duplication overhead entirely.
 
-Number 2. munder-difflin is a TypeScript-based local multi-agent harness for coordinating multiple AI agents privately on your own machine. For Avi, it opens the door to building private, composable agent teams for L&D content and Poalim workflows without cloud dependencies.
+מספר 2. agentpet. AgentPet is a native macOS menu bar app that surfaces a desktop pet and monitors your running AI coding agents like Claude Code and Codex in real time. It keeps agent status visible during busy workdays or live sessions without requiring you to switch to a terminal.
 
-Number 3. LLMQuant/skills is a plug-and-play library of reusable agent skills for Claude Code, Cursor, Codex, and other platforms, grounded in quantitative finance data. For Avi, it demonstrates the skills-as-code pattern that can be adapted for L&D, Obsidian, and Poalim workflows right away.
+מספר 3. ian xiaohei scenes. Ian Xiaohei Scenes is a Codex Skill that instructs AI agents to generate branded Chinese-content article illustrations by pairing a character with real objects and physical scenes. The visual metaphor approach and structured skill format are directly relevant to L&D content design and making abstract ideas concrete.
 
-Number 4. cc-fleet is a Go tool that plugs DeepSeek, Qwen, Kimi, and other vendor LLMs directly into Claude Code as native subagents. For Avi, it means smarter cost routing across Poalim document processing and L&D content pipelines without leaving the Claude Code environment.
+מספר 4. sandboxes. Sandboxed is a self-hosted open-source engine that spins up isolated dev sandboxes with preview URLs using a single Docker command and no Kubernetes. It is a practical foundation for building AI-assisted products where each user needs their own safe, isolated workspace.
 
-Number 5. ultracode-skill is a Codex-first plugin for dynamic, context-aware coding workflows. For Avi, it is a compact example of how skills extend Codex beyond single prompts into full adaptive coding pipelines, useful as a teaching reference for agent-based development.
+מספר 5. agent. PentesterFlow is a human-in-the-loop CLI agent that walks penetration testers through recon, enumeration, evidence collection, and reporting while keeping the analyst in control at each step. The structured human-approval design pattern is relevant context for building safe, auditable AI workflows in regulated settings.
 
-Number 6. echocut turns raw video into branded, platform-optimized clips with one command, using FFmpeg, WhisperX, and Ollama entirely offline. For Avi, it is a direct fit for processing lecture recordings and L&D course footage into polished, multi-platform assets without any cloud costs.
+מספר 6. vigils. Vigils is a local-first Rust and Tauri control plane that monitors AI agent activity in real time, lets you approve sensitive actions before they execute, and keeps secrets out of agent outputs. For AI work in regulated environments like banking, its audit-log and PII-protection design directly addresses governance requirements.
 
-Number 7. Codex-Workflows is a TypeScript library for defining multi-step Codex agent pipelines as versioned, reproducible code. For Avi, it provides a structured way to encode L&D content workflows and Poalim automation tasks so they can be reliably re-run and shared with teammates.
+מספר 7. good question. Good Question is a portable agent skill for Claude Code and Codex that sharpens research questions using scientific-method principles before any research or writing begins. For teaching, L&D design, and content work, a sharper upstream question changes the quality of everything that follows.
 
-Number 8. paperjury is a Claude Code skill that stress-tests research papers through a four-stage review, verdict, revise, and verify cycle. For Avi, it can sharpen research-backed L&D content and internal reports before they reach Poalim stakeholders or learners.
+מספר 8. female portrait director. Female Portrait Director is a modular Codex Skill that routes AI image generation through style files and locks parameters to produce consistent portrait outputs at scale. The approach of building structured, version-controlled prompt frameworks rather than ad-hoc prompts is a transferable pattern for any content pipeline.
 
-Number 9. DeepFake-AI-RealTime is an LLM-powered C# toolkit for ethical detection, analysis, and responsible generation of synthetic media. For Avi, it is a relevant reference for building AI literacy and responsible AI content in L&D programs, especially for audiences at financial institutions like Poalim.
+מספר 9. ShardBrowser. ShardBrowser is a free open-source anti-detect browser launcher with engine-level fingerprint spoofing across 170 plus device profiles, built for web scraping and multi-account workflows at scale. For AI agents that need to gather web data reliably, it addresses the bot-detection problem at the infrastructure level.
 
-Number 10. LLMInternSkill is a Codex skill that automates resume tailoring, JD matching, and interview prep for LLM-focused internship searches. For Avi, it offers a ready-made model to adapt for AI career coaching and upskilling content in L&D programs.
+מספר 10. SoulX Transcriber. SoulX-Transcriber is an end-to-end Python framework that jointly transcribes who spoke, when, and what was said across multiple speakers in a single pass. For capturing workshop or meeting content into Obsidian notes or L&D documentation, it replaces manual transcription work.
 
-That's your weekly AI digest. Have a great week.
+זה הכל להשבוע. שיהיה לך שבוע מעולה!
