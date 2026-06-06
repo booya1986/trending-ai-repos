@@ -69,8 +69,15 @@ text = open(f"{outdir}/narration.txt", encoding="utf-8").read()
 api_key = os.environ.get("ELEVENLABS_API_KEY", "").strip()
 warn_file = f"{outdir}/warnings.txt"
 
+try:
+    with urllib.request.urlopen("https://api.ipify.org", timeout=5) as r:
+        outbound_ip = r.read().decode()
+except Exception:
+    outbound_ip = "unknown"
+
 with open(warn_file, "a") as wf:
     wf.write(f"DEBUG: ELEVENLABS_API_KEY length={len(api_key)}\n")
+    wf.write(f"DEBUG: outbound IP={outbound_ip}\n")
 
 if not api_key:
     with open(warn_file, "a") as wf:
