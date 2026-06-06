@@ -1,1 +1,1 @@
-MP3 skipped: OPENAI_API_KEY not set
+MP3 not generated: HTTP Error 403: Forbidden
