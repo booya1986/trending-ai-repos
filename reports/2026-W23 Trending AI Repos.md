@@ -1,0 +1,50 @@
+---
+created: 2026-06-06
+week: 2026-W23
+tags: [trending-repos, ai, llm, research]
+type: weekly-digest
+---
+
+# 🔥 Trending AI/LLM Repos: 2026-W23
+
+Full report: https://booya1986.github.io/trending-ai-repos/reports/2026-W23/
+
+## [ClaudioDrews/memory-os](https://github.com/ClaudioDrews/memory-os)
+⭐ 887 · Python · 2026-05-31
+A 7-layer memory operating system for Hermes Agent — persistent memory with Qdrant, structured facts, fabric recall, auto-curated wiki, and surgical context injection. Runs locally, any LLM provider.
+
+## [chaitanyagiri/munder-difflin](https://github.com/chaitanyagiri/munder-difflin)
+⭐ 341 · TypeScript · 2026-05-31
+local multi-agent harness
+
+## [LLMQuant/skills](https://github.com/LLMQuant/skills)
+⭐ 74 · Shell · 2026-05-30
+Reusable Skills for LLMQuant Agent, Claude Code, Claude.ai, Cursor, Hermes Agent, OpenClaw and Codex, grounded in LLMQuant Data
+
+## [ethanhq/cc-fleet](https://github.com/ethanhq/cc-fleet)
+⭐ 103 · Go · 2026-05-30
+🚢  Spawn any vendor LLM — DeepSeek · GLM · Qwen · Kimi · MiniMax … — as real Claude Code teammates or ⚡ one-shot subagents 🚀 ｜🤖 让 Claude Code 接入任意第三方模型(DeepSeek · GLM · Qwen · Kimi · MiniMax ……),作为原生 Agent Team Teammate 或 ⚡ 一次性 subagent 为你干活 🚀
+
+## [PabloNAX/ultracode-skill](https://github.com/PabloNAX/ultracode-skill)
+⭐ 61 · Unknown · 2026-05-31
+Codex-first Ultracode skill for dynamic coding workflows
+
+## [BillLucky/echocut](https://github.com/BillLucky/echocut)
+⭐ 51 · JavaScript · 2026-05-31
+Turn raw footage into brand-ready, platform-optimized video with one command. Local-first: FFmpeg + WhisperX/MLX + Ollama.
+
+## [u7079256/paperjury](https://github.com/u7079256/paperjury)
+⭐ 50 · JavaScript · 2026-06-02
+Pre-submission AI review stress-test for research papers. A Claude Code skill: review, verdict, revise, verify.
+
+## [robzilla1738/Codex-Workflows](https://github.com/robzilla1738/Codex-Workflows)
+⭐ 50 · TypeScript · 2026-06-03
+Workflow-as-code orchestration for Codex
+
+## [stormneonnightraven4640692/DeepFake-AI-RealTime](https://github.com/stormneonnightraven4640692/DeepFake-AI-RealTime)
+⭐ 182 · C# · 2026-05-31
+An advanced, LLM-powered toolkit providing comprehensive capabilities for ethical synthetic media detection, analysis, and responsible content generation.
+
+## [couragec/LLMInternSkill](https://github.com/couragec/LLMInternSkill)
+⭐ 138 · Markdown · 2026-06-01
+LLMInternSkill: LLM internship resume and job-search Codex Skill for resume polish, JD tailoring, evidence guard, interview grilling, and Project Scout. 大模型实习简历与求职工具箱。

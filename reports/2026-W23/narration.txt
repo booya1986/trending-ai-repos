@@ -1,24 +1,24 @@
 Your trending A.I. repos digest for 2026, week 23.
 Here are the 10 most relevant new repositories this week.
 
-Number 1. A 7-layer "memory operating system" that gives an LLM agent persistent long-term memory. It stores structured facts with trust scoring, runs semantic search across every past conversation via Qdrant, auto-curates a wiki, and does surgical, token-efficient context injection. The w
+Number 1. memory-os is a 7-layer memory operating system for AI agents that provides persistent, local-first memory with Qdrant vector storage, structured facts, and surgical context injection for any LLM. For Avi, this is a key building block for creating AI tutors or assistants that remember learner progress across sessions in L&D and teaching projects.
 
-Number 2. A local multi-agent harness for Claude Code. Autonomous agents message, route, and remember, coordinated by a "GOD" orchestrator you talk to, and the whole thing is visualized as avatars working on a shared office floor (Electron + React + Pixi.js + xterm.js + node-pty). It is a 
+Number 2. munder-difflin is a local multi-agent harness in TypeScript that lets you orchestrate multiple AI agents on your own machine without cloud dependencies. It is relevant to Avi's work because it provides a private, low-cost way to prototype and run complex AI content pipelines or teaching-assistant workflows.
 
-Number 3. A free, open-source anti-detect browser launcher for web scraping and multi-accounting. It does engine-level fingerprint spoofing in Chromium 148 (WebGL, WebGPU, Client Hints, fonts, TLS), bundles 170+ device profiles, and supports QUIC + WebRTC over SOCKS5. Shipped as both a PyP
+Number 3. LLMQuant skills is a library of reusable skill modules for AI coding agents like Claude Code and Cursor, providing domain-specific automation grounded in quantitative finance data. The modular skill pattern is directly applicable to Avi's Claude Code and Obsidian workflows, where encoding repeatable L&D or content tasks as portable skills accelerates production.
 
-Number 4. A human-in-the-loop agentic AI CLI for penetration testers and bug hunters. It walks an analyst through the full pentest lifecycle (recon, enumeration, validation, evidence collection, reporting) while keeping a human in control, with continuous-learning memory and Burp Suite int
+Number 4. cc-fleet is a Go proxy that lets Claude Code use third-party LLMs like DeepSeek, Qwen, or Kimi as native agent teammates or subagents, enabling multi-model teams in a single session. For Avi, this means routing specialized tasks such as Hebrew content generation to the most suitable model while staying inside Claude Code.
 
-Number 5. A local-first control plane that sits between your AI agents (Claude Code, Cursor, Zed, MCP clients, browser assistants) and the tools and data they touch. It redacts, firewalls, requires approval, sandboxes, and audits every tool call, so you can see what an agent did, approve w
+Number 5. ultracode-skill packages dynamic, structured coding workflow prompts as a reusable Codex skill, giving AI coding agents a reliable scaffold for complex multi-step development tasks. Avi can adapt this pattern in Claude Code to accelerate the automation scripts and content tooling that underpin his L&D and reporting work.
 
-Number 6. An open-source, on-device, system-wide tab-autocomplete utility for macOS. It watches the focused text field in any app, predicts a short continuation at the cursor using a local LLM, and offers it as ghost text you accept with Tab. It is an MIT-licensed alternative to the closed
+Number 6. echocut is a local-first CLI that turns raw video footage into polished, platform-ready content using FFmpeg, WhisperX transcription, and Ollama for AI editing, all running on your own machine. For Avi's L&D and content production work, this is a practical tool for turning screen recordings or training sessions into finished assets without uploading sensitive material to the cloud.
 
-Number 7. An end-to-end framework for multi-speaker transcription that jointly models who spoke, when, and what (speaker diarization plus ASR in one model rather than stitched-together stages). Backed by an arXiv paper and released with HuggingFace models under Apache 2.0.
+Number 7. paperjury is a Claude Code skill that puts a research paper through a four-stage AI review: review, verdict, revise, and verify, simulating rigorous pre-submission peer scrutiny. For Avi, it is immediately applicable to stress-testing course materials, instructional designs, or research briefs before they reach stakeholders.
 
-Number 8. Per its README, an "Ethical Synthetic Media Analysis Toolkit": an LLM-powered toolkit framed for detecting, analyzing, and (responsibly) generating synthetic media, aimed at researchers and auditors trying to tell authentic content from deepfakes.
+Number 8. Codex-Workflows is a TypeScript orchestration library that lets developers define complex multi-step Codex agent workflows as versioned, composable code. For Avi, this brings reproducibility and auditability to AI-assisted content and training material production pipelines.
 
-Number 9. A Codex Skill toolkit for landing an LLM/AI internship: resume polish, JD tailoring, an "evidence guard" that flags resume claims you cannot back up, interview grilling that generates tough follow-up questions, and a "Project Scout" that recommends open-source projects to build r
+Number 9. DeepFake-AI-RealTime is an LLM-powered C# toolkit for detecting, analyzing, and understanding synthetic media, with a stated focus on ethical detection rather than deception. For Avi's teaching work, it provides a practical demonstration tool for digital literacy and responsible AI curricula covering synthetic media risks.
 
-Number 10. An LLM-native, graph-explicit molecular language that presents molecules as code so an LLM can read, write, and edit chemical structures directly, instead of reconstructing them from cryptic SMILES strings. Backed by an arXiv paper, powered by RDKit, and shipped as both a Claude 
+Number 10. LLMInternSkill is a Codex skill that guides LLM-career candidates through resume polish, job description tailoring, evidence validation, and interview preparation. For Avi, it is both a practical career tool for students in AI-adjacent programs and a strong template for building domain-specific coaching skills in L&D contexts.
 
 That's your weekly AI digest. Have a great week.
