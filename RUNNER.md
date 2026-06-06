@@ -61,37 +61,44 @@ mkdir -p "$outdir"
 python3 scripts/build_report.py --in /tmp/trending_rich.json --outdir "$outdir"
 ```
 
-### 4. Generate MP3 narration via OpenAI TTS
+### 4. Generate MP3 narration via ElevenLabs TTS
 
-Read the narration.txt from the outdir and call the OpenAI TTS API:
+Read the narration.txt and call the ElevenLabs TTS API (voice: Adam, model: eleven_multilingual_v2):
 
 ```python
 import os, urllib.request, json
 
 text = open(f"{outdir}/narration.txt", encoding="utf-8").read()
-api_key = os.environ["OPENAI_API_KEY"]
-payload = json.dumps({
-    "model": "tts-1",
-    "input": text,
-    "voice": "onyx",
-    "response_format": "mp3"
-}).encode("utf-8")
-req = urllib.request.Request(
-    "https://api.openai.com/v1/audio/speech",
-    data=payload,
-    headers={
-        "Authorization": f"Bearer {api_key}",
-        "Content-Type": "application/json"
-    }
-)
-with urllib.request.urlopen(req, timeout=120) as resp:
-    with open(f"{outdir}/report.mp3", "wb") as f:
-        f.write(resp.read())
-print(f"MP3 written to {outdir}/report.mp3")
+api_key = os.environ.get("ELEVENLABS_API_KEY", "")
+if not api_key:
+    open(f"{outdir}/warnings.txt", "a").write("MP3 skipped: ELEVENLABS_API_KEY not set\n")
+else:
+    voice_id = "pNInz6obpgDQGcFmaJgB"  # Adam — clear, natural English
+    payload = json.dumps({
+        "text": text,
+        "model_id": "eleven_multilingual_v2",
+        "voice_settings": {"stability": 0.5, "similarity_boost": 0.75}
+    }).encode("utf-8")
+    req = urllib.request.Request(
+        f"https://api.elevenlabs.io/v1/text-to-speech/{voice_id}",
+        data=payload,
+        headers={
+            "xi-api-key": api_key,
+            "Content-Type": "application/json",
+            "Accept": "audio/mpeg"
+        }
+    )
+    try:
+        with urllib.request.urlopen(req, timeout=120) as resp:
+            with open(f"{outdir}/report.mp3", "wb") as f:
+                f.write(resp.read())
+        print(f"MP3 written to {outdir}/report.mp3")
+    except Exception as e:
+        open(f"{outdir}/warnings.txt", "a").write(f"MP3 not generated: {e}\n")
+        print(f"TTS failed (skipping): {e}")
 ```
 
-If the OpenAI call fails (no key, quota, etc.) — skip the MP3, note it in
-a warnings file, but continue with the commit. The page still works without audio.
+If the call fails — skip the MP3, note it in warnings.txt, continue with commit.
 
 ### 5. Write the Obsidian note
 
