@@ -1,0 +1,24 @@
+Your trending A.I. repos digest for 2026, week 23.
+Here are the 10 most relevant new repositories this week.
+
+Number 1. A 7-layer "memory operating system" that gives an LLM agent persistent long-term memory. It stores structured facts with trust scoring, runs semantic search across every past conversation via Qdrant, auto-curates a wiki, and does surgical, token-efficient context injection. The w
+
+Number 2. A local multi-agent harness for Claude Code. Autonomous agents message, route, and remember, coordinated by a "GOD" orchestrator you talk to, and the whole thing is visualized as avatars working on a shared office floor (Electron + React + Pixi.js + xterm.js + node-pty). It is a 
+
+Number 3. A free, open-source anti-detect browser launcher for web scraping and multi-accounting. It does engine-level fingerprint spoofing in Chromium 148 (WebGL, WebGPU, Client Hints, fonts, TLS), bundles 170+ device profiles, and supports QUIC + WebRTC over SOCKS5. Shipped as both a PyP
+
+Number 4. A human-in-the-loop agentic AI CLI for penetration testers and bug hunters. It walks an analyst through the full pentest lifecycle (recon, enumeration, validation, evidence collection, reporting) while keeping a human in control, with continuous-learning memory and Burp Suite int
+
+Number 5. A local-first control plane that sits between your AI agents (Claude Code, Cursor, Zed, MCP clients, browser assistants) and the tools and data they touch. It redacts, firewalls, requires approval, sandboxes, and audits every tool call, so you can see what an agent did, approve w
+
+Number 6. An open-source, on-device, system-wide tab-autocomplete utility for macOS. It watches the focused text field in any app, predicts a short continuation at the cursor using a local LLM, and offers it as ghost text you accept with Tab. It is an MIT-licensed alternative to the closed
+
+Number 7. An end-to-end framework for multi-speaker transcription that jointly models who spoke, when, and what (speaker diarization plus ASR in one model rather than stitched-together stages). Backed by an arXiv paper and released with HuggingFace models under Apache 2.0.
+
+Number 8. Per its README, an "Ethical Synthetic Media Analysis Toolkit": an LLM-powered toolkit framed for detecting, analyzing, and (responsibly) generating synthetic media, aimed at researchers and auditors trying to tell authentic content from deepfakes.
+
+Number 9. A Codex Skill toolkit for landing an LLM/AI internship: resume polish, JD tailoring, an "evidence guard" that flags resume claims you cannot back up, interview grilling that generates tough follow-up questions, and a "Project Scout" that recommends open-source projects to build r
+
+Number 10. An LLM-native, graph-explicit molecular language that presents molecules as code so an LLM can read, write, and edit chemical structures directly, instead of reconstructing them from cryptic SMILES strings. Backed by an arXiv paper, powered by RDKit, and shipped as both a Claude 
+
+That's your weekly AI digest. Have a great week.
