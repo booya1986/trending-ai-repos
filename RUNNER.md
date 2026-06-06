@@ -84,8 +84,9 @@ Actually, because the narration text is long with special characters, use Python
 python3 -c "
 import json, subprocess, os, sys
 text = open('$outdir/narration.txt', encoding='utf-8').read()
-api_key = os.environ.get('ELEVENLABS_API_KEY', '')
-print('API key present:', bool(api_key), 'length:', len(api_key), file=sys.stderr)
+api_key = os.environ.get('ELEVENLABS_API_KEY', '').strip()
+key_len = len(api_key)
+open('$outdir/warnings.txt', 'a').write(f'DEBUG: ELEVENLABS_API_KEY length={key_len}\n')
 if not api_key:
     open('$outdir/warnings.txt', 'a').write('MP3 skipped: ELEVENLABS_API_KEY not set\n')
     sys.exit(0)
