@@ -82,10 +82,10 @@ if not api_key:
     print("MP3 skipped: no API key")
     sys.exit(0)
 
-voice_id = "a1Vx4kQ93YUGGWHKxt55"  # Efi Ariely 4 — native Hebrew voice
+voice_id = "a1Vx4kQ93YUGGWHKxt55"  # Efi Ariely 4 — native Hebrew, eleven_v3 only
 payload = json.dumps({
     "text": text,
-    "model_id": "eleven_multilingual_v2",
+    "model_id": "eleven_v3",
     "voice_settings": {"stability": 0.5, "similarity_boost": 0.75}
 }).encode("utf-8")
 
