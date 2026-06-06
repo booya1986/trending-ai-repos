@@ -69,10 +69,7 @@ def render_html(data):
       </div>
     </article>""")
 
-    warn_html = ""
-    if warnings:
-        items = "".join(f"<li>{html.escape(w)}</li>" for w in warnings)
-        warn_html = f'<div class="run-notes"><strong class="i18n" data-he="הערות ריצה" data-en="Run notes">הערות ריצה</strong><ul>{items}</ul></div>'
+    warn_html = ""  # run notes not shown to end users
 
     cards_html = "\n".join(cards)
     week_display = html.escape(week)
