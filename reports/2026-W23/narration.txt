@@ -1,24 +1,24 @@
 Your trending A.I. repos digest for 2026, week 23.
 Here are the 10 most relevant new repositories this week.
 
-Number 1. memory-os is a 7-layer, local-first memory operating system for AI agents that uses Qdrant for persistent structured recall and surgical context injection, working with any LLM provider. For Avi, it opens the door to agents that remember past teaching projects, Obsidian notes, and L&D context across sessions without cloud dependency.
+Number 1. Lineage-Skill distills videos, PDFs, and notes into source-backed agent skills, making it easy to convert existing course content into AI-usable packages. For Avi, this is a direct fit for transforming L&D materials at Poalim into structured, traceable agent skills.
 
-Number 2. munder-difflin is a local multi-agent harness for Claude Code, giving coordinated AI agents shared memory without relying on external infrastructure or cloud costs. For Avi, it offers a free local way to run parallel agent workflows for content creation or L&D research.
+Number 2. AI-Rules-Sync converts and syncs your AI coding-agent rules across CLAUDE.md, Copilot, Cursor, and more from a single source of truth with zero dependencies. For Avi, it means writing Claude Code rules once and having them propagate automatically to every other AI assistant he uses.
 
-Number 3. LLMQuant/skills provides plug-in AI agent skills for Claude Code, Cursor, and Codex grounded in financial data covering equity research, ETF analysis, and portfolio management. For Avi, it is directly relevant given the Poalim context and interest in practical LLM tooling for financial use cases.
+Number 3. AgentPet is a macOS menu bar app with a desktop pet that monitors Claude Code, Codex, and Gemini CLI agents in real time using Swift and SwiftUI. For Avi, it provides lightweight, glanceable agent status so long-running coding sessions never go unnoticed.
 
-Number 4. cc-fleet bridges Claude Code with third-party LLMs like DeepSeek, Qwen, and Kimi, letting you use any vendor model as a native Claude Code subagent within the same workflow. For Avi, it means cost-efficient multi-agent content or L&D pipelines by mixing models based on task complexity.
+Number 4. Ian-Xiaohei-Scenes is a Codex Skill that generates Chinese real-object article illustrations and long-scroll story images through structured prompt engineering. For Avi, it is a reference for how to build modular, domain-specific image-generation skills for content and educational work.
 
-Number 5. ultracode-skill is a Codex-first skill for dynamic coding workflows that adapts code-generation tasks to runtime context within the Codex agent framework. For Avi, it is a reference example of how agent skills can be structured for flexible, context-aware automation.
+Number 5. Sandboxes launches self-hosted dev environments with live preview URLs in a single command, with no Kubernetes needed, making it ideal for coding-agent workflows. For Avi, it provides a clean way to give stakeholders a preview URL for every Claude Code session without infrastructure overhead.
 
-Number 6. echocut converts raw video footage into captioned, platform-ready clips with one command using a local FFmpeg, WhisperX, and Ollama pipeline, with no cloud dependency. For Avi, it could automate the production of teaching videos or content demos, handling captions and platform formatting entirely on-device.
+Number 6. PentesterFlow Agent brings agentic offensive security to the terminal, automating penetration testing and bug-bounty workflows with AI-driven reconnaissance and audit steps. For Avi, it is a compelling example of AI agents tackling complex, multi-step professional tasks in high-stakes domains.
 
-Number 7. Codex-Workflows provides workflow-as-code orchestration for Codex agents using TypeScript and MCP, letting you define multi-agent pipelines as version-controlled software. For Avi, it offers a structured foundation for building and maintaining repeatable content or teaching automation pipelines.
+Number 7. Vigils is a local control plane built in Rust and Tauri that lets you see what AI agents do, approve sensitive operations, and block secrets from leaking out. For Avi, it is a key governance layer for running AI agents responsibly in regulated or sensitive organizational contexts.
 
-Number 8. paperjury is a Claude Code skill that puts research papers through a full AI review, verdict, revision, and verification cycle to surface weaknesses before submission. For Avi, it is a compelling model for structured AI feedback loops applicable to academic writing instruction or professional content review.
+Number 8. Good-Question is a portable agent skill that uses the scientific method to sharpen research questions before deeper analysis begins. For Avi, it is a useful upstream tool for his teaching and L&D research work, ensuring better questions lead to better AI-assisted answers.
 
-Number 9. DeepFake-AI-RealTime is an LLM-powered C# toolkit for real-time synthetic media detection covering audio, image, and video deepfakes, framed for ethical analysis and responsible generation. For Avi, it is relevant to the Poalim banking context where AI-generated media fraud detection is an emerging compliance concern.
+Number 9. Female-Portrait-Director is a modular Codex Skill that structures and expands AI image generation prompts for detailed portrait work. For Avi, it is a clear reference for how modular, reusable prompt skills can be packaged and shared across AI content production workflows.
 
-Number 10. LLMInternSkill is a Codex skill that guides LLM job seekers through resume polish, JD tailoring, interview prep, and project scouting, with LaTeX resume support. For Avi, it illustrates how AI skills can bridge learning and career outcomes, a relevant reference for L&D curriculum design.
+Number 10. ShardBrowser is an open-source anti-detect browser on Chromium 148 with engine-level fingerprint spoofing and 170 or more device profiles, designed for web scraping and AI agent data collection. For Avi, it offers a ready stealth browser layer for AI research agents that need to gather data from protected web sources.
 
 That's your weekly AI digest. Have a great week.
