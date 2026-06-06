@@ -1,24 +1,24 @@
 Your trending A.I. repos digest for 2026, week 23.
 Here are the 10 most relevant new repositories this week.
 
-Number 1. ai-rules-sync is a CLI tool that converts and syncs AI coding-agent instruction files across Claude, Cursor, Copilot, and more from a single source of truth. For Avi, it means writing your Claude rules once and having them work seamlessly in any AI coding tool you evaluate for your L&D or Poalim work.
+Number 1. memory-os is a 7-layer, local-first memory operating system for AI agents that uses Qdrant for persistent structured recall and surgical context injection, working with any LLM provider. For Avi, it opens the door to agents that remember past teaching projects, Obsidian notes, and L&D context across sessions without cloud dependency.
 
-Number 2. AgentPet is a macOS menu-bar app that puts a live status display for Claude Code, Codex, and Gemini CLI right on your desktop as a desktop pet. For Avi, it is a lightweight way to track long-running AI sessions without breaking focus during teaching or content creation.
+Number 2. munder-difflin is a local multi-agent harness for Claude Code, giving coordinated AI agents shared memory without relying on external infrastructure or cloud costs. For Avi, it offers a free local way to run parallel agent workflows for content creation or L&D research.
 
-Number 3. ian-xiaohei-scenes is a Codex Skill that generates Chinese-style illustrations and long-scroll story images using structured prompt templates. For Avi, it is a concrete example of how agent skills can encode visual design styles for scalable content production.
+Number 3. LLMQuant/skills provides plug-in AI agent skills for Claude Code, Cursor, and Codex grounded in financial data covering equity research, ETF analysis, and portfolio management. For Avi, it is directly relevant given the Poalim context and interest in practical LLM tooling for financial use cases.
 
-Number 4. sandboxes is a Go-based self-hosted tool that launches isolated dev environments with preview URLs in a single command, no Kubernetes needed. For Avi, it provides a lightweight way to give AI coding agents their own safe sandboxes when building Poalim tools or L&D prototypes.
+Number 4. cc-fleet bridges Claude Code with third-party LLMs like DeepSeek, Qwen, and Kimi, letting you use any vendor model as a native Claude Code subagent within the same workflow. For Avi, it means cost-efficient multi-agent content or L&D pipelines by mixing models based on task complexity.
 
-Number 5. PentesterFlow/agent is a terminal-based agentic tool that automates offensive-security and bug-bounty tasks through an AI-driven workflow in TypeScript. For Avi, it highlights how agentic patterns are expanding into security, important context for enterprise AI adoption discussions.
+Number 5. ultracode-skill is a Codex-first skill for dynamic coding workflows that adapts code-generation tasks to runtime context within the Codex agent framework. For Avi, it is a reference example of how agent skills can be structured for flexible, context-aware automation.
 
-Number 6. vigils is a local control plane that intercepts AI agent actions, surfaces them for your approval, and keeps secrets and PII out of agent requests, running entirely offline with an audit log. For Avi, it is a practical governance tool for any Claude Code or agentic workflow handling sensitive content at Poalim.
+Number 6. echocut converts raw video footage into captioned, platform-ready clips with one command using a local FFmpeg, WhisperX, and Ollama pipeline, with no cloud dependency. For Avi, it could automate the production of teaching videos or content demos, handling captions and platform formatting entirely on-device.
 
-Number 7. good-question is a portable agent skill that applies scientific-method principles to refine and sharpen research questions. For Avi, it is a ready-made tool to strengthen the framing questions behind your L&D programs and Obsidian-based research workflows.
+Number 7. Codex-Workflows provides workflow-as-code orchestration for Codex agents using TypeScript and MCP, letting you define multi-agent pipelines as version-controlled software. For Avi, it offers a structured foundation for building and maintaining repeatable content or teaching automation pipelines.
 
-Number 8. female-portrait-director is a modular Codex Skill that encodes expert prompt-engineering patterns for detailed AI portrait image generation. For Avi, it is a useful reference for how modular agent skills can be built to support repeatable visual content production at scale.
+Number 8. paperjury is a Claude Code skill that puts research papers through a full AI review, verdict, revision, and verification cycle to surface weaknesses before submission. For Avi, it is a compelling model for structured AI feedback loops applicable to academic writing instruction or professional content review.
 
-Number 9. ShardBrowser is an open-source anti-detect browser that provides engine-level fingerprint spoofing for Playwright and Puppeteer-based web scraping, bundling over 170 device profiles. For Avi, it represents the infrastructure layer that AI data-collection agents rely on, useful context when evaluating web-research pipelines.
+Number 9. DeepFake-AI-RealTime is an LLM-powered C# toolkit for real-time synthetic media detection covering audio, image, and video deepfakes, framed for ethical analysis and responsible generation. For Avi, it is relevant to the Poalim banking context where AI-generated media fraud detection is an emerging compliance concern.
 
-Number 10. SoulX-Transcriber is a Python framework that jointly solves speaker diarization and speech recognition, producing transcripts that say who spoke, when, and what. For Avi, it is directly applicable to transcribing recorded workshops, teaching sessions, and L&D content for downstream use in Obsidian or course materials.
+Number 10. LLMInternSkill is a Codex skill that guides LLM job seekers through resume polish, JD tailoring, interview prep, and project scouting, with LaTeX resume support. For Avi, it illustrates how AI skills can bridge learning and career outcomes, a relevant reference for L&D curriculum design.
 
 That's your weekly AI digest. Have a great week.
