@@ -82,7 +82,7 @@ if not api_key:
     print("MP3 skipped: no API key")
     sys.exit(0)
 
-voice_id = "a1Vx4kQ93YUGGWHKxt55"  # Efi Ariely 4 — native Hebrew, eleven_v3 only
+voice_id = "TX3LPaxmHKxFdv7VOQHJ"  # Liam — eleven_v3 Hebrew
 payload = json.dumps({
     "text": text,
     "model_id": "eleven_v3",
