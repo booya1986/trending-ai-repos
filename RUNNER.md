@@ -1,7 +1,7 @@
 # Weekly runner: Trending AI/LLM Repos
 
 You are a scheduled agent. Generate this week's Trending AI/LLM Repos brief,
-build the HTML report, generate the audio narration script, commit everything,
+build the HTML report, generate the Hebrew audio narration, commit everything,
 and push to GitHub so GitHub Pages serves the updated report.
 
 ## Steps
@@ -43,7 +43,7 @@ Inject both fields into each repo object, then save:
 ```python
 import json
 data = json.load(open('/tmp/trending.json'))
-# ... enrich each repo ...
+# enrich each repo with brief_html and narration
 json.dump(data, open('/tmp/trending_rich.json', 'w'), ensure_ascii=False, indent=2)
 ```
 
@@ -58,80 +58,80 @@ python3 scripts/build_report.py --in /tmp/trending_rich.json --outdir "$outdir"
 
 ### 4. Generate MP3 narration via ElevenLabs TTS
 
-First, diagnose what env vars are available:
+Write this Python script to `/tmp/tts.py`, then run it:
 
-```bash
-echo "ELEVENLABS_API_KEY set: ${ELEVENLABS_API_KEY:+yes}"
-echo "key length: ${#ELEVENLABS_API_KEY}"
-```
+```python
+# /tmp/tts.py
+import json, os, sys, urllib.request
 
-Then generate the MP3 using curl (more reliable than Python urllib for binary downloads):
+outdir = sys.argv[1]
+text = open(f"{outdir}/narration.txt", encoding="utf-8").read()
+api_key = os.environ.get("ELEVENLABS_API_KEY", "").strip()
+warn_file = f"{outdir}/warnings.txt"
 
-```bash
-text=$(cat "$outdir/narration.txt")
-curl -s -X POST "https://api.elevenlabs.io/v1/text-to-speech/JBFqnCBsd6RMkjVDRZzb" \
-  -H "xi-api-key: ${ELEVENLABS_API_KEY}" \
-  -H "Content-Type: application/json" \
-  -H "Accept: audio/mpeg" \
-  --data "{\"text\": $(python3 -c \"import json,sys; print(json.dumps(sys.stdin.read()))\") , \"model_id\": \"eleven_turbo_v2_5\", \"voice_settings\": {\"stability\": 0.5, \"similarity_boost\": 0.75}}" \
-  -o "$outdir/report.mp3" \
-  -w "%{http_code}" || echo "curl failed"
-```
+with open(warn_file, "a") as wf:
+    wf.write(f"DEBUG: ELEVENLABS_API_KEY length={len(api_key)}\n")
 
-Actually, because the narration text is long with special characters, use Python to build the payload and pipe to curl:
-
-```bash
-python3 -c "
-import json, subprocess, os, sys
-text = open('$outdir/narration.txt', encoding='utf-8').read()
-api_key = os.environ.get('ELEVENLABS_API_KEY', '').strip()
-key_len = len(api_key)
-open('$outdir/warnings.txt', 'a').write(f'DEBUG: ELEVENLABS_API_KEY length={key_len}\n')
 if not api_key:
-    open('$outdir/warnings.txt', 'a').write('MP3 skipped: ELEVENLABS_API_KEY not set\n')
+    with open(warn_file, "a") as wf:
+        wf.write("MP3 skipped: ELEVENLABS_API_KEY not set\n")
+    print("MP3 skipped: no API key")
     sys.exit(0)
+
+voice_id = "JBFqnCBsd6RMkjVDRZzb"  # George — warm storyteller, supports Hebrew
 payload = json.dumps({
-    'text': text,
-    'model_id': 'eleven_turbo_v2_5',
-    'voice_settings': {'stability': 0.5, 'similarity_boost': 0.75}
-}).encode('utf-8')
-import urllib.request
+    "text": text,
+    "model_id": "eleven_turbo_v2_5",
+    "voice_settings": {"stability": 0.5, "similarity_boost": 0.75}
+}).encode("utf-8")
+
 req = urllib.request.Request(
-    'https://api.elevenlabs.io/v1/text-to-speech/JBFqnCBsd6RMkjVDRZzb',
+    f"https://api.elevenlabs.io/v1/text-to-speech/{voice_id}",
     data=payload,
-    headers={'xi-api-key': api_key, 'Content-Type': 'application/json', 'Accept': 'audio/mpeg'}
+    headers={
+        "xi-api-key": api_key,
+        "Content-Type": "application/json",
+        "Accept": "audio/mpeg"
+    }
 )
 try:
     with urllib.request.urlopen(req, timeout=120) as resp:
-        data = resp.read()
-        open('$outdir/report.mp3', 'wb').write(data)
-        print(f'MP3 written: {len(data)} bytes')
+        audio = resp.read()
+    with open(f"{outdir}/report.mp3", "wb") as f:
+        f.write(audio)
+    print(f"MP3 written: {len(audio)} bytes -> {outdir}/report.mp3")
 except Exception as e:
-    open('$outdir/warnings.txt', 'a').write(f'MP3 not generated: {e}\n')
-    print('TTS failed:', e, file=sys.stderr)
-"
+    with open(warn_file, "a") as wf:
+        wf.write(f"MP3 not generated: {e}\n")
+    print(f"TTS failed: {e}", file=sys.stderr)
+```
+
+Run it:
+
+```bash
+python3 /tmp/tts.py "$outdir"
 ```
 
 ### 5. Write the Obsidian note
 
 ```bash
-python3 -c "
+python3 - <<'PYEOF'
 import json
 data = json.load(open('/tmp/trending_rich.json'))
 week = data['week']
 note_path = f'reports/{week} Trending AI Repos.md'
-lines = ['---', f'created: {data[\"generated_for\"]}', f'week: {week}',
+lines = ['---', f'created: {data["generated_for"]}', f'week: {week}',
          'tags: [trending-repos, ai, llm, research]', 'type: weekly-digest', '---', '',
          f'# Trending AI/LLM Repos: {week}', '',
          f'Full report: https://booya1986.github.io/trending-ai-repos/reports/{week}/', '']
 for r in data['repos']:
-    lines.append(f'## [{r[\"full_name\"]}]({r[\"url\"]})')
-    lines.append(f'Stars: {r[\"stars\"]:,} | {r[\"language\"]} | {r[\"created_at\"]}')
+    lines.append(f'## [{r["full_name"]}]({r["url"]})')
+    lines.append(f'Stars: {r["stars"]:,} | {r["language"]} | {r["created_at"]}')
     lines.append(r['description'])
     lines.append('')
 open(note_path, 'w', encoding='utf-8').write('\n'.join(lines))
 print('note written:', note_path)
-"
+PYEOF
 ```
 
 ### 6. Commit and push
@@ -148,8 +148,13 @@ git push
 
 ### 7. Report back
 
-Output the week, report URL, repo count, MP3 status, and any warnings.
-URL: https://booya1986.github.io/trending-ai-repos/reports/<week>/
+Output:
+- Week and report URL: `https://booya1986.github.io/trending-ai-repos/reports/<week>/`
+- Repo count and whether MP3 was generated
+- Any warnings from warnings.txt
 
 ## Rules
-- No em-dashes. Only touch reports/. Abort if count=0.
+- No em-dashes anywhere in briefs. Use colons, commas, or parentheses.
+- Ground every claim in the README/metadata. Never invent capabilities.
+- Only touch the `reports/` folder. Never modify scripts or RUNNER.md.
+- If count=0: abort, do not commit.
