@@ -117,4 +117,9 @@ def send(week):
 
 if __name__ == '__main__':
     week = sys.argv[1] if len(sys.argv) > 1 else latest_week()
+    sent_marker = os.path.join(REPORTS_DIR, week, '.email_sent')
+    if os.path.exists(sent_marker):
+        print(f"Email already sent for {week}, skipping.")
+        sys.exit(0)
     send(week)
+    open(sent_marker, 'w').write(week)
