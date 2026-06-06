@@ -63,7 +63,7 @@ python3 scripts/build_report.py --in /tmp/trending_rich.json --outdir "$outdir"
 
 ### 4. Generate MP3 narration via ElevenLabs TTS
 
-Read the narration.txt and call the ElevenLabs TTS API (voice: Adam, model: eleven_multilingual_v2):
+Read the narration.txt and call the ElevenLabs TTS API (voice: Adam, model: eleven_turbo_v2_5):
 
 ```python
 import os, urllib.request, json
@@ -76,7 +76,7 @@ else:
     voice_id = "JBFqnCBsd6RMkjVDRZzb"  # George — Warm, Captivating Storyteller — clear, natural English
     payload = json.dumps({
         "text": text,
-        "model_id": "eleven_multilingual_v2",
+        "model_id": "eleven_turbo_v2_5",
         "voice_settings": {"stability": 0.5, "similarity_boost": 0.75}
     }).encode("utf-8")
     req = urllib.request.Request(
