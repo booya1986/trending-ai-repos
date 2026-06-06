@@ -651,8 +651,13 @@ BRIEF_LABELS = {
 }
 
 
-def wrap_brief_section(label_en, text, is_matters=False):
-    """Return a structured brief-section div with bilingual label."""
+def wrap_brief_section(label_en, text_he, text_en=None, is_matters=False):
+    """Return a structured brief-section div with bilingual label and bilingual text.
+
+    text_he is the Hebrew body; text_en defaults to text_he when not provided.
+    """
+    if text_en is None:
+        text_en = text_he
     labels = BRIEF_LABELS.get(label_en, {"he": label_en, "en": label_en})
     cls = "brief-section brief-section--matters" if is_matters else "brief-section"
     return (
@@ -660,7 +665,9 @@ def wrap_brief_section(label_en, text, is_matters=False):
         f'<p class="brief-label" data-he="{html.escape(labels["he"])}" '
         f'data-en="{html.escape(labels["en"])}">'
         f'{html.escape(labels["he"])}</p>'
-        f'<p class="brief-text">{text}</p>'
+        f'<p class="brief-text i18n" data-he="{html.escape(text_he)}" '
+        f'data-en="{html.escape(text_en)}">'
+        f'{text_he}</p>'
         f'</div>'
     )
 

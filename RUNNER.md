@@ -20,20 +20,27 @@ Do NOT proceed — output "Rate limit hit, aborting" and stop.
 For EACH repo in the JSON's `repos` array, write a grounded brief using its
 `description` and `readme_excerpt`. Do not invent features.
 
-For each repo build a `brief_html` string using this Python helper:
+For each repo build a `brief_html` string using this Python helper.
+Write each section in **both Hebrew and English**. The Hebrew text is displayed
+by default; English is shown when the user toggles the EN button.
 
 ```python
 import sys; sys.path.insert(0, 'scripts')
 from build_report import wrap_brief_section
 import html as h
 
+# Write Hebrew text for text_he and English text for text_en.
 brief_html = (
-    wrap_brief_section('What it does', h.escape(what_it_does)) +
-    wrap_brief_section("Why it's trending", h.escape(why_trending)) +
-    wrap_brief_section('Example use case', h.escape(example)) +
-    wrap_brief_section('Why it matters for you', h.escape(matters), is_matters=True)
+    wrap_brief_section('What it does',         h.escape(what_it_does_he),    text_en=h.escape(what_it_does_en)) +
+    wrap_brief_section("Why it's trending",    h.escape(why_trending_he),    text_en=h.escape(why_trending_en)) +
+    wrap_brief_section('Example use case',     h.escape(example_he),         text_en=h.escape(example_en)) +
+    wrap_brief_section('Why it matters for you', h.escape(matters_he),       text_en=h.escape(matters_en), is_matters=True)
 )
 ```
+
+For each section write:
+- `*_he`: Hebrew translation of the section text
+- `*_en`: the English original
 
 Also write a `narration` string (plain text Hebrew, ~2 sentences) for audio:
 what the repo does and why it matters to Avi. Write the narration in Hebrew.
