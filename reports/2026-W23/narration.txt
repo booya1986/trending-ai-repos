@@ -2,24 +2,24 @@
 שבוע 23, 2026.
 השבוע יש לנו 10 רפוזיטוריות שרלוונטיות במיוחד לתחומים שלך.
 
-מספר 1. lineage skill. Lineage Skill היא כלי Python שמזקק סרטונים, קובצי PDF, תמלילים וסיכומים לכישורי Agent מבוססי מקור. הכלי מאפשר לך להפוך תוכן קיים, כמו הרצאות מוקלטות ותיעוד טכני, לידע מובנה שסוכני AI יכולים לגשת אליו ישירות.
+מספר 1. LLMInternSkill, עם 140 כוכבים. LLMInternSkill: LLM internship resume and job-search Codex Skill for resume polish, JD tailoring, evidence guard, interview grilling, and Project Scout. 大模型实习简历与求职工具箱。.
 
-מספר 2. memory os. Memory-OS הוא מערכת הפעלה לזיכרון AI עם 7 שכבות, המספקת זיכרון מתמשך באמצעות Qdrant, הזרקת הקשר מדויקת, ווויקי שמנהל את עצמו. הכלי רץ מקומית ותומך בכל ספק LLM, ומאפשר לסוכני AI לצבור ידע על הפרויקטים שלך לאורך זמן.
+מספר 2. ai rules sync, עם 105 כוכבים. Keep one source of truth for your AI coding-agent rules. Convert and sync between AGENTS.md, CLAUDE.md, .cursorrules, Copilot, Windsurf, Cline, Aider & Gemini — or scaffold a fresh AGENTS.md. Zero dependencies.
 
-מספר 3. munder difflin. Munder Difflin הוא מסגרת TypeScript מקומית להרצת מספר סוכני Claude Code במקביל, עם זיכרון משותף ביניהם. הכלי מאפשר לך לתאם זרימות עבודה מורכבות של סוכנים ללא עלויות ענן נוספות.
+מספר 3. agentpet, עם 97 כוכבים. A native macOS menu bar app with a desktop pet that monitors your AI coding agents (Claude Code, Codex, Gemini CLI) in real time.
 
-מספר 4. skills. LLMQuant Skills היא אוסף כישורים מוכנים לשימוש עבור Claude Code, Cursor ו-Codex, המכוסים בנתוני מימון כמותי מ-LLMQuant. הכישורים מכסים מחקר מניות, מסחר באופציות, ניהול תיקים וניהול סיכונים, ומאפשרים הוספת יכולות ניתוח פיננסי לסוכני AI קיימים.
+מספר 4. ian xiaohei scenes, עם 76 כוכבים. Xiaohei 2.0 Codex Skill for Chinese real-object article illustrations and long-scroll story images.
 
-מספר 5. cc fleet. CC-Fleet הוא כלי Go שמאפשר לך לשלב מודלי LLM של צד שלישי כמו DeepSeek, Qwen ו-MiniMax ישירות כ-Teammates ב-Claude Code. כך תוכל לנתב משימות לפי עלות ויכולת ולהפחית עלויות API תוך שמירה על זרימת העבודה הרגילה שלך.
+מספר 5. hermes link curator, עם 54 כוכבים. Hermes profile pack for archiving and browsing curated links + web dashboard app.
 
-מספר 6. ultracode skill. Ultracode Skill הוא כישור Codex שמאפשר יצירת תהליכי עבודה קוד דינמיים ומסתגלים. הכישור מפחית את עומס ניהול הצעדים הידניים בעת עבודה עם Codex על משימות קוד מורכבות.
+מספר 6. sandboxes, עם 445 כוכבים. Self-hosted dev sandboxes with preview URLs. One command. No Kubernetes, perfect for coding agents and Saas factories.
 
-מספר 7. echocut. Echocut הוא כלי CLI מקומי שמשנה צילומי וידאו גולמיים לתוצרי וידאו מוכנים לפרסום עם פקודה אחת, תוך שימוש ב-FFmpeg, WhisperX ו-Ollama. כל העיבוד נעשה מקומית ללא העלאה לענן, מה שמשמר פרטיות ומחסל עלויות API.
+מספר 7. agent, עם 298 כוכבים. Agentic offensive-security in your terminal.
 
-מספר 8. paperjury. Paperjury הוא כישור Claude Code שמדמה ביקורת עמיתים על מאמרים מחקריים לפני הגשה, כולל מחזור של סקירה, פסיקה, עדכון ואימות. הוא תומך ב-LaTeX ועוזר לאתר חולשות מתודולוגיות ופערים בניתוח לפני שהמאמר מגיע לסוקרים אמיתיים.
+מספר 8. vigils, עם 281 כוכבים. A local control plane for AI agents — see what they do, approve what matters, keep secrets out. Rust + Tauri + Chrome MV3.
 
-מספר 9. Codex Workflows. Codex-Workflows היא ספריית TypeScript שמאפשרת הגדרת תהליכי עבודה של סוכני AI כקוד, עם תיאום רב-סוכנים דרך MCP. הגישה של workflow-as-code מאפשרת גרסאות, בדיקות ושיתוף של צינורות AI מורכבים כמו כל קוד תוכנה רגיל.
+מספר 9. good question, עם 84 כוכבים. A portable agent skill for sharpening research questions.
 
-מספר 10. DeepFake AI RealTime. DeepFake-AI-RealTime הוא ערכת כלים C# מבוססת LLM לזיהוי וניתוח תוכן סינתטי בזמן אמת, כולל זיהוי דיפ-פייק בווידאו, אודיו ותמונות. הכלי מתאים לצוותים הבונים מערכות אימות מדיה, ניהול תוכן ובטיחות פלטפורמות.
+מספר 10. female portrait director, עם 521 כוכבים. A modular Codex Skill for directing and expanding detailed AI female portrait prompts.
 
 זה הכל להשבוע. שיהיה לך שבוע מעולה!
