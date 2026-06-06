@@ -2,24 +2,24 @@
 שבוע 23, 2026.
 השבוע יש לנו 10 רפוזיטוריות שרלוונטיות במיוחד לתחומים שלך.
 
-מספר 1. LLMInternSkill, עם 140 כוכבים. LLMInternSkill: LLM internship resume and job-search Codex Skill for resume polish, JD tailoring, evidence guard, interview grilling, and Project Scout. 大模型实习简历与求职工具箱。.
+מספר 1. LLMInternSkill. LLMInternSkill הוא Codex Skill מובנה שמסייע למחפשי עבודה בתחום ה-LLM: הוא בוחן את קורות החיים ואת חומרי הפרויקט, מסמן טענות שאין להן תיעוד ראייתי, ומייצר קורות חיים מותאמים לתפקיד יחד עם שאלות ראיון ותכנית לחיזוק הפורטפוליו. מעניין כדוגמה למבנה Skill מורכב שמשלב ניתוח מסמכים, שיפוט מובנה ופלט מעשי.
 
-מספר 2. ai rules sync, עם 105 כוכבים. Keep one source of truth for your AI coding-agent rules. Convert and sync between AGENTS.md, CLAUDE.md, .cursorrules, Copilot, Windsurf, Cline, Aider & Gemini — or scaffold a fresh AGENTS.md. Zero dependencies.
+מספר 2. ai rules sync. agentsync הוא כלי CLI ללא תלויות שפותר את בעיית סנכרון קבצי החוקים בין סוכני קידוד AI שונים: AGENTS.md, CLAUDE.md, .cursorrules ועוד. שימושי ישירות לאבי שעובד עם Claude Code לצד כלי AI אחרים, ומאפשר לשמור על מקור אמת יחיד עם hook אוטומטי לפני כל commit.
 
-מספר 3. agentpet, עם 97 כוכבים. A native macOS menu bar app with a desktop pet that monitors your AI coding agents (Claude Code, Codex, Gemini CLI) in real time.
+מספר 3. agentpet. AgentPet היא אפליקציית macOS ילידית שמציגה בשורת התפריטים את הסטטוס החי של כל סוכני ה-AI הרצים, ומשנה את צבע האייקון לכתום כאשר אחד מהם ממתין לקלט. שימושית לכל מי שמריץ מספר סשנים של Claude Code במקביל ורוצה לדעת מתי נדרשת התערבות מבלי לעבור בין חלונות.
 
-מספר 4. ian xiaohei scenes, עם 76 כוכבים. Xiaohei 2.0 Codex Skill for Chinese real-object article illustrations and long-scroll story images.
+מספר 4. ian xiaohei scenes. Ian Xiaohei Scenes הוא Codex Skill שמייצר תמונות מאיירות לכתבות בסינית בנוסחה קבועה: דמות Xiaohei קטנה, חפצים אמיתיים, פעולה פיזית אחת ורקע לבן נקי. מדגים כיצד ניתן לקודד שפה חזותית ספציפית כ-Skill ניתן לשימוש חוזר, עם תהליך QA מובנה שמבטיח עקביות בין תמונות שונות.
 
-מספר 5. hermes link curator, עם 54 כוכבים. Hermes profile pack for archiving and browsing curated links + web dashboard app.
+מספר 5. hermes link curator. Hermes Link Curator הופך את סוכן Hermes לספרן קישורים: שולחים URL בטלגרם, והסוכן שומר אותו עם תיוג, סיכום ותוכן בכספת markdown מקומית, שניתן לחיפוש דרך דשבורד מקומי בסגנון Obsidian. פתרון local-first יפה לניהול ידע אישי באמצעות סוכן AI, עם גישה נוחה גם מהנייד.
 
-מספר 6. sandboxes, עם 445 כוכבים. Self-hosted dev sandboxes with preview URLs. One command. No Kubernetes, perfect for coding agents and Saas factories.
+מספר 6. sandboxes. sandboxed הוא מנוע קוד-פתוח לבניית מוצרי app-builder מבוססי AI: בקשת HTTP אחת יוצרת container מבודד, מריצה סוכן קידוד AI כמו Claude Code בתוכו, וחושפת את האפליקציה ב-URL לתצוגה מקדימה, הכל על שרת אחד ללא Kubernetes. מהווה תשתית מוכנה לייצור למי שבונה פלטפורמת פיתוח מבוססת AI, עם 445 כוכבים בימים הראשונים בלבד.
 
-מספר 7. agent, עם 298 כוכבים. Agentic offensive-security in your terminal.
+מספר 7. agent. PentesterFlow הוא עוזר טרמינל קוד-פתוח לבדיקות חדירה מאושרות, עם לולאת סוכן שמציגה כל פעולה רגישה לאישור האנליסט, כלים מובנים ל-recon ובדיקת פגיעויות ווב, ותיעוד ראייתי אוטומטי לכל ממצא. מדגים עיצוב human-in-the-loop בתחום עם סיכון גבוה, ומהווה הפניה טובה לכל מי שבונה כלי AI אגנטיים שנוגעים במערכות רגישות.
 
-מספר 8. vigils, עם 281 כוכבים. A local control plane for AI agents — see what they do, approve what matters, keep secrets out. Rust + Tauri + Chrome MV3.
+מספר 8. vigils. Vigils הוא לוח בקרה local-first בנוי ב-Rust ו-Tauri שיושב בין סוכני ה-AI לכלים שלהם: מספק ledger ביקורת עם hash chain, חומת אש default-deny, תור אישור לפעולות רגישות, ומנוע חיסוי סודות ו-PII לפני שהם מגיעים למודל. כלי מעשי ומיידי לאבי לשמירת פרטיות ובטיחות בעבודה היומיומית עם Claude Code, כולל תוסף Chrome שמחסה credentials לפני הדבקה ב-Claude.ai.
 
-מספר 9. good question, עם 84 כוכבים. A portable agent skill for sharpening research questions.
+מספר 9. good question. good-question הוא agent Skill לחידוד שאלות מחקר: הופך רעיון מעורפל לשאלה מחקרית מוגנת עם ניתוח השערות מתחרות, תנאי כשל ותוכנית pilot לשבועיים. מבוסס על מקורות מתודולוגיים מוכרים ומייצר פלט מובנה שמאפשר להחליט אם הרעיון שווה המשך השקעה.
 
-מספר 10. female portrait director, עם 521 כוכבים. A modular Codex Skill for directing and expanding detailed AI female portrait prompts.
+מספר 10. female portrait director. Female Portrait Prompt Director הוא Codex Skill מודולרי שמייצר prompts מפורטים לצילום פורטרטים ב-14 סגנונות, נועל את הפרמטרים שהמשתמש הגדיר ומרחיב אותם לתיאור קולנועי מלא עם מגבלות שליליות. עם 521 כוכבים, הוא הפרויקט הפופולרי ביותר השבוע, ומדגים כיצד ניתן להפוך ידע מקצועי של צלמות לתהליך AI ניתן לשימוש חוזר.
 
 זה הכל להשבוע. שיהיה לך שבוע מעולה!
