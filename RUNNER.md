@@ -65,19 +65,16 @@ Write this Python script to `/tmp/tts.py`, then run it:
 import json, os, sys, urllib.request
 
 outdir = sys.argv[1]
+warn_file = f"{outdir}/warnings.txt"
+mp3_path = f"{outdir}/report.mp3"
+
+# Skip if MP3 already exists (may have been generated locally and committed)
+if os.path.exists(mp3_path):
+    print(f"MP3 already exists at {mp3_path}, skipping TTS")
+    sys.exit(0)
+
 text = open(f"{outdir}/narration.txt", encoding="utf-8").read()
 api_key = os.environ.get("ELEVENLABS_API_KEY", "").strip()
-warn_file = f"{outdir}/warnings.txt"
-
-try:
-    with urllib.request.urlopen("https://api.ipify.org", timeout=5) as r:
-        outbound_ip = r.read().decode()
-except Exception:
-    outbound_ip = "unknown"
-
-with open(warn_file, "a") as wf:
-    wf.write(f"DEBUG: ELEVENLABS_API_KEY length={len(api_key)}\n")
-    wf.write(f"DEBUG: outbound IP={outbound_ip}\n")
 
 if not api_key:
     with open(warn_file, "a") as wf:
@@ -104,9 +101,9 @@ req = urllib.request.Request(
 try:
     with urllib.request.urlopen(req, timeout=120) as resp:
         audio = resp.read()
-    with open(f"{outdir}/report.mp3", "wb") as f:
+    with open(mp3_path, "wb") as f:
         f.write(audio)
-    print(f"MP3 written: {len(audio)} bytes -> {outdir}/report.mp3")
+    print(f"MP3 written: {len(audio)} bytes -> {mp3_path}")
 except Exception as e:
     with open(warn_file, "a") as wf:
         wf.write(f"MP3 not generated: {e}\n")
