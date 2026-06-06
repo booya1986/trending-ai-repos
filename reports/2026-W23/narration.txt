@@ -2,24 +2,24 @@
 שבוע 23, 2026.
 השבוע יש לנו 10 רפוזיטוריות שרלוונטיות במיוחד לתחומים שלך.
 
-מספר 1. ai rules sync. agentsync is a zero-dependency CLI that converts and syncs AI coding-agent rule files across Claude, Cursor, Copilot, Windsurf, and others from a single source of truth. If you run multiple AI tools or share projects with collaborators using different agents, it removes the manual duplication overhead entirely.
+מספר 1. lineage skill. Lineage-Skill הוא כלי פייתון שמעבד סרטונים, PDF ותמלילים ומסיק מהם הגדרות מיומנויות עם מקור מוכח לשימוש סוכנים. הרלוונטיות עבורך: יכולת להפוך ידע קיים לכלים פעילים לסוכן תוך שמירת הפניה למקור.
 
-מספר 2. agentpet. AgentPet is a native macOS menu bar app that surfaces a desktop pet and monitors your running AI coding agents like Claude Code and Codex in real time. It keeps agent status visible during busy workdays or live sessions without requiring you to switch to a terminal.
+מספר 2. memory os. Memory-OS הוא מערכת זיכרון בת 7 שכבות לסוכן Hermes המציעה זיכרון מתמיד עם Qdrant, ויקי אוטומטי והזרקת הקשר מדויקת. עבורך, שבונה סוכנים: זוהי תשתית זיכרון מקומית מוכנה לשימוש שפותרת את בעיית ההקשר הארוך-טווח.
 
-מספר 3. ian xiaohei scenes. Ian Xiaohei Scenes is a Codex Skill that instructs AI agents to generate branded Chinese-content article illustrations by pairing a character with real objects and physical scenes. The visual metaphor approach and structured skill format are directly relevant to L&D content design and making abstract ideas concrete.
+מספר 3. munder difflin. Munder-Difflin הוא מסגרת TypeScript להרצת מספר סוכני AI מקומיים בו-זמנית, ללא תלות בשירותי ענן. עבורך: כלי פרוטוטייפינג מהיר לאורקסטרציה של סוכנים מרובים על מחשבך המקומי.
 
-מספר 4. sandboxes. Sandboxed is a self-hosted open-source engine that spins up isolated dev sandboxes with preview URLs using a single Docker command and no Kubernetes. It is a practical foundation for building AI-assisted products where each user needs their own safe, isolated workspace.
+מספר 4. skills. LLMQuant/skills היא ספרייה של כישורים מוכנים לשימוש עבור Claude Code, Cursor, Codex ועוד, המבוססים על נתוני מימון כמותי. עבורך: תוסף מיידי לסוכני הקוד שלך עם יכולות פיננסיות מבוססות נתונים אמיתיים.
 
-מספר 5. agent. PentesterFlow is a human-in-the-loop CLI agent that walks penetration testers through recon, enumeration, evidence collection, and reporting while keeping the analyst in control at each step. The structured human-approval design pattern is relevant context for building safe, auditable AI workflows in regulated settings.
+מספר 5. cc fleet. CC-Fleet הוא כלי Go שמאפשר לחבר מודלים חיצוניים כמו DeepSeek ו-Qwen כחברי צוות מקוריים בתוך Claude Code. עבורך כמשתמש Claude Code: אפשרות מיידית לחסוך בעלויות API ולנצל מודלים מיוחדים בתוך הזרימה הרגילה שלך.
 
-מספר 6. vigils. Vigils is a local-first Rust and Tauri control plane that monitors AI agent activity in real time, lets you approve sensitive actions before they execute, and keeps secrets out of agent outputs. For AI work in regulated environments like banking, its audit-log and PII-protection design directly addresses governance requirements.
+מספר 6. ultracode skill. Ultracode-Skill היא הגדרת מיומנות ל-Codex המכוונת את הסוכן לזרימות קידוד דינמיות ואיטרטיביות. עבורך: דרך פשוטה לשנות את התנהגות סוכן הקידוד שלך לסגנון עבודה מבוקר ומשופר.
 
-מספר 7. good question. Good Question is a portable agent skill for Claude Code and Codex that sharpens research questions using scientific-method principles before any research or writing begins. For teaching, L&D design, and content work, a sharper upstream question changes the quality of everything that follows.
+מספר 7. echocut. Echocut הוא כלי JavaScript שמעבד צילומי גלם לסרטונים מוכנים לפרסום בפקודה אחת, באמצעות FFmpeg, WhisperX ו-Ollama -- הכל מקומי. עבורך: אוטומציה של עריכת וידאו ללא העלאת חומרים לענן ובלי מנוי.
 
-מספר 8. female portrait director. Female Portrait Director is a modular Codex Skill that routes AI image generation through style files and locks parameters to produce consistent portrait outputs at scale. The approach of building structured, version-controlled prompt frameworks rather than ad-hoc prompts is a transferable pattern for any content pipeline.
+מספר 8. Codex Workflows. Codex-Workflows היא ספרייה ב-TypeScript להגדרת תהליכי עבודה רב-שלביים לסוכן Codex כקוד ממשי. עבורך: גישה מסודרת לבנות ולתחזק צינורות עבודה של סוכנים תחת בקרת גרסאות.
 
-מספר 9. ShardBrowser. ShardBrowser is a free open-source anti-detect browser launcher with engine-level fingerprint spoofing across 170 plus device profiles, built for web scraping and multi-account workflows at scale. For AI agents that need to gather web data reliably, it addresses the bot-detection problem at the infrastructure level.
+מספר 9. paperjury. PaperJury הוא כישור Claude Code שמדמה ביקורת עמיתים על מאמרים מדעיים לפני הגשה, דרך לולאת סקירה-פסיקה-תיקון-אימות. עבורך: כלי לסינון חולשות במאמר לפני שמגיעות לשולחן המבקרים האמיתיים.
 
-מספר 10. SoulX Transcriber. SoulX-Transcriber is an end-to-end Python framework that jointly transcribes who spoke, when, and what was said across multiple speakers in a single pass. For capturing workshop or meeting content into Obsidian notes or L&D documentation, it replaces manual transcription work.
+מספר 10. DeepFake AI RealTime. DeepFake-AI-RealTime הוא ערכת כלים ב-C# לזיהוי וניתוח מדיה סינטטית בזמן אמת, מבוססת LLM, עם דגש על אתיקה ובטיחות. עבורך: תשתית מוכנה לזיהוי deepfake בצינורות בקרת תוכן מבוססי .NET.
 
 זה הכל להשבוע. שיהיה לך שבוע מעולה!

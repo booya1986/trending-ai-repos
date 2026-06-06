@@ -3,3 +3,5 @@ MP3 not generated: HTTP Error 403: Forbidden
 MP3 not generated: HTTP Error 403: Forbidden
 MP3 not generated: HTTP Error 403: Forbidden
 MP3 not generated: HTTP Error 403: Forbidden
+MP3 not generated: HTTP Error 403: Forbidden
+MP3 not generated: ElevenLabs API returned HTTP 403 Forbidden (insufficient credits or invalid key)
