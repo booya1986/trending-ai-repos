@@ -73,7 +73,7 @@ api_key = os.environ.get("ELEVENLABS_API_KEY", "")
 if not api_key:
     open(f"{outdir}/warnings.txt", "a").write("MP3 skipped: ELEVENLABS_API_KEY not set\n")
 else:
-    voice_id = "pNInz6obpgDQGcFmaJgB"  # Adam — clear, natural English
+    voice_id = "JBFqnCBsd6RMkjVDRZzb"  # George — Warm, Captivating Storyteller — clear, natural English
     payload = json.dumps({
         "text": text,
         "model_id": "eleven_multilingual_v2",
