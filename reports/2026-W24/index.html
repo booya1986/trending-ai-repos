@@ -1,0 +1,864 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="theme-color" content="#1b1b1b">
+<title>טרנדים ב-AI 2026-W24</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Hebrew:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg: #1b1b1b;
+    --bg-elevated: #232323;
+    --fg: #c5c1b9;
+    --fg-strong: #dcdad5;
+    --fg-muted: #a09d96;
+    --fg-subtle: #96928c;
+    --accent: #22c55e;
+    --accent-glow: rgba(34,197,94,0.6);
+    --accent-soft: rgba(34,197,94,0.12);
+    --accent-softer: rgba(34,197,94,0.04);
+    --accent-border: rgba(34,197,94,0.12);
+    --accent-border-hover: rgba(34,197,94,0.3);
+    --shadow-glow-md: 0 0 15px rgba(34,197,94,0.3), 0 0 40px rgba(34,197,94,0.1);
+    --text-glow: 0 0 8px rgba(34,197,94,0.6), 0 0 20px rgba(34,197,94,0.3);
+    --font-sans: 'Noto Sans Hebrew', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+    --radius-sm: 8px;
+    --radius-md: 12px;
+    --radius-lg: 16px;
+    --radius-pill: 999px;
+    --transition: 0.3s cubic-bezier(0.4,0,0.2,1);
+    --transition-fast: 0.15s cubic-bezier(0.4,0,0.2,1);
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html { -webkit-text-size-adjust: 100%; }
+
+  body {
+    background: var(--bg);
+    color: var(--fg);
+    font-family: var(--font-sans);
+    font-size: clamp(1rem, 2vw, 1.0625rem);
+    line-height: 1.7;
+    padding-top: env(safe-area-inset-top);
+    padding-bottom: env(safe-area-inset-bottom);
+  }
+
+  /* ── GRID BACKGROUND ── */
+  body::before {
+    content: '';
+    position: fixed;
+    inset: 0;
+    z-index: 0;
+    pointer-events: none;
+    background-image:
+      linear-gradient(rgba(34,197,94,0.03) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(34,197,94,0.03) 1px, transparent 1px);
+    background-size: 40px 40px;
+    mask-image: radial-gradient(ellipse 80% 60% at 50% 0%, black 40%, transparent 100%);
+    -webkit-mask-image: radial-gradient(ellipse 80% 60% at 50% 0%, black 40%, transparent 100%);
+  }
+
+  .wrap {
+    position: relative;
+    z-index: 1;
+    max-width: 720px;
+    margin: 0 auto;
+    padding: 24px 16px 80px;
+  }
+
+  /* ── TOP BAR ── */
+  .top-bar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 16px;
+    gap: 10px;
+  }
+  .lang-btn, .share-btn {
+    background: var(--accent-softer);
+    border: 1px solid var(--accent-border);
+    border-radius: var(--radius-pill);
+    color: var(--accent);
+    font-family: var(--font-sans);
+    font-size: 0.8rem;
+    font-weight: 600;
+    letter-spacing: 0.5px;
+    padding: 7px 16px;
+    cursor: pointer;
+    transition: all var(--transition-fast);
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    min-height: 44px;
+    -webkit-tap-highlight-color: transparent;
+  }
+  .lang-btn:hover, .share-btn:hover {
+    background: var(--accent-soft);
+    border-color: var(--accent);
+    box-shadow: 0 0 10px var(--accent-glow);
+  }
+  .share-btn svg { width: 16px; height: 16px; stroke: var(--accent); }
+  .share-btn.copied { background: var(--accent-soft); }
+  .share-copied {
+    font-size: 0.72rem;
+    color: var(--accent);
+    margin-top: 4px;
+    text-align: center;
+    opacity: 0;
+    transition: opacity 0.3s;
+  }
+  .share-copied.show { opacity: 1; }
+
+  /* ── HEADER ── */
+  .site-header { margin-bottom: 24px; }
+  .header-eyebrow {
+    font-size: 0.8rem;
+    font-weight: 500;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: var(--accent);
+    text-shadow: var(--text-glow);
+    margin-bottom: 6px;
+  }
+  .header-title {
+    font-size: clamp(1.6rem, 4vw, 2.2rem);
+    font-weight: 700;
+    color: var(--fg-strong);
+    line-height: 1.3;
+    text-shadow: 0 0 30px rgba(34,197,94,0.1);
+    margin-bottom: 4px;
+  }
+  .header-sub {
+    font-size: 0.875rem;
+    color: var(--fg-muted);
+    font-weight: 300;
+  }
+
+  /* ── CUSTOM AUDIO PLAYER ── */
+  .player {
+    position: sticky;
+    top: 0;
+    z-index: 10;
+    background: rgba(27,27,27,0.92);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border-bottom: 1px solid var(--accent-border);
+    padding: 12px 16px;
+    margin: 0 -16px 24px;
+  }
+  .player audio { display: none; }
+
+  .player-ui {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+  }
+  .player-btn {
+    flex-shrink: 0;
+    width: 44px;
+    height: 44px;
+    border-radius: 50%;
+    background: var(--accent);
+    border: none;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all var(--transition-fast);
+    box-shadow: 0 0 12px rgba(34,197,94,0.4);
+  }
+  .player-btn:hover {
+    transform: scale(1.08);
+    box-shadow: 0 0 20px rgba(34,197,94,0.6);
+  }
+  .player-btn svg { width: 18px; height: 18px; fill: #0a1a0f; }
+
+  .player-center { flex: 1; min-width: 0; }
+  .player-track {
+    font-size: 0.8rem;
+    font-weight: 500;
+    color: var(--fg-strong);
+    margin-bottom: 6px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+  .player-progress-wrap {
+    position: relative;
+    height: 4px;
+    background: rgba(255,255,255,0.1);
+    border-radius: 2px;
+    cursor: pointer;
+    overflow: hidden;
+  }
+  .player-progress-bar {
+    height: 100%;
+    width: 0%;
+    background: var(--accent);
+    border-radius: 2px;
+    box-shadow: 0 0 6px var(--accent-glow);
+    transition: width 0.1s linear;
+    pointer-events: none;
+  }
+  .player-progress-wrap:hover .player-progress-bar {
+    box-shadow: 0 0 12px var(--accent-glow);
+  }
+
+  .player-time {
+    font-size: 0.72rem;
+    color: var(--fg-subtle);
+    white-space: nowrap;
+    flex-shrink: 0;
+    font-variant-numeric: tabular-nums;
+    min-width: 70px;
+    text-align: center;
+  }
+
+  .player-hint {
+    font-size: 0.72rem;
+    color: var(--fg-subtle);
+    margin-top: 7px;
+    letter-spacing: 0.3px;
+  }
+
+  /* ── RUN NOTES ── */
+  .run-notes {
+    background: var(--accent-softer);
+    border: 1px solid var(--accent-border);
+    border-right: 3px solid var(--accent);
+    border-radius: var(--radius-md) 0 0 var(--radius-md);
+    padding: 12px 16px;
+    margin-bottom: 24px;
+    font-size: 0.875rem;
+    color: var(--fg-strong);
+  }
+  [dir="ltr"] .run-notes {
+    border-right: 1px solid var(--accent-border);
+    border-left: 3px solid var(--accent);
+    border-radius: 0 var(--radius-md) var(--radius-md) 0;
+  }
+  .run-notes ul { padding-right: 20px; margin-top: 6px; }
+  [dir="ltr"] .run-notes ul { padding-right: 0; padding-left: 20px; }
+
+  /* ── CARDS ── */
+  .card {
+    position: relative;
+    background: var(--accent-softer);
+    border: 1px solid var(--accent-border);
+    border-radius: var(--radius-lg);
+    margin-bottom: 16px;
+    transition: border-color var(--transition), background var(--transition), box-shadow var(--transition);
+  }
+  .card:hover {
+    border-color: var(--accent-border-hover);
+    background: rgba(34,197,94,0.07);
+    box-shadow: var(--shadow-glow-md), 0 12px 32px rgba(0,0,0,0.25);
+  }
+
+  .card__rank {
+    position: absolute;
+    top: -1px;
+    right: 20px;
+    background: var(--accent);
+    color: #0a1a0f;
+    font-size: 0.75rem;
+    font-weight: 700;
+    letter-spacing: 0.5px;
+    padding: 3px 10px;
+    border-radius: 0 0 var(--radius-sm) var(--radius-sm);
+  }
+  [dir="ltr"] .card__rank { right: auto; left: 20px; }
+
+  .card__body { padding: 28px 20px 20px; }
+
+  /* card header: title block + star stat */
+  .card__header {
+    display: flex;
+    align-items: flex-start;
+    gap: 12px;
+    margin-bottom: 10px;
+  }
+  .card__title-block { flex: 1; min-width: 0; }
+  .card__eyebrow {
+    font-size: 0.78rem;
+    font-weight: 500;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    color: var(--accent);
+    text-shadow: var(--text-glow);
+    margin-bottom: 4px;
+  }
+  .card__title {
+    font-size: 1.1rem;
+    font-weight: 600;
+    line-height: 1.35;
+  }
+  .card__title a {
+    color: var(--fg-strong);
+    text-decoration: none;
+    transition: color var(--transition-fast);
+    word-break: break-word;
+  }
+  .card__title a:hover { color: var(--accent); }
+  .card__org {
+    color: var(--fg-muted);
+    font-weight: 400;
+  }
+
+  .card__stats {
+    flex-shrink: 0;
+    text-align: center;
+    background: var(--accent-soft);
+    border: 1px solid var(--accent-border);
+    border-radius: var(--radius-md);
+    padding: 8px 12px;
+    min-width: 56px;
+  }
+  .card__stars {
+    color: #f0c674;
+    font-size: 1.1rem;
+    line-height: 1;
+  }
+  .stars-num {
+    display: block;
+    font-size: 0.85rem;
+    font-weight: 700;
+    color: var(--fg-strong);
+    margin-top: 2px;
+  }
+
+  .card__meta {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 4px 14px;
+    font-size: 0.78rem;
+    color: var(--fg-subtle);
+    margin-bottom: 10px;
+  }
+  .meta-icon { opacity: 0.5; }
+
+  .card__tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+    margin-bottom: 16px;
+  }
+  .tag {
+    display: inline-block;
+    padding: 3px 10px;
+    border-radius: var(--radius-pill);
+    background: var(--accent-soft);
+    border: 1px solid var(--accent-border);
+    color: var(--accent);
+    font-size: 0.72rem;
+    font-weight: 500;
+    letter-spacing: 0.3px;
+    white-space: nowrap;
+    transition: all var(--transition-fast);
+  }
+  .tag:hover {
+    background: rgba(34,197,94,0.16);
+    border-color: var(--accent);
+    box-shadow: 0 0 10px var(--accent-glow);
+  }
+
+  /* ── BRIEF SECTIONS ── */
+  .card__content { display: flex; flex-direction: column; gap: 0; }
+
+  .brief-section {
+    padding: 10px 0;
+    border-top: 1px solid var(--accent-border);
+  }
+  .brief-section:first-child { border-top: none; padding-top: 0; }
+
+  .brief-label {
+    font-size: 0.75rem;
+    font-weight: 600;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    color: var(--accent);
+    text-shadow: var(--text-glow);
+    margin-bottom: 4px;
+  }
+  .brief-text {
+    font-size: 0.9375rem;
+    color: var(--fg-muted);
+    font-weight: 300;
+    line-height: 1.7;
+  }
+
+  /* "Why it matters" gets a highlight treatment */
+  .brief-section--matters {
+    background: var(--accent-soft);
+    border: 1px solid var(--accent-border);
+    border-radius: var(--radius-md);
+    padding: 10px 14px;
+    margin-top: 8px;
+  }
+  .brief-section--matters .brief-label { margin-bottom: 3px; }
+  .brief-section--matters .brief-text {
+    color: var(--fg-strong);
+    font-weight: 400;
+  }
+
+  .desc { font-size: 0.9375rem; color: var(--fg-muted); font-weight: 300; line-height: 1.7; }
+  .label { color: var(--accent); font-weight: 600; }
+
+  /* ── FOOTER ── */
+  .site-footer {
+    margin-top: 40px;
+    font-size: 0.78rem;
+    color: var(--fg-subtle);
+    text-align: center;
+    border-top: 1px solid var(--accent-border);
+    padding-top: 20px;
+  }
+  a { color: var(--accent); }
+
+  /* ── MOBILE SAFETY ── */
+  img, video, audio { max-width: 100%; }
+  .card__title a { word-break: break-word; }
+  @media (max-width: 480px) {
+    .card__body { padding: 28px 14px 16px; }
+    .card__stats { padding: 6px 10px; min-width: 50px; }
+    .player-time { display: none; }
+  }
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <div class="top-bar">
+    <button class="lang-btn" id="langToggle" onclick="toggleLang()">EN</button>
+    <button class="share-btn" id="shareBtn" onclick="shareReport()" aria-label="Share">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <circle cx="18" cy="5" r="3"/><circle cx="6" cy="12" r="3"/><circle cx="18" cy="19" r="3"/>
+        <line x1="8.59" y1="13.51" x2="15.42" y2="17.49"/>
+        <line x1="15.41" y1="6.51" x2="8.59" y2="10.49"/>
+      </svg>
+      <span class="share-label i18n" data-he="שתף" data-en="Share">שתף</span>
+    </button>
+  </div>
+
+  <header class="site-header">
+    <p class="header-eyebrow i18n" data-he="עיכול AI שבועי" data-en="Weekly AI Digest">עיכול AI שבועי</p>
+    <h1 class="header-title i18n" data-he="&#128293; טרנד ב-AI/LLM" data-en="&#128293; Trending AI/LLM Repos">&#128293; טרנד ב-AI/LLM</h1>
+    <p class="header-sub">2026-W24 &middot; 2026-06-12</p>
+  </header>
+
+  <div class="player">
+    <audio id="audio" src="report.mp3" preload="none"></audio>
+    <div class="player-ui">
+      <button class="player-btn" id="playBtn" onclick="togglePlay()" aria-label="Play">
+        <svg id="iconPlay" viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
+        <svg id="iconPause" viewBox="0 0 24 24" style="display:none"><path d="M6 19h4V5H6zm8-14v14h4V5z"/></svg>
+      </button>
+      <div class="player-center">
+        <div class="player-track i18n" data-he="&#127911; האזן בדרך לעבודה" data-en="&#127911; Listen on your commute">&#127911; האזן בדרך לעבודה</div>
+        <div class="player-progress-wrap" id="progressWrap" onclick="seek(event)">
+          <div class="player-progress-bar" id="progressBar"></div>
+        </div>
+      </div>
+      <div class="player-time" id="playerTime">0:00 / 0:00</div>
+    </div>
+    <p class="player-hint i18n" data-he="לחץ להפעלה · גלול למטה לקריאה" data-en="Tap to play · scroll to read">לחץ להפעלה · גלול למטה לקריאה</p>
+  </div>
+
+  
+
+  <main id="repoList">
+
+    <article class="card">
+      <div class="card__rank">#1</div>
+      <div class="card__body">
+
+        <div class="card__header">
+          <div class="card__title-block">
+            <p class="card__eyebrow">Python</p>
+            <h2 class="card__title">
+              <a href="https://github.com/Forsy-AI/forsy-trace-skill" target="_blank" rel="noopener">
+                <span class="card__org">Forsy-AI/</span>forsy-trace-skill
+              </a>
+            </h2>
+          </div>
+          <div class="card__stats">
+            <span class="card__stars">&#9733;<br><span class="stars-num">116</span></span>
+          </div>
+        </div>
+
+        <div class="card__meta">
+          <span class="meta-item"><span class="meta-icon">&#128197;</span> 2026-06-05</span>
+          <span class="meta-item"><span class="meta-icon">&#9679;</span> push 2026-06-06</span>
+        </div>
+
+        <div class="card__tags"><span class="tag">agent-evaluation</span><span class="tag">agent-traces</span><span class="tag">agent-workflows</span><span class="tag">ai-agents</span></div>
+
+        <div class="card__content"><div class="brief-section"><p class="brief-label" data-he="מה זה עושה" data-en="What it does">מה זה עושה</p><p class="brief-text i18n" data-he="Forsy Trace Skill הוא כלי קוד-פתוח שמאפשר לסוכני AI לתעד את תהליך עבודתם כעקבות מובנות ומוארות. הוא שומר הקשר משימה, שלבי ביצוע, שימוש בכלים, תצפיות, אותות היגיון, משוב אנושי, כשלים, ניסיונות חוזרים ופריטי פלט." data-en="Forsy Trace Skill is an open skill that lets AI agents record their work as structured, annotated trajectory data. It captures task context, step traces, tool use, observations, reasoning signals, human feedback, failures, retries, and output artifacts.">Forsy Trace Skill הוא כלי קוד-פתוח שמאפשר לסוכני AI לתעד את תהליך עבודתם כעקבות מובנות ומוארות. הוא שומר הקשר משימה, שלבי ביצוע, שימוש בכלים, תצפיות, אותות היגיון, משוב אנושי, כשלים, ניסיונות חוזרים ופריטי פלט.</p></div><div class="brief-section"><p class="brief-label" data-he="למה זה בטרנד" data-en="Why it&#x27;s trending">למה זה בטרנד</p><p class="brief-text i18n" data-he="ככל שסוכני AI מבצעים משימות ארוכות יותר ומורכבות יותר, הצורך בנראות לתוך &amp;#x27;מה קרה בפועל&amp;#x27; הולך וגדל. המפתחים מחפשים דרך לנפות שגיאות, לשפר ביצועים ולאמת תהליכים של סוכנים." data-en="As AI agents tackle longer and more complex tasks, demand for visibility into what actually happened grows. Developers need a way to debug, improve performance, and audit agent workflows.">ככל שסוכני AI מבצעים משימות ארוכות יותר ומורכבות יותר, הצורך בנראות לתוך &#x27;מה קרה בפועל&#x27; הולך וגדל. המפתחים מחפשים דרך לנפות שגיאות, לשפר ביצועים ולאמת תהליכים של סוכנים.</p></div><div class="brief-section"><p class="brief-label" data-he="דוגמת שימוש" data-en="Example use case">דוגמת שימוש</p><p class="brief-text i18n" data-he="פיתחתם סוכן ששורף כסף ב-API ולא יודעים למה. עם Forsy Trace Skill תקבלו עקבת שלבים מלאה: איזה כלי הופעל, מה הוחלט ולמה, והיכן הנסיון נכשל ונוסה מחדש." data-en="Your agent burns API calls but you cannot tell why. With Forsy Trace Skill you get a full step trace: which tools fired, what was decided and why, and where a step failed and was retried.">פיתחתם סוכן ששורף כסף ב-API ולא יודעים למה. עם Forsy Trace Skill תקבלו עקבת שלבים מלאה: איזה כלי הופעל, מה הוחלט ולמה, והיכן הנסיון נכשל ונוסה מחדש.</p></div><div class="brief-section brief-section--matters"><p class="brief-label" data-he="למה זה רלוונטי לך" data-en="Why it matters for you">למה זה רלוונטי לך</p><p class="brief-text i18n" data-he="כמפתח AI, כלי זה מאפשר לך להבין ולשפר את הסוכנים שלך בצורה שיטתית, במקום לנחש מה קרה בשחור." data-en="As an AI developer, this tool lets you understand and systematically improve your agents rather than guessing what happened inside the black box.">כמפתח AI, כלי זה מאפשר לך להבין ולשפר את הסוכנים שלך בצורה שיטתית, במקום לנחש מה קרה בשחור.</p></div></div>
+
+      </div>
+    </article>
+
+    <article class="card">
+      <div class="card__rank">#2</div>
+      <div class="card__body">
+
+        <div class="card__header">
+          <div class="card__title-block">
+            <p class="card__eyebrow">JavaScript</p>
+            <h2 class="card__title">
+              <a href="https://github.com/cobusgreyling/loop-engineering" target="_blank" rel="noopener">
+                <span class="card__org">cobusgreyling/</span>loop-engineering
+              </a>
+            </h2>
+          </div>
+          <div class="card__stats">
+            <span class="card__stars">&#9733;<br><span class="stars-num">103</span></span>
+          </div>
+        </div>
+
+        <div class="card__meta">
+          <span class="meta-item"><span class="meta-icon">&#128197;</span> 2026-06-09</span>
+          <span class="meta-item"><span class="meta-icon">&#9679;</span> push 2026-06-12</span>
+        </div>
+
+        <div class="card__tags"><span class="tag">agentic-ai</span><span class="tag">ai-agents</span><span class="tag">ai-coding</span><span class="tag">automation</span></div>
+
+        <div class="card__content"><div class="brief-section"><p class="brief-label" data-he="מה זה עושה" data-en="What it does">מה זה עושה</p><p class="brief-text i18n" data-he="Loop Engineering הוא אוסף עיוני ומעשי של תבניות לתכנון מערכות שמנחות ומתזמרות סוכני AI לקוד. הוא כולל הדגמות, מדריכים ועקרונות מאת אדי אוסמני ובוריס צ&amp;#x27;רני מאנת&amp;#x27;רופיק." data-en="Loop Engineering is a practical reference and pattern library for designing systems that prompt and orchestrate AI coding agents. It includes showcases, guides, and principles inspired by Addy Osmani and Boris Cherny from Anthropic.">Loop Engineering הוא אוסף עיוני ומעשי של תבניות לתכנון מערכות שמנחות ומתזמרות סוכני AI לקוד. הוא כולל הדגמות, מדריכים ועקרונות מאת אדי אוסמני ובוריס צ&#x27;רני מאנת&#x27;רופיק.</p></div><div class="brief-section"><p class="brief-label" data-he="למה זה בטרנד" data-en="Why it&#x27;s trending">למה זה בטרנד</p><p class="brief-text i18n" data-he="הנדסת פרומפטים לסוכני קוד הפכה לכישור מפתח. מפתחים ומנהלי מוצר מחפשים שיטות עבודה מוכחות לניהול לולאות עבודה של סוכני AI." data-en="Prompt engineering for coding agents has become a critical skill. Developers and product managers are searching for proven methods to manage AI agent work loops.">הנדסת פרומפטים לסוכני קוד הפכה לכישור מפתח. מפתחים ומנהלי מוצר מחפשים שיטות עבודה מוכחות לניהול לולאות עבודה של סוכני AI.</p></div><div class="brief-section"><p class="brief-label" data-he="דוגמת שימוש" data-en="Example use case">דוגמת שימוש</p><p class="brief-text i18n" data-he="רוצים לבנות זרימת עבודה שבה סוכן כותב קוד, בודק אותו, מנפה שגיאות ומגיש PR אוטומטית? Loop Engineering מספק תבניות לאיך לבנות את ה-loop הזה בצורה אמינה." data-en="Want to build a workflow where an agent writes code, tests it, debugs, and submits a PR automatically? Loop Engineering provides patterns for how to build that loop reliably.">רוצים לבנות זרימת עבודה שבה סוכן כותב קוד, בודק אותו, מנפה שגיאות ומגיש PR אוטומטית? Loop Engineering מספק תבניות לאיך לבנות את ה-loop הזה בצורה אמינה.</p></div><div class="brief-section brief-section--matters"><p class="brief-label" data-he="למה זה רלוונטי לך" data-en="Why it matters for you">למה זה רלוונטי לך</p><p class="brief-text i18n" data-he="כמהנדס AI, הבנת תבניות loop engineering תעזור לך לבנות סוכנים יציבים שלא תוקעים, לא חוזרים על עצמם ומספקים תוצאות צפויות." data-en="As an AI engineer, understanding loop engineering patterns will help you build stable agents that do not stall, do not repeat themselves, and deliver predictable results.">כמהנדס AI, הבנת תבניות loop engineering תעזור לך לבנות סוכנים יציבים שלא תוקעים, לא חוזרים על עצמם ומספקים תוצאות צפויות.</p></div></div>
+
+      </div>
+    </article>
+
+    <article class="card">
+      <div class="card__rank">#3</div>
+      <div class="card__body">
+
+        <div class="card__header">
+          <div class="card__title-block">
+            <p class="card__eyebrow">JavaScript</p>
+            <h2 class="card__title">
+              <a href="https://github.com/DietrichGebert/ponytail" target="_blank" rel="noopener">
+                <span class="card__org">DietrichGebert/</span>ponytail
+              </a>
+            </h2>
+          </div>
+          <div class="card__stats">
+            <span class="card__stars">&#9733;<br><span class="stars-num">501</span></span>
+          </div>
+        </div>
+
+        <div class="card__meta">
+          <span class="meta-item"><span class="meta-icon">&#128197;</span> 2026-06-12</span>
+          <span class="meta-item"><span class="meta-icon">&#9679;</span> push 2026-06-12</span>
+        </div>
+
+        <div class="card__tags"><span class="tag">agent-skills</span><span class="tag">ai-agents</span><span class="tag">claude</span><span class="tag">claude-code</span></div>
+
+        <div class="card__content"><div class="brief-section"><p class="brief-label" data-he="מה זה עושה" data-en="What it does">מה זה עושה</p><p class="brief-text i18n" data-he="Ponytail הוא כישור לסוכני AI שמדריך אותם לחשוב כמו המפתח הבכיר העצלן בחדר: לחפש פתרונות פשוטים, להשתמש בספריות קיימות ולכתוב כמה שפחות שורות קוד חדשות." data-en="Ponytail is an agent skill that guides AI coding agents to think like the laziest senior developer: find simple solutions, use existing libraries, and write as few new lines of code as possible.">Ponytail הוא כישור לסוכני AI שמדריך אותם לחשוב כמו המפתח הבכיר העצלן בחדר: לחפש פתרונות פשוטים, להשתמש בספריות קיימות ולכתוב כמה שפחות שורות קוד חדשות.</p></div><div class="brief-section"><p class="brief-label" data-he="למה זה בטרנד" data-en="Why it&#x27;s trending">למה זה בטרנד</p><p class="brief-text i18n" data-he="סוכני AI נוטים לבנות פתרונות מורכבים כאשר פתרון פשוט יותר קיים. Ponytail מטפל בנטייה הזו ומקבל תגובה חיובית מהקהילה שמחפשת קוד רזה יותר." data-en="AI agents tend to build complex solutions when a simpler one exists. Ponytail addresses this tendency and is getting positive traction from a community that wants leaner code.">סוכני AI נוטים לבנות פתרונות מורכבים כאשר פתרון פשוט יותר קיים. Ponytail מטפל בנטייה הזו ומקבל תגובה חיובית מהקהילה שמחפשת קוד רזה יותר.</p></div><div class="brief-section"><p class="brief-label" data-he="דוגמת שימוש" data-en="Example use case">דוגמת שימוש</p><p class="brief-text i18n" data-he="ביקשתם מ-AI לבנות בורר תאריכים. הסוכן התקין ספריה, כתב רכיב עטיפה, הוסיף CSS ופתח דיון. עם Ponytail הסוכן ישתמש ב-input type=&amp;#x27;date&amp;#x27; המובנה בדפדפן." data-en="You asked an AI to build a date picker. The agent installed a library, wrote a wrapper component, added a stylesheet, and started a discussion. With Ponytail, the agent uses the browser&amp;#x27;s built-in input type=&amp;#x27;date&amp;#x27;.">ביקשתם מ-AI לבנות בורר תאריכים. הסוכן התקין ספריה, כתב רכיב עטיפה, הוסיף CSS ופתח דיון. עם Ponytail הסוכן ישתמש ב-input type=&#x27;date&#x27; המובנה בדפדפן.</p></div><div class="brief-section brief-section--matters"><p class="brief-label" data-he="למה זה רלוונטי לך" data-en="Why it matters for you">למה זה רלוונטי לך</p><p class="brief-text i18n" data-he="אם אתה משתמש בסוכני AI לכתיבת קוד, Ponytail יעזור לך לקבל קוד שקל יותר לתחזק, עם פחות תלויות ופחות הפתעות." data-en="If you use AI agents to write code, Ponytail will help you get code that is easier to maintain, with fewer dependencies and fewer surprises.">אם אתה משתמש בסוכני AI לכתיבת קוד, Ponytail יעזור לך לקבל קוד שקל יותר לתחזק, עם פחות תלויות ופחות הפתעות.</p></div></div>
+
+      </div>
+    </article>
+
+    <article class="card">
+      <div class="card__rank">#4</div>
+      <div class="card__body">
+
+        <div class="card__header">
+          <div class="card__title-block">
+            <p class="card__eyebrow">Unknown</p>
+            <h2 class="card__title">
+              <a href="https://github.com/amElnagdy/guard-skills" target="_blank" rel="noopener">
+                <span class="card__org">amElnagdy/</span>guard-skills
+              </a>
+            </h2>
+          </div>
+          <div class="card__stats">
+            <span class="card__stars">&#9733;<br><span class="stars-num">578</span></span>
+          </div>
+        </div>
+
+        <div class="card__meta">
+          <span class="meta-item"><span class="meta-icon">&#128197;</span> 2026-06-06</span>
+          <span class="meta-item"><span class="meta-icon">&#9679;</span> push 2026-06-07</span>
+        </div>
+
+        <div class="card__tags"><span class="tag">agent-skills</span><span class="tag">ai</span><span class="tag">claude</span><span class="tag">claude-code</span></div>
+
+        <div class="card__content"><div class="brief-section"><p class="brief-label" data-he="מה זה עושה" data-en="What it does">מה זה עושה</p><p class="brief-text i18n" data-he="guard-skills הוא אוסף כישורי שמירה לסוכני קוד: שעריי איכות שניים שתופסים את כשלי הקוד הטיפוסיים שנוצרים ע&amp;quot;י AI לפני שהם משולחים. הם עובדים כסקירה תגובתית על ה-diff לפני commit או merge." data-en="guard-skills is a collection of guard skills for coding agents: second-pass quality gates that catch the systematic failure modes of AI-generated code, tests, and docs before they ship. They work as reactive review passes on the diff before commit or merge.">guard-skills הוא אוסף כישורי שמירה לסוכני קוד: שעריי איכות שניים שתופסים את כשלי הקוד הטיפוסיים שנוצרים ע&quot;י AI לפני שהם משולחים. הם עובדים כסקירה תגובתית על ה-diff לפני commit או merge.</p></div><div class="brief-section"><p class="brief-label" data-he="למה זה בטרנד" data-en="Why it&#x27;s trending">למה זה בטרנד</p><p class="brief-text i18n" data-he="כאשר סוכני AI כותבים יותר ויותר קוד, הצורך בשכבת בקרת איכות אוטומטית הולך וגדל. הקהילה מחפשת כלים שמסננים שגיאות AI-ספציפיות." data-en="As AI agents write more code, the need for an automated quality control layer grows. The community is looking for tools that filter out AI-specific error patterns.">כאשר סוכני AI כותבים יותר ויותר קוד, הצורך בשכבת בקרת איכות אוטומטית הולך וגדל. הקהילה מחפשת כלים שמסננים שגיאות AI-ספציפיות.</p></div><div class="brief-section"><p class="brief-label" data-he="דוגמת שימוש" data-en="Example use case">דוגמת שימוש</p><p class="brief-text i18n" data-he="הסוכן כתב פונקציה עם בדיקות שעוברות אך מפספסות מקרי קצה חשובים. guard-skills יזהה את הפערים ויסמן אותם לפני שהקוד מגיע ל-main." data-en="The agent wrote a function with tests that pass but miss important edge cases. guard-skills will identify the gaps and flag them before the code reaches main.">הסוכן כתב פונקציה עם בדיקות שעוברות אך מפספסות מקרי קצה חשובים. guard-skills יזהה את הפערים ויסמן אותם לפני שהקוד מגיע ל-main.</p></div><div class="brief-section brief-section--matters"><p class="brief-label" data-he="למה זה רלוונטי לך" data-en="Why it matters for you">למה זה רלוונטי לך</p><p class="brief-text i18n" data-he="כמפתח שמשתמש בסוכני AI, guard-skills מספק שכבת ביטחון נוספת שמונעת ממך לסקור ידנית כל שורה שנוצרה ע&amp;quot;י AI." data-en="As a developer using AI agents, guard-skills provides an extra safety layer that prevents you from having to manually review every line generated by AI.">כמפתח שמשתמש בסוכני AI, guard-skills מספק שכבת ביטחון נוספת שמונעת ממך לסקור ידנית כל שורה שנוצרה ע&quot;י AI.</p></div></div>
+
+      </div>
+    </article>
+
+    <article class="card">
+      <div class="card__rank">#5</div>
+      <div class="card__body">
+
+        <div class="card__header">
+          <div class="card__title-block">
+            <p class="card__eyebrow">Python</p>
+            <h2 class="card__title">
+              <a href="https://github.com/Light0305/Light-skills" target="_blank" rel="noopener">
+                <span class="card__org">Light0305/</span>Light-skills
+              </a>
+            </h2>
+          </div>
+          <div class="card__stats">
+            <span class="card__stars">&#9733;<br><span class="stars-num">77</span></span>
+          </div>
+        </div>
+
+        <div class="card__meta">
+          <span class="meta-item"><span class="meta-icon">&#128197;</span> 2026-06-07</span>
+          <span class="meta-item"><span class="meta-icon">&#9679;</span> push 2026-06-12</span>
+        </div>
+
+        <div class="card__tags"><span class="tag">academic-writing</span><span class="tag">agent-skills</span><span class="tag">ai-agent</span><span class="tag">ai-skills</span></div>
+
+        <div class="card__content"><div class="brief-section"><p class="brief-label" data-he="מה זה עושה" data-en="What it does">מה זה עושה</p><p class="brief-text i18n" data-he="Light הוא חבילת כישורי מחקר מלאה הכוללת 28 כישורים, 9 בסיסי ידע, 51 סקריפטים וכ-40 תבניות המכסים את כל שלבי המחקר האקדמי: ממציאת ספרות ועד הגשת מאמר. מותאם ל-Claude Code ו-Codex." data-en="Light is a comprehensive research skill package with 28 skills, 9 knowledge bases, 51 runnable scripts, and 40 templates covering every stage of academic research: from literature review to paper submission. Compatible with Claude Code and Codex.">Light הוא חבילת כישורי מחקר מלאה הכוללת 28 כישורים, 9 בסיסי ידע, 51 סקריפטים וכ-40 תבניות המכסים את כל שלבי המחקר האקדמי: ממציאת ספרות ועד הגשת מאמר. מותאם ל-Claude Code ו-Codex.</p></div><div class="brief-section"><p class="brief-label" data-he="למה זה בטרנד" data-en="Why it&#x27;s trending">למה זה בטרנד</p><p class="brief-text i18n" data-he="חוקרים מחפשים דרכים להאיץ את תהליכי המחקר שלהם עם AI. חבילה מקיפה שמכסה את כל הצינור האקדמי ועובדת עם כלי AI מוכרים מקבלת תשומת לב." data-en="Researchers are seeking ways to accelerate their work with AI. A comprehensive package covering the full academic pipeline that works with familiar AI tools is attracting attention.">חוקרים מחפשים דרכים להאיץ את תהליכי המחקר שלהם עם AI. חבילה מקיפה שמכסה את כל הצינור האקדמי ועובדת עם כלי AI מוכרים מקבלת תשומת לב.</p></div><div class="brief-section"><p class="brief-label" data-he="דוגמת שימוש" data-en="Example use case">דוגמת שימוש</p><p class="brief-text i18n" data-he="אתם עובדים על מאמר ורוצים AI שיעזור לכם בסקירת ספרות, ניתוח נתונים, עריכת טיוטה ועד ניסוח מכתב כיסוי לכתב עת. Light מספק כישורים ייעודיים לכל שלב." data-en="You are working on a paper and want AI to help with literature review, data analysis, draft editing, and writing a journal cover letter. Light provides dedicated skills for each step.">אתם עובדים על מאמר ורוצים AI שיעזור לכם בסקירת ספרות, ניתוח נתונים, עריכת טיוטה ועד ניסוח מכתב כיסוי לכתב עת. Light מספק כישורים ייעודיים לכל שלב.</p></div><div class="brief-section brief-section--matters"><p class="brief-label" data-he="למה זה רלוונטי לך" data-en="Why it matters for you">למה זה רלוונטי לך</p><p class="brief-text i18n" data-he="לחוקרים ולאנשי אקדמיה שמשתמשים ב-Claude Code, Light מספק תשתית מוכנה לשילוב AI בתהליך המחקר, חוסכת שעות של עבודת תשתית." data-en="For researchers and academics using Claude Code, Light provides a ready-made infrastructure for integrating AI into the research process, saving hours of setup work.">לחוקרים ולאנשי אקדמיה שמשתמשים ב-Claude Code, Light מספק תשתית מוכנה לשילוב AI בתהליך המחקר, חוסכת שעות של עבודת תשתית.</p></div></div>
+
+      </div>
+    </article>
+
+    <article class="card">
+      <div class="card__rank">#6</div>
+      <div class="card__body">
+
+        <div class="card__header">
+          <div class="card__title-block">
+            <p class="card__eyebrow">Python</p>
+            <h2 class="card__title">
+              <a href="https://github.com/superagents-lab/xcode27-skills" target="_blank" rel="noopener">
+                <span class="card__org">superagents-lab/</span>xcode27-skills
+              </a>
+            </h2>
+          </div>
+          <div class="card__stats">
+            <span class="card__stars">&#9733;<br><span class="stars-num">71</span></span>
+          </div>
+        </div>
+
+        <div class="card__meta">
+          <span class="meta-item"><span class="meta-icon">&#128197;</span> 2026-06-09</span>
+          <span class="meta-item"><span class="meta-icon">&#9679;</span> push 2026-06-09</span>
+        </div>
+
+        <div class="card__tags"><span class="tag">agent-skills</span><span class="tag">apple</span><span class="tag">claude-code</span><span class="tag">ios</span></div>
+
+        <div class="card__content"><div class="brief-section"><p class="brief-label" data-he="מה זה עושה" data-en="What it does">מה זה עושה</p><p class="brief-text i18n" data-he="xcode27-skills הוא אוסף כישורי סוכן שיוצאו מ-Xcode 27 של אפל. הם מספקים הנחיות סמכותיות ועדכניות לסוכני AI לפיתוח אפליקציות Apple: SwiftUI, מיגרציה UIKit, Swift Testing, ביטחון גבולות C ואבטחת Xcode." data-en="xcode27-skills is a collection of agent skills exported from Apple&amp;#x27;s Xcode 27. They provide authoritative, up-to-date guidance for AI agents building Apple platform apps: SwiftUI, UIKit modernization, Swift Testing, C bounds-safety, and Xcode security hardening.">xcode27-skills הוא אוסף כישורי סוכן שיוצאו מ-Xcode 27 של אפל. הם מספקים הנחיות סמכותיות ועדכניות לסוכני AI לפיתוח אפליקציות Apple: SwiftUI, מיגרציה UIKit, Swift Testing, ביטחון גבולות C ואבטחת Xcode.</p></div><div class="brief-section"><p class="brief-label" data-he="למה זה בטרנד" data-en="Why it&#x27;s trending">למה זה בטרנד</p><p class="brief-text i18n" data-he="עדכון Xcode 27 הביא שינויים משמעותיים ב-API. מפתחי Apple מחפשים דרך לוודא שסוכני ה-AI שלהם משתמשים ב-API הנכון ולא מייצרים קוד מיושן." data-en="Xcode 27 brought significant API changes. Apple developers are looking for a way to ensure their AI agents use the correct API and do not generate outdated code.">עדכון Xcode 27 הביא שינויים משמעותיים ב-API. מפתחי Apple מחפשים דרך לוודא שסוכני ה-AI שלהם משתמשים ב-API הנכון ולא מייצרים קוד מיושן.</p></div><div class="brief-section"><p class="brief-label" data-he="דוגמת שימוש" data-en="Example use case">דוגמת שימוש</p><p class="brief-text i18n" data-he="ביקשתם מ-Claude Code לבנות ממשק SwiftUI. ללא הכישורים הנכונים הוא עלול להשתמש ב-API ישן. xcode27-skills מדריך את הסוכן להשתמש בתחביר Xcode 27 העדכני." data-en="You ask Claude Code to build a SwiftUI interface. Without the right skills it may use deprecated API. xcode27-skills guides the agent to use up-to-date Xcode 27 syntax.">ביקשתם מ-Claude Code לבנות ממשק SwiftUI. ללא הכישורים הנכונים הוא עלול להשתמש ב-API ישן. xcode27-skills מדריך את הסוכן להשתמש בתחביר Xcode 27 העדכני.</p></div><div class="brief-section brief-section--matters"><p class="brief-label" data-he="למה זה רלוונטי לך" data-en="Why it matters for you">למה זה רלוונטי לך</p><p class="brief-text i18n" data-he="אם אתם מפתחים אפליקציות Apple עם Claude Code, כישורים אלה מבטיחים שהסוכן שלכם עובד עם ה-API העדכני ביותר של Xcode 27 ולא עם קוד מיושן." data-en="If you develop Apple apps with Claude Code, these skills ensure your agent works with the latest Xcode 27 API and not with deprecated code.">אם אתם מפתחים אפליקציות Apple עם Claude Code, כישורים אלה מבטיחים שהסוכן שלכם עובד עם ה-API העדכני ביותר של Xcode 27 ולא עם קוד מיושן.</p></div></div>
+
+      </div>
+    </article>
+
+    <article class="card">
+      <div class="card__rank">#7</div>
+      <div class="card__body">
+
+        <div class="card__header">
+          <div class="card__title-block">
+            <p class="card__eyebrow">Shell</p>
+            <h2 class="card__title">
+              <a href="https://github.com/TexasBedouin/vibe-check" target="_blank" rel="noopener">
+                <span class="card__org">TexasBedouin/</span>vibe-check
+              </a>
+            </h2>
+          </div>
+          <div class="card__stats">
+            <span class="card__stars">&#9733;<br><span class="stars-num">54</span></span>
+          </div>
+        </div>
+
+        <div class="card__meta">
+          <span class="meta-item"><span class="meta-icon">&#128197;</span> 2026-06-05</span>
+          <span class="meta-item"><span class="meta-icon">&#9679;</span> push 2026-06-11</span>
+        </div>
+
+        <div class="card__tags"><span class="tag">ai-coding</span><span class="tag">antigravity</span><span class="tag">beginners</span><span class="tag">claude-code</span></div>
+
+        <div class="card__content"><div class="brief-section"><p class="brief-label" data-he="מה זה עושה" data-en="What it does">מה זה עושה</p><p class="brief-text i18n" data-he="vibe-check הוא כישור לכלי AI לקוד שמנחה מתחילים מרעיון עמום לתוכנית בנייה ברורה. הוא עוזר לגלות מה המשתמש צריך באמת, למפות את חוויית המשתמש ולהגדיר את מינימום המוצר הברור." data-en="vibe-check is a skill for AI coding tools that guides complete beginners from a vague app idea to a buildable blueprint. It discovers what the user actually needs, maps the full user experience, and defines a clear minimum viable product.">vibe-check הוא כישור לכלי AI לקוד שמנחה מתחילים מרעיון עמום לתוכנית בנייה ברורה. הוא עוזר לגלות מה המשתמש צריך באמת, למפות את חוויית המשתמש ולהגדיר את מינימום המוצר הברור.</p></div><div class="brief-section"><p class="brief-label" data-he="למה זה בטרנד" data-en="Why it&#x27;s trending">למה זה בטרנד</p><p class="brief-text i18n" data-he="כלי AI לקוד הפכו לנגישים לאנשים ללא רקע בפיתוח. vibe-check ממלא את הפער עבור אנשים שיש להם רעיון אך לא יודעים מאיפה להתחיל." data-en="AI coding tools have become accessible to people without a development background. vibe-check fills the gap for people who have an idea but do not know where to start.">כלי AI לקוד הפכו לנגישים לאנשים ללא רקע בפיתוח. vibe-check ממלא את הפער עבור אנשים שיש להם רעיון אך לא יודעים מאיפה להתחיל.</p></div><div class="brief-section"><p class="brief-label" data-he="דוגמת שימוש" data-en="Example use case">דוגמת שימוש</p><p class="brief-text i18n" data-he="אדם אמר &amp;#x27;אני רוצה לבנות אפליקציה לניהול מלאי&amp;#x27;. vibe-check ישאל שאלות ממוקדות, ימפה את הצרכים האמיתיים ויפיק מסמך דרישות שסוכן AI יכול לבנות ממנו." data-en="A person said &amp;#x27;I want to build an inventory management app&amp;#x27;. vibe-check asks focused questions, maps the real needs, and produces a requirements document that an AI agent can build from.">אדם אמר &#x27;אני רוצה לבנות אפליקציה לניהול מלאי&#x27;. vibe-check ישאל שאלות ממוקדות, ימפה את הצרכים האמיתיים ויפיק מסמך דרישות שסוכן AI יכול לבנות ממנו.</p></div><div class="brief-section brief-section--matters"><p class="brief-label" data-he="למה זה רלוונטי לך" data-en="Why it matters for you">למה זה רלוונטי לך</p><p class="brief-text i18n" data-he="אם אתם עובדים עם לקוחות או עמיתים שאין להם רקע טכני, vibe-check יכול לגשר על הפער בין הרעיון שלהם לבין מה שסוכן AI יכול לבנות בפועל." data-en="If you work with clients or colleagues without a technical background, vibe-check can bridge the gap between their idea and what an AI agent can actually build.">אם אתם עובדים עם לקוחות או עמיתים שאין להם רקע טכני, vibe-check יכול לגשר על הפער בין הרעיון שלהם לבין מה שסוכן AI יכול לבנות בפועל.</p></div></div>
+
+      </div>
+    </article>
+
+    <article class="card">
+      <div class="card__rank">#8</div>
+      <div class="card__body">
+
+        <div class="card__header">
+          <div class="card__title-block">
+            <p class="card__eyebrow">JavaScript</p>
+            <h2 class="card__title">
+              <a href="https://github.com/JimLiu/baoyu-design" target="_blank" rel="noopener">
+                <span class="card__org">JimLiu/</span>baoyu-design
+              </a>
+            </h2>
+          </div>
+          <div class="card__stats">
+            <span class="card__stars">&#9733;<br><span class="stars-num">810</span></span>
+          </div>
+        </div>
+
+        <div class="card__meta">
+          <span class="meta-item"><span class="meta-icon">&#128197;</span> 2026-06-07</span>
+          <span class="meta-item"><span class="meta-icon">&#9679;</span> push 2026-06-11</span>
+        </div>
+
+        <div class="card__tags"><span class="tag">agent-skills</span><span class="tag">claude</span><span class="tag">claude-code</span><span class="tag">claude-design</span></div>
+
+        <div class="card__content"><div class="brief-section"><p class="brief-label" data-he="מה זה עושה" data-en="What it does">מה זה עושה</p><p class="brief-text i18n" data-he="baoyu-design מאפשר להפעיל את Claude Design, מנוע העיצוב מאחורי claude.ai/design, כסוכן כישור מקומי ב-Cursor, Claude Code ועוד. הוא מייצר מוקאפים של ממשק משתמש, אב-טיפוסים, מצגות ומסגרות כ-HTML עצמאי." data-en="baoyu-design lets you run Claude Design, the design engine behind claude.ai/design, as a local agent skill in Cursor, Claude Code, and more. It produces polished UI mockups, prototypes, decks, and wireframes as self-contained HTML files.">baoyu-design מאפשר להפעיל את Claude Design, מנוע העיצוב מאחורי claude.ai/design, כסוכן כישור מקומי ב-Cursor, Claude Code ועוד. הוא מייצר מוקאפים של ממשק משתמש, אב-טיפוסים, מצגות ומסגרות כ-HTML עצמאי.</p></div><div class="brief-section"><p class="brief-label" data-he="למה זה בטרנד" data-en="Why it&#x27;s trending">למה זה בטרנד</p><p class="brief-text i18n" data-he="Claude Design קיבל תשומת לב רבה בגלל יכולת הפקת ממשקים יפים. baoyu-design מאפשר גישה לאותה יכולת מחוץ ל-claude.ai ישירות בכלי הפיתוח." data-en="Claude Design attracted a lot of attention for its ability to produce beautiful interfaces. baoyu-design brings that same capability outside of claude.ai and directly into developer tools.">Claude Design קיבל תשומת לב רבה בגלל יכולת הפקת ממשקים יפים. baoyu-design מאפשר גישה לאותה יכולת מחוץ ל-claude.ai ישירות בכלי הפיתוח.</p></div><div class="brief-section"><p class="brief-label" data-he="דוגמת שימוש" data-en="Example use case">דוגמת שימוש</p><p class="brief-text i18n" data-he="אתם מפתחים אפליקציה ורוצים מוקאפ של מסך הכניסה. עם baoyu-design תגידו לסוכן &amp;#x27;בנה לי מוקאפ של login screen&amp;#x27; ותקבלו HTML עצמאי שניתן לשלוח ישירות ללקוח." data-en="You are building an app and want a mockup of the login screen. With baoyu-design you tell the agent &amp;#x27;build me a login screen mockup&amp;#x27; and get a self-contained HTML file you can send directly to a client.">אתם מפתחים אפליקציה ורוצים מוקאפ של מסך הכניסה. עם baoyu-design תגידו לסוכן &#x27;בנה לי מוקאפ של login screen&#x27; ותקבלו HTML עצמאי שניתן לשלוח ישירות ללקוח.</p></div><div class="brief-section brief-section--matters"><p class="brief-label" data-he="למה זה רלוונטי לך" data-en="Why it matters for you">למה זה רלוונטי לך</p><p class="brief-text i18n" data-he="אם אתם משתמשים ב-Claude Code ורוצים לייצר עיצובים מהירים ללא כניסה ל-claude.ai, baoyu-design מביא את יכולת העיצוב ישירות לסביבת הפיתוח שלכם. עובד בצורה הטובה ביותר עם Opus 4.8." data-en="If you use Claude Code and want to produce quick designs without going to claude.ai, baoyu-design brings the design capability directly into your development environment. Works best with Opus 4.8.">אם אתם משתמשים ב-Claude Code ורוצים לייצר עיצובים מהירים ללא כניסה ל-claude.ai, baoyu-design מביא את יכולת העיצוב ישירות לסביבת הפיתוח שלכם. עובד בצורה הטובה ביותר עם Opus 4.8.</p></div></div>
+
+      </div>
+    </article>
+
+    <article class="card">
+      <div class="card__rank">#9</div>
+      <div class="card__body">
+
+        <div class="card__header">
+          <div class="card__title-block">
+            <p class="card__eyebrow">Python</p>
+            <h2 class="card__title">
+              <a href="https://github.com/2417467487-hub/Trend2Video-Pro" target="_blank" rel="noopener">
+                <span class="card__org">2417467487-hub/</span>Trend2Video-Pro
+              </a>
+            </h2>
+          </div>
+          <div class="card__stats">
+            <span class="card__stars">&#9733;<br><span class="stars-num">101</span></span>
+          </div>
+        </div>
+
+        <div class="card__meta">
+          <span class="meta-item"><span class="meta-icon">&#128197;</span> 2026-06-08</span>
+          <span class="meta-item"><span class="meta-icon">&#9679;</span> push 2026-06-10</span>
+        </div>
+
+        <div class="card__tags"><span class="tag">ai-agents</span><span class="tag">ai-video</span><span class="tag">content-automation</span><span class="tag">creator-tools</span></div>
+
+        <div class="card__content"><div class="brief-section"><p class="brief-label" data-he="מה זה עושה" data-en="What it does">מה זה עושה</p><p class="brief-text i18n" data-he="Trend2Video Pro הוא מסגרת קוד-פתוח רב-סוכנים להפיכת טרנדים לסרטוני תוכן. הצינור מכסה: גילוי טרנדים, ניקוד הזדמנויות, התאמה ליוצר, כתיבת תסריט, בדיקת עובדות, פוטובורד, יצירת וידאו וחבילת פרסום." data-en="Trend2Video Pro is an open-source multi-agent framework that turns trending topics into video content. The pipeline covers: trend discovery, opportunity scoring, creator fit, script writing, fact checking, storyboarding, video generation, and a publish package.">Trend2Video Pro הוא מסגרת קוד-פתוח רב-סוכנים להפיכת טרנדים לסרטוני תוכן. הצינור מכסה: גילוי טרנדים, ניקוד הזדמנויות, התאמה ליוצר, כתיבת תסריט, בדיקת עובדות, פוטובורד, יצירת וידאו וחבילת פרסום.</p></div><div class="brief-section"><p class="brief-label" data-he="למה זה בטרנד" data-en="Why it&#x27;s trending">למה זה בטרנד</p><p class="brief-text i18n" data-he="יוצרי תוכן מחפשים דרכים לייצר סרטונים רלוונטיים מהר יותר. מסגרת שמכסה את כל הצינור ממחקר ועד פרסום, מבוססת על סוכני AI, מקבלת תשומת לב." data-en="Content creators are looking for ways to produce relevant videos faster. A framework covering the full pipeline from research to publishing, powered by AI agents, is attracting attention.">יוצרי תוכן מחפשים דרכים לייצר סרטונים רלוונטיים מהר יותר. מסגרת שמכסה את כל הצינור ממחקר ועד פרסום, מבוססת על סוכני AI, מקבלת תשומת לב.</p></div><div class="brief-section"><p class="brief-label" data-he="דוגמת שימוש" data-en="Example use case">דוגמת שימוש</p><p class="brief-text i18n" data-he="עיתונאי טכנולוגיה רוצה לייצר סרטון על טרנד AI חדש. Trend2Video Pro יגלה את הטרנד, יכתוב תסריט, יבנה פוטובורד ויאמת עובדות בצורה אוטומטית." data-en="A tech journalist wants to produce a video on a new AI trend. Trend2Video Pro will discover the trend, write a script, build a storyboard, and fact-check automatically.">עיתונאי טכנולוגיה רוצה לייצר סרטון על טרנד AI חדש. Trend2Video Pro יגלה את הטרנד, יכתוב תסריט, יבנה פוטובורד ויאמת עובדות בצורה אוטומטית.</p></div><div class="brief-section brief-section--matters"><p class="brief-label" data-he="למה זה רלוונטי לך" data-en="Why it matters for you">למה זה רלוונטי לך</p><p class="brief-text i18n" data-he="לאנשי שיווק, יוצרי תוכן ועיתונאים, Trend2Video Pro מספק בסיס קוד-פתוח לבניית צינור ייצור וידאו אוטומטי מבוסס AI בלי לבנות הכל מאפס." data-en="For marketers, content creators, and journalists, Trend2Video Pro provides an open-source base for building an automated AI-powered video production pipeline without building everything from scratch.">לאנשי שיווק, יוצרי תוכן ועיתונאים, Trend2Video Pro מספק בסיס קוד-פתוח לבניית צינור ייצור וידאו אוטומטי מבוסס AI בלי לבנות הכל מאפס.</p></div></div>
+
+      </div>
+    </article>
+
+    <article class="card">
+      <div class="card__rank">#10</div>
+      <div class="card__body">
+
+        <div class="card__header">
+          <div class="card__title-block">
+            <p class="card__eyebrow">TypeScript</p>
+            <h2 class="card__title">
+              <a href="https://github.com/SawyerHood/omegacode" target="_blank" rel="noopener">
+                <span class="card__org">SawyerHood/</span>omegacode
+              </a>
+            </h2>
+          </div>
+          <div class="card__stats">
+            <span class="card__stars">&#9733;<br><span class="stars-num">65</span></span>
+          </div>
+        </div>
+
+        <div class="card__meta">
+          <span class="meta-item"><span class="meta-icon">&#128197;</span> 2026-06-05</span>
+          <span class="meta-item"><span class="meta-icon">&#9679;</span> push 2026-06-11</span>
+        </div>
+
+        <div class="card__tags"><span class="tag">agents</span><span class="tag">claude-code</span><span class="tag">codex</span></div>
+
+        <div class="card__content"><div class="brief-section"><p class="brief-label" data-he="מה זה עושה" data-en="What it does">מה זה עושה</p><p class="brief-text i18n" data-he="omegacode הוא מימוש אגנוסטי של Workflows של Claude Code. הוא מריץ קבצי JavaScript לתזמור ציי סוכני קוד באמצעות DSL קטן: agent, parallel, pipeline ו-phase, עם עובדים ניתנים להחלפה: Claude Code, Codex, OpenCode ו-pi." data-en="omegacode is an agent-agnostic implementation of Claude Code Workflows. It runs JavaScript workflow files that orchestrate fleets of coding agents using a small DSL: agent, parallel, pipeline, and phase, with pluggable workers including Claude Code, Codex, OpenCode, and pi.">omegacode הוא מימוש אגנוסטי של Workflows של Claude Code. הוא מריץ קבצי JavaScript לתזמור ציי סוכני קוד באמצעות DSL קטן: agent, parallel, pipeline ו-phase, עם עובדים ניתנים להחלפה: Claude Code, Codex, OpenCode ו-pi.</p></div><div class="brief-section"><p class="brief-label" data-he="למה זה בטרנד" data-en="Why it&#x27;s trending">למה זה בטרנד</p><p class="brief-text i18n" data-he="ככל שצוותים משתמשים ביותר מסוכן אחד לקוד, הצורך בתזמור שאינו נעול לסוכן ספציפי הולך וגדל. omegacode מספק גמישות להפעיל סוכנים מרובים בתזרים עבודה אחד." data-en="As teams use more than one coding agent, the need for orchestration that is not locked to a specific agent grows. omegacode provides flexibility to run multiple agents in a single workflow.">ככל שצוותים משתמשים ביותר מסוכן אחד לקוד, הצורך בתזמור שאינו נעול לסוכן ספציפי הולך וגדל. omegacode מספק גמישות להפעיל סוכנים מרובים בתזרים עבודה אחד.</p></div><div class="brief-section"><p class="brief-label" data-he="דוגמת שימוש" data-en="Example use case">דוגמת שימוש</p><p class="brief-text i18n" data-he="צוות רוצה ש-Claude Code יכתוב קוד, Codex יבדוק אותו ו-pi יסקור תיעוד, הכל בתזרים עבודה אחד אוטומטי. omegacode מאפשר להגדיר זאת בקובץ JavaScript פשוט." data-en="A team wants Claude Code to write code, Codex to test it, and pi to review documentation, all in a single automated workflow. omegacode lets you define this in a simple JavaScript file.">צוות רוצה ש-Claude Code יכתוב קוד, Codex יבדוק אותו ו-pi יסקור תיעוד, הכל בתזרים עבודה אחד אוטומטי. omegacode מאפשר להגדיר זאת בקובץ JavaScript פשוט.</p></div><div class="brief-section brief-section--matters"><p class="brief-label" data-he="למה זה רלוונטי לך" data-en="Why it matters for you">למה זה רלוונטי לך</p><p class="brief-text i18n" data-he="אם אתם עובדים עם מספר סוכני AI וצריכים לתאם ביניהם, omegacode מספק שכבת תזמור גמישה שאינה קושרת אתכם לסוכן אחד ומאפשרת לנצל את היתרונות של כל אחד." data-en="If you work with multiple AI agents and need to coordinate between them, omegacode provides a flexible orchestration layer that does not lock you into one agent and lets you leverage the strengths of each.">אם אתם עובדים עם מספר סוכני AI וצריכים לתאם ביניהם, omegacode מספק שכבת תזמור גמישה שאינה קושרת אתכם לסוכן אחד ומאפשרת לנצל את היתרונות של כל אחד.</p></div></div>
+
+      </div>
+    </article>
+  </main>
+
+  <footer class="site-footer">
+    <span class="i18n" data-he="עיכול אוטומטי שבועי · מקור: GitHub Search API" data-en="Auto-generated weekly digest · Data: GitHub Search API">עיכול אוטומטי שבועי · מקור: GitHub Search API</span>
+    <p class="share-copied" id="shareCopied">&#128279; <span class="i18n" data-he="הקישור הועתק!" data-en="Link copied!">הקישור הועתק!</span></p>
+  </footer>
+
+</div>
+
+<script>
+// ── LANGUAGE TOGGLE ──
+var currentLang = 'he';
+function toggleLang() {
+  currentLang = currentLang === 'he' ? 'en' : 'he';
+  var isHe = currentLang === 'he';
+  document.documentElement.lang = currentLang;
+  document.documentElement.dir = isHe ? 'rtl' : 'ltr';
+  document.getElementById('langToggle').textContent = isHe ? 'EN' : 'עב';
+  document.querySelectorAll('.i18n').forEach(function(el) {
+    el.innerHTML = el.dataset[currentLang] || el.innerHTML;
+  });
+  // Flip brief labels
+  document.querySelectorAll('.brief-label').forEach(function(el) {
+    var he = el.dataset.he, en = el.dataset.en;
+    if (he && en) el.textContent = isHe ? he : en;
+  });
+}
+
+// ── SHARE ──
+function shareReport() {
+  var title = currentLang === 'he'
+    ? 'טרנד ב-AI/LLM – 2026-W24'
+    : 'Trending AI/LLM Repos – 2026-W24';
+  var url = window.location.href;
+  if (navigator.share) {
+    navigator.share({ title: title, url: url }).catch(function(){});
+  } else {
+    navigator.clipboard.writeText(url).then(function() {
+      var el = document.getElementById('shareCopied');
+      el.classList.add('show');
+      setTimeout(function() { el.classList.remove('show'); }, 2500);
+    }).catch(function() {
+      prompt('Copy this link:', url);
+    });
+  }
+}
+
+// ── AUDIO PLAYER ──
+var audio = document.getElementById('audio');
+var playBtn = document.getElementById('playBtn');
+var iconPlay = document.getElementById('iconPlay');
+var iconPause = document.getElementById('iconPause');
+var progressBar = document.getElementById('progressBar');
+var progressWrap = document.getElementById('progressWrap');
+var playerTime = document.getElementById('playerTime');
+
+function fmt(s) {
+  s = Math.floor(s || 0);
+  return Math.floor(s/60) + ':' + ('0' + (s%60)).slice(-2);
+}
+function updateTime() {
+  var cur = audio.currentTime, dur = audio.duration;
+  progressBar.style.width = (dur ? (cur/dur*100) : 0) + '%';
+  playerTime.textContent = fmt(cur) + ' / ' + fmt(dur);
+}
+function togglePlay() {
+  if (audio.paused) { audio.play(); } else { audio.pause(); }
+}
+audio.addEventListener('play', function() {
+  iconPlay.style.display = 'none';
+  iconPause.style.display = 'block';
+});
+audio.addEventListener('pause', function() {
+  iconPlay.style.display = 'block';
+  iconPause.style.display = 'none';
+});
+audio.addEventListener('ended', function() {
+  iconPlay.style.display = 'block';
+  iconPause.style.display = 'none';
+  progressBar.style.width = '0%';
+});
+audio.addEventListener('timeupdate', updateTime);
+audio.addEventListener('loadedmetadata', updateTime);
+function seek(e) {
+  if (!audio.duration) return;
+  var rect = progressWrap.getBoundingClientRect();
+  var frac = (e.clientX - rect.left) / rect.width;
+  audio.currentTime = Math.max(0, Math.min(1, frac)) * audio.duration;
+}
+</script>
+</body>
+</html>
