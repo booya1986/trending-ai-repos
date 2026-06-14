@@ -69,17 +69,24 @@ Write this Python script to `/tmp/tts.py`, then run it:
 
 ```python
 # /tmp/tts.py
-import json, sys, urllib.request
+import hashlib, json, os, sys, urllib.request
 
 outdir = sys.argv[1]
 warn_file = f"{outdir}/warnings.txt"
 mp3_path = f"{outdir}/report.mp3"
-
-if __import__('os').path.exists(mp3_path):
-    print(f"MP3 already exists, skipping")
-    sys.exit(0)
+hash_path = f"{outdir}/.narration.sha"
 
 text = open(f"{outdir}/narration.txt", encoding="utf-8").read()
+narr_hash = hashlib.sha256(text.encode("utf-8")).hexdigest()
+
+# Regenerate only if the MP3 is missing OR the narration changed since it was made.
+# (Skipping purely on "mp3 exists" leaves a stale MP3 when the narration is rewritten.)
+if os.path.exists(mp3_path) and os.path.getsize(mp3_path) > 10000:
+    prev = open(hash_path).read().strip() if os.path.exists(hash_path) else ""
+    if prev == narr_hash:
+        print("MP3 up to date, skipping")
+        sys.exit(0)
+    print("narration changed -> regenerating MP3")
 
 # Call the TTS proxy (routes through Google Cloud to avoid ElevenLabs IP block)
 PROXY_URL = "https://us-central1-learnwithavi-youtube.cloudfunctions.net/tts-proxy"
@@ -104,6 +111,8 @@ try:
         audio = resp.read()
     with open(mp3_path, "wb") as f:
         f.write(audio)
+    with open(hash_path, "w") as hf:
+        hf.write(narr_hash)
     print(f"MP3 written: {len(audio)} bytes -> {mp3_path}")
 except Exception as e:
     with open(warn_file, "a") as wf:
