@@ -100,7 +100,7 @@ req = urllib.request.Request(
     }
 )
 try:
-    with urllib.request.urlopen(req, timeout=180) as resp:
+    with urllib.request.urlopen(req, timeout=480) as resp:
         audio = resp.read()
     with open(mp3_path, "wb") as f:
         f.write(audio)
