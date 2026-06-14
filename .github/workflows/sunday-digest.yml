@@ -1,0 +1,89 @@
+name: Sunday digest email
+
+# Sends the weekly digest email from GitHub's cloud — runs even when Avi's Mac is off.
+# Generates the MP3 first (if missing/stale) so the email's audio link is live.
+on:
+  schedule:
+    # 07:07 Israel time. Israel is UTC+3 (IDT) Apr-Oct and UTC+2 (IST) Oct-Mar.
+    # Two entries cover both; the per-week .email_sent dedup makes the extra fire a no-op.
+    - cron: "7 4 * * 0"   # 07:07 IDT (summer)
+    - cron: "7 5 * * 0"   # 07:07 IST (winter)
+  workflow_dispatch: {}   # allow manual run from the Actions tab
+
+permissions:
+  contents: write          # to commit the .email_sent dedup marker + MP3
+
+concurrency:
+  group: sunday-digest
+  cancel-in-progress: false
+
+jobs:
+  send:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Determine latest week
+        id: week
+        run: |
+          week=$(ls reports | grep -E '^[0-9]{4}-W[0-9]+$' | sort | tail -1)
+          echo "week=$week" >> "$GITHUB_OUTPUT"
+          echo "Latest report week: $week"
+
+      - name: Generate MP3 if missing or stale (via TTS proxy)
+        env:
+          WEEK: ${{ steps.week.outputs.week }}
+        run: |
+          python3 - "$WEEK" <<'PY'
+          import hashlib, json, os, sys, urllib.request
+          week = sys.argv[1]
+          outdir = f"reports/{week}"
+          mp3 = f"{outdir}/report.mp3"; narr = f"{outdir}/narration.txt"
+          hp = f"{outdir}/.narration.sha"
+          if not os.path.exists(narr):
+              print("no narration; skip"); sys.exit(0)
+          text = open(narr, encoding="utf-8").read()
+          h = hashlib.sha256(text.encode()).hexdigest()
+          if os.path.exists(mp3) and os.path.getsize(mp3) > 10000:
+              prev = open(hp).read().strip() if os.path.exists(hp) else ""
+              if prev == h:
+                  print("MP3 up to date; skip"); sys.exit(0)
+          payload = json.dumps({"text": text, "voice_id": "TX3LPaxmHKxFdv7VOQHJ", "model_id": "eleven_v3"}).encode()
+          req = urllib.request.Request(
+              "https://us-central1-learnwithavi-youtube.cloudfunctions.net/tts-proxy",
+              data=payload, headers={"Content-Type": "application/json", "X-Proxy-Token": "tts-proxy-trending-repos-2026"})
+          try:
+              with urllib.request.urlopen(req, timeout=480) as r:
+                  audio = r.read()
+              if len(audio) > 10000:
+                  open(mp3, "wb").write(audio); open(hp, "w").write(h)
+                  print(f"MP3 written: {len(audio)} bytes")
+              else:
+                  print(f"MP3 too small ({len(audio)}B); leaving as-is")
+          except Exception as e:
+              print(f"MP3 generation failed (non-fatal, email still sends): {e}")
+          PY
+
+      - name: Send digest email (SMTP via App Password)
+        env:
+          GMAIL_APP_PASSWORD: ${{ secrets.GMAIL_APP_PASSWORD }}
+        run: |
+          python3 scripts/send_digest_smtp.py "${{ steps.week.outputs.week }}"
+
+      - name: Commit dedup marker + MP3 if changed
+        run: |
+          git config user.email "avi.j.levi@gmail.com"
+          git config user.name "Avi Levi (GitHub Actions)"
+          git add -f "reports/${{ steps.week.outputs.week }}/.email_sent" \
+                     "reports/${{ steps.week.outputs.week }}/report.mp3" \
+                     "reports/${{ steps.week.outputs.week }}/.narration.sha" 2>/dev/null || true
+          if ! git diff --cached --quiet; then
+            git commit -m "Sunday digest: mark ${{ steps.week.outputs.week }} sent (+ MP3 if regenerated)"
+            git push
+          else
+            echo "nothing to commit"
+          fi
