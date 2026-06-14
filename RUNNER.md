@@ -151,11 +151,51 @@ git commit -m "Add trending AI repos report for $week"
 git push
 ```
 
-### 7. Report back
+### 7. Create the digest email draft (Gmail)
+
+Build the digest HTML and create a Gmail draft so the email is ready to send.
+A local Sunday job also auto-sends; the shared `reports/$week/.email_sent` marker
+(committed in step 6 if present) prevents duplicates. Only create the draft if
+that marker does NOT already exist.
+
+First build the HTML to `/tmp/digest.html` using the committed builder so cloud
+and local produce identical emails:
+
+```bash
+if [ -f "reports/$week/.email_sent" ]; then
+  echo "Email already sent for $week, skipping draft."
+else
+  python3 - "$week" <<'PYEOF' > /tmp/digest_subject.txt
+import sys, os
+sys.path.insert(0, 'scripts')
+import send_digest as sd
+week = sys.argv[1]
+top = sd.read_narration(week)
+html = sd.build_html(week, top)
+open('/tmp/digest.html', 'w', encoding='utf-8').write(html)
+print(week.replace('-', ' ').replace('W', 'שבוע '))
+PYEOF
+  echo "Digest HTML built for $week"
+fi
+```
+
+Then, if `/tmp/digest.html` was written (marker absent), create the Gmail draft
+using the **Gmail MCP `create_draft` tool** (not a shell command). Read
+`/tmp/digest.html` for `htmlBody` and `/tmp/digest_subject.txt` for the week label:
+
+- `to`: `["avi.j.levi@gmail.com"]`
+- `subject`: `🔥 דוח AI שבועי מוכן – <week label from /tmp/digest_subject.txt>`
+- `body`: `10 repos AI מובילים השבוע. פתח לקרוא ולהאזין.`
+- `htmlBody`: the full contents of `/tmp/digest.html`
+
+If the marker already existed, skip the draft entirely.
+
+### 8. Report back
 
 Output:
 - Week and report URL: `https://booya1986.github.io/trending-ai-repos/reports/<week>/`
 - Repo count and whether MP3 was generated
+- Whether a Gmail draft was created (or skipped because already sent)
 - Any warnings from warnings.txt
 
 ## Rules
@@ -163,3 +203,4 @@ Output:
 - Ground every claim in the README/metadata. Never invent capabilities.
 - Only touch the `reports/` folder. Never modify scripts or RUNNER.md.
 - If count=0: abort, do not commit.
+- The email/draft step may read `scripts/send_digest.py` as a library (import only); do not modify it.
