@@ -8,6 +8,10 @@ on:
     # Two entries cover both; the per-week .email_sent dedup makes the extra fire a no-op.
     - cron: "7 4 * * 0"   # 07:07 IDT (summer)
     - cron: "7 5 * * 0"   # 07:07 IST (winter)
+    # Heartbeat catch-net: GitHub silently drops/delays the primary fire often.
+    # Run hourly Sun 05:00-11:00 UTC (08:00-14:00 IL); .email_sent dedup makes
+    # every fire after the first a no-op, so this only sends once/week regardless.
+    - cron: "0 5-11 * * 0"
   workflow_dispatch: {}   # allow manual run from the Actions tab
 
 permissions:
