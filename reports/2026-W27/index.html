@@ -1,0 +1,864 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="theme-color" content="#1b1b1b">
+<title>טרנדים ב-AI 2026-W27</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Hebrew:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg: #1b1b1b;
+    --bg-elevated: #232323;
+    --fg: #c5c1b9;
+    --fg-strong: #dcdad5;
+    --fg-muted: #a09d96;
+    --fg-subtle: #96928c;
+    --accent: #22c55e;
+    --accent-glow: rgba(34,197,94,0.6);
+    --accent-soft: rgba(34,197,94,0.12);
+    --accent-softer: rgba(34,197,94,0.04);
+    --accent-border: rgba(34,197,94,0.12);
+    --accent-border-hover: rgba(34,197,94,0.3);
+    --shadow-glow-md: 0 0 15px rgba(34,197,94,0.3), 0 0 40px rgba(34,197,94,0.1);
+    --text-glow: 0 0 8px rgba(34,197,94,0.6), 0 0 20px rgba(34,197,94,0.3);
+    --font-sans: 'Noto Sans Hebrew', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+    --radius-sm: 8px;
+    --radius-md: 12px;
+    --radius-lg: 16px;
+    --radius-pill: 999px;
+    --transition: 0.3s cubic-bezier(0.4,0,0.2,1);
+    --transition-fast: 0.15s cubic-bezier(0.4,0,0.2,1);
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html { -webkit-text-size-adjust: 100%; }
+
+  body {
+    background: var(--bg);
+    color: var(--fg);
+    font-family: var(--font-sans);
+    font-size: clamp(1rem, 2vw, 1.0625rem);
+    line-height: 1.7;
+    padding-top: env(safe-area-inset-top);
+    padding-bottom: env(safe-area-inset-bottom);
+  }
+
+  /* ── GRID BACKGROUND ── */
+  body::before {
+    content: '';
+    position: fixed;
+    inset: 0;
+    z-index: 0;
+    pointer-events: none;
+    background-image:
+      linear-gradient(rgba(34,197,94,0.03) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(34,197,94,0.03) 1px, transparent 1px);
+    background-size: 40px 40px;
+    mask-image: radial-gradient(ellipse 80% 60% at 50% 0%, black 40%, transparent 100%);
+    -webkit-mask-image: radial-gradient(ellipse 80% 60% at 50% 0%, black 40%, transparent 100%);
+  }
+
+  .wrap {
+    position: relative;
+    z-index: 1;
+    max-width: 720px;
+    margin: 0 auto;
+    padding: 24px 16px 80px;
+  }
+
+  /* ── TOP BAR ── */
+  .top-bar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 16px;
+    gap: 10px;
+  }
+  .lang-btn, .share-btn {
+    background: var(--accent-softer);
+    border: 1px solid var(--accent-border);
+    border-radius: var(--radius-pill);
+    color: var(--accent);
+    font-family: var(--font-sans);
+    font-size: 0.8rem;
+    font-weight: 600;
+    letter-spacing: 0.5px;
+    padding: 7px 16px;
+    cursor: pointer;
+    transition: all var(--transition-fast);
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    min-height: 44px;
+    -webkit-tap-highlight-color: transparent;
+  }
+  .lang-btn:hover, .share-btn:hover {
+    background: var(--accent-soft);
+    border-color: var(--accent);
+    box-shadow: 0 0 10px var(--accent-glow);
+  }
+  .share-btn svg { width: 16px; height: 16px; stroke: var(--accent); }
+  .share-btn.copied { background: var(--accent-soft); }
+  .share-copied {
+    font-size: 0.72rem;
+    color: var(--accent);
+    margin-top: 4px;
+    text-align: center;
+    opacity: 0;
+    transition: opacity 0.3s;
+  }
+  .share-copied.show { opacity: 1; }
+
+  /* ── HEADER ── */
+  .site-header { margin-bottom: 24px; }
+  .header-eyebrow {
+    font-size: 0.8rem;
+    font-weight: 500;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: var(--accent);
+    text-shadow: var(--text-glow);
+    margin-bottom: 6px;
+  }
+  .header-title {
+    font-size: clamp(1.6rem, 4vw, 2.2rem);
+    font-weight: 700;
+    color: var(--fg-strong);
+    line-height: 1.3;
+    text-shadow: 0 0 30px rgba(34,197,94,0.1);
+    margin-bottom: 4px;
+  }
+  .header-sub {
+    font-size: 0.875rem;
+    color: var(--fg-muted);
+    font-weight: 300;
+  }
+
+  /* ── CUSTOM AUDIO PLAYER ── */
+  .player {
+    position: sticky;
+    top: 0;
+    z-index: 10;
+    background: rgba(27,27,27,0.92);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border-bottom: 1px solid var(--accent-border);
+    padding: 12px 16px;
+    margin: 0 -16px 24px;
+  }
+  .player audio { display: none; }
+
+  .player-ui {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+  }
+  .player-btn {
+    flex-shrink: 0;
+    width: 44px;
+    height: 44px;
+    border-radius: 50%;
+    background: var(--accent);
+    border: none;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all var(--transition-fast);
+    box-shadow: 0 0 12px rgba(34,197,94,0.4);
+  }
+  .player-btn:hover {
+    transform: scale(1.08);
+    box-shadow: 0 0 20px rgba(34,197,94,0.6);
+  }
+  .player-btn svg { width: 18px; height: 18px; fill: #0a1a0f; }
+
+  .player-center { flex: 1; min-width: 0; }
+  .player-track {
+    font-size: 0.8rem;
+    font-weight: 500;
+    color: var(--fg-strong);
+    margin-bottom: 6px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+  .player-progress-wrap {
+    position: relative;
+    height: 4px;
+    background: rgba(255,255,255,0.1);
+    border-radius: 2px;
+    cursor: pointer;
+    overflow: hidden;
+  }
+  .player-progress-bar {
+    height: 100%;
+    width: 0%;
+    background: var(--accent);
+    border-radius: 2px;
+    box-shadow: 0 0 6px var(--accent-glow);
+    transition: width 0.1s linear;
+    pointer-events: none;
+  }
+  .player-progress-wrap:hover .player-progress-bar {
+    box-shadow: 0 0 12px var(--accent-glow);
+  }
+
+  .player-time {
+    font-size: 0.72rem;
+    color: var(--fg-subtle);
+    white-space: nowrap;
+    flex-shrink: 0;
+    font-variant-numeric: tabular-nums;
+    min-width: 70px;
+    text-align: center;
+  }
+
+  .player-hint {
+    font-size: 0.72rem;
+    color: var(--fg-subtle);
+    margin-top: 7px;
+    letter-spacing: 0.3px;
+  }
+
+  /* ── RUN NOTES ── */
+  .run-notes {
+    background: var(--accent-softer);
+    border: 1px solid var(--accent-border);
+    border-right: 3px solid var(--accent);
+    border-radius: var(--radius-md) 0 0 var(--radius-md);
+    padding: 12px 16px;
+    margin-bottom: 24px;
+    font-size: 0.875rem;
+    color: var(--fg-strong);
+  }
+  [dir="ltr"] .run-notes {
+    border-right: 1px solid var(--accent-border);
+    border-left: 3px solid var(--accent);
+    border-radius: 0 var(--radius-md) var(--radius-md) 0;
+  }
+  .run-notes ul { padding-right: 20px; margin-top: 6px; }
+  [dir="ltr"] .run-notes ul { padding-right: 0; padding-left: 20px; }
+
+  /* ── CARDS ── */
+  .card {
+    position: relative;
+    background: var(--accent-softer);
+    border: 1px solid var(--accent-border);
+    border-radius: var(--radius-lg);
+    margin-bottom: 16px;
+    transition: border-color var(--transition), background var(--transition), box-shadow var(--transition);
+  }
+  .card:hover {
+    border-color: var(--accent-border-hover);
+    background: rgba(34,197,94,0.07);
+    box-shadow: var(--shadow-glow-md), 0 12px 32px rgba(0,0,0,0.25);
+  }
+
+  .card__rank {
+    position: absolute;
+    top: -1px;
+    right: 20px;
+    background: var(--accent);
+    color: #0a1a0f;
+    font-size: 0.75rem;
+    font-weight: 700;
+    letter-spacing: 0.5px;
+    padding: 3px 10px;
+    border-radius: 0 0 var(--radius-sm) var(--radius-sm);
+  }
+  [dir="ltr"] .card__rank { right: auto; left: 20px; }
+
+  .card__body { padding: 28px 20px 20px; }
+
+  /* card header: title block + star stat */
+  .card__header {
+    display: flex;
+    align-items: flex-start;
+    gap: 12px;
+    margin-bottom: 10px;
+  }
+  .card__title-block { flex: 1; min-width: 0; }
+  .card__eyebrow {
+    font-size: 0.78rem;
+    font-weight: 500;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    color: var(--accent);
+    text-shadow: var(--text-glow);
+    margin-bottom: 4px;
+  }
+  .card__title {
+    font-size: 1.1rem;
+    font-weight: 600;
+    line-height: 1.35;
+  }
+  .card__title a {
+    color: var(--fg-strong);
+    text-decoration: none;
+    transition: color var(--transition-fast);
+    word-break: break-word;
+  }
+  .card__title a:hover { color: var(--accent); }
+  .card__org {
+    color: var(--fg-muted);
+    font-weight: 400;
+  }
+
+  .card__stats {
+    flex-shrink: 0;
+    text-align: center;
+    background: var(--accent-soft);
+    border: 1px solid var(--accent-border);
+    border-radius: var(--radius-md);
+    padding: 8px 12px;
+    min-width: 56px;
+  }
+  .card__stars {
+    color: #f0c674;
+    font-size: 1.1rem;
+    line-height: 1;
+  }
+  .stars-num {
+    display: block;
+    font-size: 0.85rem;
+    font-weight: 700;
+    color: var(--fg-strong);
+    margin-top: 2px;
+  }
+
+  .card__meta {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 4px 14px;
+    font-size: 0.78rem;
+    color: var(--fg-subtle);
+    margin-bottom: 10px;
+  }
+  .meta-icon { opacity: 0.5; }
+
+  .card__tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+    margin-bottom: 16px;
+  }
+  .tag {
+    display: inline-block;
+    padding: 3px 10px;
+    border-radius: var(--radius-pill);
+    background: var(--accent-soft);
+    border: 1px solid var(--accent-border);
+    color: var(--accent);
+    font-size: 0.72rem;
+    font-weight: 500;
+    letter-spacing: 0.3px;
+    white-space: nowrap;
+    transition: all var(--transition-fast);
+  }
+  .tag:hover {
+    background: rgba(34,197,94,0.16);
+    border-color: var(--accent);
+    box-shadow: 0 0 10px var(--accent-glow);
+  }
+
+  /* ── BRIEF SECTIONS ── */
+  .card__content { display: flex; flex-direction: column; gap: 0; }
+
+  .brief-section {
+    padding: 10px 0;
+    border-top: 1px solid var(--accent-border);
+  }
+  .brief-section:first-child { border-top: none; padding-top: 0; }
+
+  .brief-label {
+    font-size: 0.75rem;
+    font-weight: 600;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    color: var(--accent);
+    text-shadow: var(--text-glow);
+    margin-bottom: 4px;
+  }
+  .brief-text {
+    font-size: 0.9375rem;
+    color: var(--fg-muted);
+    font-weight: 300;
+    line-height: 1.7;
+  }
+
+  /* "Why it matters" gets a highlight treatment */
+  .brief-section--matters {
+    background: var(--accent-soft);
+    border: 1px solid var(--accent-border);
+    border-radius: var(--radius-md);
+    padding: 10px 14px;
+    margin-top: 8px;
+  }
+  .brief-section--matters .brief-label { margin-bottom: 3px; }
+  .brief-section--matters .brief-text {
+    color: var(--fg-strong);
+    font-weight: 400;
+  }
+
+  .desc { font-size: 0.9375rem; color: var(--fg-muted); font-weight: 300; line-height: 1.7; }
+  .label { color: var(--accent); font-weight: 600; }
+
+  /* ── FOOTER ── */
+  .site-footer {
+    margin-top: 40px;
+    font-size: 0.78rem;
+    color: var(--fg-subtle);
+    text-align: center;
+    border-top: 1px solid var(--accent-border);
+    padding-top: 20px;
+  }
+  a { color: var(--accent); }
+
+  /* ── MOBILE SAFETY ── */
+  img, video, audio { max-width: 100%; }
+  .card__title a { word-break: break-word; }
+  @media (max-width: 480px) {
+    .card__body { padding: 28px 14px 16px; }
+    .card__stats { padding: 6px 10px; min-width: 50px; }
+    .player-time { display: none; }
+  }
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <div class="top-bar">
+    <button class="lang-btn" id="langToggle" onclick="toggleLang()">EN</button>
+    <button class="share-btn" id="shareBtn" onclick="shareReport()" aria-label="Share">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <circle cx="18" cy="5" r="3"/><circle cx="6" cy="12" r="3"/><circle cx="18" cy="19" r="3"/>
+        <line x1="8.59" y1="13.51" x2="15.42" y2="17.49"/>
+        <line x1="15.41" y1="6.51" x2="8.59" y2="10.49"/>
+      </svg>
+      <span class="share-label i18n" data-he="שתף" data-en="Share">שתף</span>
+    </button>
+  </div>
+
+  <header class="site-header">
+    <p class="header-eyebrow i18n" data-he="עיכול AI שבועי" data-en="Weekly AI Digest">עיכול AI שבועי</p>
+    <h1 class="header-title i18n" data-he="&#128293; טרנד ב-AI/LLM" data-en="&#128293; Trending AI/LLM Repos">&#128293; טרנד ב-AI/LLM</h1>
+    <p class="header-sub">2026-W27 &middot; 2026-07-03</p>
+  </header>
+
+  <div class="player">
+    <audio id="audio" src="report.mp3" preload="none"></audio>
+    <div class="player-ui">
+      <button class="player-btn" id="playBtn" onclick="togglePlay()" aria-label="Play">
+        <svg id="iconPlay" viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
+        <svg id="iconPause" viewBox="0 0 24 24" style="display:none"><path d="M6 19h4V5H6zm8-14v14h4V5z"/></svg>
+      </button>
+      <div class="player-center">
+        <div class="player-track i18n" data-he="&#127911; האזן בדרך לעבודה" data-en="&#127911; Listen on your commute">&#127911; האזן בדרך לעבודה</div>
+        <div class="player-progress-wrap" id="progressWrap" onclick="seek(event)">
+          <div class="player-progress-bar" id="progressBar"></div>
+        </div>
+      </div>
+      <div class="player-time" id="playerTime">0:00 / 0:00</div>
+    </div>
+    <p class="player-hint i18n" data-he="לחץ להפעלה · גלול למטה לקריאה" data-en="Tap to play · scroll to read">לחץ להפעלה · גלול למטה לקריאה</p>
+  </div>
+
+  
+
+  <main id="repoList">
+
+    <article class="card">
+      <div class="card__rank">#1</div>
+      <div class="card__body">
+
+        <div class="card__header">
+          <div class="card__title-block">
+            <p class="card__eyebrow">Java</p>
+            <h2 class="card__title">
+              <a href="https://github.com/OtterMind/Nubase" target="_blank" rel="noopener">
+                <span class="card__org">OtterMind/</span>Nubase
+              </a>
+            </h2>
+          </div>
+          <div class="card__stats">
+            <span class="card__stars">&#9733;<br><span class="stars-num">448</span></span>
+          </div>
+        </div>
+
+        <div class="card__meta">
+          <span class="meta-item"><span class="meta-icon">&#128197;</span> 2026-06-08</span>
+          <span class="meta-item"><span class="meta-icon">&#9679;</span> push 2026-07-02</span>
+        </div>
+
+        <div class="card__tags"><span class="tag">agent</span><span class="tag">ai</span><span class="tag">ai-agents</span><span class="tag">claude-code</span></div>
+
+        <div class="card__content"><div class="brief-section"><p class="brief-label" data-he="מה זה עושה" data-en="What it does">מה זה עושה</p><p class="brief-text i18n" data-he="Nubase היא פלטפורמת בקאנד קוד-פתוח ועצמאית, בנויה במיוחד לסוכני AI. היא כוללת מסד נתונים (Postgres עם REST API), אימות, אחסון, CDN סטטי, פונקציות ענן, שער AI, זיכרון (חילוץ עובדות עם LLM), וסידור עבודות כל אלה בתוך קובץ Docker אחד. הסוכנים מתחברים דרך כלי MCP ו-Skills של Claude Code או Codex." data-en="Nubase is an open-source, self-hostable backend platform built specifically for AI coding agents. It packages Database (Postgres with REST API), Auth, Storage, Assets (static CDN), Functions (edge functions), AI Gateway, Memory (LLM fact extraction plus hybrid retrieval), and cron scheduling in one Docker image. Agents connect via MCP tools and Skills for Claude Code or Codex.">Nubase היא פלטפורמת בקאנד קוד-פתוח ועצמאית, בנויה במיוחד לסוכני AI. היא כוללת מסד נתונים (Postgres עם REST API), אימות, אחסון, CDN סטטי, פונקציות ענן, שער AI, זיכרון (חילוץ עובדות עם LLM), וסידור עבודות כל אלה בתוך קובץ Docker אחד. הסוכנים מתחברים דרך כלי MCP ו-Skills של Claude Code או Codex.</p></div><div class="brief-section"><p class="brief-label" data-he="למה זה בטרנד" data-en="Why it&#x27;s trending">למה זה בטרנד</p><p class="brief-text i18n" data-he="הוא סוגר את הפער בין &amp;#x27;AI יוצר הדגמה&amp;#x27; ל&amp;#x27;AI מפיס אפליקציה אמיתית&amp;#x27;. כעת סוכן יכול לדגמן נתונים, לפרוס פונקציות ענן, לפרסם ממשק משתמש ל-CDN ולתזמן עבודות הכל דרך משטח MCP יחיד, ללא חשבון אחסון נפרד." data-en="It bridges the gap between &amp;#x27;AI generates a demo&amp;#x27; and &amp;#x27;AI deploys a real app.&amp;#x27; An agent can now model data, deploy edge functions, publish a frontend to a CDN, and schedule jobs from a single MCP surface, without a separate hosting account. It positions itself as a Supabase alternative designed from the ground up for agentic workflows.">הוא סוגר את הפער בין &#x27;AI יוצר הדגמה&#x27; ל&#x27;AI מפיס אפליקציה אמיתית&#x27;. כעת סוכן יכול לדגמן נתונים, לפרוס פונקציות ענן, לפרסם ממשק משתמש ל-CDN ולתזמן עבודות הכל דרך משטח MCP יחיד, ללא חשבון אחסון נפרד.</p></div><div class="brief-section"><p class="brief-label" data-he="דוגמת שימוש" data-en="Example use case">דוגמת שימוש</p><p class="brief-text i18n" data-he="בקש מסוכן: &amp;#x27;צור טבלת todos עם RLS, פרוס פונקציית ענן שמחזירה את הספירה הפתוחה, פרסם ממשק חד-עמודי שקורא אליה, וזכור את הפריסה.&amp;#x27; הסוכן מסיים את כל השלבים דרך כלי MCP של Nubase מבלי לצאת מהטרמינל." data-en="Ask a coding agent: &amp;#x27;Create a todos table with RLS, deploy an edge function that returns the open count, publish a one-page UI that calls it, and remember the deployment.&amp;#x27; The agent completes all steps through Nubase MCP tools without leaving the terminal.">בקש מסוכן: &#x27;צור טבלת todos עם RLS, פרוס פונקציית ענן שמחזירה את הספירה הפתוחה, פרסם ממשק חד-עמודי שקורא אליה, וזכור את הפריסה.&#x27; הסוכן מסיים את כל השלבים דרך כלי MCP של Nubase מבלי לצאת מהטרמינל.</p></div><div class="brief-section brief-section--matters"><p class="brief-label" data-he="למה זה רלוונטי לך" data-en="Why it matters for you">למה זה רלוונטי לך</p><p class="brief-text i18n" data-he="אם אתה בונה אפליקציות מבוססות AI עם Claude Code או Codex, Nubase מעניקה לך יעד בקאנד עצמאי מלא עם זיכרון מובנה, חיפוש RAG ושילוב MCP, ומחליפה את Supabase בחלופה AI-נייטיב שסוכנים יכולים להפעיל ישירות." data-en="If you build AI-powered apps with Claude Code or Codex, Nubase gives you a complete self-hosted backend target with built-in memory, RAG retrieval, and MCP integration, replacing Supabase with an AI-native alternative that agents can operate directly.">אם אתה בונה אפליקציות מבוססות AI עם Claude Code או Codex, Nubase מעניקה לך יעד בקאנד עצמאי מלא עם זיכרון מובנה, חיפוש RAG ושילוב MCP, ומחליפה את Supabase בחלופה AI-נייטיב שסוכנים יכולים להפעיל ישירות.</p></div></div>
+
+      </div>
+    </article>
+
+    <article class="card">
+      <div class="card__rank">#2</div>
+      <div class="card__body">
+
+        <div class="card__header">
+          <div class="card__title-block">
+            <p class="card__eyebrow">TypeScript</p>
+            <h2 class="card__title">
+              <a href="https://github.com/inkeep/open-knowledge" target="_blank" rel="noopener">
+                <span class="card__org">inkeep/</span>open-knowledge
+              </a>
+            </h2>
+          </div>
+          <div class="card__stats">
+            <span class="card__stars">&#9733;<br><span class="stars-num">1,810</span></span>
+          </div>
+        </div>
+
+        <div class="card__meta">
+          <span class="meta-item"><span class="meta-icon">&#128197;</span> 2026-06-03</span>
+          <span class="meta-item"><span class="meta-icon">&#9679;</span> push 2026-07-03</span>
+        </div>
+
+        <div class="card__tags"><span class="tag">2nd-brain</span><span class="tag">agent-skills</span><span class="tag">claude</span><span class="tag">codex</span></div>
+
+        <div class="card__content"><div class="brief-section"><p class="brief-label" data-he="מה זה עושה" data-en="What it does">מה זה עושה</p><p class="brief-text i18n" data-he="OpenKnowledge הוא עורך Markdown עם WYSIWYG ו-LLM Wiki עם שילוב מלא של סוכנים. הוא פועל כאפליקציית macOS או כאפליקציית ווב מקומית. הפקודה &amp;#x27;ok init&amp;#x27; בכל תיקייה מגדירה אוטומטית MCP ו-Skills עבור Claude Code, Cursor ו-Codex. הוא תומך ב-Obsidian vaults, second-brain ותרשימי ידע עם חיפוש אגנטי מובנה." data-en="OpenKnowledge is a WYSIWYG markdown editor and LLM wiki with full agent integration. It works as a macOS desktop app or a local web app (CLI). Running &amp;#x27;ok init&amp;#x27; in any folder auto-configures MCP and skills for Claude Code, Cursor, and Codex. It supports Obsidian vaults, second-brain setups, and knowledge graphs with agentic search built in.">OpenKnowledge הוא עורך Markdown עם WYSIWYG ו-LLM Wiki עם שילוב מלא של סוכנים. הוא פועל כאפליקציית macOS או כאפליקציית ווב מקומית. הפקודה &#x27;ok init&#x27; בכל תיקייה מגדירה אוטומטית MCP ו-Skills עבור Claude Code, Cursor ו-Codex. הוא תומך ב-Obsidian vaults, second-brain ותרשימי ידע עם חיפוש אגנטי מובנה.</p></div><div class="brief-section"><p class="brief-label" data-he="למה זה בטרנד" data-en="Why it&#x27;s trending">למה זה בטרנד</p><p class="brief-text i18n" data-he="הוא מגשר בין ניהול ידע אישי ובין תהליכי עבודה של סוכני AI. הפתקים שלך הופכים לבסיס ידע חי, ניתן לחיפוש ועריכה על-ידי סוכנים. השילוב של עריכת WYSIWYG, תאימות ל-Obsidian, שילוב MCP וסנכרון git לצוות באפליקציה חינמית אחת הוא ייחודי בשוק." data-en="It bridges personal knowledge management and AI agent workflows. Your notes become a live, searchable, agent-editable knowledge base. The combination of WYSIWYG editing, Obsidian compatibility, MCP integration, and team git sync in one free app is unique in the market.">הוא מגשר בין ניהול ידע אישי ובין תהליכי עבודה של סוכני AI. הפתקים שלך הופכים לבסיס ידע חי, ניתן לחיפוש ועריכה על-ידי סוכנים. השילוב של עריכת WYSIWYG, תאימות ל-Obsidian, שילוב MCP וסנכרון git לצוות באפליקציה חינמית אחת הוא ייחודי בשוק.</p></div><div class="brief-section"><p class="brief-label" data-he="דוגמת שימוש" data-en="Example use case">דוגמת שימוש</p><p class="brief-text i18n" data-he="הרץ &amp;#x27;ok init&amp;#x27; בתיקיית ה-Obsidian vault שלך. ל-Claude Code יש כעת גישת MCP לקריאה ועריכה של הפתקים שלך. בקש מהסוכן לסכם נושא מה-vault, ליצור פתק חדש ממאמר ברשת, או לבנות תרשים ידע שמקשר מושגים קשורים." data-en="Run &amp;#x27;ok init&amp;#x27; in your Obsidian vault folder. Claude Code now has MCP access to read and edit your notes. Ask the agent to summarize a topic from your vault, create a new note from a web article, or build a knowledge graph linking related concepts.">הרץ &#x27;ok init&#x27; בתיקיית ה-Obsidian vault שלך. ל-Claude Code יש כעת גישת MCP לקריאה ועריכה של הפתקים שלך. בקש מהסוכן לסכם נושא מה-vault, ליצור פתק חדש ממאמר ברשת, או לבנות תרשים ידע שמקשר מושגים קשורים.</p></div><div class="brief-section brief-section--matters"><p class="brief-label" data-he="למה זה רלוונטי לך" data-en="Why it matters for you">למה זה רלוונטי לך</p><p class="brief-text i18n" data-he="ה-Obsidian vault שלך הופך לאזרח מדרגה ראשונה בסשני ה-AI שלך. הסוכנים יכולים לקרוא, לעדכן ולחפש במערכת ה-PKM שלך ישירות דרך MCP, ומנגישים את הידע הצבור שלך לכל משימת סוכן." data-en="Your Obsidian vault becomes a first-class citizen in your AI coding sessions. Agents can read, update, and search your PKM system directly through MCP, making your accumulated knowledge accessible and useful to every agent task.">ה-Obsidian vault שלך הופך לאזרח מדרגה ראשונה בסשני ה-AI שלך. הסוכנים יכולים לקרוא, לעדכן ולחפש במערכת ה-PKM שלך ישירות דרך MCP, ומנגישים את הידע הצבור שלך לכל משימת סוכן.</p></div></div>
+
+      </div>
+    </article>
+
+    <article class="card">
+      <div class="card__rank">#3</div>
+      <div class="card__body">
+
+        <div class="card__header">
+          <div class="card__title-block">
+            <p class="card__eyebrow">Python</p>
+            <h2 class="card__title">
+              <a href="https://github.com/omnigent-ai/omnigent" target="_blank" rel="noopener">
+                <span class="card__org">omnigent-ai/</span>omnigent
+              </a>
+            </h2>
+          </div>
+          <div class="card__stats">
+            <span class="card__stars">&#9733;<br><span class="stars-num">6,116</span></span>
+          </div>
+        </div>
+
+        <div class="card__meta">
+          <span class="meta-item"><span class="meta-icon">&#128197;</span> 2026-06-11</span>
+          <span class="meta-item"><span class="meta-icon">&#9679;</span> push 2026-07-03</span>
+        </div>
+
+        <div class="card__tags"><span class="tag">agent-framework</span><span class="tag">agent-orchestration</span><span class="tag">agents</span><span class="tag">ai-agent</span></div>
+
+        <div class="card__content"><div class="brief-section"><p class="brief-label" data-he="מה זה עושה" data-en="What it does">מה זה עושה</p><p class="brief-text i18n" data-he="Omnigent היא מטא-רתמה קוד-פתוח שמספקת שכבת תזמור משותפת על Claude Code, Codex, Cursor, OpenCode, Hermes, Pi וסוכנים מותאמים אישית. הסשנים מסתנכרנים בין הטרמינל, הדפדפן והטלפון. היא תומכת בסביבות ענן (Modal, E2B, Kubernetes), שיתוף פעולה בזמן אמת ומדיניות ממשל (אישור לפני פעולות מסוכנות, הגבלת הוצאות, הגבלת כלים)." data-en="Omnigent is an open-source meta-harness that provides a common orchestration layer over Claude Code, Codex, Cursor, OpenCode, Hermes, Pi, and custom YAML-defined agents. Sessions sync across terminal, browser, and phone. It supports cloud sandboxes (Modal, Daytona, E2B, Kubernetes), real-time collaboration, and policy governance (approve before risky actions, cap spend, limit tool access).">Omnigent היא מטא-רתמה קוד-פתוח שמספקת שכבת תזמור משותפת על Claude Code, Codex, Cursor, OpenCode, Hermes, Pi וסוכנים מותאמים אישית. הסשנים מסתנכרנים בין הטרמינל, הדפדפן והטלפון. היא תומכת בסביבות ענן (Modal, E2B, Kubernetes), שיתוף פעולה בזמן אמת ומדיניות ממשל (אישור לפני פעולות מסוכנות, הגבלת הוצאות, הגבלת כלים).</p></div><div class="brief-section"><p class="brief-label" data-he="למה זה בטרנד" data-en="Why it&#x27;s trending">למה זה בטרנד</p><p class="brief-text i18n" data-he="הוא פותר את בעיית תיאום הסוכנים המרובים כאשר צוותים מאמצים מספר כלי AI במקביל. במקום לעבור בין Claude Code, Codex ו-Cursor, אפשר להריץ אותם יחד, להקצות משימות לפי חוזקות הסוכן, ולנהל מכל מכשיר כולל הטלפון." data-en="It solves multi-agent coordination as teams adopt several AI coding tools simultaneously. Instead of context-switching between Claude Code, Codex, and Cursor, you run them together under one roof, assign tasks by agent strength, and supervise from any device including your phone.">הוא פותר את בעיית תיאום הסוכנים המרובים כאשר צוותים מאמצים מספר כלי AI במקביל. במקום לעבור בין Claude Code, Codex ו-Cursor, אפשר להריץ אותם יחד, להקצות משימות לפי חוזקות הסוכן, ולנהל מכל מכשיר כולל הטלפון.</p></div><div class="brief-section"><p class="brief-label" data-he="דוגמת שימוש" data-en="Example use case">דוגמת שימוש</p><p class="brief-text i18n" data-he="פתח סשן בטרמינל, הקצה ל-Claude Code לבנות את הבקאנד ול-Codex לכתוב בדיקות. שתף את הסשן עם עמית שיכול לשלוח הוראות דרך הדפדפן. המשך לסקור את התקדמות הסוכנים בטלפון בזמן נסיעה, ואז חזור לטרמינל עם ההגעה." data-en="Start a session in terminal and assign Claude Code to build the backend while Codex writes tests. Share the session with a colleague who can send instructions via browser. Continue reviewing the agents progress on your phone while commuting, then resume in the terminal when you arrive.">פתח סשן בטרמינל, הקצה ל-Claude Code לבנות את הבקאנד ול-Codex לכתוב בדיקות. שתף את הסשן עם עמית שיכול לשלוח הוראות דרך הדפדפן. המשך לסקור את התקדמות הסוכנים בטלפון בזמן נסיעה, ואז חזור לטרמינל עם ההגעה.</p></div><div class="brief-section brief-section--matters"><p class="brief-label" data-he="למה זה רלוונטי לך" data-en="Why it matters for you">למה זה רלוונטי לך</p><p class="brief-text i18n" data-he="אם אתה משתמש גם ב-Claude Code וגם בסוכנים נוספים, Omnigent מאפשרת לך לנהל ולתזמר אותם ממשק אחד, כולל מהטלפון, עם בקרות מדיניות שמונעות מסוכנים לבצע שינויים הרסניים." data-en="If you use both Claude Code and other agents, Omnigent lets you supervise and orchestrate them from a single interface, including from your phone, with policy controls that prevent runaway agents from making destructive changes.">אם אתה משתמש גם ב-Claude Code וגם בסוכנים נוספים, Omnigent מאפשרת לך לנהל ולתזמר אותם ממשק אחד, כולל מהטלפון, עם בקרות מדיניות שמונעות מסוכנים לבצע שינויים הרסניים.</p></div></div>
+
+      </div>
+    </article>
+
+    <article class="card">
+      <div class="card__rank">#4</div>
+      <div class="card__body">
+
+        <div class="card__header">
+          <div class="card__title-block">
+            <p class="card__eyebrow">TypeScript</p>
+            <h2 class="card__title">
+              <a href="https://github.com/tigicion/dao-code" target="_blank" rel="noopener">
+                <span class="card__org">tigicion/</span>dao-code
+              </a>
+            </h2>
+          </div>
+          <div class="card__stats">
+            <span class="card__stars">&#9733;<br><span class="stars-num">1,371</span></span>
+          </div>
+        </div>
+
+        <div class="card__meta">
+          <span class="meta-item"><span class="meta-icon">&#128197;</span> 2026-06-08</span>
+          <span class="meta-item"><span class="meta-icon">&#9679;</span> push 2026-07-01</span>
+        </div>
+
+        <div class="card__tags"><span class="tag">ai-agent</span><span class="tag">cli</span><span class="tag">coding-agent</span><span class="tag">deepseek</span></div>
+
+        <div class="card__content"><div class="brief-section"><p class="brief-label" data-he="מה זה עושה" data-en="What it does">מה זה עושה</p><p class="brief-text i18n" data-he="Dao Code הוא סוכן קידוד טרמינל קוד-פתוח שנבנה סביב DeepSeek V4 (הקשר של 1M טוקנים). הוא מהנדס קידומות מערכת יציבות לרמת cache hit של 95.8% בממוצע, ומוריד את עלות פיצ&amp;#x27;ר שלם לכ-0.15 יואן (כ-0.02 דולר). הוא תואם לפורמט Claude Code: Skills, MCP, Hooks וסוכנים מותאמים." data-en="Dao Code is an open-source terminal coding agent built around DeepSeek V4 (1M context). It engineers byte-stable system prefixes for a 95.8% aggregate cache hit rate across real benchmarks, dropping the cost of a complete feature (read, edit, test, self-review) to approximately 0.15 yuan ($0.02). It is compatible with Claude Code config format: Skills, MCP (stdio and HTTP/SSE), Hooks, and custom subagents.">Dao Code הוא סוכן קידוד טרמינל קוד-פתוח שנבנה סביב DeepSeek V4 (הקשר של 1M טוקנים). הוא מהנדס קידומות מערכת יציבות לרמת cache hit של 95.8% בממוצע, ומוריד את עלות פיצ&#x27;ר שלם לכ-0.15 יואן (כ-0.02 דולר). הוא תואם לפורמט Claude Code: Skills, MCP, Hooks וסוכנים מותאמים.</p></div><div class="brief-section"><p class="brief-label" data-he="למה זה בטרנד" data-en="Why it&#x27;s trending">למה זה בטרנד</p><p class="brief-text i18n" data-he="בנצ&amp;#x27;מרקים על תיקוני באגים אמיתיים (7 משימות בסגנון SWE-bench, 3.89M טוקנים) מראים כ-30 פעמים זול יותר מ-Claude Opus וכ-18 פעמים זול יותר מ-Sonnet. זיכרון בין-סשני עם אימות בהפעלה ושכבת תיקון עצמי פועלים כ-forks שמשתמשים מחדש ב-cache כמעט ללא עלות נוספת." data-en="Benchmarks on real open-source bug fixes (SWE-bench style, 7 tasks, 3.89M tokens) show approximately 30x cheaper than Claude Opus and approximately 18x cheaper than Sonnet. Cross-session memory with startup verification (stale facts pruned, changed ones flagged) and a self-correction layer run as cache-reusing forks at minimal extra cost.">בנצ&#x27;מרקים על תיקוני באגים אמיתיים (7 משימות בסגנון SWE-bench, 3.89M טוקנים) מראים כ-30 פעמים זול יותר מ-Claude Opus וכ-18 פעמים זול יותר מ-Sonnet. זיכרון בין-סשני עם אימות בהפעלה ושכבת תיקון עצמי פועלים כ-forks שמשתמשים מחדש ב-cache כמעט ללא עלות נוספת.</p></div><div class="brief-section"><p class="brief-label" data-he="דוגמת שימוש" data-en="Example use case">דוגמת שימוש</p><p class="brief-text i18n" data-he="התקן את Dao Code עם מפתח DeepSeek API שלך. ה-Skills וה-MCP configs הקיימים מ-Claude Code מועברים ישירות. הרץ משימת פיצ&amp;#x27;ר שעולה בדרך כלל 0.30-0.60 דולר עם Sonnet ושלם במקום כ-0.02 דולר. השתמש ב-&amp;#x27;/cost&amp;#x27; לראות את קצב ה-cache hit והעלויות בזמן אמת." data-en="Install Dao Code with your DeepSeek API key. Your existing Skills and MCP configs from Claude Code transfer directly. Run a feature task that normally costs $0.30-0.60 with Sonnet and pay approximately $0.02 instead. Use &amp;#x27;/cost&amp;#x27; to see the live cache hit rate and spend breakdown.">התקן את Dao Code עם מפתח DeepSeek API שלך. ה-Skills וה-MCP configs הקיימים מ-Claude Code מועברים ישירות. הרץ משימת פיצ&#x27;ר שעולה בדרך כלל 0.30-0.60 דולר עם Sonnet ושלם במקום כ-0.02 דולר. השתמש ב-&#x27;/cost&#x27; לראות את קצב ה-cache hit והעלויות בזמן אמת.</p></div><div class="brief-section brief-section--matters"><p class="brief-label" data-he="למה זה רלוונטי לך" data-en="Why it matters for you">למה זה רלוונטי לך</p><p class="brief-text i18n" data-he="ה-Skills, ה-MCP וההגדרות של Claude Code שלך עוברות ל-Dao Code עם שינוי מינימלי. עבור משימות אגנטיות ארוכות או ניסויים בנפח גבוה שבהם העלות היא אתגר, מדובר בהפחתת עלויות של 18-30 פעמים תוך שמירה על אותו תהליך עבודה." data-en="Your existing Claude Code setup, Skills, and MCP integrations transfer to Dao Code with minimal friction. For long agentic tasks or high-volume experimentation where cost is a constraint, this is a 18-30x cost reduction while keeping the same workflow.">ה-Skills, ה-MCP וההגדרות של Claude Code שלך עוברות ל-Dao Code עם שינוי מינימלי. עבור משימות אגנטיות ארוכות או ניסויים בנפח גבוה שבהם העלות היא אתגר, מדובר בהפחתת עלויות של 18-30 פעמים תוך שמירה על אותו תהליך עבודה.</p></div></div>
+
+      </div>
+    </article>
+
+    <article class="card">
+      <div class="card__rank">#5</div>
+      <div class="card__body">
+
+        <div class="card__header">
+          <div class="card__title-block">
+            <p class="card__eyebrow">TypeScript</p>
+            <h2 class="card__title">
+              <a href="https://github.com/superloglabs/superlog" target="_blank" rel="noopener">
+                <span class="card__org">superloglabs/</span>superlog
+              </a>
+            </h2>
+          </div>
+          <div class="card__stats">
+            <span class="card__stars">&#9733;<br><span class="stars-num">975</span></span>
+          </div>
+        </div>
+
+        <div class="card__meta">
+          <span class="meta-item"><span class="meta-icon">&#128197;</span> 2026-06-02</span>
+          <span class="meta-item"><span class="meta-icon">&#9679;</span> push 2026-07-03</span>
+        </div>
+
+        <div class="card__tags"><span class="tag">ai</span><span class="tag">llm</span><span class="tag">memory</span><span class="tag">observability</span></div>
+
+        <div class="card__content"><div class="brief-section"><p class="brief-label" data-he="מה זה עושה" data-en="What it does">מה זה עושה</p><p class="brief-text i18n" data-he="Superlog היא פלטפורמת ניטור אגנטית קוד-פתוח (YC P26). היא קולטת נתוני OpenTelemetry (traces, logs, metrics), מקבצת אותם אוטומטית לאירועים, ושולחת סוכני AI לחקור ולתקן את התוכנה. המהדורה הקהילתית היא קוד-פתוח מלא ופועלת מקומית עם Postgres ו-ClickHouse." data-en="Superlog is an open-source agentic observability platform (Y Combinator P26). It ingests OpenTelemetry traces, logs, and metrics, groups noisy signals into incidents automatically, and dispatches AI agents to investigate and self-heal your software. The community edition is fully open-source and runs locally with Postgres and ClickHouse.">Superlog היא פלטפורמת ניטור אגנטית קוד-פתוח (YC P26). היא קולטת נתוני OpenTelemetry (traces, logs, metrics), מקבצת אותם אוטומטית לאירועים, ושולחת סוכני AI לחקור ולתקן את התוכנה. המהדורה הקהילתית היא קוד-פתוח מלא ופועלת מקומית עם Postgres ו-ClickHouse.</p></div><div class="brief-section"><p class="brief-label" data-he="למה זה בטרנד" data-en="Why it&#x27;s trending">למה זה בטרנד</p><p class="brief-text i18n" data-he="הוא הכלי הראשון קוד-פתוח שסוגר את הלולאה בין נתוני ניטור לתיקון אוטומטי על-ידי AI. במקום להתריע לאדם לחקור, הוא שולח סוכן שקורא את ה-trace, מאבחן את שורש הבעיה ומיישם או מציע תיקון. בגיבוי YC, הושק ביוני 2026." data-en="It is the first open-source tool that closes the loop between observability data and autonomous AI remediation. Rather than alerting a human to investigate, it sends an agent that reads the trace, diagnoses the root cause, and applies or proposes a fix. YC-backed, launched June 2026.">הוא הכלי הראשון קוד-פתוח שסוגר את הלולאה בין נתוני ניטור לתיקון אוטומטי על-ידי AI. במקום להתריע לאדם לחקור, הוא שולח סוכן שקורא את ה-trace, מאבחן את שורש הבעיה ומיישם או מציע תיקון. בגיבוי YC, הושק ביוני 2026.</p></div><div class="brief-section"><p class="brief-label" data-he="דוגמת שימוש" data-en="Example use case">דוגמת שימוש</p><p class="brief-text i18n" data-he="פרוס את Superlog לשירות הייצור שלך. כאשר נוצר עלייה בשיעור שגיאות ב-traces, Superlog מקבץ אותו לאירוע ושולח סוכן AI לתעד סיכום מקומי של האירוע. אתה מתעורר לאבחנה ולהצעת תיקון במקום לתראה גולמית." data-en="Deploy Superlog to your production service. When a spike in error rate appears in the traces, Superlog groups it into an incident and dispatches a community agent runner to record a local incident summary. You wake up to a diagnosis and a proposed fix instead of a raw alert.">פרוס את Superlog לשירות הייצור שלך. כאשר נוצר עלייה בשיעור שגיאות ב-traces, Superlog מקבץ אותו לאירוע ושולח סוכן AI לתעד סיכום מקומי של האירוע. אתה מתעורר לאבחנה ולהצעת תיקון במקום לתראה גולמית.</p></div><div class="brief-section brief-section--matters"><p class="brief-label" data-he="למה זה רלוונטי לך" data-en="Why it matters for you">למה זה רלוונטי לך</p><p class="brief-text i18n" data-he="Superlog מדגים את הדפוס של שימוש בסוכני AI לאוטומציה של תגובות מערכת ייצור באופן עצמאי. הבנת האופן שבו הוא בונה צינורות אגנטיים מעל נתוני ניטור יכולה לעצב כיצד תתכנן לולאות תיקון עצמי דומות במערכות AI משלך." data-en="Superlog demonstrates the pattern of using AI agents to automate production system responses autonomously. Understanding how it builds agentic pipelines over observability data can inform how you design similar self-correcting loops in your own AI-assisted systems.">Superlog מדגים את הדפוס של שימוש בסוכני AI לאוטומציה של תגובות מערכת ייצור באופן עצמאי. הבנת האופן שבו הוא בונה צינורות אגנטיים מעל נתוני ניטור יכולה לעצב כיצד תתכנן לולאות תיקון עצמי דומות במערכות AI משלך.</p></div></div>
+
+      </div>
+    </article>
+
+    <article class="card">
+      <div class="card__rank">#6</div>
+      <div class="card__body">
+
+        <div class="card__header">
+          <div class="card__title-block">
+            <p class="card__eyebrow">Go</p>
+            <h2 class="card__title">
+              <a href="https://github.com/duckbugio/flock" target="_blank" rel="noopener">
+                <span class="card__org">duckbugio/</span>flock
+              </a>
+            </h2>
+          </div>
+          <div class="card__stats">
+            <span class="card__stars">&#9733;<br><span class="stars-num">685</span></span>
+          </div>
+        </div>
+
+        <div class="card__meta">
+          <span class="meta-item"><span class="meta-icon">&#128197;</span> 2026-06-08</span>
+          <span class="meta-item"><span class="meta-icon">&#9679;</span> push 2026-07-02</span>
+        </div>
+
+        <div class="card__tags"><span class="tag">ai-agent</span><span class="tag">anthropic</span><span class="tag">autonomous-agents</span><span class="tag">claude</span></div>
+
+        <div class="card__content"><div class="brief-section"><p class="brief-label" data-he="מה זה עושה" data-en="What it does">מה זה עושה</p><p class="brief-text i18n" data-he="Flock הוא בוט עצמאי שמריץ צוות פיתוח של חמישה סוכני Claude Code (מתכנן, מתכנת, בודק, מבקר, בורר) ומניע אותו מצ&amp;#x27;אט Telegram או VK. תאר פיצ&amp;#x27;ר בצ&amp;#x27;אט; הצוות מתכנן, בונה ענף, מריץ בדיקות, סוקר ופותח PR לכל רפוזיטורי. עובד עם מנוי Claude Pro/Max (ללא חיוב לטוקן). מגיע כ-Docker image מוכן." data-en="Flock is a self-hosted bot that runs a five-agent Claude Code dev team (planner, coder, tester, reviewer, arbiter) and drives it from Telegram or VK chat. Describe a feature in chat; the team plans it, builds a branch, runs tests, reviews, and opens a PR per repository. Works on Claude Pro/Max subscription (no per-token billing). Ships as a prebuilt Docker image.">Flock הוא בוט עצמאי שמריץ צוות פיתוח של חמישה סוכני Claude Code (מתכנן, מתכנת, בודק, מבקר, בורר) ומניע אותו מצ&#x27;אט Telegram או VK. תאר פיצ&#x27;ר בצ&#x27;אט; הצוות מתכנן, בונה ענף, מריץ בדיקות, סוקר ופותח PR לכל רפוזיטורי. עובד עם מנוי Claude Pro/Max (ללא חיוב לטוקן). מגיע כ-Docker image מוכן.</p></div><div class="brief-section"><p class="brief-label" data-he="למה זה בטרנד" data-en="Why it&#x27;s trending">למה זה בטרנד</p><p class="brief-text i18n" data-he="הוא מאפשר לצוות פיתוח AI שלם לפעול בשרת שלך, בשליטה מאפליקציית צ&amp;#x27;אט בכל מכשיר, ללא עלות API לטוקן בעת שימוש ב-Claude Pro או Max. סוכן הבורר מונע לולאות אינסופיות בין המבקר למתכנת, מה שהופך אותו לבטוח להפעלה ללא השגחה." data-en="It enables a complete AI dev team to run on your own server, controllable from a chat app on any device, with no per-token API cost when using Claude Pro or Max. The arbiter agent prevents infinite loops between the reviewer and coder, making it safe to let run unattended.">הוא מאפשר לצוות פיתוח AI שלם לפעול בשרת שלך, בשליטה מאפליקציית צ&#x27;אט בכל מכשיר, ללא עלות API לטוקן בעת שימוש ב-Claude Pro או Max. סוכן הבורר מונע לולאות אינסופיות בין המבקר למתכנת, מה שהופך אותו לבטוח להפעלה ללא השגחה.</p></div><div class="brief-section"><p class="brief-label" data-he="דוגמת שימוש" data-en="Example use case">דוגמת שימוש</p><p class="brief-text i18n" data-he="שלח &amp;#x27;הוסף אימות אימייל לתהליך ההרשמה&amp;#x27; ב-Telegram. Flock מריץ את המתכנן לתחום את העבודה, את המתכנת ליישם על ענף חדש, את הבודק לכתוב ולהריץ בדיקות, את המבקר להשאיר הערות שורה, ופותח PR כאשר עובר. אתה מקבל קישור ל-PR בצ&amp;#x27;אט." data-en="Send &amp;#x27;Add email verification to the signup flow&amp;#x27; in Telegram. Flock runs the planner to scope the work, the coder to implement it on a new branch, the tester to write and run tests, the reviewer to leave inline comments, and opens a PR when it passes. You get a link to the PR in chat.">שלח &#x27;הוסף אימות אימייל לתהליך ההרשמה&#x27; ב-Telegram. Flock מריץ את המתכנן לתחום את העבודה, את המתכנת ליישם על ענף חדש, את הבודק לכתוב ולהריץ בדיקות, את המבקר להשאיר הערות שורה, ופותח PR כאשר עובר. אתה מקבל קישור ל-PR בצ&#x27;אט.</p></div><div class="brief-section brief-section--matters"><p class="brief-label" data-he="למה זה רלוונטי לך" data-en="Why it matters for you">למה זה רלוונטי לך</p><p class="brief-text i18n" data-he="אתה יכול להקצות משימות פיתוח Claude Code מ-Telegram בטלפון ולקבל את ה-PR המתקבל מבלי לפתוח מחשב נייד. עם מנוי Claude Pro או Max, אין עלות לטוקן, מה שהופך אותו לכלי מעשי לניהול פיתוח מסייע-AI בעת תנועה." data-en="You can assign Claude Code development tasks from Telegram on your phone and receive the resulting PR without opening a laptop. With Claude Pro or Max subscription, there is no per-token cost, making this a practical tool for managing AI-assisted development while on the move.">אתה יכול להקצות משימות פיתוח Claude Code מ-Telegram בטלפון ולקבל את ה-PR המתקבל מבלי לפתוח מחשב נייד. עם מנוי Claude Pro או Max, אין עלות לטוקן, מה שהופך אותו לכלי מעשי לניהול פיתוח מסייע-AI בעת תנועה.</p></div></div>
+
+      </div>
+    </article>
+
+    <article class="card">
+      <div class="card__rank">#7</div>
+      <div class="card__body">
+
+        <div class="card__header">
+          <div class="card__title-block">
+            <p class="card__eyebrow">TypeScript</p>
+            <h2 class="card__title">
+              <a href="https://github.com/Dong90/oh-my-taiyiforge" target="_blank" rel="noopener">
+                <span class="card__org">Dong90/</span>oh-my-taiyiforge
+              </a>
+            </h2>
+          </div>
+          <div class="card__stats">
+            <span class="card__stars">&#9733;<br><span class="stars-num">777</span></span>
+          </div>
+        </div>
+
+        <div class="card__meta">
+          <span class="meta-item"><span class="meta-icon">&#128197;</span> 2026-06-05</span>
+          <span class="meta-item"><span class="meta-icon">&#9679;</span> push 2026-07-02</span>
+        </div>
+
+        <div class="card__tags"><span class="tag">ai</span><span class="tag">automation</span><span class="tag">claude</span><span class="tag">code-generation</span></div>
+
+        <div class="card__content"><div class="brief-section"><p class="brief-label" data-he="מה זה עושה" data-en="What it does">מה זה עושה</p><p class="brief-text i18n" data-he="TaiyiForge הוא מכונת מצבים (state machine) של תשעה שלבים לפיתוח מסייע-AI, שאוכפת שלבים (דרישות, עיצוב, TDD, בדיקות, סקירה, אינטגרציה) עם שערי אישור אנושי בנקודות קריטיות. הוא פועל זהה ב-Claude Code, Cursor, Codex ו-OpenCode דרך מילון פקודות משותף. מצב Auto מייצר שלד full-stack שלם מקובץ README או PRD." data-en="TaiyiForge is a nine-stage engineering state machine for AI-assisted development that enforces phases (requirement, design, TDD, test, review, integration) with human gate-keeping at critical junctions. It works identically across Claude Code, Cursor, Codex, and OpenCode via a unified slash command vocabulary. Auto mode generates a complete full-stack skeleton from a README or PRD file.">TaiyiForge הוא מכונת מצבים (state machine) של תשעה שלבים לפיתוח מסייע-AI, שאוכפת שלבים (דרישות, עיצוב, TDD, בדיקות, סקירה, אינטגרציה) עם שערי אישור אנושי בנקודות קריטיות. הוא פועל זהה ב-Claude Code, Cursor, Codex ו-OpenCode דרך מילון פקודות משותף. מצב Auto מייצר שלד full-stack שלם מקובץ README או PRD.</p></div><div class="brief-section"><p class="brief-label" data-he="למה זה בטרנד" data-en="Why it&#x27;s trending">למה זה בטרנד</p><p class="brief-text i18n" data-he="הוא פותר את בעיית סוכני AI שמדלגים על משמעת הנדסית: קפיצה מבקשה לקוד ללא ניתוח דרישות, סקירת עיצוב או אימות בדיקות. מכונת המצבים אוכפת את התהליך כאילוץ קשיח, לא כהמלצה, בעוד דחיסת ההקשר מטפלת בסשנים ארוכים מבלי לאבד מעקב אחר המטרה." data-en="It solves the problem of AI agents that skip engineering discipline: jumping from a request to code without requirement analysis, design review, or test verification. The state machine enforces the process as a hard constraint, not a suggestion, while context compaction handles long sessions without losing goal tracking.">הוא פותר את בעיית סוכני AI שמדלגים על משמעת הנדסית: קפיצה מבקשה לקוד ללא ניתוח דרישות, סקירת עיצוב או אימות בדיקות. מכונת המצבים אוכפת את התהליך כאילוץ קשיח, לא כהמלצה, בעוד דחיסת ההקשר מטפלת בסשנים ארוכים מבלי לאבד מעקב אחר המטרה.</p></div><div class="brief-section"><p class="brief-label" data-he="דוגמת שימוש" data-en="Example use case">דוגמת שימוש</p><p class="brief-text i18n" data-he="הרץ &amp;#x27;/taiyi:plan README.md --auto&amp;#x27; וקבל שלד full-stack מוכן לייצור עם 79 קבצים ו-23 ספריות, הכולל FastAPI בקאנד, React פרונטאנד וחבילת בדיקות תלת-שכבתית, עם 48 בדיקות יחידה ועוד בדיקות אינטגרציה ו-e2e, עם CI ירוק." data-en="Run &amp;#x27;/taiyi:plan README.md --auto&amp;#x27; and get a production-ready full-stack skeleton with 79 files and 23 directories, covering a FastAPI backend, a React frontend, and a three-tier test suite, all passing 48 unit tests plus integration and e2e tests, with a green CI.">הרץ &#x27;/taiyi:plan README.md --auto&#x27; וקבל שלד full-stack מוכן לייצור עם 79 קבצים ו-23 ספריות, הכולל FastAPI בקאנד, React פרונטאנד וחבילת בדיקות תלת-שכבתית, עם 48 בדיקות יחידה ועוד בדיקות אינטגרציה ו-e2e, עם CI ירוק.</p></div><div class="brief-section brief-section--matters"><p class="brief-label" data-he="למה זה רלוונטי לך" data-en="Why it matters for you">למה זה רלוונטי לך</p><p class="brief-text i18n" data-he="אם אתה מוצא שסוכני AI נוטים לדלג על בירור דרישות או לקפוץ ישירות לממש, TaiyiForge מוסיפה את משמעת ההנדסה החסרה מבלי לדרוש ממך לנהל ידנית כל שלב. אותה קבוצת פקודות פועלת על Claude Code ועל שאר הסוכנים שבהם אתה משתמש." data-en="If you find that AI coding agents tend to skip requirement clarification or jump straight to implementation, TaiyiForge adds the missing engineering discipline without requiring you to manually prompt for each phase. The same command set works across Claude Code and other agents you use.">אם אתה מוצא שסוכני AI נוטים לדלג על בירור דרישות או לקפוץ ישירות לממש, TaiyiForge מוסיפה את משמעת ההנדסה החסרה מבלי לדרוש ממך לנהל ידנית כל שלב. אותה קבוצת פקודות פועלת על Claude Code ועל שאר הסוכנים שבהם אתה משתמש.</p></div></div>
+
+      </div>
+    </article>
+
+    <article class="card">
+      <div class="card__rank">#8</div>
+      <div class="card__body">
+
+        <div class="card__header">
+          <div class="card__title-block">
+            <p class="card__eyebrow">TypeScript</p>
+            <h2 class="card__title">
+              <a href="https://github.com/shy3130/tickflow-stock-panel" target="_blank" rel="noopener">
+                <span class="card__org">shy3130/</span>tickflow-stock-panel
+              </a>
+            </h2>
+          </div>
+          <div class="card__stats">
+            <span class="card__stars">&#9733;<br><span class="stars-num">1,324</span></span>
+          </div>
+        </div>
+
+        <div class="card__meta">
+          <span class="meta-item"><span class="meta-icon">&#128197;</span> 2026-06-18</span>
+          <span class="meta-item"><span class="meta-icon">&#9679;</span> push 2026-07-03</span>
+        </div>
+
+        <div class="card__tags"><span class="tag">ai-agent</span><span class="tag">backtesting</span><span class="tag">fastapi</span><span class="tag">llm</span></div>
+
+        <div class="card__content"><div class="brief-section"><p class="brief-label" data-he="מה זה עושה" data-en="What it does">מה זה עושה</p><p class="brief-text i18n" data-he="תחנת עבודה קוונטית עצמאית ללא תפעול, לשוק המניות הסיני A-share. משלבת יצירת אסטרטגיות מונעת LLM (18 אסטרטגיות מובנות ועוד אסטרטגיות AI מותאמות), סינון מניות בסריקה מלאה במילישניות, backtesting (T+1, עמלות, slippage, stop-loss), ניטור בזמן אמת עם התראות Feishu, וניתוח AI ארבע-ממדי לכל מניה (טכני, פונדמנטלי, פיננסי, חדשותי)." data-en="A self-hosted, zero-ops quantitative workstation for Chinese A-shares. It combines LLM-driven strategy generation (18 built-in strategies plus AI-custom strategies), stock screening with millisecond full-scan using Polars, backtesting (T+1, transaction fees, slippage, stop-loss), real-time monitoring with Feishu push notifications, and four-dimension AI analysis per stock (technical, fundamental, financial, news). Built on Python 3.11, React 18, FastAPI, DuckDB, and Docker.">תחנת עבודה קוונטית עצמאית ללא תפעול, לשוק המניות הסיני A-share. משלבת יצירת אסטרטגיות מונעת LLM (18 אסטרטגיות מובנות ועוד אסטרטגיות AI מותאמות), סינון מניות בסריקה מלאה במילישניות, backtesting (T+1, עמלות, slippage, stop-loss), ניטור בזמן אמת עם התראות Feishu, וניתוח AI ארבע-ממדי לכל מניה (טכני, פונדמנטלי, פיננסי, חדשותי).</p></div><div class="brief-section"><p class="brief-label" data-he="למה זה בטרנד" data-en="Why it&#x27;s trending">למה זה בטרנד</p><p class="brief-text i18n" data-he="הוא מדגים שילוב מלא ברמת ייצור של סוכני LLM בצינור ניתוח ספציפי לתחום. שכבת ה-AI מטפלת ביצירת אסטרטגיות, ניתוח מניות בודדות וסקירת שוק לאחר הסשן, בעוד התשתית הקוונטית מטפלת בקליטת נתונים, סינון ו-backtesting." data-en="It demonstrates a complete, production-grade integration of LLM agents into a domain-specific analysis pipeline. The AI layer handles strategy generation, individual stock analysis, and post-session market review, while the quantitative infrastructure handles data ingestion, screening, and backtesting.">הוא מדגים שילוב מלא ברמת ייצור של סוכני LLM בצינור ניתוח ספציפי לתחום. שכבת ה-AI מטפלת ביצירת אסטרטגיות, ניתוח מניות בודדות וסקירת שוק לאחר הסשן, בעוד התשתית הקוונטית מטפלת בקליטת נתונים, סינון ו-backtesting.</p></div><div class="brief-section"><p class="brief-label" data-he="דוגמת שימוש" data-en="Example use case">דוגמת שימוש</p><p class="brief-text i18n" data-he="תאר מצב שוק בשפה טבעית ל-AI. המערכת מייצרת אסטרטגיית סינון מותאמת, סורקת את כל מניות ה-A בפחות ממילישנייה, מריצה backtest עם אילוצי T+1 ועמלות מציאותיים, ומספקת ניתוח AI ארבע-ממדי על כל מניה ברשימה הקצרה." data-en="Describe a market condition in natural language to the AI. The system generates a custom screening strategy, scans all A-shares in milliseconds, runs a backtest with realistic T+1 and fee constraints, and delivers a four-dimension AI analysis on each shortlisted stock.">תאר מצב שוק בשפה טבעית ל-AI. המערכת מייצרת אסטרטגיית סינון מותאמת, סורקת את כל מניות ה-A בפחות ממילישנייה, מריצה backtest עם אילוצי T+1 ועמלות מציאותיים, ומספקת ניתוח AI ארבע-ממדי על כל מניה ברשימה הקצרה.</p></div><div class="brief-section brief-section--matters"><p class="brief-label" data-he="למה זה רלוונטי לך" data-en="Why it matters for you">למה זה רלוונטי לך</p><p class="brief-text i18n" data-he="הארכיטקטורה: LLM מעל, צינור נתונים ספציפי לתחום מתחת, היא דפוס ישים ישירות לבניית כלי מחקר מסייע AI או ניתוח תוכן. לימוד האופן שבו הכלי משלב LLM בצינור נתונים מובנה מציע תובנות עיצוב למערכות דומות." data-en="The architecture: LLM on top, domain-specific data pipeline underneath, is a pattern directly applicable to building AI-assisted research or content analysis tools. Studying how TaiyiForge integrates LLM into a structured data pipeline offers design insights for similar systems.">הארכיטקטורה: LLM מעל, צינור נתונים ספציפי לתחום מתחת, היא דפוס ישים ישירות לבניית כלי מחקר מסייע AI או ניתוח תוכן. לימוד האופן שבו הכלי משלב LLM בצינור נתונים מובנה מציע תובנות עיצוב למערכות דומות.</p></div></div>
+
+      </div>
+    </article>
+
+    <article class="card">
+      <div class="card__rank">#9</div>
+      <div class="card__body">
+
+        <div class="card__header">
+          <div class="card__title-block">
+            <p class="card__eyebrow">Python</p>
+            <h2 class="card__title">
+              <a href="https://github.com/sums001/Windows-Copilot-API" target="_blank" rel="noopener">
+                <span class="card__org">sums001/</span>Windows-Copilot-API
+              </a>
+            </h2>
+          </div>
+          <div class="card__stats">
+            <span class="card__stars">&#9733;<br><span class="stars-num">1,020</span></span>
+          </div>
+        </div>
+
+        <div class="card__meta">
+          <span class="meta-item"><span class="meta-icon">&#128197;</span> 2026-06-19</span>
+          <span class="meta-item"><span class="meta-icon">&#9679;</span> push 2026-06-27</span>
+        </div>
+
+        <div class="card__tags"><span class="tag">ai</span><span class="tag">ai-agents</span><span class="tag">api</span><span class="tag">copilot</span></div>
+
+        <div class="card__content"><div class="brief-section"><p class="brief-label" data-he="מה זה עושה" data-en="What it does">מה זה עושה</p><p class="brief-text i18n" data-he="Windows-Copilot-API הופך את ממשק Copilot הצרכני בכתובת copilot.microsoft.com לשרת API מקומי תואם OpenAI ב-localhost:8000. היכנס פעם אחת עם חשבון Microsoft או Google; הכלי מטפל אוטומטית ב-cache של הסשן, בסילוק Cloudflare ובריענון הטוקן. תומך ב-streaming, שיחות רב-תורות ופועל כתחליף ישיר ל-SDK הרשמי של OpenAI." data-en="Windows-Copilot-API reverses the consumer Copilot web interface at copilot.microsoft.com into a local OpenAI-compatible API server at localhost:8000. Sign in once with a Microsoft or Google account; the tool handles session caching, Cloudflare clearance, and token refresh automatically. Supports streaming, multi-turn conversations, and works as a drop-in replacement for the official OpenAI Python SDK.">Windows-Copilot-API הופך את ממשק Copilot הצרכני בכתובת copilot.microsoft.com לשרת API מקומי תואם OpenAI ב-localhost:8000. היכנס פעם אחת עם חשבון Microsoft או Google; הכלי מטפל אוטומטית ב-cache של הסשן, בסילוק Cloudflare ובריענון הטוקן. תומך ב-streaming, שיחות רב-תורות ופועל כתחליף ישיר ל-SDK הרשמי של OpenAI.</p></div><div class="brief-section"><p class="brief-label" data-he="למה זה בטרנד" data-en="Why it&#x27;s trending">למה זה בטרנד</p><p class="brief-text i18n" data-he="הוא מציע גישה חינמית ליכולות מודל ברמת GPT-4/5 באמצעות חשבון Microsoft קיים, ללא ניהול מפתח API או חיוב לטוקן. ציון GPQA Diamond של 40.9% ממקם את המודל במשפחת GPT-4, המתאים למשימות פיתוח וניסוי רבות." data-en="It offers free access to GPT-4/5-class model capabilities using an existing Microsoft account, with zero API key management or per-token billing. A GPQA Diamond benchmark score of 40.9% places the model in the GPT-4 family, suitable for many development and experimentation tasks.">הוא מציע גישה חינמית ליכולות מודל ברמת GPT-4/5 באמצעות חשבון Microsoft קיים, ללא ניהול מפתח API או חיוב לטוקן. ציון GPQA Diamond של 40.9% ממקם את המודל במשפחת GPT-4, המתאים למשימות פיתוח וניסוי רבות.</p></div><div class="brief-section"><p class="brief-label" data-he="דוגמת שימוש" data-en="Example use case">דוגמת שימוש</p><p class="brief-text i18n" data-he="הרץ &amp;#x27;python -m copilot login&amp;#x27; פעם אחת. לאחר מכן הפעל &amp;#x27;python app.py&amp;#x27; להשקת השרת. הצבע על ה-OpenAI Python SDK ל-&amp;#x27;http://localhost:8000/v1&amp;#x27; עם כל מפתח API פלייסהולדר. כל הסקריפטים הקיימים המבוססים על OpenAI שלך עובדים מיד ללא שינויי קוד נוספים." data-en="Run &amp;#x27;python -m copilot login&amp;#x27; once. Then start &amp;#x27;python app.py&amp;#x27; to launch the server. Point the OpenAI Python SDK at &amp;#x27;http://localhost:8000/v1&amp;#x27; with any placeholder API key. All your existing OpenAI-based scripts work immediately with no other code changes.">הרץ &#x27;python -m copilot login&#x27; פעם אחת. לאחר מכן הפעל &#x27;python app.py&#x27; להשקת השרת. הצבע על ה-OpenAI Python SDK ל-&#x27;http://localhost:8000/v1&#x27; עם כל מפתח API פלייסהולדר. כל הסקריפטים הקיימים המבוססים על OpenAI שלך עובדים מיד ללא שינויי קוד נוספים.</p></div><div class="brief-section brief-section--matters"><p class="brief-label" data-he="למה זה רלוונטי לך" data-en="Why it matters for you">למה זה רלוונטי לך</p><p class="brief-text i18n" data-he="עבור אב-טיפוס, בדיקת פרומפטים או הרצת ניסויים מבלי לצרוך קרדיטי API בתשלום, זה מעניק לך נקודת קצה חינמית ברמת GPT-4 ב-localhost. מגבלת 12 בקשות לדקה ברירת מחדל והסידוריות עושים אותו מתאים לשימוש בפיתוח ולא לעומסי ייצור." data-en="For prototyping, testing prompts, or running experiments without consuming paid API credits, this gives you a free GPT-4-class endpoint on localhost. The 12 requests-per-minute default limit and sequential concurrency make it suitable for development use rather than production loads.">עבור אב-טיפוס, בדיקת פרומפטים או הרצת ניסויים מבלי לצרוך קרדיטי API בתשלום, זה מעניק לך נקודת קצה חינמית ברמת GPT-4 ב-localhost. מגבלת 12 בקשות לדקה ברירת מחדל והסידוריות עושים אותו מתאים לשימוש בפיתוח ולא לעומסי ייצור.</p></div></div>
+
+      </div>
+    </article>
+
+    <article class="card">
+      <div class="card__rank">#10</div>
+      <div class="card__body">
+
+        <div class="card__header">
+          <div class="card__title-block">
+            <p class="card__eyebrow">Svelte</p>
+            <h2 class="card__title">
+              <a href="https://github.com/ibrahimqureshae/mdflux" target="_blank" rel="noopener">
+                <span class="card__org">ibrahimqureshae/</span>mdflux
+              </a>
+            </h2>
+          </div>
+          <div class="card__stats">
+            <span class="card__stars">&#9733;<br><span class="stars-num">142</span></span>
+          </div>
+        </div>
+
+        <div class="card__meta">
+          <span class="meta-item"><span class="meta-icon">&#128197;</span> 2026-06-21</span>
+          <span class="meta-item"><span class="meta-icon">&#9679;</span> push 2026-06-29</span>
+        </div>
+
+        <div class="card__tags"><span class="tag">document-conversion</span><span class="tag">llm</span><span class="tag">local-first</span><span class="tag">markdown</span></div>
+
+        <div class="card__content"><div class="brief-section"><p class="brief-label" data-he="מה זה עושה" data-en="What it does">מה זה עושה</p><p class="brief-text i18n" data-he="MDFlux היא אפליקציית שולחן עבודה מקומית (Windows, בנויה עם Tauri/Svelte) שממירה PDF, DOCX, PPTX, XLSX, EPUB, HTML, תמונות וקבצי שמע ל-Markdown מובנה ונקי. היא משתמשת ב-OCR עבור PDF סרוקים, מעבדת תיקיות שלמות באצוות, פועלת לחלוטין במצב לא מקוון ומייצרת עד 6 פעמים פחות טוקנים בהשוואה לשליחת עמודים למודל ראייה." data-en="MDFlux is a local-first desktop app (Windows, built with Tauri/Svelte) that converts PDF, DOCX, PPTX, XLSX, EPUB, HTML, images, and audio files into clean, structured Markdown. It uses OCR for scanned PDFs, processes entire folders in batches, runs fully offline, and produces up to 6x fewer tokens than sending pages to a vision model. Built on Microsoft MarkItDown.">MDFlux היא אפליקציית שולחן עבודה מקומית (Windows, בנויה עם Tauri/Svelte) שממירה PDF, DOCX, PPTX, XLSX, EPUB, HTML, תמונות וקבצי שמע ל-Markdown מובנה ונקי. היא משתמשת ב-OCR עבור PDF סרוקים, מעבדת תיקיות שלמות באצוות, פועלת לחלוטין במצב לא מקוון ומייצרת עד 6 פעמים פחות טוקנים בהשוואה לשליחת עמודים למודל ראייה.</p></div><div class="brief-section"><p class="brief-label" data-he="למה זה בטרנד" data-en="Why it&#x27;s trending">למה זה בטרנד</p><p class="brief-text i18n" data-he="הוא פותר את בעיית קליטת המסמכים לצינורות RAG מבלי לשלוח קבצים לשירותי ענן או לשלם לכל עמוד עבור ניתוח מודל ראייה. PDF סרוק של 50 עמודים שעולה 0.30 דולר עם GPT-4V עולה פחות מ-0.05 דולר עם הפלט של MDFlux, מכיוון שטוקנים של טקסט זולים הרבה יותר מטוקנים של תמונות." data-en="It solves the document ingestion problem for RAG pipelines without sending files to cloud services or paying per-page for vision model parsing. A 50-page scanned PDF that costs $0.30 with GPT-4V costs under $0.05 with MDFlux output because text tokens are far cheaper than image tokens, and the Markdown structure reduces repetition.">הוא פותר את בעיית קליטת המסמכים לצינורות RAG מבלי לשלוח קבצים לשירותי ענן או לשלם לכל עמוד עבור ניתוח מודל ראייה. PDF סרוק של 50 עמודים שעולה 0.30 דולר עם GPT-4V עולה פחות מ-0.05 דולר עם הפלט של MDFlux, מכיוון שטוקנים של טקסט זולים הרבה יותר מטוקנים של תמונות.</p></div><div class="brief-section"><p class="brief-label" data-he="דוגמת שימוש" data-en="Example use case">דוגמת שימוש</p><p class="brief-text i18n" data-he="גרור תיקיית PDF מחקר סרוקים ל-MDFlux. הוא מריץ OCR, מחלץ כותרות, טבלאות ורשימות, ומפיק קובץ Markdown אחד לכל PDF. הזן את תיקיית הפלט לצינור ה-RAG או בסיס הידע שלך. עיבוד שיעלה 3.00 דולר בקריאות API של GPT-4V עולה פחות מ-0.50 דולר בטוקנים." data-en="Drop a folder of scanned research PDFs onto MDFlux. It runs OCR, extracts headings, tables, and lists, and outputs one Markdown file per PDF. Feed the output folder to your RAG pipeline or knowledge base. Processing that would cost $3.00 in GPT-4V API calls costs under $0.50 in LLM tokens.">גרור תיקיית PDF מחקר סרוקים ל-MDFlux. הוא מריץ OCR, מחלץ כותרות, טבלאות ורשימות, ומפיק קובץ Markdown אחד לכל PDF. הזן את תיקיית הפלט לצינור ה-RAG או בסיס הידע שלך. עיבוד שיעלה 3.00 דולר בקריאות API של GPT-4V עולה פחות מ-0.50 דולר בטוקנים.</p></div><div class="brief-section brief-section--matters"><p class="brief-label" data-he="למה זה רלוונטי לך" data-en="Why it matters for you">למה זה רלוונטי לך</p><p class="brief-text i18n" data-he="אם אתה בונה מערכות RAG או בסיסי ידע ממסמכים קיימים, MDFlux מכין אותם בפרטיות, בזול ובמצב לא מקוון. OCR עבור PDF סרוקים אומר שארכיוני מסמכים ישנים הופכים למקורות שמישים לבסיס הידע AI שלך ללא חשיפה לענן." data-en="If you build RAG systems or knowledge bases from existing documents, MDFlux prepares them privately, cheaply, and offline. OCR for scanned PDFs means legacy document archives become usable sources for your AI knowledge base without cloud exposure.">אם אתה בונה מערכות RAG או בסיסי ידע ממסמכים קיימים, MDFlux מכין אותם בפרטיות, בזול ובמצב לא מקוון. OCR עבור PDF סרוקים אומר שארכיוני מסמכים ישנים הופכים למקורות שמישים לבסיס הידע AI שלך ללא חשיפה לענן.</p></div></div>
+
+      </div>
+    </article>
+  </main>
+
+  <footer class="site-footer">
+    <span class="i18n" data-he="עיכול אוטומטי שבועי · מקור: GitHub Search API" data-en="Auto-generated weekly digest · Data: GitHub Search API">עיכול אוטומטי שבועי · מקור: GitHub Search API</span>
+    <p class="share-copied" id="shareCopied">&#128279; <span class="i18n" data-he="הקישור הועתק!" data-en="Link copied!">הקישור הועתק!</span></p>
+  </footer>
+
+</div>
+
+<script>
+// ── LANGUAGE TOGGLE ──
+var currentLang = 'he';
+function toggleLang() {
+  currentLang = currentLang === 'he' ? 'en' : 'he';
+  var isHe = currentLang === 'he';
+  document.documentElement.lang = currentLang;
+  document.documentElement.dir = isHe ? 'rtl' : 'ltr';
+  document.getElementById('langToggle').textContent = isHe ? 'EN' : 'עב';
+  document.querySelectorAll('.i18n').forEach(function(el) {
+    el.innerHTML = el.dataset[currentLang] || el.innerHTML;
+  });
+  // Flip brief labels
+  document.querySelectorAll('.brief-label').forEach(function(el) {
+    var he = el.dataset.he, en = el.dataset.en;
+    if (he && en) el.textContent = isHe ? he : en;
+  });
+}
+
+// ── SHARE ──
+function shareReport() {
+  var title = currentLang === 'he'
+    ? 'טרנד ב-AI/LLM – 2026-W27'
+    : 'Trending AI/LLM Repos – 2026-W27';
+  var url = window.location.href;
+  if (navigator.share) {
+    navigator.share({ title: title, url: url }).catch(function(){});
+  } else {
+    navigator.clipboard.writeText(url).then(function() {
+      var el = document.getElementById('shareCopied');
+      el.classList.add('show');
+      setTimeout(function() { el.classList.remove('show'); }, 2500);
+    }).catch(function() {
+      prompt('Copy this link:', url);
+    });
+  }
+}
+
+// ── AUDIO PLAYER ──
+var audio = document.getElementById('audio');
+var playBtn = document.getElementById('playBtn');
+var iconPlay = document.getElementById('iconPlay');
+var iconPause = document.getElementById('iconPause');
+var progressBar = document.getElementById('progressBar');
+var progressWrap = document.getElementById('progressWrap');
+var playerTime = document.getElementById('playerTime');
+
+function fmt(s) {
+  s = Math.floor(s || 0);
+  return Math.floor(s/60) + ':' + ('0' + (s%60)).slice(-2);
+}
+function updateTime() {
+  var cur = audio.currentTime, dur = audio.duration;
+  progressBar.style.width = (dur ? (cur/dur*100) : 0) + '%';
+  playerTime.textContent = fmt(cur) + ' / ' + fmt(dur);
+}
+function togglePlay() {
+  if (audio.paused) { audio.play(); } else { audio.pause(); }
+}
+audio.addEventListener('play', function() {
+  iconPlay.style.display = 'none';
+  iconPause.style.display = 'block';
+});
+audio.addEventListener('pause', function() {
+  iconPlay.style.display = 'block';
+  iconPause.style.display = 'none';
+});
+audio.addEventListener('ended', function() {
+  iconPlay.style.display = 'block';
+  iconPause.style.display = 'none';
+  progressBar.style.width = '0%';
+});
+audio.addEventListener('timeupdate', updateTime);
+audio.addEventListener('loadedmetadata', updateTime);
+function seek(e) {
+  if (!audio.duration) return;
+  var rect = progressWrap.getBoundingClientRect();
+  var frac = (e.clientX - rect.left) / rect.width;
+  audio.currentTime = Math.max(0, Math.min(1, frac)) * audio.duration;
+}
+</script>
+</body>
+</html>
