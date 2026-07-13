@@ -1,0 +1,864 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="theme-color" content="#1b1b1b">
+<title>טרנדים ב-AI 2026-W29</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Hebrew:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg: #1b1b1b;
+    --bg-elevated: #232323;
+    --fg: #c5c1b9;
+    --fg-strong: #dcdad5;
+    --fg-muted: #a09d96;
+    --fg-subtle: #96928c;
+    --accent: #22c55e;
+    --accent-glow: rgba(34,197,94,0.6);
+    --accent-soft: rgba(34,197,94,0.12);
+    --accent-softer: rgba(34,197,94,0.04);
+    --accent-border: rgba(34,197,94,0.12);
+    --accent-border-hover: rgba(34,197,94,0.3);
+    --shadow-glow-md: 0 0 15px rgba(34,197,94,0.3), 0 0 40px rgba(34,197,94,0.1);
+    --text-glow: 0 0 8px rgba(34,197,94,0.6), 0 0 20px rgba(34,197,94,0.3);
+    --font-sans: 'Noto Sans Hebrew', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+    --radius-sm: 8px;
+    --radius-md: 12px;
+    --radius-lg: 16px;
+    --radius-pill: 999px;
+    --transition: 0.3s cubic-bezier(0.4,0,0.2,1);
+    --transition-fast: 0.15s cubic-bezier(0.4,0,0.2,1);
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html { -webkit-text-size-adjust: 100%; }
+
+  body {
+    background: var(--bg);
+    color: var(--fg);
+    font-family: var(--font-sans);
+    font-size: clamp(1rem, 2vw, 1.0625rem);
+    line-height: 1.7;
+    padding-top: env(safe-area-inset-top);
+    padding-bottom: env(safe-area-inset-bottom);
+  }
+
+  /* ── GRID BACKGROUND ── */
+  body::before {
+    content: '';
+    position: fixed;
+    inset: 0;
+    z-index: 0;
+    pointer-events: none;
+    background-image:
+      linear-gradient(rgba(34,197,94,0.03) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(34,197,94,0.03) 1px, transparent 1px);
+    background-size: 40px 40px;
+    mask-image: radial-gradient(ellipse 80% 60% at 50% 0%, black 40%, transparent 100%);
+    -webkit-mask-image: radial-gradient(ellipse 80% 60% at 50% 0%, black 40%, transparent 100%);
+  }
+
+  .wrap {
+    position: relative;
+    z-index: 1;
+    max-width: 720px;
+    margin: 0 auto;
+    padding: 24px 16px 80px;
+  }
+
+  /* ── TOP BAR ── */
+  .top-bar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 16px;
+    gap: 10px;
+  }
+  .lang-btn, .share-btn {
+    background: var(--accent-softer);
+    border: 1px solid var(--accent-border);
+    border-radius: var(--radius-pill);
+    color: var(--accent);
+    font-family: var(--font-sans);
+    font-size: 0.8rem;
+    font-weight: 600;
+    letter-spacing: 0.5px;
+    padding: 7px 16px;
+    cursor: pointer;
+    transition: all var(--transition-fast);
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    min-height: 44px;
+    -webkit-tap-highlight-color: transparent;
+  }
+  .lang-btn:hover, .share-btn:hover {
+    background: var(--accent-soft);
+    border-color: var(--accent);
+    box-shadow: 0 0 10px var(--accent-glow);
+  }
+  .share-btn svg { width: 16px; height: 16px; stroke: var(--accent); }
+  .share-btn.copied { background: var(--accent-soft); }
+  .share-copied {
+    font-size: 0.72rem;
+    color: var(--accent);
+    margin-top: 4px;
+    text-align: center;
+    opacity: 0;
+    transition: opacity 0.3s;
+  }
+  .share-copied.show { opacity: 1; }
+
+  /* ── HEADER ── */
+  .site-header { margin-bottom: 24px; }
+  .header-eyebrow {
+    font-size: 0.8rem;
+    font-weight: 500;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: var(--accent);
+    text-shadow: var(--text-glow);
+    margin-bottom: 6px;
+  }
+  .header-title {
+    font-size: clamp(1.6rem, 4vw, 2.2rem);
+    font-weight: 700;
+    color: var(--fg-strong);
+    line-height: 1.3;
+    text-shadow: 0 0 30px rgba(34,197,94,0.1);
+    margin-bottom: 4px;
+  }
+  .header-sub {
+    font-size: 0.875rem;
+    color: var(--fg-muted);
+    font-weight: 300;
+  }
+
+  /* ── CUSTOM AUDIO PLAYER ── */
+  .player {
+    position: sticky;
+    top: 0;
+    z-index: 10;
+    background: rgba(27,27,27,0.92);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border-bottom: 1px solid var(--accent-border);
+    padding: 12px 16px;
+    margin: 0 -16px 24px;
+  }
+  .player audio { display: none; }
+
+  .player-ui {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+  }
+  .player-btn {
+    flex-shrink: 0;
+    width: 44px;
+    height: 44px;
+    border-radius: 50%;
+    background: var(--accent);
+    border: none;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all var(--transition-fast);
+    box-shadow: 0 0 12px rgba(34,197,94,0.4);
+  }
+  .player-btn:hover {
+    transform: scale(1.08);
+    box-shadow: 0 0 20px rgba(34,197,94,0.6);
+  }
+  .player-btn svg { width: 18px; height: 18px; fill: #0a1a0f; }
+
+  .player-center { flex: 1; min-width: 0; }
+  .player-track {
+    font-size: 0.8rem;
+    font-weight: 500;
+    color: var(--fg-strong);
+    margin-bottom: 6px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+  .player-progress-wrap {
+    position: relative;
+    height: 4px;
+    background: rgba(255,255,255,0.1);
+    border-radius: 2px;
+    cursor: pointer;
+    overflow: hidden;
+  }
+  .player-progress-bar {
+    height: 100%;
+    width: 0%;
+    background: var(--accent);
+    border-radius: 2px;
+    box-shadow: 0 0 6px var(--accent-glow);
+    transition: width 0.1s linear;
+    pointer-events: none;
+  }
+  .player-progress-wrap:hover .player-progress-bar {
+    box-shadow: 0 0 12px var(--accent-glow);
+  }
+
+  .player-time {
+    font-size: 0.72rem;
+    color: var(--fg-subtle);
+    white-space: nowrap;
+    flex-shrink: 0;
+    font-variant-numeric: tabular-nums;
+    min-width: 70px;
+    text-align: center;
+  }
+
+  .player-hint {
+    font-size: 0.72rem;
+    color: var(--fg-subtle);
+    margin-top: 7px;
+    letter-spacing: 0.3px;
+  }
+
+  /* ── RUN NOTES ── */
+  .run-notes {
+    background: var(--accent-softer);
+    border: 1px solid var(--accent-border);
+    border-right: 3px solid var(--accent);
+    border-radius: var(--radius-md) 0 0 var(--radius-md);
+    padding: 12px 16px;
+    margin-bottom: 24px;
+    font-size: 0.875rem;
+    color: var(--fg-strong);
+  }
+  [dir="ltr"] .run-notes {
+    border-right: 1px solid var(--accent-border);
+    border-left: 3px solid var(--accent);
+    border-radius: 0 var(--radius-md) var(--radius-md) 0;
+  }
+  .run-notes ul { padding-right: 20px; margin-top: 6px; }
+  [dir="ltr"] .run-notes ul { padding-right: 0; padding-left: 20px; }
+
+  /* ── CARDS ── */
+  .card {
+    position: relative;
+    background: var(--accent-softer);
+    border: 1px solid var(--accent-border);
+    border-radius: var(--radius-lg);
+    margin-bottom: 16px;
+    transition: border-color var(--transition), background var(--transition), box-shadow var(--transition);
+  }
+  .card:hover {
+    border-color: var(--accent-border-hover);
+    background: rgba(34,197,94,0.07);
+    box-shadow: var(--shadow-glow-md), 0 12px 32px rgba(0,0,0,0.25);
+  }
+
+  .card__rank {
+    position: absolute;
+    top: -1px;
+    right: 20px;
+    background: var(--accent);
+    color: #0a1a0f;
+    font-size: 0.75rem;
+    font-weight: 700;
+    letter-spacing: 0.5px;
+    padding: 3px 10px;
+    border-radius: 0 0 var(--radius-sm) var(--radius-sm);
+  }
+  [dir="ltr"] .card__rank { right: auto; left: 20px; }
+
+  .card__body { padding: 28px 20px 20px; }
+
+  /* card header: title block + star stat */
+  .card__header {
+    display: flex;
+    align-items: flex-start;
+    gap: 12px;
+    margin-bottom: 10px;
+  }
+  .card__title-block { flex: 1; min-width: 0; }
+  .card__eyebrow {
+    font-size: 0.78rem;
+    font-weight: 500;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    color: var(--accent);
+    text-shadow: var(--text-glow);
+    margin-bottom: 4px;
+  }
+  .card__title {
+    font-size: 1.1rem;
+    font-weight: 600;
+    line-height: 1.35;
+  }
+  .card__title a {
+    color: var(--fg-strong);
+    text-decoration: none;
+    transition: color var(--transition-fast);
+    word-break: break-word;
+  }
+  .card__title a:hover { color: var(--accent); }
+  .card__org {
+    color: var(--fg-muted);
+    font-weight: 400;
+  }
+
+  .card__stats {
+    flex-shrink: 0;
+    text-align: center;
+    background: var(--accent-soft);
+    border: 1px solid var(--accent-border);
+    border-radius: var(--radius-md);
+    padding: 8px 12px;
+    min-width: 56px;
+  }
+  .card__stars {
+    color: #f0c674;
+    font-size: 1.1rem;
+    line-height: 1;
+  }
+  .stars-num {
+    display: block;
+    font-size: 0.85rem;
+    font-weight: 700;
+    color: var(--fg-strong);
+    margin-top: 2px;
+  }
+
+  .card__meta {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 4px 14px;
+    font-size: 0.78rem;
+    color: var(--fg-subtle);
+    margin-bottom: 10px;
+  }
+  .meta-icon { opacity: 0.5; }
+
+  .card__tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+    margin-bottom: 16px;
+  }
+  .tag {
+    display: inline-block;
+    padding: 3px 10px;
+    border-radius: var(--radius-pill);
+    background: var(--accent-soft);
+    border: 1px solid var(--accent-border);
+    color: var(--accent);
+    font-size: 0.72rem;
+    font-weight: 500;
+    letter-spacing: 0.3px;
+    white-space: nowrap;
+    transition: all var(--transition-fast);
+  }
+  .tag:hover {
+    background: rgba(34,197,94,0.16);
+    border-color: var(--accent);
+    box-shadow: 0 0 10px var(--accent-glow);
+  }
+
+  /* ── BRIEF SECTIONS ── */
+  .card__content { display: flex; flex-direction: column; gap: 0; }
+
+  .brief-section {
+    padding: 10px 0;
+    border-top: 1px solid var(--accent-border);
+  }
+  .brief-section:first-child { border-top: none; padding-top: 0; }
+
+  .brief-label {
+    font-size: 0.75rem;
+    font-weight: 600;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    color: var(--accent);
+    text-shadow: var(--text-glow);
+    margin-bottom: 4px;
+  }
+  .brief-text {
+    font-size: 0.9375rem;
+    color: var(--fg-muted);
+    font-weight: 300;
+    line-height: 1.7;
+  }
+
+  /* "Why it matters" gets a highlight treatment */
+  .brief-section--matters {
+    background: var(--accent-soft);
+    border: 1px solid var(--accent-border);
+    border-radius: var(--radius-md);
+    padding: 10px 14px;
+    margin-top: 8px;
+  }
+  .brief-section--matters .brief-label { margin-bottom: 3px; }
+  .brief-section--matters .brief-text {
+    color: var(--fg-strong);
+    font-weight: 400;
+  }
+
+  .desc { font-size: 0.9375rem; color: var(--fg-muted); font-weight: 300; line-height: 1.7; }
+  .label { color: var(--accent); font-weight: 600; }
+
+  /* ── FOOTER ── */
+  .site-footer {
+    margin-top: 40px;
+    font-size: 0.78rem;
+    color: var(--fg-subtle);
+    text-align: center;
+    border-top: 1px solid var(--accent-border);
+    padding-top: 20px;
+  }
+  a { color: var(--accent); }
+
+  /* ── MOBILE SAFETY ── */
+  img, video, audio { max-width: 100%; }
+  .card__title a { word-break: break-word; }
+  @media (max-width: 480px) {
+    .card__body { padding: 28px 14px 16px; }
+    .card__stats { padding: 6px 10px; min-width: 50px; }
+    .player-time { display: none; }
+  }
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <div class="top-bar">
+    <button class="lang-btn" id="langToggle" onclick="toggleLang()">EN</button>
+    <button class="share-btn" id="shareBtn" onclick="shareReport()" aria-label="Share">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <circle cx="18" cy="5" r="3"/><circle cx="6" cy="12" r="3"/><circle cx="18" cy="19" r="3"/>
+        <line x1="8.59" y1="13.51" x2="15.42" y2="17.49"/>
+        <line x1="15.41" y1="6.51" x2="8.59" y2="10.49"/>
+      </svg>
+      <span class="share-label i18n" data-he="שתף" data-en="Share">שתף</span>
+    </button>
+  </div>
+
+  <header class="site-header">
+    <p class="header-eyebrow i18n" data-he="עיכול AI שבועי" data-en="Weekly AI Digest">עיכול AI שבועי</p>
+    <h1 class="header-title i18n" data-he="&#128293; טרנד ב-AI/LLM" data-en="&#128293; Trending AI/LLM Repos">&#128293; טרנד ב-AI/LLM</h1>
+    <p class="header-sub">2026-W29 &middot; 2026-07-13</p>
+  </header>
+
+  <div class="player">
+    <audio id="audio" src="report.mp3" preload="none"></audio>
+    <div class="player-ui">
+      <button class="player-btn" id="playBtn" onclick="togglePlay()" aria-label="Play">
+        <svg id="iconPlay" viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
+        <svg id="iconPause" viewBox="0 0 24 24" style="display:none"><path d="M6 19h4V5H6zm8-14v14h4V5z"/></svg>
+      </button>
+      <div class="player-center">
+        <div class="player-track i18n" data-he="&#127911; האזן בדרך לעבודה" data-en="&#127911; Listen on your commute">&#127911; האזן בדרך לעבודה</div>
+        <div class="player-progress-wrap" id="progressWrap" onclick="seek(event)">
+          <div class="player-progress-bar" id="progressBar"></div>
+        </div>
+      </div>
+      <div class="player-time" id="playerTime">0:00 / 0:00</div>
+    </div>
+    <p class="player-hint i18n" data-he="לחץ להפעלה · גלול למטה לקריאה" data-en="Tap to play · scroll to read">לחץ להפעלה · גלול למטה לקריאה</p>
+  </div>
+
+  
+
+  <main id="repoList">
+
+    <article class="card">
+      <div class="card__rank">#1</div>
+      <div class="card__body">
+
+        <div class="card__header">
+          <div class="card__title-block">
+            <p class="card__eyebrow">Python</p>
+            <h2 class="card__title">
+              <a href="https://github.com/ohad6k/ditto" target="_blank" rel="noopener">
+                <span class="card__org">ohad6k/</span>ditto
+              </a>
+            </h2>
+          </div>
+          <div class="card__stats">
+            <span class="card__stars">&#9733;<br><span class="stars-num">146</span></span>
+          </div>
+        </div>
+
+        <div class="card__meta">
+          <span class="meta-item"><span class="meta-icon">&#128197;</span> 2026-07-08</span>
+          <span class="meta-item"><span class="meta-icon">&#9679;</span> push 2026-07-11</span>
+        </div>
+
+        <div class="card__tags"><span class="tag">agent-memory</span><span class="tag">agent-skills</span><span class="tag">ai</span><span class="tag">ai-agents</span></div>
+
+        <div class="card__content"><div class="brief-section"><p class="brief-label" data-he="מה זה עושה" data-en="What it does">מה זה עושה</p><p class="brief-text i18n" data-he="Ditto סורק את לוגי הסשנים המקומיים של Claude Code ו-Codex ובונה קובץ you.md שמתעד את דפוסי העבודה, ההעדפות וההחלטות החוזרות שלך. התוצאה היא קובץ זיכרון סוכן מובנה שכל עוזר AI לקוד יכול לטעון ולהתנהג מיד כ&amp;#x27;העוזר שלך&amp;#x27;." data-en="Ditto scans your local Claude Code and Codex session logs and builds a you.md profile that captures your coding patterns, preferences, and recurring decisions. The result is a structured agent-memory file that any AI coding assistant can load to behave as your assistant from the first message.">Ditto סורק את לוגי הסשנים המקומיים של Claude Code ו-Codex ובונה קובץ you.md שמתעד את דפוסי העבודה, ההעדפות וההחלטות החוזרות שלך. התוצאה היא קובץ זיכרון סוכן מובנה שכל עוזר AI לקוד יכול לטעון ולהתנהג מיד כ&#x27;העוזר שלך&#x27;.</p></div><div class="brief-section"><p class="brief-label" data-he="למה זה בטרנד" data-en="Why it&#x27;s trending">למה זה בטרנד</p><p class="brief-text i18n" data-he="מפתחים רוצים שעוזרי ה-AI שלהם ילמדו מסשנים קודמים מבלי לחשוף לוגים לענן. Ditto עושה זאת על ידי עיבוד הכל מקומית: הפרופיל נשאר במכונה שלך ומתעדכן עם כל סשן חדש, ומציע פרסונליזציה אמיתית ללא פשרות על פרטיות." data-en="Developers want AI assistants that learn from past sessions without sending logs to the cloud. Ditto processes everything locally: the profile stays on your machine and updates with each new session, offering real personalization without privacy trade-offs.">מפתחים רוצים שעוזרי ה-AI שלהם ילמדו מסשנים קודמים מבלי לחשוף לוגים לענן. Ditto עושה זאת על ידי עיבוד הכל מקומית: הפרופיל נשאר במכונה שלך ומתעדכן עם כל סשן חדש, ומציע פרסונליזציה אמיתית ללא פשרות על פרטיות.</p></div><div class="brief-section"><p class="brief-label" data-he="דוגמת שימוש" data-en="Example use case">דוגמת שימוש</p><p class="brief-text i18n" data-he="אחרי שבוע של סשני Claude Code, Ditto מייצר you.md שמציין שאתה מעדיף TypeScript, נמנע ממצב גלובלי ופועל לפי קונבנציית שמות ספציפית. הסשן הבא של Claude Code טוען פרופיל זה ומדלג על ה-back-and-forth הרגיל לגבי סגנון." data-en="After a week of Claude Code sessions, Ditto generates a you.md noting you always prefer TypeScript, avoid global state, and follow a specific file-naming convention. Your next Claude Code session loads this profile and skips the usual back-and-forth about style.">אחרי שבוע של סשני Claude Code, Ditto מייצר you.md שמציין שאתה מעדיף TypeScript, נמנע ממצב גלובלי ופועל לפי קונבנציית שמות ספציפית. הסשן הבא של Claude Code טוען פרופיל זה ומדלג על ה-back-and-forth הרגיל לגבי סגנון.</p></div><div class="brief-section brief-section--matters"><p class="brief-label" data-he="למה זה רלוונטי לך" data-en="Why it matters for you">למה זה רלוונטי לך</p><p class="brief-text i18n" data-he="Ditto פותר ישירות את בעיית הקליטה הקרה ב-AI לקוד: כל סשן יודע מי אתה. עבור מעצב הדרכתי שבונה כלי AI, זיכרון סוכן מתמשך ומקומי כזה הוא בדיוד הדפוס שהופך עוזר גנרי לאישי." data-en="Ditto solves the cold-start problem in AI coding: every session knows who you are. For an instructional designer building AI tools, this kind of persistent, local agent-memory is exactly the pattern that turns a generic assistant into a personalized one.">Ditto פותר ישירות את בעיית הקליטה הקרה ב-AI לקוד: כל סשן יודע מי אתה. עבור מעצב הדרכתי שבונה כלי AI, זיכרון סוכן מתמשך ומקומי כזה הוא בדיוד הדפוס שהופך עוזר גנרי לאישי.</p></div></div>
+
+      </div>
+    </article>
+
+    <article class="card">
+      <div class="card__rank">#2</div>
+      <div class="card__body">
+
+        <div class="card__header">
+          <div class="card__title-block">
+            <p class="card__eyebrow">JavaScript</p>
+            <h2 class="card__title">
+              <a href="https://github.com/Sahir619/fable-method" target="_blank" rel="noopener">
+                <span class="card__org">Sahir619/</span>fable-method
+              </a>
+            </h2>
+          </div>
+          <div class="card__stats">
+            <span class="card__stars">&#9733;<br><span class="stars-num">301</span></span>
+          </div>
+        </div>
+
+        <div class="card__meta">
+          <span class="meta-item"><span class="meta-icon">&#128197;</span> 2026-07-06</span>
+          <span class="meta-item"><span class="meta-icon">&#9679;</span> push 2026-07-09</span>
+        </div>
+
+        <div class="card__tags"><span class="tag">agent-skills</span><span class="tag">ai-agents</span><span class="tag">claude</span><span class="tag">claude-code</span></div>
+
+        <div class="card__content"><div class="brief-section"><p class="brief-label" data-he="מה זה עושה" data-en="What it does">מה זה עושה</p><p class="brief-text i18n" data-he="The Fable Method מזקק את לולאת התכנון, הביצוע והאימות שהפכה את Claude Fable 5 לאפקטיבי לסט מיומנויות Claude Code שכל מודל יכול לאמץ. כל מיומנות עוקבת אחר מחזור Think / Act / Prove: המודל מתכנן, מבצע ואז מריץ eval לאישור התוצאה לפני שעובר הלאה." data-en="The Fable Method distills the planning-and-verification loop that made Claude Fable 5 effective into a set of Claude Code skills any model can adopt. Each skill follows a Think / Act / Prove cycle: the model plans, executes, then runs an eval to confirm the result before moving on.">The Fable Method מזקק את לולאת התכנון, הביצוע והאימות שהפכה את Claude Fable 5 לאפקטיבי לסט מיומנויות Claude Code שכל מודל יכול לאמץ. כל מיומנות עוקבת אחר מחזור Think / Act / Prove: המודל מתכנן, מבצע ואז מריץ eval לאישור התוצאה לפני שעובר הלאה.</p></div><div class="brief-section"><p class="brief-label" data-he="למה זה בטרנד" data-en="Why it&#x27;s trending">למה זה בטרנד</p><p class="brief-text i18n" data-he="משמעת התכנון של Fable 5 זכתה לתשומת לב בזכות צמצום דרמטי של יישומים שגויים או לא גמורים. ריפו זה מעמיד את אותה מסגרת לרשות צוותים שמריצים Opus 4.8 או מודלים אחרים מבלי שנדרש גישה ל-Fable 5." data-en="Fable 5&amp;#x27;s planning discipline gained attention for dramatically reducing hallucinated or half-finished implementations. This repo makes the same structure available to teams running Opus 4.8 or other models without needing Fable 5 access.">משמעת התכנון של Fable 5 זכתה לתשומת לב בזכות צמצום דרמטי של יישומים שגויים או לא גמורים. ריפו זה מעמיד את אותה מסגרת לרשות צוותים שמריצים Opus 4.8 או מודלים אחרים מבלי שנדרש גישה ל-Fable 5.</p></div><div class="brief-section"><p class="brief-label" data-he="דוגמת שימוש" data-en="Example use case">דוגמת שימוש</p><p class="brief-text i18n" data-he="מפתח מתקין את המיומנות ומבקש מ-Claude להוסיף אימות ל-REST API. המודל קודם כותב תוכנית תמציתית, מבצע את השינוי, ואז מריץ את ה-eval הכלול כדי לוודא שנקודות הקצה עובדות לפני שהמשימה נסגרת." data-en="A developer installs the skill, asks Claude to add auth to a REST API, and the model first writes a brief plan, executes the change, then runs the bundled eval to verify the endpoints work before closing the task.">מפתח מתקין את המיומנות ומבקש מ-Claude להוסיף אימות ל-REST API. המודל קודם כותב תוכנית תמציתית, מבצע את השינוי, ואז מריץ את ה-eval הכלול כדי לוודא שנקודות הקצה עובדות לפני שהמשימה נסגרת.</p></div><div class="brief-section brief-section--matters"><p class="brief-label" data-he="למה זה רלוונטי לך" data-en="Why it matters for you">למה זה רלוונטי לך</p><p class="brief-text i18n" data-he="אם אתה בונה זרימות עבודה של סוכנים או מלמד אחרים לעשות זאת, The Fable Method נותן לך פיגום &amp;#x27;חשוב ואז אמת&amp;#x27; מוכח בקרב לכל מודל Claude. זהו גם מקור ייחוס מצוין לכיצד לעצב לולאות סוכן עם בדיקה עצמית." data-en="If you build agent workflows or teach others to do so, the Fable Method gives you a battle-tested think-then-verify scaffold for any Claude model. It is also a useful reference for how to design self-checking agent loops.">אם אתה בונה זרימות עבודה של סוכנים או מלמד אחרים לעשות זאת, The Fable Method נותן לך פיגום &#x27;חשוב ואז אמת&#x27; מוכח בקרב לכל מודל Claude. זהו גם מקור ייחוס מצוין לכיצד לעצב לולאות סוכן עם בדיקה עצמית.</p></div></div>
+
+      </div>
+    </article>
+
+    <article class="card">
+      <div class="card__rank">#3</div>
+      <div class="card__body">
+
+        <div class="card__header">
+          <div class="card__title-block">
+            <p class="card__eyebrow">Python</p>
+            <h2 class="card__title">
+              <a href="https://github.com/cozytab/fable5-mode" target="_blank" rel="noopener">
+                <span class="card__org">cozytab/</span>fable5-mode
+              </a>
+            </h2>
+          </div>
+          <div class="card__stats">
+            <span class="card__stars">&#9733;<br><span class="stars-num">105</span></span>
+          </div>
+        </div>
+
+        <div class="card__meta">
+          <span class="meta-item"><span class="meta-icon">&#128197;</span> 2026-07-06</span>
+          <span class="meta-item"><span class="meta-icon">&#9679;</span> push 2026-07-09</span>
+        </div>
+
+        <div class="card__tags"><span class="tag">agent-hooks</span><span class="tag">ai-agents</span><span class="tag">anthropic</span><span class="tag">claude</span></div>
+
+        <div class="card__content"><div class="brief-section"><p class="brief-label" data-he="מה זה עושה" data-en="What it does">מה זה עושה</p><p class="brief-text i18n" data-he="fable5-mode מוסיף מיומנות Claude Code ומערכת guard hooks (שער תכנון, תקרת מודל, אכיפה לפי משימה) שמטילים את משמעת התכנון המוקפד של Fable 5 על כל מודל Claude. Opus 4.8 ומודלים קטנים יותר יתכננו, יאמתו את עצמם ויניעו סוכני משנה לפי אותן כללים." data-en="fable5-mode adds a Claude Code skill and guard hooks (plan gate, model ceiling, per-task enforcement) that impose Fable 5&amp;#x27;s strict planning discipline on any Claude model. Opus 4.8 or smaller models will now plan, self-verify, and spin up sub-agents on the same rules Fable 5 followed.">fable5-mode מוסיף מיומנות Claude Code ומערכת guard hooks (שער תכנון, תקרת מודל, אכיפה לפי משימה) שמטילים את משמעת התכנון המוקפד של Fable 5 על כל מודל Claude. Opus 4.8 ומודלים קטנים יותר יתכננו, יאמתו את עצמם ויניעו סוכני משנה לפי אותן כללים.</p></div><div class="brief-section"><p class="brief-label" data-he="למה זה בטרנד" data-en="Why it&#x27;s trending">למה זה בטרנד</p><p class="brief-text i18n" data-he="התנהגות התכנון-ראשון של Fable 5 זוכה לשבח רב, אך זמינה רק לחלק מהמשתמשים. המיומנות הזו סוגרת את הפער: hooks חוסמים את המודל מלכתוב קוד עד שהוא מייצר תוכנית מספקת, ואז בודקים שהתוצאה תואמת את התוכנית." data-en="Fable 5&amp;#x27;s planning-first behavior is widely praised but only available to a subset of users. This skill closes the gap: hooks block the model from writing code until it produces an acceptable plan, then check that the result matches the plan before closing.">התנהגות התכנון-ראשון של Fable 5 זוכה לשבח רב, אך זמינה רק לחלק מהמשתמשים. המיומנות הזו סוגרת את הפער: hooks חוסמים את המודל מלכתוב קוד עד שהוא מייצר תוכנית מספקת, ואז בודקים שהתוצאה תואמת את התוכנית.</p></div><div class="brief-section"><p class="brief-label" data-he="דוגמת שימוש" data-en="Example use case">דוגמת שימוש</p><p class="brief-text i18n" data-he="מתקינים את fable5-mode ומבקשים מ-Claude לבצע refactor של מודול. שער התכנון פותח מיד רשימת משימות. רק לאחר אישור הרשימה מתחיל Claude בשינויי הקוד בפועל. Hook לאחר הריצה מאמת שכל פריטי הרשימה טופלו." data-en="You install fable5-mode, ask Claude to refactor a module, and the plan gate immediately opens a checklist. Only after you approve the checklist does Claude begin code changes. A post-run hook then verifies all checklist items were addressed.">מתקינים את fable5-mode ומבקשים מ-Claude לבצע refactor של מודול. שער התכנון פותח מיד רשימת משימות. רק לאחר אישור הרשימה מתחיל Claude בשינויי הקוד בפועל. Hook לאחר הריצה מאמת שכל פריטי הרשימה טופלו.</p></div><div class="brief-section brief-section--matters"><p class="brief-label" data-he="למה זה רלוונטי לך" data-en="Why it matters for you">למה זה רלוונטי לך</p><p class="brief-text i18n" data-he="לכל מי שמריץ זרימות עבודה של סוכנים מרובי-שלבים ב-Claude Code, המיומנות הזו נותנת שדרוג &amp;#x27;משמעת Fable 5&amp;#x27; חינמי לדרג המודל הנוכחי שלך. היא גם מציגה דפוס ברור לשימוש ב-Claude Code hooks לאכיפת התנהגות סוכן." data-en="For anyone running multi-step agent workflows in Claude Code, this skill gives you a free Fable 5 discipline upgrade for your current model tier. It also shows a concrete pattern for using Claude Code hooks to enforce agent behavior.">לכל מי שמריץ זרימות עבודה של סוכנים מרובי-שלבים ב-Claude Code, המיומנות הזו נותנת שדרוג &#x27;משמעת Fable 5&#x27; חינמי לדרג המודל הנוכחי שלך. היא גם מציגה דפוס ברור לשימוש ב-Claude Code hooks לאכיפת התנהגות סוכן.</p></div></div>
+
+      </div>
+    </article>
+
+    <article class="card">
+      <div class="card__rank">#4</div>
+      <div class="card__body">
+
+        <div class="card__header">
+          <div class="card__title-block">
+            <p class="card__eyebrow">Python</p>
+            <h2 class="card__title">
+              <a href="https://github.com/Alisa0808/vox-director" target="_blank" rel="noopener">
+                <span class="card__org">Alisa0808/</span>vox-director
+              </a>
+            </h2>
+          </div>
+          <div class="card__stats">
+            <span class="card__stars">&#9733;<br><span class="stars-num">81</span></span>
+          </div>
+        </div>
+
+        <div class="card__meta">
+          <span class="meta-item"><span class="meta-icon">&#128197;</span> 2026-07-10</span>
+          <span class="meta-item"><span class="meta-icon">&#9679;</span> push 2026-07-11</span>
+        </div>
+
+        <div class="card__tags"><span class="tag">ai</span><span class="tag">ai-video</span><span class="tag">claude-code</span><span class="tag">claude-skill</span></div>
+
+        <div class="card__content"><div class="brief-section"><p class="brief-label" data-he="מה זה עושה" data-en="What it does">מה זה עושה</p><p class="brief-text i18n" data-he="Vox Director היא מיומנות Claude Code שלוקחת נושא, מוצאת חזותיים בסגנון קולאז&amp;#x27; נייר, כותבת תסריט, מייצרת קריינות TTS ומרכיבה סרטון הסבר מלוטש באמצעות ffmpeg על Atlas Cloud, הכל בפרומפט אחד בלבד." data-en="Vox Director is a Claude Code skill that takes a topic, sources paper-collage-style visuals, writes a script, generates TTS voiceover, and assembles a polished explainer video using ffmpeg on Atlas Cloud, all from a single prompt.">Vox Director היא מיומנות Claude Code שלוקחת נושא, מוצאת חזותיים בסגנון קולאז&#x27; נייר, כותבת תסריט, מייצרת קריינות TTS ומרכיבה סרטון הסבר מלוטש באמצעות ffmpeg על Atlas Cloud, הכל בפרומפט אחד בלבד.</p></div><div class="brief-section"><p class="brief-label" data-he="למה זה בטרנד" data-en="Why it&#x27;s trending">למה זה בטרנד</p><p class="brief-text i18n" data-he="פורמט ה-Vox (טקסט מינימלי, דימויים מכוונים, קריינות ברורה) פופולרי מאוד לתוכן חינוכי. אוטומציה של הצינור המלא מנושא לסרטון גמור במיומנות סוכן אחת מסירה לחלוטין את שלב ההרכבה הידני." data-en="The Vox-style explainer format (minimal text, deliberate imagery, clear narration) is extremely popular for educational content. Automating the full pipeline from topic to finished video in a single agent skill removes the manual assembly step entirely.">פורמט ה-Vox (טקסט מינימלי, דימויים מכוונים, קריינות ברורה) פופולרי מאוד לתוכן חינוכי. אוטומציה של הצינור המלא מנושא לסרטון גמור במיומנות סוכן אחת מסירה לחלוטין את שלב ההרכבה הידני.</p></div><div class="brief-section"><p class="brief-label" data-he="דוגמת שימוש" data-en="Example use case">דוגמת שימוש</p><p class="brief-text i18n" data-he="הרצת /vox-director על הנושא &amp;#x27;How attention mechanisms work&amp;#x27; גורמת לסוכן למצוא איורים ב-Creative Commons, לכתוב תסריט עברי או אנגלי, לסנתז שמע ולרנדר סרטון הסבר של כ-2 דקות המוכן לשיתוף." data-en="Run /vox-director on &amp;#x27;How attention mechanisms work&amp;#x27; and the agent finds Creative Commons paper illustrations, writes a Hebrew or English script, synthesizes audio, and renders a roughly 2-minute explainer video ready to share.">הרצת /vox-director על הנושא &#x27;How attention mechanisms work&#x27; גורמת לסוכן למצוא איורים ב-Creative Commons, לכתוב תסריט עברי או אנגלי, לסנתז שמע ולרנדר סרטון הסבר של כ-2 דקות המוכן לשיתוף.</p></div><div class="brief-section brief-section--matters"><p class="brief-label" data-he="למה זה רלוונטי לך" data-en="Why it matters for you">למה זה רלוונטי לך</p><p class="brief-text i18n" data-he="כיוצר תוכן הדרכתי ו-AI, מיומנות זו מבצעת אוטומציה של בדיוק הצינור שאתה משתמש בו (מחקר נושא, קריינות, TTS, עריכת וידאו) לפקודת סוכן בודדת. זהו גם מקור ייחוס חזק לבניית סוכני ייצור תוכן משלך." data-en="As someone who creates instructional AI content, this skill automates exactly the production stack you use (topic research, narration, TTS, video assembly) into a single agent command. It is a strong reference for building your own content-production agents.">כיוצר תוכן הדרכתי ו-AI, מיומנות זו מבצעת אוטומציה של בדיוק הצינור שאתה משתמש בו (מחקר נושא, קריינות, TTS, עריכת וידאו) לפקודת סוכן בודדת. זהו גם מקור ייחוס חזק לבניית סוכני ייצור תוכן משלך.</p></div></div>
+
+      </div>
+    </article>
+
+    <article class="card">
+      <div class="card__rank">#5</div>
+      <div class="card__body">
+
+        <div class="card__header">
+          <div class="card__title-block">
+            <p class="card__eyebrow">TypeScript</p>
+            <h2 class="card__title">
+              <a href="https://github.com/Nanako0129/pilotfish" target="_blank" rel="noopener">
+                <span class="card__org">Nanako0129/</span>pilotfish
+              </a>
+            </h2>
+          </div>
+          <div class="card__stats">
+            <span class="card__stars">&#9733;<br><span class="stars-num">393</span></span>
+          </div>
+        </div>
+
+        <div class="card__meta">
+          <span class="meta-item"><span class="meta-icon">&#128197;</span> 2026-07-08</span>
+          <span class="meta-item"><span class="meta-icon">&#9679;</span> push 2026-07-12</span>
+        </div>
+
+        <div class="card__tags"><span class="tag">ai-agents</span><span class="tag">anthropic</span><span class="tag">claude</span><span class="tag">claude-code</span></div>
+
+        <div class="card__content"><div class="brief-section"><p class="brief-label" data-he="מה זה עושה" data-en="What it does">מה זה עושה</p><p class="brief-text i18n" data-he="Pilotfish יושב בין Claude Code ל-Anthropic API ומנתב משימות לדרגי מודל שונים: המודל החזק ביותר (Opus או Sonnet) מטפל בתכנון והחלטות קריטיות, בעוד מודלים מהירים יותר או זולים יותר מבצעים שלבי ביצוע שגרתיים. מעבר אימות פועל לאחר כל משימת משנה." data-en="Pilotfish sits between Claude Code and the Anthropic API and routes tasks across model tiers: the most capable model (Opus or Sonnet) handles planning and critical decisions, while faster or cheaper models carry out routine execution. A verification pass runs after each subtask to catch regressions.">Pilotfish יושב בין Claude Code ל-Anthropic API ומנתב משימות לדרגי מודל שונים: המודל החזק ביותר (Opus או Sonnet) מטפל בתכנון והחלטות קריטיות, בעוד מודלים מהירים יותר או זולים יותר מבצעים שלבי ביצוע שגרתיים. מעבר אימות פועל לאחר כל משימת משנה.</p></div><div class="brief-section"><p class="brief-label" data-he="למה זה בטרנד" data-en="Why it&#x27;s trending">למה זה בטרנד</p><p class="brief-text i18n" data-he="הרצת מודל frontier לכל טוקן במשימה ארוכה ויקרה. Pilotfish מפחית עלויות משמעותית על ידי חלוקת העבודה, בעוד שלב האימות המובנה מונע את ירידת האיכות שבדרך כלל מגיעה עם שימוש במודל חלש יותר." data-en="Running a frontier model for every token of a long agentic task is expensive. Pilotfish cuts costs significantly by tiering work, while the built-in verification step prevents the quality loss that normally comes from using a weaker model.">הרצת מודל frontier לכל טוקן במשימה ארוכה ויקרה. Pilotfish מפחית עלויות משמעותית על ידי חלוקת העבודה, בעוד שלב האימות המובנה מונע את ירידת האיכות שבדרך כלל מגיעה עם שימוש במודל חלש יותר.</p></div><div class="brief-section"><p class="brief-label" data-he="דוגמת שימוש" data-en="Example use case">דוגמת שימוש</p><p class="brief-text i18n" data-he="משימת refactor מתחילה כש-Fable או Sonnet מתכנן את אסטרטגיית השינוי. מודל Haiku מבצע כל עריכת קובץ. Sonnet מריץ אימות לאחר כל קובץ לפני שעובר לבא בתור." data-en="A refactor task starts with Fable or Sonnet planning the change strategy. A Haiku-class model then executes each file edit. Sonnet runs verification after each file to confirm correctness before moving to the next.">משימת refactor מתחילה כש-Fable או Sonnet מתכנן את אסטרטגיית השינוי. מודל Haiku מבצע כל עריכת קובץ. Sonnet מריץ אימות לאחר כל קובץ לפני שעובר לבא בתור.</p></div><div class="brief-section brief-section--matters"><p class="brief-label" data-he="למה זה רלוונטי לך" data-en="Why it matters for you">למה זה רלוונטי לך</p><p class="brief-text i18n" data-he="לכל מי שמריץ Claude Code על פרויקטים ארוכי-טווח, Pilotfish מפחית עלות טוקנים תוך שמירת איכות גבוהה. דפוס האורקסטרציה (תכנן על מודל חזק, בצע על מודל זול, אמת על מודל ביניים) הוא גם ארכיטקטורה שימושית להבנה לבניית זרימות עבודה משלך." data-en="For anyone running Claude Code on long-horizon projects, Pilotfish reduces token cost while keeping quality high. The orchestration pattern (plan on strong model, execute on cheap model, verify on mid-tier) is also a useful architecture for building your own agent workflows.">לכל מי שמריץ Claude Code על פרויקטים ארוכי-טווח, Pilotfish מפחית עלות טוקנים תוך שמירת איכות גבוהה. דפוס האורקסטרציה (תכנן על מודל חזק, בצע על מודל זול, אמת על מודל ביניים) הוא גם ארכיטקטורה שימושית להבנה לבניית זרימות עבודה משלך.</p></div></div>
+
+      </div>
+    </article>
+
+    <article class="card">
+      <div class="card__rank">#6</div>
+      <div class="card__body">
+
+        <div class="card__header">
+          <div class="card__title-block">
+            <p class="card__eyebrow">Markdown</p>
+            <h2 class="card__title">
+              <a href="https://github.com/markfulton/claude-antigravity-agents" target="_blank" rel="noopener">
+                <span class="card__org">markfulton/</span>claude-antigravity-agents
+              </a>
+            </h2>
+          </div>
+          <div class="card__stats">
+            <span class="card__stars">&#9733;<br><span class="stars-num">102</span></span>
+          </div>
+        </div>
+
+        <div class="card__meta">
+          <span class="meta-item"><span class="meta-icon">&#128197;</span> 2026-07-07</span>
+          <span class="meta-item"><span class="meta-icon">&#9679;</span> push 2026-07-08</span>
+        </div>
+
+        <div class="card__tags"><span class="tag">agentic</span><span class="tag">ai-agents</span><span class="tag">anthropic</span><span class="tag">antigravity</span></div>
+
+        <div class="card__content"><div class="brief-section"><p class="brief-label" data-he="מה זה עושה" data-en="What it does">מה זה עושה</p><p class="brief-text i18n" data-he="מיומנות Claude Code זו מוסיפה תבניות סוכן-משנה שמאצילות משימות ספציפיות (סקירת קוד, ניתוח, מחקר) ל-Google Antigravity CLI במקום לשרוף Claude tokens. כל תבנית מפעילה סוכן agy, מקבלת את התוצאה ומשלבת אותה בהקשר של Claude כפלט כלי." data-en="This Claude Code skill adds sub-agent templates that delegate specific tasks (code review, analysis, research) to the Google Antigravity CLI instead of consuming Claude tokens. Each template launches an agy sub-agent, gets back its result, and feeds it into Claude&amp;#x27;s context as tool output.">מיומנות Claude Code זו מוסיפה תבניות סוכן-משנה שמאצילות משימות ספציפיות (סקירת קוד, ניתוח, מחקר) ל-Google Antigravity CLI במקום לשרוף Claude tokens. כל תבנית מפעילה סוכן agy, מקבלת את התוצאה ומשלבת אותה בהקשר של Claude כפלט כלי.</p></div><div class="brief-section"><p class="brief-label" data-he="למה זה בטרנד" data-en="Why it&#x27;s trending">למה זה בטרנד</p><p class="brief-text i18n" data-he="דפוסי סוכן רב-מודלי תופסים תאוצה: שימוש ב-Claude לתכנון ואורקסטרציה בעוד מודלים זולים יותר או מתמחים מטפלים בעבודת השטח. מיומנות זו הופכת את האצלת הצלב-מודל לפעולה חד-פרומפט בתוך Claude Code." data-en="Multi-model agent patterns are gaining ground: using Claude to plan and orchestrate while cheaper or specialized models handle the heavy lifting. This skill makes cross-model delegation a one-prompt operation inside Claude Code.">דפוסי סוכן רב-מודלי תופסים תאוצה: שימוש ב-Claude לתכנון ואורקסטרציה בעוד מודלים זולים יותר או מתמחים מטפלים בעבודת השטח. מיומנות זו הופכת את האצלת הצלב-מודל לפעולה חד-פרומפט בתוך Claude Code.</p></div><div class="brief-section"><p class="brief-label" data-he="דוגמת שימוש" data-en="Example use case">דוגמת שימוש</p><p class="brief-text i18n" data-he="הרצת /review-with-agy על PR מפעילה סוכן Antigravity Gemini שמבצע סקירת קוד ראשונית. התוצאה מוזרקת לחזרה להקשר של Claude, שם Claude מסכם ומוסיף את נקודת המבט הרמה-גבוהה שלו." data-en="Run /review-with-agy on a PR and the skill spins up an Antigravity Gemini sub-agent to do a preliminary code review. The result is injected back into Claude&amp;#x27;s context, where Claude summarizes and adds its own higher-level perspective.">הרצת /review-with-agy על PR מפעילה סוכן Antigravity Gemini שמבצע סקירת קוד ראשונית. התוצאה מוזרקת לחזרה להקשר של Claude, שם Claude מסכם ומוסיף את נקודת המבט הרמה-גבוהה שלו.</p></div><div class="brief-section brief-section--matters"><p class="brief-label" data-he="למה זה רלוונטי לך" data-en="Why it matters for you">למה זה רלוונטי לך</p><p class="brief-text i18n" data-he="אם אתה משתמש ב-Claude Code לתוכן הדרכתי, יצירת קוד או מחקר, מיומנות זו מראה כיצד לאצול משימות יקרות ספציפיות ל-LLM שני תוך שמירת Claude כאורקסטרטור. הדפוס מתרחב לסוכני CLI אחרים מעבר ל-Antigravity." data-en="If you use Claude Code for instructional content, code generation, or research, this skill shows how to outsource specific expensive tasks to a second LLM while keeping Claude as the orchestrator. The pattern extends to other CLI-based agents beyond Antigravity.">אם אתה משתמש ב-Claude Code לתוכן הדרכתי, יצירת קוד או מחקר, מיומנות זו מראה כיצד לאצול משימות יקרות ספציפיות ל-LLM שני תוך שמירת Claude כאורקסטרטור. הדפוס מתרחב לסוכני CLI אחרים מעבר ל-Antigravity.</p></div></div>
+
+      </div>
+    </article>
+
+    <article class="card">
+      <div class="card__rank">#7</div>
+      <div class="card__body">
+
+        <div class="card__header">
+          <div class="card__title-block">
+            <p class="card__eyebrow">Python</p>
+            <h2 class="card__title">
+              <a href="https://github.com/Intuition-Lab/personal-model" target="_blank" rel="noopener">
+                <span class="card__org">Intuition-Lab/</span>personal-model
+              </a>
+            </h2>
+          </div>
+          <div class="card__stats">
+            <span class="card__stars">&#9733;<br><span class="stars-num">72</span></span>
+          </div>
+        </div>
+
+        <div class="card__meta">
+          <span class="meta-item"><span class="meta-icon">&#128197;</span> 2026-07-10</span>
+          <span class="meta-item"><span class="meta-icon">&#9679;</span> push 2026-07-13</span>
+        </div>
+
+        <div class="card__tags"><span class="tag">agent-memory</span><span class="tag">local-first</span><span class="tag">macos</span><span class="tag">mcp</span></div>
+
+        <div class="card__content"><div class="brief-section"><p class="brief-label" data-he="מה זה עושה" data-en="What it does">מה זה עושה</p><p class="brief-text i18n" data-he="Personal Model הוא כלי macOS מקומי שאוסף אותות מהפעילות הדיגיטלית היומיומית שלך (לוח שנה, הערות, גלישה, שימוש באפליקציות) ומסנתז אותם לקובץ HUMAN.md שכל עוזר AI יכול לקרוא. הוא חושף את הפרופיל דרך MCP כדי שה&amp;#x27;הקשר עליך&amp;#x27; יעקוב אחריך בין אפליקציות." data-en="Personal Model is a local macOS tool that collects signals from your daily digital activity (calendar, notes, browsing, app usage) and synthesizes them into a HUMAN.md file that any AI assistant can read. It exposes the profile via MCP so the context about you travels across apps.">Personal Model הוא כלי macOS מקומי שאוסף אותות מהפעילות הדיגיטלית היומיומית שלך (לוח שנה, הערות, גלישה, שימוש באפליקציות) ומסנתז אותם לקובץ HUMAN.md שכל עוזר AI יכול לקרוא. הוא חושף את הפרופיל דרך MCP כדי שה&#x27;הקשר עליך&#x27; יעקוב אחריך בין אפליקציות.</p></div><div class="brief-section"><p class="brief-label" data-he="למה זה בטרנד" data-en="Why it&#x27;s trending">למה זה בטרנד</p><p class="brief-text i18n" data-he="רוב הפרסונליזציה של AI מתבצעת בשרתי הספק ואינה עוברת בין אפליקציות. Personal Model שומר את הפרופיל במכשיר שלך ומחשף אותו לכל עוזר תואם MCP, כך שהפרסונליזציה קשורה אליך, לא לאפליקציה." data-en="Most AI personalization happens on vendor servers and doesn&amp;#x27;t carry across apps. Personal Model keeps the profile on your device and exposes it to any MCP-compatible assistant, so the personalization travels with you rather than being siloed per app.">רוב הפרסונליזציה של AI מתבצעת בשרתי הספק ואינה עוברת בין אפליקציות. Personal Model שומר את הפרופיל במכשיר שלך ומחשף אותו לכל עוזר תואם MCP, כך שהפרסונליזציה קשורה אליך, לא לאפליקציה.</p></div><div class="brief-section"><p class="brief-label" data-he="דוגמת שימוש" data-en="Example use case">דוגמת שימוש</p><p class="brief-text i18n" data-he="אחרי שבוע שימוש, ה-HUMAN.md שלך מציין שיש לך מצגת גדולה ביום שישי, אתה מעדיף תקשורת ישירה, קראת מאמרים על RAG השבוע וה-energy שלך יורד אחרי 15:00. סשן Claude הבא קורא את הקובץ הזה ומתאים את ההצעות שלו בהתאם." data-en="After a week of use, your HUMAN.md notes a big presentation Friday, you prefer direct communication, you have been reading RAG papers this week, and your energy drops after 3pm. Your next Claude session reads this file and adapts its suggestions accordingly.">אחרי שבוע שימוש, ה-HUMAN.md שלך מציין שיש לך מצגת גדולה ביום שישי, אתה מעדיף תקשורת ישירה, קראת מאמרים על RAG השבוע וה-energy שלך יורד אחרי 15:00. סשן Claude הבא קורא את הקובץ הזה ומתאים את ההצעות שלו בהתאם.</p></div><div class="brief-section brief-section--matters"><p class="brief-label" data-he="למה זה רלוונטי לך" data-en="Why it matters for you">למה זה רלוונטי לך</p><p class="brief-text i18n" data-he="למעצב הדרכתי שעובד על פני כלי AI רבים, קובץ מקומי בודד שאומר לכל עוזר &amp;#x27;הנה מי אני היום&amp;#x27; הוא מכפיל עצום. חשיפת ה-MCP גם הופכת את הפרופיל לרפרנסי-ל-Claude Code." data-en="For an instructional designer working across many AI tools, a single local file that tells every assistant &amp;#x27;here is who I am today&amp;#x27; is a powerful multiplier. The MCP exposure also makes it easy to reference from Claude Code sessions.">למעצב הדרכתי שעובד על פני כלי AI רבים, קובץ מקומי בודד שאומר לכל עוזר &#x27;הנה מי אני היום&#x27; הוא מכפיל עצום. חשיפת ה-MCP גם הופכת את הפרופיל לרפרנסי-ל-Claude Code.</p></div></div>
+
+      </div>
+    </article>
+
+    <article class="card">
+      <div class="card__rank">#8</div>
+      <div class="card__body">
+
+        <div class="card__header">
+          <div class="card__title-block">
+            <p class="card__eyebrow">Python</p>
+            <h2 class="card__title">
+              <a href="https://github.com/frenzymath/Danus" target="_blank" rel="noopener">
+                <span class="card__org">frenzymath/</span>Danus
+              </a>
+            </h2>
+          </div>
+          <div class="card__stats">
+            <span class="card__stars">&#9733;<br><span class="stars-num">58</span></span>
+          </div>
+        </div>
+
+        <div class="card__meta">
+          <span class="meta-item"><span class="meta-icon">&#128197;</span> 2026-07-07</span>
+          <span class="meta-item"><span class="meta-icon">&#9679;</span> push 2026-07-11</span>
+        </div>
+
+        <div class="card__tags"><span class="tag">agents</span><span class="tag">ai4math</span><span class="tag">automated-reasoning</span><span class="tag">claude-code</span></div>
+
+        <div class="card__content"><div class="brief-section"><p class="brief-label" data-he="מה זה עושה" data-en="What it does">מה זה עושה</p><p class="brief-text i18n" data-he="Danus הוא מערכת רב-סוכנים שבה סוכנים מתמחים בהיגיון מתמטי משתפים פעולה תוך שיתוף זיכרון fact-graph שעוקב אחר שלבים מוכחים, עובדות נגזרות ותת-מטרות פתוחות. כל סוכן יכול לקרוא ולכתוב לגרף, מה שמאפשר פיצול שרשראות היגיון ארוכות בין סוכנים." data-en="Danus is a multi-agent system where specialized mathematical reasoning agents collaborate, sharing a fact-graph memory that tracks proven steps, derived facts, and open subgoals. Each agent can read and write to the graph, enabling long reasoning chains to be split across agents without losing context.">Danus הוא מערכת רב-סוכנים שבה סוכנים מתמחים בהיגיון מתמטי משתפים פעולה תוך שיתוף זיכרון fact-graph שעוקב אחר שלבים מוכחים, עובדות נגזרות ותת-מטרות פתוחות. כל סוכן יכול לקרוא ולכתוב לגרף, מה שמאפשר פיצול שרשראות היגיון ארוכות בין סוכנים.</p></div><div class="brief-section"><p class="brief-label" data-he="למה זה בטרנד" data-en="Why it&#x27;s trending">למה זה בטרנד</p><p class="brief-text i18n" data-he="LLMs עדיין עושים שגיאות בעיות רב-שלביות. גרף-עובדות מתמשך שצובר שלבים מאומתים (במקום להסתמך על חלון הקשר גדל) הופך את תהליך ההיגיון לניתן לביקורת ולתיקון בכל צומת." data-en="LLMs still make errors on multi-step problems. A persistent fact graph that accumulates verified steps (rather than relying on a growing context window) makes the reasoning process auditable and correctable at each node.">LLMs עדיין עושים שגיאות בעיות רב-שלביות. גרף-עובדות מתמשך שצובר שלבים מאומתים (במקום להסתמך על חלון הקשר גדל) הופך את תהליך ההיגיון לניתן לביקורת ולתיקון בכל צומת.</p></div><div class="brief-section"><p class="brief-label" data-he="דוגמת שימוש" data-en="Example use case">דוגמת שימוש</p><p class="brief-text i18n" data-he="משתמש מציג בעיית הוכחה גיאומטרית. סוכן מתכנן מפרק אותה לתת-מטרות, סוכן פותר תוקף כל תת-מטרה, וסוכן מאמת בודק כל שלב לפני הוספתו לגרף. ההוכחה הסופית מורכבת מהגרף." data-en="A user poses a geometry proof. A planner agent decomposes it into subgoals, a solver agent tackles each subgoal, and a verifier agent checks each step before adding it to the fact graph. The final proof is assembled from the graph.">משתמש מציג בעיית הוכחה גיאומטרית. סוכן מתכנן מפרק אותה לתת-מטרות, סוכן פותר תוקף כל תת-מטרה, וסוכן מאמת בודק כל שלב לפני הוספתו לגרף. ההוכחה הסופית מורכבת מהגרף.</p></div><div class="brief-section brief-section--matters"><p class="brief-label" data-he="למה זה רלוונטי לך" data-en="Why it matters for you">למה זה רלוונטי לך</p><p class="brief-text i18n" data-he="ארכיטקטורת זיכרון ה-fact-graph של Danus היא הדוגמה המתמטית לדפוס כללי יותר: מערכות רב-סוכניות שחולקות מצב מאומת ומובנה במקום טקסט גולמי. הבנת איך Danus עוקב ומאחזר תוצאות ביניים ישירות ישימה לעיצוב RAG ו-knowledge management." data-en="The fact-graph memory architecture in Danus is the math-domain instance of a general pattern: multi-agent systems that share structured, verifiable state instead of raw text. Understanding how Danus tracks intermediate results is directly applicable to RAG and knowledge-management design.">ארכיטקטורת זיכרון ה-fact-graph של Danus היא הדוגמה המתמטית לדפוס כללי יותר: מערכות רב-סוכניות שחולקות מצב מאומת ומובנה במקום טקסט גולמי. הבנת איך Danus עוקב ומאחזר תוצאות ביניים ישירות ישימה לעיצוב RAG ו-knowledge management.</p></div></div>
+
+      </div>
+    </article>
+
+    <article class="card">
+      <div class="card__rank">#9</div>
+      <div class="card__body">
+
+        <div class="card__header">
+          <div class="card__title-block">
+            <p class="card__eyebrow">TypeScript</p>
+            <h2 class="card__title">
+              <a href="https://github.com/mereyabdenbekuly-ctrl/clodex-ide" target="_blank" rel="noopener">
+                <span class="card__org">mereyabdenbekuly-ctrl/</span>clodex-ide
+              </a>
+            </h2>
+          </div>
+          <div class="card__stats">
+            <span class="card__stars">&#9733;<br><span class="stars-num">691</span></span>
+          </div>
+        </div>
+
+        <div class="card__meta">
+          <span class="meta-item"><span class="meta-icon">&#128197;</span> 2026-07-12</span>
+          <span class="meta-item"><span class="meta-icon">&#9679;</span> push 2026-07-13</span>
+        </div>
+
+        <div class="card__tags"><span class="tag">agentic-ai</span><span class="tag">agentic-ide</span><span class="tag">ai-agents</span><span class="tag">developer-tools</span></div>
+
+        <div class="card__content"><div class="brief-section"><p class="brief-label" data-he="מה זה עושה" data-en="What it does">מה זה עושה</p><p class="brief-text i18n" data-he="Clodex IDE הוא עורך קוד מבוסס Electron, מקומי-ראשון, שנבנה במיוחד לפיתוח תוכנה אגנטי. תכונת המפתח שלו היא אפס-אמון: כל שינוי שסוכן AI מציע מוצג כ-diff לפני שנוגע במערכת הקבצים, ומאמת מבצע בדיקת נכונות לפני החלת ה-diff." data-en="Clodex IDE is an Electron-based, local-first code editor built specifically for agentic software development. Its key feature is zero-trust execution: every change an AI agent proposes is shown as a diff before touching the file system, and a verifier checks correctness before the diff is applied.">Clodex IDE הוא עורך קוד מבוסס Electron, מקומי-ראשון, שנבנה במיוחד לפיתוח תוכנה אגנטי. תכונת המפתח שלו היא אפס-אמון: כל שינוי שסוכן AI מציע מוצג כ-diff לפני שנוגע במערכת הקבצים, ומאמת מבצע בדיקת נכונות לפני החלת ה-diff.</p></div><div class="brief-section"><p class="brief-label" data-he="למה זה בטרנד" data-en="Why it&#x27;s trending">למה זה בטרנד</p><p class="brief-text i18n" data-he="ככל שסוכני קוד AI הופכים לכשירים יותר, שאלת האמון והאימות הופכת קריטית. Clodex הופך כל פעולת סוכן לניתנת לביקורת לפי עיצוב: ללא כתיבות שקטות, ללא מצב נסתר, והסוכן לא יכול להתמזג עצמאית." data-en="As AI coding agents become more capable, the question of trust and verifiability becomes critical. Clodex makes every agent action auditable by design: no silent writes, no hidden state, and the agent cannot self-merge.">ככל שסוכני קוד AI הופכים לכשירים יותר, שאלת האמון והאימות הופכת קריטית. Clodex הופך כל פעולת סוכן לניתנת לביקורת לפי עיצוב: ללא כתיבות שקטות, ללא מצב נסתר, והסוכן לא יכול להתמזג עצמאית.</p></div><div class="brief-section"><p class="brief-label" data-he="דוגמת שימוש" data-en="Example use case">דוגמת שימוש</p><p class="brief-text i18n" data-he="סוכן מקבל משימה להוסיף זרימת כניסה. Clodex מציג כל כתיבת קובץ מוצעת ככרטיס diff. המפתח מאשר או דוחה כל כרטיס. לאחר כל האישורים, שלב אימות מריץ את חבילת הבדיקות. אם בדיקות נכשלות, ה-IDE מבקש מהסוכן להסביר ולתקן." data-en="An agent is tasked with adding a login flow. Clodex shows each proposed file write as a diff card. The developer approves or rejects each card. After all approvals, a verification step runs the test suite. If tests fail, the IDE asks the agent to explain and fix.">סוכן מקבל משימה להוסיף זרימת כניסה. Clodex מציג כל כתיבת קובץ מוצעת ככרטיס diff. המפתח מאשר או דוחה כל כרטיס. לאחר כל האישורים, שלב אימות מריץ את חבילת הבדיקות. אם בדיקות נכשלות, ה-IDE מבקש מהסוכן להסביר ולתקן.</p></div><div class="brief-section brief-section--matters"><p class="brief-label" data-he="למה זה רלוונטי לך" data-en="Why it matters for you">למה זה רלוונטי לך</p><p class="brief-text i18n" data-he="מודל אפס-האמון ב-Clodex הוא דפוס ה-IDE האגנטי האחראי: סוכנים עוזרים אך בני אדם מאמתים. אם אתה בונה או מלמד על פיתוח בסיוע AI, ארכיטקטורה זו היא מקור ייחוס חזק לשמירת בני אדם בלולאה מבלי להאט את הסוכן." data-en="The zero-trust model in Clodex is the responsible agentic IDE pattern: agents help but humans verify. If you build or teach about AI-assisted development, this architecture is a strong reference for how to keep humans in the loop without slowing the agent down.">מודל אפס-האמון ב-Clodex הוא דפוס ה-IDE האגנטי האחראי: סוכנים עוזרים אך בני אדם מאמתים. אם אתה בונה או מלמד על פיתוח בסיוע AI, ארכיטקטורה זו היא מקור ייחוס חזק לשמירת בני אדם בלולאה מבלי להאט את הסוכן.</p></div></div>
+
+      </div>
+    </article>
+
+    <article class="card">
+      <div class="card__rank">#10</div>
+      <div class="card__body">
+
+        <div class="card__header">
+          <div class="card__title-block">
+            <p class="card__eyebrow">JavaScript</p>
+            <h2 class="card__title">
+              <a href="https://github.com/ronak-create/FableCut" target="_blank" rel="noopener">
+                <span class="card__org">ronak-create/</span>FableCut
+              </a>
+            </h2>
+          </div>
+          <div class="card__stats">
+            <span class="card__stars">&#9733;<br><span class="stars-num">381</span></span>
+          </div>
+        </div>
+
+        <div class="card__meta">
+          <span class="meta-item"><span class="meta-icon">&#128197;</span> 2026-07-06</span>
+          <span class="meta-item"><span class="meta-icon">&#9679;</span> push 2026-07-12</span>
+        </div>
+
+        <div class="card__tags"><span class="tag">ai-agent</span><span class="tag">canvas</span><span class="tag">claude</span><span class="tag">ffmpeg</span></div>
+
+        <div class="card__content"><div class="brief-section"><p class="brief-label" data-he="מה זה עושה" data-en="What it does">מה זה עושה</p><p class="brief-text i18n" data-he="FableCut הוא עורך וידאו מבוסס דפדפן טהור ללא תלויות שרת. הציר הזמני שלו מוגדר על ידי מסמך JSON, וסוכני AI יכולים לשלוט בו דרך שרת MCP מובנה או REST API, מה שמאפשר לסוכנים לחבר, לחתוך ולרנדר וידאו מבלי לעזוב את הקשר הכלי שלהם." data-en="FableCut is a pure browser-based video editor with no server-side dependencies. Its timeline is defined by a JSON document, and AI agents can control it through a built-in MCP server or REST API, allowing agents to compose, cut, and render video without leaving their tool context.">FableCut הוא עורך וידאו מבוסס דפדפן טהור ללא תלויות שרת. הציר הזמני שלו מוגדר על ידי מסמך JSON, וסוכני AI יכולים לשלוט בו דרך שרת MCP מובנה או REST API, מה שמאפשר לסוכנים לחבר, לחתוך ולרנדר וידאו מבלי לעזוב את הקשר הכלי שלהם.</p></div><div class="brief-section"><p class="brief-label" data-he="למה זה בטרנד" data-en="Why it&#x27;s trending">למה זה בטרנד</p><p class="brief-text i18n" data-he="עריכת וידאו מונעת AI היא תחום חם, אך רוב העורכים דורשים תשתית שרת כבדה או APIs קנייניים. FableCut פועל לחלוטין בדפדפן וחושף את הציר הזמני שלו כיעד JSON פשוט, מה שהופך אותו לפני השטח הקל ביותר עבור סוכן AI לייצר תוכן וידאו כיום." data-en="AI-driven video editing is a hot area, but most editors require heavy server infrastructure or proprietary APIs. FableCut runs entirely in the browser and exposes its timeline as a simple JSON target, making it the easiest surface for an AI agent to produce video content today.">עריכת וידאו מונעת AI היא תחום חם, אך רוב העורכים דורשים תשתית שרת כבדה או APIs קנייניים. FableCut פועל לחלוטין בדפדפן וחושף את הציר הזמני שלו כיעד JSON פשוט, מה שהופך אותו לפני השטח הקל ביותר עבור סוכן AI לייצר תוכן וידאו כיום.</p></div><div class="brief-section"><p class="brief-label" data-he="דוגמת שימוש" data-en="Example use case">דוגמת שימוש</p><p class="brief-text i18n" data-he="סוכן שכותב מדריך מוצר מייצר ציר זמני JSON המציין אילו קטעי הקלטת מסך לכלול, מוסיף רצועת קריינות על ידי כתיבת שמע TTS לציר הזמני, וקורא לכלי MCP render. מדריך מלוטש מוחזר מבלי לעזוב את Claude Code." data-en="An agent writing a product tutorial generates a JSON timeline specifying which screen-recording segments to include, adds a narration track by writing TTS audio to the timeline, and calls the MCP render tool. A polished tutorial is returned without leaving Claude Code.">סוכן שכותב מדריך מוצר מייצר ציר זמני JSON המציין אילו קטעי הקלטת מסך לכלול, מוסיף רצועת קריינות על ידי כתיבת שמע TTS לציר הזמני, וקורא לכלי MCP render. מדריך מלוטש מוחזר מבלי לעזוב את Claude Code.</p></div><div class="brief-section brief-section--matters"><p class="brief-label" data-he="למה זה רלוונטי לך" data-en="Why it matters for you">למה זה רלוונטי לך</p><p class="brief-text i18n" data-he="FableCut מחבר ישירות לעניין של Avi בייצור תוכן מונע AI ובזרימות עבודה TTS. סוכן שיכול לכתוב קריינות, לקרוא ל-TTS API ואז להרכיב ולרנדר את הוידאו דרך שרת MCP של FableCut משלים את הצינור המלא &amp;#x27;מטקסט לוידאו גמור&amp;#x27; אוטומטית." data-en="FableCut directly connects to Avi&amp;#x27;s interest in AI-driven content production and TTS workflows. An agent that can write narration, call a TTS API, and then assemble and render the video through FableCut&amp;#x27;s MCP server completes the full text-to-video pipeline automatically.">FableCut מחבר ישירות לעניין של Avi בייצור תוכן מונע AI ובזרימות עבודה TTS. סוכן שיכול לכתוב קריינות, לקרוא ל-TTS API ואז להרכיב ולרנדר את הוידאו דרך שרת MCP של FableCut משלים את הצינור המלא &#x27;מטקסט לוידאו גמור&#x27; אוטומטית.</p></div></div>
+
+      </div>
+    </article>
+  </main>
+
+  <footer class="site-footer">
+    <span class="i18n" data-he="עיכול אוטומטי שבועי · מקור: GitHub Search API" data-en="Auto-generated weekly digest · Data: GitHub Search API">עיכול אוטומטי שבועי · מקור: GitHub Search API</span>
+    <p class="share-copied" id="shareCopied">&#128279; <span class="i18n" data-he="הקישור הועתק!" data-en="Link copied!">הקישור הועתק!</span></p>
+  </footer>
+
+</div>
+
+<script>
+// ── LANGUAGE TOGGLE ──
+var currentLang = 'he';
+function toggleLang() {
+  currentLang = currentLang === 'he' ? 'en' : 'he';
+  var isHe = currentLang === 'he';
+  document.documentElement.lang = currentLang;
+  document.documentElement.dir = isHe ? 'rtl' : 'ltr';
+  document.getElementById('langToggle').textContent = isHe ? 'EN' : 'עב';
+  document.querySelectorAll('.i18n').forEach(function(el) {
+    el.innerHTML = el.dataset[currentLang] || el.innerHTML;
+  });
+  // Flip brief labels
+  document.querySelectorAll('.brief-label').forEach(function(el) {
+    var he = el.dataset.he, en = el.dataset.en;
+    if (he && en) el.textContent = isHe ? he : en;
+  });
+}
+
+// ── SHARE ──
+function shareReport() {
+  var title = currentLang === 'he'
+    ? 'טרנד ב-AI/LLM – 2026-W29'
+    : 'Trending AI/LLM Repos – 2026-W29';
+  var url = window.location.href;
+  if (navigator.share) {
+    navigator.share({ title: title, url: url }).catch(function(){});
+  } else {
+    navigator.clipboard.writeText(url).then(function() {
+      var el = document.getElementById('shareCopied');
+      el.classList.add('show');
+      setTimeout(function() { el.classList.remove('show'); }, 2500);
+    }).catch(function() {
+      prompt('Copy this link:', url);
+    });
+  }
+}
+
+// ── AUDIO PLAYER ──
+var audio = document.getElementById('audio');
+var playBtn = document.getElementById('playBtn');
+var iconPlay = document.getElementById('iconPlay');
+var iconPause = document.getElementById('iconPause');
+var progressBar = document.getElementById('progressBar');
+var progressWrap = document.getElementById('progressWrap');
+var playerTime = document.getElementById('playerTime');
+
+function fmt(s) {
+  s = Math.floor(s || 0);
+  return Math.floor(s/60) + ':' + ('0' + (s%60)).slice(-2);
+}
+function updateTime() {
+  var cur = audio.currentTime, dur = audio.duration;
+  progressBar.style.width = (dur ? (cur/dur*100) : 0) + '%';
+  playerTime.textContent = fmt(cur) + ' / ' + fmt(dur);
+}
+function togglePlay() {
+  if (audio.paused) { audio.play(); } else { audio.pause(); }
+}
+audio.addEventListener('play', function() {
+  iconPlay.style.display = 'none';
+  iconPause.style.display = 'block';
+});
+audio.addEventListener('pause', function() {
+  iconPlay.style.display = 'block';
+  iconPause.style.display = 'none';
+});
+audio.addEventListener('ended', function() {
+  iconPlay.style.display = 'block';
+  iconPause.style.display = 'none';
+  progressBar.style.width = '0%';
+});
+audio.addEventListener('timeupdate', updateTime);
+audio.addEventListener('loadedmetadata', updateTime);
+function seek(e) {
+  if (!audio.duration) return;
+  var rect = progressWrap.getBoundingClientRect();
+  var frac = (e.clientX - rect.left) / rect.width;
+  audio.currentTime = Math.max(0, Math.min(1, frac)) * audio.duration;
+}
+</script>
+</body>
+</html>
