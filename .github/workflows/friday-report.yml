@@ -1,0 +1,111 @@
+name: Friday AI report
+
+# Fetches trending AI repos, generates rich bilingual briefs via Claude API,
+# builds the HTML report + narration, generates the MP3, and commits everything.
+# The Sunday digest workflow then emails it out on its own schedule.
+on:
+  schedule:
+    # 07:05 Israel time. Israel is UTC+3 (IDT) Apr-Oct and UTC+2 (IST) Oct-Mar.
+    - cron: "5 4 * * 5"   # 07:05 IDT (summer)
+    - cron: "5 5 * * 5"   # 07:05 IST (winter)
+    # Safety-net: GitHub frequently misses or delays the primary cron.
+    # Run at 09:00, 10:00, 11:00 UTC on Fridays as well; the per-week
+    # directory-existence dedup makes every fire after the first a no-op.
+    - cron: "0 9-11 * * 5"
+  workflow_dispatch: {}   # allow manual run from the Actions tab
+
+permissions:
+  contents: write
+
+concurrency:
+  group: friday-report
+  cancel-in-progress: false
+
+jobs:
+  generate:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Install dependencies
+        run: pip install anthropic
+
+      - name: Fetch trending repos
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          TRENDING_NOTES_DIR: ${{ github.workspace }}/reports
+        run: |
+          python3 scripts/fetch_trending_repos.py > /tmp/trending.json
+          count=$(python3 -c "import json; print(json.load(open('/tmp/trending.json'))['count'])")
+          week=$(python3 -c "import json; print(json.load(open('/tmp/trending.json'))['week'])")
+          echo "Fetched $count repos for $week"
+          echo "week=$week" >> "$GITHUB_ENV"
+          if [ "$count" = "0" ]; then
+            echo "No repos returned (possible rate limit) -- aborting"
+            exit 1
+          fi
+
+      - name: Check if report already exists for this week
+        id: dedup
+        run: |
+          if [ -f "reports/${{ env.week }}/index.html" ]; then
+            echo "Report for ${{ env.week }} already exists -- nothing to do"
+            echo "skip=true" >> "$GITHUB_OUTPUT"
+          else
+            echo "skip=false" >> "$GITHUB_OUTPUT"
+          fi
+
+      - name: Generate rich briefs (Claude API)
+        if: steps.dedup.outputs.skip == 'false'
+        env:
+          ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
+        run: python3 scripts/generate_briefs.py /tmp/trending.json /tmp/trending_rich.json
+
+      - name: Build HTML report and narration
+        if: steps.dedup.outputs.skip == 'false'
+        run: |
+          mkdir -p "reports/${{ env.week }}"
+          python3 scripts/build_report.py --in /tmp/trending_rich.json --outdir "reports/${{ env.week }}"
+
+      - name: Write Obsidian note
+        if: steps.dedup.outputs.skip == 'false'
+        run: |
+          python3 - <<'PY'
+          import json
+          data = json.load(open('/tmp/trending_rich.json'))
+          week = data['week']
+          note_path = f'reports/{week} Trending AI Repos.md'
+          lines = ['---', f'created: {data["generated_for"]}', f'week: {week}',
+                   'tags: [trending-repos, ai, llm, research]', 'type: weekly-digest', '---', '',
+                   f'# Trending AI/LLM Repos: {week}', '',
+                   f'Full report: https://booya1986.github.io/trending-ai-repos/reports/{week}/', '']
+          for r in data['repos']:
+              lines.append(f'## [{r["full_name"]}]({r["url"]})')
+              lines.append(f'Stars: {r["stars"]:,} | {r["language"]} | {r["created_at"]}')
+              lines.append(r.get("description") or "")
+              lines.append('')
+          open(note_path, 'w', encoding='utf-8').write('\n'.join(lines))
+          print('note written:', note_path)
+          PY
+
+      - name: Generate MP3 narration (non-fatal)
+        if: steps.dedup.outputs.skip == 'false'
+        run: python3 scripts/generate_tts.py "reports/${{ env.week }}" || true
+
+      - name: Commit and push
+        if: steps.dedup.outputs.skip == 'false'
+        run: |
+          git config user.email "avi.j.levi@gmail.com"
+          git config user.name "Avi Levi (Friday robot)"
+          git add "reports/${{ env.week }}/" 2>/dev/null || true
+          git add "reports/${{ env.week }} Trending AI Repos.md" 2>/dev/null || true
+          if ! git diff --cached --quiet; then
+            git commit -m "Add trending AI repos report for ${{ env.week }}"
+            git push
+          else
+            echo "nothing to commit"
+          fi
