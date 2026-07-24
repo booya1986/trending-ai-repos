@@ -1,0 +1,25 @@
+שלום, זה הדוח השבועי שלך על הרפוזיטוריות המובילות בתחום הבינה המלאכותית.
+שבוע 30, 2026.
+השבוע יש לנו 10 רפוזיטוריות שרלוונטיות במיוחד לתחומים שלך.
+
+מספר 1. penguin harness, עם 142 כוכבים. 🐧 Your Automated Agent Builder Lives on Your Desktop.
+
+מספר 2. textbook to note, עם 76 כוכבים. Turn your own PDF textbooks into an AI-searchable knowledge base and structured, fully-cited notes — figures included. Local-first, token-frugal.
+
+מספר 3. video shotcraft, עם 1,081 כוכבים. AI video skill for Claude Code & Codex — cinematic product videos with Remotion: 106 shot recipe cards, 161 motion previews, a production-ready template.
+
+מספר 4. Finn loop, עם 168 כוכבים. The Finn-loop: a 3-skill AI software factory for Claude Code — spec, build, review. Humans merge.
+
+מספר 5. BossConsole, עם 169 כוכבים. Open-source, multi-platform harness for AI agents — a native, multi-threaded operator's console (JVM, not Electron) to run Claude Code, Codex, Gemini or OpenCode with a real browser, terminal, editor, secrets & 100+ MCP tools. Built for enterprises, science & research.
+
+מספר 6. mentor, עם 60 כוכבים. mentor — a session-insights skill for AI coding agents. This skill reads your local Claude Code and OpenAI Codex history and writes an /insights-style HTML report on how you work: what you build, where you lose time, and concrete fixes. An agent skill for Claude Code, Codex, and any skills-capable agent.
+
+מספר 7. sci ssci skills, עם 60 כוכבים. Open-source Agent Skills for planning, drafting, revising, and polishing SCI/SSCI papers—while preserving evidence, citations, and claim strength.
+
+מספר 8. design judge skills, עם 308 כוכבים. Evidence-driven Agent Skills for design award research, evaluation, award matching, entry writing, and submission readiness.
+
+מספר 9. klaatcode, עם 276 כוכבים. Open-source AI coding agent for the terminal. Claude Code-grade accuracy with smart model routing — uses the right AI model for each task, cutting costs 10x. Supports Claude, GPT, Gemini, DeepSeek & more.
+
+מספר 10. voice_clone_lab, עם 131 כוכבים. Clone a voice from a few minutes of audio and generate speech locally — Qwen3-TTS fine-tuning pipeline with CLI and web UI.
+
+זה הכל להשבוע. שיהיה לך שבוע מעולה!
