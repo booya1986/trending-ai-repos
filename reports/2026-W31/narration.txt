@@ -1,0 +1,25 @@
+שלום, זה הדוח השבועי שלך על הרפוזיטוריות המובילות בתחום הבינה המלאכותית.
+שבוע 31, 2026.
+השבוע יש לנו 10 רפוזיטוריות שרלוונטיות במיוחד לתחומים שלך.
+
+מספר 1. CodeJury, עם 116 כוכבים. Terminal-first, knowledge-grounded multi-agent software delivery pipeline: scope requirements, implement changes, run tests, and gate pull requests with deterministic QA and ensemble code review.
+
+מספר 2. bullshit detector, עם 80 כוכבים. Agent skills that fact-check the internet: claim-by-claim verification with sources and a 0-10 BS score for any YouTube video, article, tweet, or PDF.
+
+מספר 3. ponytail improved, עם 565 כוכבים. Makes your AI agent think like the laziest senior dev in the room. The best code is the code you never wrote.
+
+מספר 4. openclaude improved, עם 562 כוכבים. runs anywhere. uses anything.
+
+מספר 5. agentacct, עם 538 כוכבים. See what your coding agents did and what it cost. Breaks each task down into work steps — tools used, files changed, tests run, time and tokens spent. Local-first dashboard for Claude Code, Codex, OpenCode, and more. No login, no telemetry.
+
+מספר 6. old coder, עם 171 כוכבים. An old coder's strategy for the agent era: don't read the code — make it run the gauntlet. Evidence-first development skill for coding agents, inspired by Uncle Bob.
+
+מספר 7. trace file lineage, עם 70 כוכבים. Find which script, notebook, data, command, or AI agent produced a file — locally, with evidence and honest uncertainty.
+
+מספר 8. approving, עם 73 כוכבים. Approving is an open-source, self-hostable platform for turning coding agents into visual, reviewable, and recoverable delivery workflows. Agents run in real Docker sandboxes, exchange structured artifacts, and pause for human Approve at critical nodes.
+
+מספר 9. deer workflow, עם 359 כוכבים. An open-source graph engineering runtime that keeps orchestration in TypeScript and delegates semantic work to replaceable Agent runtimes.
+
+מספר 10. Grok UI, עם 126 כוכבים. Local-first live command center for Grok Build — runtime, ACP control, session history, and Git changes.
+
+זה הכל להשבוע. שיהיה לך שבוע מעולה!
