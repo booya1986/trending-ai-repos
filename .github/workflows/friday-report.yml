@@ -101,13 +101,6 @@ jobs:
             echo "::warning title=briefs::only $sections brief-section markers in the report -- bilingual briefs are missing or partial"
           fi
 
-      - name: Upload dry-run report
-        if: inputs.dry_run == true
-        uses: actions/upload-artifact@v4
-        with:
-          name: dry-run-${{ env.week }}
-          path: ${{ env.outdir }}
-
       - name: Write Obsidian note
         if: steps.dedup.outputs.skip == 'false' && inputs.dry_run != true
         run: |
@@ -129,9 +122,27 @@ jobs:
           print('note written:', note_path)
           PY
 
+      # Runs on dry runs too: it writes into the throwaway outdir, so the MP3
+      # path is exercised for real (and lands in the artifact) without touching
+      # a published week. This step is why the dry run is a full rehearsal.
       - name: Generate MP3 narration (non-fatal)
-        if: steps.dedup.outputs.skip == 'false' && inputs.dry_run != true
-        run: python3 scripts/generate_tts.py "reports/${{ env.week }}" || true
+        if: steps.dedup.outputs.skip == 'false'
+        env:
+          GOOGLE_TTS_API_KEY: ${{ secrets.GOOGLE_TTS_API_KEY }}
+        run: |
+          python3 scripts/generate_tts.py "${{ env.outdir }}" || true
+          if [ -f "${{ env.outdir }}/report.mp3" ]; then
+            echo "MP3 ok: $(stat -c%s "${{ env.outdir }}/report.mp3") bytes"
+          else
+            echo "::warning title=tts::no report.mp3 produced -- see warnings.txt"
+          fi
+
+      - name: Upload dry-run report
+        if: inputs.dry_run == true
+        uses: actions/upload-artifact@v4
+        with:
+          name: dry-run-${{ env.week }}
+          path: ${{ env.outdir }}
 
       - name: Commit and push
         if: steps.dedup.outputs.skip == 'false' && inputs.dry_run != true
