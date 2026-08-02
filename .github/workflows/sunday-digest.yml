@@ -86,15 +86,34 @@ jobs:
           python3 scripts/send_digest_smtp.py "${{ steps.week.outputs.week }}"
 
       - name: Commit dedup marker + MP3 if changed
+        env:
+          WEEK: ${{ steps.week.outputs.week }}
         run: |
           git config user.email "avi.j.levi@gmail.com"
           git config user.name "Avi Levi (GitHub Actions)"
-          git add -f "reports/${{ steps.week.outputs.week }}/.email_sent" \
-                     "reports/${{ steps.week.outputs.week }}/report.mp3" \
-                     "reports/${{ steps.week.outputs.week }}/.narration.sha" 2>/dev/null || true
-          if ! git diff --cached --quiet; then
-            git commit -m "Sunday digest: mark ${{ steps.week.outputs.week }} sent (+ MP3 if regenerated)"
-            git push
-          else
+
+          # Stage each path in its own `git add`, and only when it exists.
+          # A single `git add -f a b c` where one path is missing dies with
+          # "pathspec did not match any files" and stages NOTHING -- so when the
+          # MP3 was absent (TTS quota failure), .email_sent never got committed,
+          # and every hourly catch-net fire re-sent the digest. That shipped 6
+          # copies of the W31 email on 2026-08-02.
+          for f in .email_sent report.mp3 .narration.sha; do
+            p="reports/$WEEK/$f"
+            [ -e "$p" ] && git add -f "$p"
+          done
+
+          if git diff --cached --quiet; then
             echo "nothing to commit"
+          else
+            git commit -m "Sunday digest: mark $WEEK sent (+ MP3 if regenerated)"
+            git push
+          fi
+
+          # The dedup marker is the only thing preventing a duplicate send, so
+          # failing to persist it is worth shouting about even though the email
+          # itself already went out.
+          if [ -f "reports/$WEEK/.email_sent" ] && ! git ls-tree -r --name-only HEAD | grep -qx "reports/$WEEK/.email_sent"; then
+            echo "::error title=dedup::.email_sent for $WEEK was NOT committed -- the next scheduled fire will re-send this digest"
+            exit 1
           fi
