@@ -12,7 +12,12 @@ on:
     # Run at 09:00, 10:00, 11:00 UTC on Fridays as well; the per-week
     # directory-existence dedup makes every fire after the first a no-op.
     - cron: "0 9-11 * * 5"
-  workflow_dispatch: {}   # allow manual run from the Actions tab
+  workflow_dispatch:      # allow manual run from the Actions tab
+    inputs:
+      dry_run:
+        description: "Test the pipeline: fetch + briefs + report into a temp dir, uploaded as an artifact. Ignores the per-week dedup and never commits, pushes, or emails."
+        type: boolean
+        default: false
 
 permissions:
   contents: write
@@ -61,11 +66,19 @@ jobs:
       - name: Check if report already exists for this week
         id: dedup
         run: |
-          if [ -f "reports/${{ env.week }}/index.html" ]; then
+          # A dry run always proceeds and writes to a throwaway directory, so it
+          # can exercise the real briefs/report path without touching a
+          # published week or tripping the dedup.
+          if [ "${{ inputs.dry_run }}" = "true" ]; then
+            echo "DRY RUN -- building into /tmp/dryrun, nothing will be committed"
+            echo "skip=false" >> "$GITHUB_OUTPUT"
+            echo "outdir=/tmp/dryrun/${{ env.week }}" >> "$GITHUB_ENV"
+          elif [ -f "reports/${{ env.week }}/index.html" ]; then
             echo "Report for ${{ env.week }} already exists -- nothing to do"
             echo "skip=true" >> "$GITHUB_OUTPUT"
           else
             echo "skip=false" >> "$GITHUB_OUTPUT"
+            echo "outdir=reports/${{ env.week }}" >> "$GITHUB_ENV"
           fi
 
       - name: Generate rich briefs (Claude API)
@@ -77,11 +90,26 @@ jobs:
       - name: Build HTML report and narration
         if: steps.dedup.outputs.skip == 'false'
         run: |
-          mkdir -p "reports/${{ env.week }}"
-          python3 scripts/build_report.py --in /tmp/trending_rich.json --outdir "reports/${{ env.week }}"
+          mkdir -p "${{ env.outdir }}"
+          python3 scripts/build_report.py --in /tmp/trending_rich.json --outdir "${{ env.outdir }}"
+          # Brief sections are the bilingual body of each card. Zero means the
+          # briefs step produced nothing and the report would ship empty cards
+          # (and the vault note would fall back to its thin format).
+          sections=$(grep -o 'brief-section' "${{ env.outdir }}/index.html" | wc -l | tr -d ' ')
+          echo "brief-sections in report: $sections"
+          if [ "$sections" -lt 20 ]; then
+            echo "::warning title=briefs::only $sections brief-section markers in the report -- bilingual briefs are missing or partial"
+          fi
+
+      - name: Upload dry-run report
+        if: inputs.dry_run == true
+        uses: actions/upload-artifact@v4
+        with:
+          name: dry-run-${{ env.week }}
+          path: ${{ env.outdir }}
 
       - name: Write Obsidian note
-        if: steps.dedup.outputs.skip == 'false'
+        if: steps.dedup.outputs.skip == 'false' && inputs.dry_run != true
         run: |
           python3 - <<'PY'
           import json
@@ -102,11 +130,11 @@ jobs:
           PY
 
       - name: Generate MP3 narration (non-fatal)
-        if: steps.dedup.outputs.skip == 'false'
+        if: steps.dedup.outputs.skip == 'false' && inputs.dry_run != true
         run: python3 scripts/generate_tts.py "reports/${{ env.week }}" || true
 
       - name: Commit and push
-        if: steps.dedup.outputs.skip == 'false'
+        if: steps.dedup.outputs.skip == 'false' && inputs.dry_run != true
         run: |
           git config user.email "avi.j.levi@gmail.com"
           git config user.name "Avi Levi (Friday robot)"
