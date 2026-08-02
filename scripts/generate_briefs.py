@@ -96,19 +96,29 @@ def generate_briefs(infile, outfile):
     data = json.load(open(infile, encoding="utf-8"))
     repos = data.get("repos", [])
 
+    ok = 0
     for i, repo in enumerate(repos):
         name = repo.get("full_name", "")
         print(f"  [{i+1}/{len(repos)}] {name}")
         try:
             resp = client.messages.create(
                 model="claude-sonnet-5",
-                max_tokens=1200,
+                # Thinking is on by default on this model and shares this budget
+                # with the response text, so leave room for both. 1200 truncated
+                # the JSON mid-string.
+                max_tokens=16000,
                 system=SYSTEM_PROMPT,
                 messages=[{"role": "user", "content": _brief_prompt(repo)}],
             )
-            brief_data = _parse_json(resp.content[0].text)
+            # content is a list of blocks; with thinking on, block 0 is a
+            # ThinkingBlock and has no .text. Take the first text block.
+            text = next((b.text for b in resp.content if b.type == "text"), "")
+            if not text:
+                raise ValueError("no text block in response")
+            brief_data = _parse_json(text)
             repo["brief_html"] = _build_brief_html(brief_data)
             repo["narration"] = brief_data.get("narration_he", "")
+            ok += 1
         except Exception as e:
             print(f"    brief failed: {e}", file=sys.stderr)
         # Stay well inside Anthropic rate limits
@@ -117,7 +127,15 @@ def generate_briefs(infile, outfile):
 
     data["repos"] = repos
     json.dump(data, open(outfile, "w", encoding="utf-8"), ensure_ascii=False, indent=2)
-    print(f"Wrote enriched JSON -> {outfile} ({len(repos)} repos)")
+    print(f"Wrote enriched JSON -> {outfile} ({len(repos)} repos, {ok} with briefs)")
+    # A run where every brief failed still produces a report, but a bilingual-
+    # brief-less one — and the vault note silently falls back to the thin
+    # narration format. Make that visible instead of exiting 0 quietly.
+    if ok < len(repos):
+        print(
+            f"::warning title=briefs::{len(repos) - ok}/{len(repos)} briefs failed "
+            f"— report will be missing bilingual sections"
+        )
 
 
 def main():
