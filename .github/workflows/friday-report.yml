@@ -44,6 +44,15 @@ jobs:
           week=$(python3 -c "import json; print(json.load(open('/tmp/trending.json'))['week'])")
           echo "Fetched $count repos for $week"
           echo "week=$week" >> "$GITHUB_ENV"
+          # Which source each pick came from. "trending" = real weekly star
+          # velocity scraped off github.com/trending; "search" = young repo with
+          # traction via the Search API. Zero "trending" picks week after week
+          # means the scrape broke.
+          python3 -c "import json,collections;d=json.load(open('/tmp/trending.json'));print('Sources:',dict(collections.Counter(r.get('source','?') for r in d['repos'])))"
+          # Surface fetch warnings as run annotations so a silently degraded
+          # fetch (blocked scrape, markup change, lowered star floor) is visible
+          # on the run summary instead of hiding inside a green check.
+          python3 -c "import json;d=json.load(open('/tmp/trending.json'));[print('::warning title=fetch::'+w) for w in d.get('warnings') or []]"
           if [ "$count" = "0" ]; then
             echo "No repos returned (possible rate limit) -- aborting"
             exit 1

@@ -5,6 +5,9 @@ from fetch_trending_repos import previously_seen_repos
 from fetch_trending_repos import normalize_repo
 from fetch_trending_repos import select_top
 from fetch_trending_repos import interest_score, is_relevant
+from fetch_trending_repos import emergence_since, EMERGENCE_WINDOW_DAYS
+from fetch_trending_repos import age_days, weekly_velocity, momentum
+from fetch_trending_repos import parse_trending_html
 
 
 def test_iso_week_string_formats_year_and_week():
@@ -144,14 +147,25 @@ def test_select_top_applies_star_floor():
     assert all((r.get("stargazers_count") or 0) >= 50 for r in out)
 
 
-def test_select_top_relevance_leads_stars_break_ties():
-    # Lower-star but more-relevant repo ranks above a higher-star less-relevant one.
+def test_select_top_velocity_leads_interest_only_tunes():
+    # A far faster-moving repo outranks a slower one that merely matches more
+    # interest keywords. Interest is a bounded multiplier, not the sort key.
     repos = [
-        {"full_name": "rich/generic", "description": "an llm tool", "topics": ["llm"], "stargazers_count": 900},
-        {"full_name": "poor/relevant", "description": "agent rag obsidian skill workflow memory", "topics": ["agents", "rag", "mcp"], "stargazers_count": 60},
+        {"full_name": "fast/generic", "description": "an llm tool", "topics": ["llm"], "stargazers_count": 900},
+        {"full_name": "slow/keyword-rich", "description": "agent rag obsidian skill workflow memory", "topics": ["agents", "rag", "mcp"], "stargazers_count": 60},
     ]
     out = select_top(repos, seen=set(), limit=10)
-    assert out[0]["full_name"] == "poor/relevant"
+    assert out[0]["full_name"] == "fast/generic"
+
+
+def test_interest_still_breaks_a_close_race():
+    # Comparable velocity -> the repo matching Avi's interests wins.
+    repos = [
+        {"full_name": "plain/llm", "description": "an llm tool", "topics": ["llm"], "stargazers_count": 500},
+        {"full_name": "aligned/llm", "description": "agent rag obsidian skill workflow memory", "topics": ["llm"], "stargazers_count": 480},
+    ]
+    out = select_top(repos, seen=set(), limit=10)
+    assert out[0]["full_name"] == "aligned/llm"
 
 
 def test_select_top_lowers_floor_when_too_few_qualify():
@@ -166,3 +180,90 @@ def test_select_top_lowers_floor_when_too_few_qualify():
     out = select_top(repos, seen=set(), limit=10, warnings=warnings)
     assert len(out) == 9
     assert any("lowered" in w for w in warnings)
+
+
+TODAY = datetime.date(2026, 8, 2)
+
+
+def test_emergence_window_is_not_last_week():
+    # The creation window must be wide enough for a repo to accumulate stars.
+    assert EMERGENCE_WINDOW_DAYS >= 90
+    assert emergence_since(TODAY) == "2026-02-03"
+
+
+def test_age_days_and_missing_date():
+    assert age_days({"created_at": "2026-06-12T10:00:00Z"}, today=TODAY) == 51
+    assert age_days({}, today=TODAY) is None
+
+
+def test_weekly_velocity_prefers_scraped_figure():
+    repo = {"stargazers_count": 34004, "weekly_stars": 5737,
+            "created_at": "2019-01-01T00:00:00Z"}
+    assert weekly_velocity(repo, today=TODAY) == 5737.0
+
+
+def test_weekly_velocity_falls_back_to_lifetime_rate():
+    # ponytail-shaped: 93,616 stars in 51 days is a very fast climb.
+    repo = {"stargazers_count": 93616, "created_at": "2026-06-12T00:00:00Z"}
+    assert round(weekly_velocity(repo, today=TODAY)) == 12849
+
+
+def test_momentum_separates_emerging_from_merely_popular():
+    young = {"stargazers_count": 93616, "created_at": "2026-06-12T00:00:00Z"}
+    mature = {"stargazers_count": 90000, "created_at": "2019-01-01T00:00:00Z"}
+    assert momentum(young, today=TODAY) > 0.10
+    assert momentum(mature, today=TODAY) < 0.01
+
+
+def test_select_top_drops_popular_but_stalled_repo():
+    repos = [
+        {"full_name": "old/giant", "description": "an llm framework", "topics": ["llm"],
+         "stargazers_count": 90000, "created_at": "2019-01-01T00:00:00Z"},
+        {"full_name": "new/climber", "description": "an llm agent framework", "topics": ["llm"],
+         "stargazers_count": 4000, "created_at": "2026-06-12T00:00:00Z"},
+    ]
+    out = select_top(repos, seen=set(), limit=10, today=TODAY)
+    names = [r["full_name"] for r in out]
+    assert names == ["new/climber"]
+
+
+def test_select_top_prefers_copy_with_real_weekly_stars():
+    repos = [
+        {"full_name": "dup/repo", "description": "llm agent", "topics": ["llm"],
+         "stargazers_count": 5000, "created_at": "2026-06-01T00:00:00Z"},
+        {"full_name": "dup/repo", "description": "llm agent", "topics": ["llm"],
+         "stargazers_count": 5000, "weekly_stars": 2200,
+         "created_at": "2026-06-01T00:00:00Z"},
+    ]
+    out = select_top(repos, seen=set(), limit=10, today=TODAY)
+    assert len(out) == 1
+    assert out[0]["weekly_stars"] == 2200
+
+
+TRENDING_FIXTURE = '''
+<article class="Box-row">
+  <h2 class="h3 lh-condensed">
+    <a data-hydro-click="{&quot;x&quot;:1}" href="/citrolabs/ego-lite">ego-lite</a>
+  </h2>
+  <p class="col-9 color-fg-muted my-1 pr-4">The fastest browser for AI agents</p>
+  <span itemprop="programmingLanguage">JavaScript</span>
+  <a href="/citrolabs/ego-lite/stargazers">7,437</a>
+  <span class="d-inline-block float-sm-right">4,090 stars this week</span>
+</article>
+'''
+
+
+def test_parse_trending_html_extracts_row_fields():
+    rows = parse_trending_html(TRENDING_FIXTURE)
+    assert len(rows) == 1
+    r = rows[0]
+    assert r["full_name"] == "citrolabs/ego-lite"
+    assert r["description"] == "The fastest browser for AI agents"
+    assert r["language"] == "JavaScript"
+    assert r["stargazers_count"] == 7437
+    assert r["weekly_stars"] == 4090
+    assert r["source"] == "trending"
+
+
+def test_parse_trending_html_handles_empty_page():
+    assert parse_trending_html("<html><body>nothing</body></html>") == []
