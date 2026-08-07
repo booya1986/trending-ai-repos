@@ -1,0 +1,864 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="theme-color" content="#1b1b1b">
+<title>טרנדים ב-AI 2026-W32</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Hebrew:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg: #1b1b1b;
+    --bg-elevated: #232323;
+    --fg: #c5c1b9;
+    --fg-strong: #dcdad5;
+    --fg-muted: #a09d96;
+    --fg-subtle: #96928c;
+    --accent: #22c55e;
+    --accent-glow: rgba(34,197,94,0.6);
+    --accent-soft: rgba(34,197,94,0.12);
+    --accent-softer: rgba(34,197,94,0.04);
+    --accent-border: rgba(34,197,94,0.12);
+    --accent-border-hover: rgba(34,197,94,0.3);
+    --shadow-glow-md: 0 0 15px rgba(34,197,94,0.3), 0 0 40px rgba(34,197,94,0.1);
+    --text-glow: 0 0 8px rgba(34,197,94,0.6), 0 0 20px rgba(34,197,94,0.3);
+    --font-sans: 'Noto Sans Hebrew', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+    --radius-sm: 8px;
+    --radius-md: 12px;
+    --radius-lg: 16px;
+    --radius-pill: 999px;
+    --transition: 0.3s cubic-bezier(0.4,0,0.2,1);
+    --transition-fast: 0.15s cubic-bezier(0.4,0,0.2,1);
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html { -webkit-text-size-adjust: 100%; }
+
+  body {
+    background: var(--bg);
+    color: var(--fg);
+    font-family: var(--font-sans);
+    font-size: clamp(1rem, 2vw, 1.0625rem);
+    line-height: 1.7;
+    padding-top: env(safe-area-inset-top);
+    padding-bottom: env(safe-area-inset-bottom);
+  }
+
+  /* ── GRID BACKGROUND ── */
+  body::before {
+    content: '';
+    position: fixed;
+    inset: 0;
+    z-index: 0;
+    pointer-events: none;
+    background-image:
+      linear-gradient(rgba(34,197,94,0.03) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(34,197,94,0.03) 1px, transparent 1px);
+    background-size: 40px 40px;
+    mask-image: radial-gradient(ellipse 80% 60% at 50% 0%, black 40%, transparent 100%);
+    -webkit-mask-image: radial-gradient(ellipse 80% 60% at 50% 0%, black 40%, transparent 100%);
+  }
+
+  .wrap {
+    position: relative;
+    z-index: 1;
+    max-width: 720px;
+    margin: 0 auto;
+    padding: 24px 16px 80px;
+  }
+
+  /* ── TOP BAR ── */
+  .top-bar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 16px;
+    gap: 10px;
+  }
+  .lang-btn, .share-btn {
+    background: var(--accent-softer);
+    border: 1px solid var(--accent-border);
+    border-radius: var(--radius-pill);
+    color: var(--accent);
+    font-family: var(--font-sans);
+    font-size: 0.8rem;
+    font-weight: 600;
+    letter-spacing: 0.5px;
+    padding: 7px 16px;
+    cursor: pointer;
+    transition: all var(--transition-fast);
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    min-height: 44px;
+    -webkit-tap-highlight-color: transparent;
+  }
+  .lang-btn:hover, .share-btn:hover {
+    background: var(--accent-soft);
+    border-color: var(--accent);
+    box-shadow: 0 0 10px var(--accent-glow);
+  }
+  .share-btn svg { width: 16px; height: 16px; stroke: var(--accent); }
+  .share-btn.copied { background: var(--accent-soft); }
+  .share-copied {
+    font-size: 0.72rem;
+    color: var(--accent);
+    margin-top: 4px;
+    text-align: center;
+    opacity: 0;
+    transition: opacity 0.3s;
+  }
+  .share-copied.show { opacity: 1; }
+
+  /* ── HEADER ── */
+  .site-header { margin-bottom: 24px; }
+  .header-eyebrow {
+    font-size: 0.8rem;
+    font-weight: 500;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: var(--accent);
+    text-shadow: var(--text-glow);
+    margin-bottom: 6px;
+  }
+  .header-title {
+    font-size: clamp(1.6rem, 4vw, 2.2rem);
+    font-weight: 700;
+    color: var(--fg-strong);
+    line-height: 1.3;
+    text-shadow: 0 0 30px rgba(34,197,94,0.1);
+    margin-bottom: 4px;
+  }
+  .header-sub {
+    font-size: 0.875rem;
+    color: var(--fg-muted);
+    font-weight: 300;
+  }
+
+  /* ── CUSTOM AUDIO PLAYER ── */
+  .player {
+    position: sticky;
+    top: 0;
+    z-index: 10;
+    background: rgba(27,27,27,0.92);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border-bottom: 1px solid var(--accent-border);
+    padding: 12px 16px;
+    margin: 0 -16px 24px;
+  }
+  .player audio { display: none; }
+
+  .player-ui {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+  }
+  .player-btn {
+    flex-shrink: 0;
+    width: 44px;
+    height: 44px;
+    border-radius: 50%;
+    background: var(--accent);
+    border: none;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all var(--transition-fast);
+    box-shadow: 0 0 12px rgba(34,197,94,0.4);
+  }
+  .player-btn:hover {
+    transform: scale(1.08);
+    box-shadow: 0 0 20px rgba(34,197,94,0.6);
+  }
+  .player-btn svg { width: 18px; height: 18px; fill: #0a1a0f; }
+
+  .player-center { flex: 1; min-width: 0; }
+  .player-track {
+    font-size: 0.8rem;
+    font-weight: 500;
+    color: var(--fg-strong);
+    margin-bottom: 6px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+  .player-progress-wrap {
+    position: relative;
+    height: 4px;
+    background: rgba(255,255,255,0.1);
+    border-radius: 2px;
+    cursor: pointer;
+    overflow: hidden;
+  }
+  .player-progress-bar {
+    height: 100%;
+    width: 0%;
+    background: var(--accent);
+    border-radius: 2px;
+    box-shadow: 0 0 6px var(--accent-glow);
+    transition: width 0.1s linear;
+    pointer-events: none;
+  }
+  .player-progress-wrap:hover .player-progress-bar {
+    box-shadow: 0 0 12px var(--accent-glow);
+  }
+
+  .player-time {
+    font-size: 0.72rem;
+    color: var(--fg-subtle);
+    white-space: nowrap;
+    flex-shrink: 0;
+    font-variant-numeric: tabular-nums;
+    min-width: 70px;
+    text-align: center;
+  }
+
+  .player-hint {
+    font-size: 0.72rem;
+    color: var(--fg-subtle);
+    margin-top: 7px;
+    letter-spacing: 0.3px;
+  }
+
+  /* ── RUN NOTES ── */
+  .run-notes {
+    background: var(--accent-softer);
+    border: 1px solid var(--accent-border);
+    border-right: 3px solid var(--accent);
+    border-radius: var(--radius-md) 0 0 var(--radius-md);
+    padding: 12px 16px;
+    margin-bottom: 24px;
+    font-size: 0.875rem;
+    color: var(--fg-strong);
+  }
+  [dir="ltr"] .run-notes {
+    border-right: 1px solid var(--accent-border);
+    border-left: 3px solid var(--accent);
+    border-radius: 0 var(--radius-md) var(--radius-md) 0;
+  }
+  .run-notes ul { padding-right: 20px; margin-top: 6px; }
+  [dir="ltr"] .run-notes ul { padding-right: 0; padding-left: 20px; }
+
+  /* ── CARDS ── */
+  .card {
+    position: relative;
+    background: var(--accent-softer);
+    border: 1px solid var(--accent-border);
+    border-radius: var(--radius-lg);
+    margin-bottom: 16px;
+    transition: border-color var(--transition), background var(--transition), box-shadow var(--transition);
+  }
+  .card:hover {
+    border-color: var(--accent-border-hover);
+    background: rgba(34,197,94,0.07);
+    box-shadow: var(--shadow-glow-md), 0 12px 32px rgba(0,0,0,0.25);
+  }
+
+  .card__rank {
+    position: absolute;
+    top: -1px;
+    right: 20px;
+    background: var(--accent);
+    color: #0a1a0f;
+    font-size: 0.75rem;
+    font-weight: 700;
+    letter-spacing: 0.5px;
+    padding: 3px 10px;
+    border-radius: 0 0 var(--radius-sm) var(--radius-sm);
+  }
+  [dir="ltr"] .card__rank { right: auto; left: 20px; }
+
+  .card__body { padding: 28px 20px 20px; }
+
+  /* card header: title block + star stat */
+  .card__header {
+    display: flex;
+    align-items: flex-start;
+    gap: 12px;
+    margin-bottom: 10px;
+  }
+  .card__title-block { flex: 1; min-width: 0; }
+  .card__eyebrow {
+    font-size: 0.78rem;
+    font-weight: 500;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    color: var(--accent);
+    text-shadow: var(--text-glow);
+    margin-bottom: 4px;
+  }
+  .card__title {
+    font-size: 1.1rem;
+    font-weight: 600;
+    line-height: 1.35;
+  }
+  .card__title a {
+    color: var(--fg-strong);
+    text-decoration: none;
+    transition: color var(--transition-fast);
+    word-break: break-word;
+  }
+  .card__title a:hover { color: var(--accent); }
+  .card__org {
+    color: var(--fg-muted);
+    font-weight: 400;
+  }
+
+  .card__stats {
+    flex-shrink: 0;
+    text-align: center;
+    background: var(--accent-soft);
+    border: 1px solid var(--accent-border);
+    border-radius: var(--radius-md);
+    padding: 8px 12px;
+    min-width: 56px;
+  }
+  .card__stars {
+    color: #f0c674;
+    font-size: 1.1rem;
+    line-height: 1;
+  }
+  .stars-num {
+    display: block;
+    font-size: 0.85rem;
+    font-weight: 700;
+    color: var(--fg-strong);
+    margin-top: 2px;
+  }
+
+  .card__meta {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 4px 14px;
+    font-size: 0.78rem;
+    color: var(--fg-subtle);
+    margin-bottom: 10px;
+  }
+  .meta-icon { opacity: 0.5; }
+
+  .card__tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+    margin-bottom: 16px;
+  }
+  .tag {
+    display: inline-block;
+    padding: 3px 10px;
+    border-radius: var(--radius-pill);
+    background: var(--accent-soft);
+    border: 1px solid var(--accent-border);
+    color: var(--accent);
+    font-size: 0.72rem;
+    font-weight: 500;
+    letter-spacing: 0.3px;
+    white-space: nowrap;
+    transition: all var(--transition-fast);
+  }
+  .tag:hover {
+    background: rgba(34,197,94,0.16);
+    border-color: var(--accent);
+    box-shadow: 0 0 10px var(--accent-glow);
+  }
+
+  /* ── BRIEF SECTIONS ── */
+  .card__content { display: flex; flex-direction: column; gap: 0; }
+
+  .brief-section {
+    padding: 10px 0;
+    border-top: 1px solid var(--accent-border);
+  }
+  .brief-section:first-child { border-top: none; padding-top: 0; }
+
+  .brief-label {
+    font-size: 0.75rem;
+    font-weight: 600;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    color: var(--accent);
+    text-shadow: var(--text-glow);
+    margin-bottom: 4px;
+  }
+  .brief-text {
+    font-size: 0.9375rem;
+    color: var(--fg-muted);
+    font-weight: 300;
+    line-height: 1.7;
+  }
+
+  /* "Why it matters" gets a highlight treatment */
+  .brief-section--matters {
+    background: var(--accent-soft);
+    border: 1px solid var(--accent-border);
+    border-radius: var(--radius-md);
+    padding: 10px 14px;
+    margin-top: 8px;
+  }
+  .brief-section--matters .brief-label { margin-bottom: 3px; }
+  .brief-section--matters .brief-text {
+    color: var(--fg-strong);
+    font-weight: 400;
+  }
+
+  .desc { font-size: 0.9375rem; color: var(--fg-muted); font-weight: 300; line-height: 1.7; }
+  .label { color: var(--accent); font-weight: 600; }
+
+  /* ── FOOTER ── */
+  .site-footer {
+    margin-top: 40px;
+    font-size: 0.78rem;
+    color: var(--fg-subtle);
+    text-align: center;
+    border-top: 1px solid var(--accent-border);
+    padding-top: 20px;
+  }
+  a { color: var(--accent); }
+
+  /* ── MOBILE SAFETY ── */
+  img, video, audio { max-width: 100%; }
+  .card__title a { word-break: break-word; }
+  @media (max-width: 480px) {
+    .card__body { padding: 28px 14px 16px; }
+    .card__stats { padding: 6px 10px; min-width: 50px; }
+    .player-time { display: none; }
+  }
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <div class="top-bar">
+    <button class="lang-btn" id="langToggle" onclick="toggleLang()">EN</button>
+    <button class="share-btn" id="shareBtn" onclick="shareReport()" aria-label="Share">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <circle cx="18" cy="5" r="3"/><circle cx="6" cy="12" r="3"/><circle cx="18" cy="19" r="3"/>
+        <line x1="8.59" y1="13.51" x2="15.42" y2="17.49"/>
+        <line x1="15.41" y1="6.51" x2="8.59" y2="10.49"/>
+      </svg>
+      <span class="share-label i18n" data-he="שתף" data-en="Share">שתף</span>
+    </button>
+  </div>
+
+  <header class="site-header">
+    <p class="header-eyebrow i18n" data-he="עיכול AI שבועי" data-en="Weekly AI Digest">עיכול AI שבועי</p>
+    <h1 class="header-title i18n" data-he="&#128293; טרנד ב-AI/LLM" data-en="&#128293; Trending AI/LLM Repos">&#128293; טרנד ב-AI/LLM</h1>
+    <p class="header-sub">2026-W32 &middot; 2026-08-07</p>
+  </header>
+
+  <div class="player">
+    <audio id="audio" src="report.mp3" preload="none"></audio>
+    <div class="player-ui">
+      <button class="player-btn" id="playBtn" onclick="togglePlay()" aria-label="Play">
+        <svg id="iconPlay" viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
+        <svg id="iconPause" viewBox="0 0 24 24" style="display:none"><path d="M6 19h4V5H6zm8-14v14h4V5z"/></svg>
+      </button>
+      <div class="player-center">
+        <div class="player-track i18n" data-he="&#127911; האזן בדרך לעבודה" data-en="&#127911; Listen on your commute">&#127911; האזן בדרך לעבודה</div>
+        <div class="player-progress-wrap" id="progressWrap" onclick="seek(event)">
+          <div class="player-progress-bar" id="progressBar"></div>
+        </div>
+      </div>
+      <div class="player-time" id="playerTime">0:00 / 0:00</div>
+    </div>
+    <p class="player-hint i18n" data-he="לחץ להפעלה · גלול למטה לקריאה" data-en="Tap to play · scroll to read">לחץ להפעלה · גלול למטה לקריאה</p>
+  </div>
+
+  
+
+  <main id="repoList">
+
+    <article class="card">
+      <div class="card__rank">#1</div>
+      <div class="card__body">
+
+        <div class="card__header">
+          <div class="card__title-block">
+            <p class="card__eyebrow">JavaScript</p>
+            <h2 class="card__title">
+              <a href="https://github.com/DietrichGebert/ponytail" target="_blank" rel="noopener">
+                <span class="card__org">DietrichGebert/</span>ponytail
+              </a>
+            </h2>
+          </div>
+          <div class="card__stats">
+            <span class="card__stars">&#9733;<br><span class="stars-num">97,603</span></span>
+          </div>
+        </div>
+
+        <div class="card__meta">
+          <span class="meta-item"><span class="meta-icon">&#128197;</span> 2026-06-12</span>
+          <span class="meta-item"><span class="meta-icon">&#9679;</span> push 2026-07-15</span>
+        </div>
+
+        <div class="card__tags"><span class="tag">agent-skills</span><span class="tag">ai-agents</span><span class="tag">claude</span><span class="tag">claude-code</span></div>
+
+        <div class="card__content"><div class="brief-section"><p class="brief-label" data-he="מה זה עושה" data-en="What it does">מה זה עושה</p><p class="brief-text i18n" data-he="Ponytail הוא סקיל/פלאגין ל-AI agents (כמו Claude Code) שמכוון אותם לכתוב הרבה פחות קוד. במקום להוסיף ספריות ורכיבים מסובכים, הסוכן מתבקש לחשוב כמו מפתח סניור עצלן שמעדיף פתרון של שורה אחת." data-en="Ponytail is a skill/plugin for AI coding agents (like Claude Code) that pushes them to write drastically less code. Instead of installing libraries and building wrapper components, the agent is guided to find the one-line solution a lazy senior dev would write.">Ponytail הוא סקיל/פלאגין ל-AI agents (כמו Claude Code) שמכוון אותם לכתוב הרבה פחות קוד. במקום להוסיף ספריות ורכיבים מסובכים, הסוכן מתבקש לחשוב כמו מפתח סניור עצלן שמעדיף פתרון של שורה אחת.</p></div><div class="brief-section"><p class="brief-label" data-he="למה זה בטרנד" data-en="Why it&#x27;s trending">למה זה בטרנד</p><p class="brief-text i18n" data-he="המדדים המפורטים בריפו (כ-54% פחות קוד בממוצע, עד 94% במקרים מסוימים, וזול ומהיר יותר) מדברים בדיוק לתחושת התסכול הנפוצה מסוכנים שבונים יתר על המידה. מספר הכוכבים הגבוה (97,603) ותאימות ל-20 סוכנים שונים מסמנים אימוץ נרחב מהיר בקהילת מפתחי הכלים לסוכני AI." data-en="The concrete benchmarks in the README (about 54% less code on average, up to 94% in some tasks, cheaper and faster) speak directly to a common frustration with agents that over-engineer simple requests. The huge star count (97,603) and compatibility with 20 agents signal rapid, broad adoption in the AI dev-tools community.">המדדים המפורטים בריפו (כ-54% פחות קוד בממוצע, עד 94% במקרים מסוימים, וזול ומהיר יותר) מדברים בדיוק לתחושת התסכול הנפוצה מסוכנים שבונים יתר על המידה. מספר הכוכבים הגבוה (97,603) ותאימות ל-20 סוכנים שונים מסמנים אימוץ נרחב מהיר בקהילת מפתחי הכלים לסוכני AI.</p></div><div class="brief-section"><p class="brief-label" data-he="דוגמת שימוש" data-en="Example use case">דוגמת שימוש</p><p class="brief-text i18n" data-he="לפי הדוגמה בריפו: כשמבקשים &amp;#x27;date picker&amp;#x27;, סוכן רגיל יתקין את flatpickr, יכתוב רכיב עטיפה, יוסיף stylesheet ויפתח דיון על אזורי זמן. עם ponytail, הסוכן משתמש בפתרון המובנה של הדפדפן (input type date) בשורה אחת." data-en="Per the README&amp;#x27;s own example: asked for a date picker, a normal agent installs flatpickr, writes a wrapper component, adds a stylesheet and opens a discussion about timezones. With ponytail, the agent just uses the browser&amp;#x27;s built-in date input in one line.">לפי הדוגמה בריפו: כשמבקשים &#x27;date picker&#x27;, סוכן רגיל יתקין את flatpickr, יכתוב רכיב עטיפה, יוסיף stylesheet ויפתח דיון על אזורי זמן. עם ponytail, הסוכן משתמש בפתרון המובנה של הדפדפן (input type date) בשורה אחת.</p></div><div class="brief-section brief-section--matters"><p class="brief-label" data-he="למה זה רלוונטי לך" data-en="Why it matters for you">למה זה רלוונטי לך</p><p class="brief-text i18n" data-he="לאבי, שמלמד ובונה כלים עם סוכני AI, זה כלי מעשי לצמצום bloat קוד ועלויות טוקנים בזמן עבודה עם Claude Code או Cursor. זה גם מקרה מבחן מעניין להוראה: איך prompting/skills יכולים לשנות התנהגות סוכן בלי לפגוע בבטיחות (הריפו מציין 100% safe)." data-en="For Avi, who teaches and builds tools with AI agents, this is a practical way to reduce code bloat and token costs when working with Claude Code or Cursor. It is also a nice teaching case study in how a well-designed skill/prompt can change agent behavior without sacrificing safety guards (the README claims 100% safe).">לאבי, שמלמד ובונה כלים עם סוכני AI, זה כלי מעשי לצמצום bloat קוד ועלויות טוקנים בזמן עבודה עם Claude Code או Cursor. זה גם מקרה מבחן מעניין להוראה: איך prompting/skills יכולים לשנות התנהגות סוכן בלי לפגוע בבטיחות (הריפו מציין 100% safe).</p></div></div>
+
+      </div>
+    </article>
+
+    <article class="card">
+      <div class="card__rank">#2</div>
+      <div class="card__body">
+
+        <div class="card__header">
+          <div class="card__title-block">
+            <p class="card__eyebrow">PowerShell</p>
+            <h2 class="card__title">
+              <a href="https://github.com/zhaoxuya520/reverse-skill" target="_blank" rel="noopener">
+                <span class="card__org">zhaoxuya520/</span>reverse-skill
+              </a>
+            </h2>
+          </div>
+          <div class="card__stats">
+            <span class="card__stars">&#9733;<br><span class="stars-num">20,023</span></span>
+          </div>
+        </div>
+
+        <div class="card__meta">
+          <span class="meta-item"><span class="meta-icon">&#128197;</span> 2026-05-13</span>
+          <span class="meta-item"><span class="meta-icon">&#9679;</span> push 2026-08-06</span>
+        </div>
+
+        <div class="card__tags"></div>
+
+        <div class="card__content"><div class="brief-section"><p class="brief-label" data-he="מה זה עושה" data-en="What it does">מה זה עושה</p><p class="brief-text i18n" data-he="reverse-skill הוא חבילת ניתוב מיומנויות עבור סוכני AI (כמו Claude Code, Kiro, Cursor ו-Cline) בתחומי הנדסה לאחור, בדיקות חדירה מורשות ומחקר אבטחה. הכלי מנתב את הסוכן למתודולוגיה הנכונה כשהוא נתקל ב-APK, קובץ בינארי, הצפנת JS בפרונטאנד או אתגר CTF, בודק אילו כלים זמינים ומריץ תהליך עבודה שחוזר על עצמו במקום ניחוש פקודות." data-en="reverse-skill is a skill routing pack for AI coding agents (Claude Code, Kiro, Cursor, Cline) focused on reverse engineering, authorized penetration testing and security research. It routes an AI agent to the right methodology when it encounters an APK, a binary, frontend JS encryption or a CTF challenge, checks available tools, and executes a repeatable workflow instead of guessing commands.">reverse-skill הוא חבילת ניתוב מיומנויות עבור סוכני AI (כמו Claude Code, Kiro, Cursor ו-Cline) בתחומי הנדסה לאחור, בדיקות חדירה מורשות ומחקר אבטחה. הכלי מנתב את הסוכן למתודולוגיה הנכונה כשהוא נתקל ב-APK, קובץ בינארי, הצפנת JS בפרונטאנד או אתגר CTF, בודק אילו כלים זמינים ומריץ תהליך עבודה שחוזר על עצמו במקום ניחוש פקודות.</p></div><div class="brief-section"><p class="brief-label" data-he="למה זה בטרנד" data-en="Why it&#x27;s trending">למה זה בטרנד</p><p class="brief-text i18n" data-he="המאגר משלב ניתוב מבוסס AI, אתחול כלים לפי דרישה ובסיס ידע שמתפתח באופן עצמאי, וזוכה לתמיכה במספר לקוחות AI לקוד פופולריים. הוא מופיע ב-Trendshift ומדגים כיצד ניתן לארוז מומחיות מקצועית מורכבת כחבילת מיומנויות לסוכן." data-en="The repo combines AI-powered routing, on-demand toolchain bootstrapping and a self-evolving knowledge base, with support for multiple popular AI coding clients. It is featured on Trendshift and shows how complex professional expertise can be packaged as an agent skill pack.">המאגר משלב ניתוב מבוסס AI, אתחול כלים לפי דרישה ובסיס ידע שמתפתח באופן עצמאי, וזוכה לתמיכה במספר לקוחות AI לקוד פופולריים. הוא מופיע ב-Trendshift ומדגים כיצד ניתן לארוז מומחיות מקצועית מורכבת כחבילת מיומנויות לסוכן.</p></div><div class="brief-section"><p class="brief-label" data-he="דוגמת שימוש" data-en="Example use case">דוגמת שימוש</p><p class="brief-text i18n" data-he="כשסוכן AI נתקל במשימת אבטחה הוא עובר דרך RULES.md ולאחר מכן ל-MASTER-ROUTING או ל-master-route.ps1 כמסלול ראשי, ומשם ל-case-init ול-scope.md כדי לבדוק הרשאה ופרופיל רשת לפני שהוא ממשיך לפעולה." data-en="When an AI agent hits a security task, it flows through RULES.md then to MASTER-ROUTING or master-route.ps1 as the primary route, and on to case-init and scope.md to check authorization and network profile before proceeding.">כשסוכן AI נתקל במשימת אבטחה הוא עובר דרך RULES.md ולאחר מכן ל-MASTER-ROUTING או ל-master-route.ps1 כמסלול ראשי, ומשם ל-case-init ול-scope.md כדי לבדוק הרשאה ופרופיל רשת לפני שהוא ממשיך לפעולה.</p></div><div class="brief-section brief-section--matters"><p class="brief-label" data-he="למה זה רלוונטי לך" data-en="Why it matters for you">למה זה רלוונטי לך</p><p class="brief-text i18n" data-he="בשביל אבי, המאגר פחות רלוונטי לתוכן עברית או TTS, אך הוא דוגמה מעניינת לארכיטקטורת סוכן: ניתוב מבוסס חוקים, בדיקת כלים לפי דרישה ובסיס ידע מתעדכן, רעיונות שניתן לשאוב מהם לבניית כלי למידה או מערכות ניהול ידע מבוססות סוכנים." data-en="For Avi this is less about Hebrew content or TTS, but it is a useful example of agent architecture: rule-based routing, on-demand tool checking and a self-updating knowledge base, ideas that could inform building learning tools or agent-based knowledge management systems.">בשביל אבי, המאגר פחות רלוונטי לתוכן עברית או TTS, אך הוא דוגמה מעניינת לארכיטקטורת סוכן: ניתוב מבוסס חוקים, בדיקת כלים לפי דרישה ובסיס ידע מתעדכן, רעיונות שניתן לשאוב מהם לבניית כלי למידה או מערכות ניהול ידע מבוססות סוכנים.</p></div></div>
+
+      </div>
+    </article>
+
+    <article class="card">
+      <div class="card__rank">#3</div>
+      <div class="card__body">
+
+        <div class="card__header">
+          <div class="card__title-block">
+            <p class="card__eyebrow">TypeScript</p>
+            <h2 class="card__title">
+              <a href="https://github.com/nexu-io/open-design" target="_blank" rel="noopener">
+                <span class="card__org">nexu-io/</span>open-design
+              </a>
+            </h2>
+          </div>
+          <div class="card__stats">
+            <span class="card__stars">&#9733;<br><span class="stars-num">84,250</span></span>
+          </div>
+        </div>
+
+        <div class="card__meta">
+          <span class="meta-item"><span class="meta-icon">&#128197;</span> 2026-04-28</span>
+          <span class="meta-item"><span class="meta-icon">&#9679;</span> push 2026-08-07</span>
+        </div>
+
+        <div class="card__tags"><span class="tag">agent-skills</span><span class="tag">ai-agents</span><span class="tag">ai-design</span><span class="tag">byok</span></div>
+
+        <div class="card__content"><div class="brief-section"><p class="brief-label" data-he="מה זה עושה" data-en="What it does">מה זה עושה</p><p class="brief-text i18n" data-he="Open Design הוא אפליקציית שולחן עבודה קוד פתוח ומקומית-קודם-כל, שהופכת סוכני קידוד (Claude Code, Codex, Cursor, Gemini, OpenCode, Qwen ועוד יותר מ-20 CLI) למנוע עיצוב. היא מייצרת קבצים אמיתיים כמו פרוטוטייפים, דפי נחיתה, דשבורדים, מצגות, תמונות ווידאו, עם ייצוא ל-HTML, PDF, PPTX ו-MP4. ניתן להשתמש במפתחות אישיים (BYOK) או בשירות Open Design Cloud האופציונלי לגישה למודלים כמו GPT, Claude, Gemini ו-DeepSeek." data-en="Open Design is an open-source, local-first desktop app that turns coding agents (Claude Code, Codex, Cursor, Gemini, OpenCode, Qwen, and 20+ CLIs) into a design engine. It produces real files such as prototypes, landing pages, dashboards, slides, images, and video, exportable as HTML, PDF, PPTX, or MP4. It supports BYOK (bring your own key) or the optional Open Design Cloud service for accessing models like GPT, Claude, Gemini, and DeepSeek.">Open Design הוא אפליקציית שולחן עבודה קוד פתוח ומקומית-קודם-כל, שהופכת סוכני קידוד (Claude Code, Codex, Cursor, Gemini, OpenCode, Qwen ועוד יותר מ-20 CLI) למנוע עיצוב. היא מייצרת קבצים אמיתיים כמו פרוטוטייפים, דפי נחיתה, דשבורדים, מצגות, תמונות ווידאו, עם ייצוא ל-HTML, PDF, PPTX ו-MP4. ניתן להשתמש במפתחות אישיים (BYOK) או בשירות Open Design Cloud האופציונלי לגישה למודלים כמו GPT, Claude, Gemini ו-DeepSeek.</p></div><div class="brief-section"><p class="brief-label" data-he="למה זה בטרנד" data-en="Why it&#x27;s trending">למה זה בטרנד</p><p class="brief-text i18n" data-he="הפרויקט צבר 84,250 כוכבים תוך מיצוב עצמו כאלטרנטיבה קוד פתוח ל-Claude Design, נושא חם בקהילת סוכני הקידוד. התמיכה ביותר מ-20 כלי CLI שונים והגישה של BYOK מושכות מפתחים שרוצים גמישות במודלים ללא נעילה לספק אחד." data-en="The project has amassed 84,250 stars by positioning itself as an open-source alternative to Claude Design, a hot topic in the coding-agent community. Support for 20+ CLI tools and a BYOK approach attracts developers who want model flexibility without vendor lock-in.">הפרויקט צבר 84,250 כוכבים תוך מיצוב עצמו כאלטרנטיבה קוד פתוח ל-Claude Design, נושא חם בקהילת סוכני הקידוד. התמיכה ביותר מ-20 כלי CLI שונים והגישה של BYOK מושכות מפתחים שרוצים גמישות במודלים ללא נעילה לספק אחד.</p></div><div class="brief-section"><p class="brief-label" data-he="דוגמת שימוש" data-en="Example use case">דוגמת שימוש</p><p class="brief-text i18n" data-he="מעצב יכול לבקש מ-Claude Code או Codex ליצור דשבורד או מצגת שקופיות ולקבל קבצים אמיתיים לייצוא כ-PPTX או HTML, במקום רק תמונות סטטיות. התהליך רץ מקומית על המחשב, כך שאין תלות בשירות ענן חיצוני אלא אם בוחרים במפורש ב-Open Design Cloud." data-en="A designer can ask Claude Code or Codex to generate a dashboard or slide deck and receive real, exportable files as PPTX or HTML instead of static mockups. The workflow runs locally on the desktop, so there is no dependency on an external cloud unless Open Design Cloud is explicitly chosen.">מעצב יכול לבקש מ-Claude Code או Codex ליצור דשבורד או מצגת שקופיות ולקבל קבצים אמיתיים לייצוא כ-PPTX או HTML, במקום רק תמונות סטטיות. התהליך רץ מקומית על המחשב, כך שאין תלות בשירות ענן חיצוני אלא אם בוחרים במפורש ב-Open Design Cloud.</p></div><div class="brief-section brief-section--matters"><p class="brief-label" data-he="למה זה רלוונטי לך" data-en="Why it matters for you">למה זה רלוונטי לך</p><p class="brief-text i18n" data-he="לאבי, שמתעניין בסוכנים וכלי למידה, זו דוגמה מעשית לאיך הופכים סוכני קידוד לכלי עיצוב עבור חומרי הדרכה, מצגות ותוכן ויזואלי. הגישה המקומית-קודם-כל והתמיכה בריבוי מודלים (BYOK) רלוונטיות גם לשיקולי פרטיות וניהול ידע בעבודה עם AI." data-en="For Avi, who focuses on agents and learning tools, this is a concrete example of turning coding agents into a design engine for instructional materials, slides, and visual content. The local-first approach and multi-model BYOK support are also relevant to privacy and knowledge-management considerations when working with AI.">לאבי, שמתעניין בסוכנים וכלי למידה, זו דוגמה מעשית לאיך הופכים סוכני קידוד לכלי עיצוב עבור חומרי הדרכה, מצגות ותוכן ויזואלי. הגישה המקומית-קודם-כל והתמיכה בריבוי מודלים (BYOK) רלוונטיות גם לשיקולי פרטיות וניהול ידע בעבודה עם AI.</p></div></div>
+
+      </div>
+    </article>
+
+    <article class="card">
+      <div class="card__rank">#4</div>
+      <div class="card__body">
+
+        <div class="card__header">
+          <div class="card__title-block">
+            <p class="card__eyebrow">Jupyter Notebook</p>
+            <h2 class="card__title">
+              <a href="https://github.com/microsoft/AI-For-Beginners" target="_blank" rel="noopener">
+                <span class="card__org">microsoft/</span>AI-For-Beginners
+              </a>
+            </h2>
+          </div>
+          <div class="card__stats">
+            <span class="card__stars">&#9733;<br><span class="stars-num">62,816</span></span>
+          </div>
+        </div>
+
+        <div class="card__meta">
+          <span class="meta-item"><span class="meta-icon">&#128197;</span> 2021-03-03</span>
+          <span class="meta-item"><span class="meta-icon">&#9679;</span> push 2026-07-21</span>
+        </div>
+
+        <div class="card__tags"><span class="tag">ai</span><span class="tag">artificial-intelligence</span><span class="tag">cnn</span><span class="tag">computer-vision</span></div>
+
+        <div class="card__content"><div class="brief-section"><p class="brief-label" data-he="מה זה עושה" data-en="What it does">מה זה עושה</p><p class="brief-text i18n" data-he="מיקרוסופט מציגה תוכנית לימודים בת 12 שבועות ו-24 שיעורים ללימוד בינה מלאכותית, כולל שיעורים מעשיים, בחנים ומעבדות. התוכנית מכסה כלים כמו TensorFlow ו-PyTorch, וגם נושאים של אתיקה בבינה מלאכותית, ומיועדת למתחילים לחלוטין." data-en="Microsoft offers a 12-week, 24-lesson curriculum for learning AI, including practical lessons, quizzes, and labs. It covers tools like TensorFlow and PyTorch as well as AI ethics, and is designed to be beginner-friendly.">מיקרוסופט מציגה תוכנית לימודים בת 12 שבועות ו-24 שיעורים ללימוד בינה מלאכותית, כולל שיעורים מעשיים, בחנים ומעבדות. התוכנית מכסה כלים כמו TensorFlow ו-PyTorch, וגם נושאים של אתיקה בבינה מלאכותית, ומיועדת למתחילים לחלוטין.</p></div><div class="brief-section"><p class="brief-label" data-he="למה זה בטרנד" data-en="Why it&#x27;s trending">למה זה בטרנד</p><p class="brief-text i18n" data-he="המאגר צבר מעל 62,800 כוכבים בזכות היותו משאב לימודי מובנה ומקיף מבית מיקרוסופט. תמיכה בעשרות שפות דרך תרגום אוטומטי הופכת אותו לנגיש לקהל עולמי רחב, כולל דוברי עברית וערבית." data-en="The repo has amassed over 62,800 stars as a structured, comprehensive learning resource from Microsoft. Automated support for dozens of languages via GitHub Action translation makes it accessible to a wide global audience.">המאגר צבר מעל 62,800 כוכבים בזכות היותו משאב לימודי מובנה ומקיף מבית מיקרוסופט. תמיכה בעשרות שפות דרך תרגום אוטומטי הופכת אותו לנגיש לקהל עולמי רחב, כולל דוברי עברית וערבית.</p></div><div class="brief-section"><p class="brief-label" data-he="דוגמת שימוש" data-en="Example use case">דוגמת שימוש</p><p class="brief-text i18n" data-he="לומד יכול לעבור שיעור אחר שיעור בנוטבוקים של Jupyter, ולתרגל נושאים כמו רשתות נוירונים קונבולוציוניות (CNN) ורשתות יריבות גנרטיביות (GAN) בעזרת TensorFlow או PyTorch." data-en="A learner can work through Jupyter notebooks lesson by lesson, practicing topics like convolutional neural networks (CNN) and generative adversarial networks (GAN) using TensorFlow or PyTorch.">לומד יכול לעבור שיעור אחר שיעור בנוטבוקים של Jupyter, ולתרגל נושאים כמו רשתות נוירונים קונבולוציוניות (CNN) ורשתות יריבות גנרטיביות (GAN) בעזרת TensorFlow או PyTorch.</p></div><div class="brief-section brief-section--matters"><p class="brief-label" data-he="למה זה רלוונטי לך" data-en="Why it matters for you">למה זה רלוונטי לך</p><p class="brief-text i18n" data-he="עבור אבי, זהו משאב מצוין ליצירת תוכן לימודי מובנה על בינה מלאכותית, עם אפשרות להתבסס על תרגום עברי קיים או לבנות עליו חומרי הדרכה. המבנה השבועי המסודר יכול לשמש כמודל תכנוני לקורסים משלו." data-en="For Avi, this is an excellent resource for building structured AI learning content, with an existing Hebrew translation to draw on or build training materials upon. The organized weekly structure can serve as a planning model for his own courses.">עבור אבי, זהו משאב מצוין ליצירת תוכן לימודי מובנה על בינה מלאכותית, עם אפשרות להתבסס על תרגום עברי קיים או לבנות עליו חומרי הדרכה. המבנה השבועי המסודר יכול לשמש כמודל תכנוני לקורסים משלו.</p></div></div>
+
+      </div>
+    </article>
+
+    <article class="card">
+      <div class="card__rank">#5</div>
+      <div class="card__body">
+
+        <div class="card__header">
+          <div class="card__title-block">
+            <p class="card__eyebrow">Python</p>
+            <h2 class="card__title">
+              <a href="https://github.com/Graphify-Labs/graphify" target="_blank" rel="noopener">
+                <span class="card__org">Graphify-Labs/</span>graphify
+              </a>
+            </h2>
+          </div>
+          <div class="card__stats">
+            <span class="card__stars">&#9733;<br><span class="stars-num">103,621</span></span>
+          </div>
+        </div>
+
+        <div class="card__meta">
+          <span class="meta-item"><span class="meta-icon">&#128197;</span> 2026-04-03</span>
+          <span class="meta-item"><span class="meta-icon">&#9679;</span> push 2026-08-06</span>
+        </div>
+
+        <div class="card__tags"><span class="tag">ai-agents</span><span class="tag">antigravity</span><span class="tag">ast</span><span class="tag">claude-code</span></div>
+
+        <div class="card__content"><div class="brief-section"><p class="brief-label" data-he="מה זה עושה" data-en="What it does">מה זה עושה</p><p class="brief-text i18n" data-he="Graphify הופך כל בסיס קוד, כולל מסמכים, סכמות SQL, קבצי קונפיגורציה וקבצי PDF, לגרף ידע שניתן לשאול אותו שאלות. הכלי עובד כ-skill בשם /graphify עבור Claude Code, Cursor, Codex ו-Gemini CLI, ומבוסס על ניתוח AST דטרמיניסטי מקומי, כלומר בלי מודל שפה שמנחש. כל קשר (edge) בגרף מוסבר, וללא צורך בווקטור סטור." data-en="Graphify turns any codebase, along with its docs, SQL schemas, configs, and PDFs, into a queryable knowledge graph. It works as a /graphify skill for Claude Code, Cursor, Codex, and Gemini CLI, relying on local deterministic AST parsing rather than embeddings. Every edge in the graph is explained, and no vector store is required.">Graphify הופך כל בסיס קוד, כולל מסמכים, סכמות SQL, קבצי קונפיגורציה וקבצי PDF, לגרף ידע שניתן לשאול אותו שאלות. הכלי עובד כ-skill בשם /graphify עבור Claude Code, Cursor, Codex ו-Gemini CLI, ומבוסס על ניתוח AST דטרמיניסטי מקומי, כלומר בלי מודל שפה שמנחש. כל קשר (edge) בגרף מוסבר, וללא צורך בווקטור סטור.</p></div><div class="brief-section"><p class="brief-label" data-he="למה זה בטרנד" data-en="Why it&#x27;s trending">למה זה בטרנד</p><p class="brief-text i18n" data-he="עם למעלה מ-103 אלף כוכבים, הריפו תופס תשומת לב עצומה, כפי שמעיד גם תג Trendshift ב-README. הגישה שמשלבת ניתוח קוד דטרמיניסטי (AST) עם סוכני AI פופולריים כמו Claude Code ו-Cursor פותרת בעיה אמיתית של דיוק וזיהוי הזיות בכלי RAG מבוססי וקטורים. התרגום ל-30+ שפות (כולל עברית) מראה על אימוץ גלובלי רחב." data-en="With over 103,000 stars and a Trendshift badge in the README, this repo is drawing massive attention. Its approach of pairing deterministic AST-based code analysis with popular AI coding agents like Claude Code and Cursor addresses real accuracy concerns around vector-store RAG hallucinations. Translations into 30+ languages, including Hebrew, signal broad global adoption.">עם למעלה מ-103 אלף כוכבים, הריפו תופס תשומת לב עצומה, כפי שמעיד גם תג Trendshift ב-README. הגישה שמשלבת ניתוח קוד דטרמיניסטי (AST) עם סוכני AI פופולריים כמו Claude Code ו-Cursor פותרת בעיה אמיתית של דיוק וזיהוי הזיות בכלי RAG מבוססי וקטורים. התרגום ל-30+ שפות (כולל עברית) מראה על אימוץ גלובלי רחב.</p></div><div class="brief-section"><p class="brief-label" data-he="דוגמת שימוש" data-en="Example use case">דוגמת שימוש</p><p class="brief-text i18n" data-he="מפתח יכול להריץ /graphify על ריפו גדול שמכיל קוד, מסמכי תיעוד וסכמות SQL, ולקבל גרף ידע שממפה יחסים בין קבצים, פונקציות וטבלאות. לאחר מכן, סוכן כמו Claude Code או Cursor יכול לשאול שאלות על הגרף כדי להבין תלות בין רכיבים לפני עשיית שינויים." data-en="A developer can run /graphify on a large repo containing code, documentation, and SQL schemas, generating a knowledge graph that maps relationships between files, functions, and tables. An agent like Claude Code or Cursor can then query the graph to understand dependencies between components before making changes.">מפתח יכול להריץ /graphify על ריפו גדול שמכיל קוד, מסמכי תיעוד וסכמות SQL, ולקבל גרף ידע שממפה יחסים בין קבצים, פונקציות וטבלאות. לאחר מכן, סוכן כמו Claude Code או Cursor יכול לשאול שאלות על הגרף כדי להבין תלות בין רכיבים לפני עשיית שינויים.</p></div><div class="brief-section brief-section--matters"><p class="brief-label" data-he="למה זה רלוונטי לך" data-en="Why it matters for you">למה זה רלוונטי לך</p><p class="brief-text i18n" data-he="לאבי, שמתעניין בסוכני AI וניהול ידע, Graphify מציג דרך מעניינת לבנות מבנה ידע מדויק ומוסבר במקום להסתמך על חיפוש וקטורי מעורפל. זה רלוונטי גם לחשיבה על RAG וגם על MCP-style integrations עם כלי קוד כמו Claude Code ו-Codex." data-en="For Avi, who focuses on agents and knowledge management, Graphify offers an interesting alternative to vector-based RAG: an explainable, deterministic knowledge graph structure. It is directly relevant to his interest in MCP-style tool integrations with coding agents like Claude Code and Codex.">לאבי, שמתעניין בסוכני AI וניהול ידע, Graphify מציג דרך מעניינת לבנות מבנה ידע מדויק ומוסבר במקום להסתמך על חיפוש וקטורי מעורפל. זה רלוונטי גם לחשיבה על RAG וגם על MCP-style integrations עם כלי קוד כמו Claude Code ו-Codex.</p></div></div>
+
+      </div>
+    </article>
+
+    <article class="card">
+      <div class="card__rank">#6</div>
+      <div class="card__body">
+
+        <div class="card__header">
+          <div class="card__title-block">
+            <p class="card__eyebrow">JavaScript</p>
+            <h2 class="card__title">
+              <a href="https://github.com/JuliusBrussee/caveman" target="_blank" rel="noopener">
+                <span class="card__org">JuliusBrussee/</span>caveman
+              </a>
+            </h2>
+          </div>
+          <div class="card__stats">
+            <span class="card__stars">&#9733;<br><span class="stars-num">96,538</span></span>
+          </div>
+        </div>
+
+        <div class="card__meta">
+          <span class="meta-item"><span class="meta-icon">&#128197;</span> 2026-04-04</span>
+          <span class="meta-item"><span class="meta-icon">&#9679;</span> push 2026-08-04</span>
+        </div>
+
+        <div class="card__tags"><span class="tag">ai</span><span class="tag">anthropic</span><span class="tag">caveman</span><span class="tag">claude</span></div>
+
+        <div class="card__content"><div class="brief-section"><p class="brief-label" data-he="מה זה עושה" data-en="What it does">מה זה עושה</p><p class="brief-text i18n" data-he="Caveman הוא skill/plugin לסוכני קוד AI כמו Claude Code, Codex, Gemini ועוד 30+ סוכנים, שגורם לסוכן לענות בסגנון &amp;#x27;איש מערות&amp;#x27; תמציתי במקום פרוזה מנומסת ומלאת מילוי. הכלי חוסך 65% מהטוקנים ביציאה על תגובות טקסט ו-8.5% על ריצות ארוכות של קידוד אגנטי, בלי לפגוע בדיוק הקוד, הפקודות או ההודעות." data-en="Caveman is a skill/plugin for AI coding agents (Claude Code, Codex, Gemini, Cursor, and 30+ others) that makes the agent answer in terse caveman-speak instead of verbose polite prose. It cuts 65% of output tokens on prose replies and 8.5% on long-horizon agentic coding runs, while keeping code, commands, and errors byte-for-byte exact.">Caveman הוא skill/plugin לסוכני קוד AI כמו Claude Code, Codex, Gemini ועוד 30+ סוכנים, שגורם לסוכן לענות בסגנון &#x27;איש מערות&#x27; תמציתי במקום פרוזה מנומסת ומלאת מילוי. הכלי חוסך 65% מהטוקנים ביציאה על תגובות טקסט ו-8.5% על ריצות ארוכות של קידוד אגנטי, בלי לפגוע בדיוק הקוד, הפקודות או ההודעות.</p></div><div class="brief-section"><p class="brief-label" data-he="למה זה בטרנד" data-en="Why it&#x27;s trending">למה זה בטרנד</p><p class="brief-text i18n" data-he="הרפו צבר יותר מ-96 אלף כוכבים בזכות שילוב בין הומור (מוטיב &amp;#x27;איש מערות&amp;#x27;) לבין תועלת אמיתית וברורה: חיסכון משמעותי בטוקנים ולכן בעלויות ובמהירות תגובה של סוכני AI. הפורמט הקליל, דוגמאות &amp;#x27;לפני/אחרי&amp;#x27; משעשעות והתאמה למגוון עצום של כלים הפכו אותו לוויראלי בקהילת המפתחים." data-en="The repo gained over 96,000 stars thanks to a mix of humor (the &amp;#x27;caveman&amp;#x27; gimmick) and clear practical value: significant token savings that translate into lower cost and faster responses from AI agents. The playful before/after examples and broad compatibility with 30+ agents made it highly shareable in developer communities.">הרפו צבר יותר מ-96 אלף כוכבים בזכות שילוב בין הומור (מוטיב &#x27;איש מערות&#x27;) לבין תועלת אמיתית וברורה: חיסכון משמעותי בטוקנים ולכן בעלויות ובמהירות תגובה של סוכני AI. הפורמט הקליל, דוגמאות &#x27;לפני/אחרי&#x27; משעשעות והתאמה למגוון עצום של כלים הפכו אותו לוויראלי בקהילת המפתחים.</p></div><div class="brief-section"><p class="brief-label" data-he="דוגמת שימוש" data-en="Example use case">דוגמת שימוש</p><p class="brief-text i18n" data-he="בדוגמה מהריפו, תשובה רגילה של 69 טוקנים המסבירה מדוע קומפוננטת React מתרנדרת מחדש (עם ניתוח מפורט של useMemo) מתקצרת לתשובה של 19 טוקנים בלבד: &amp;#x27;New object ref each render... Wrap in useMemo.&amp;#x27; אותו פתרון טכני, שליש מהמילים." data-en="In the repo&amp;#x27;s example, a normal 69-token answer explaining why a React component re-renders (with a detailed useMemo explanation) shrinks to a 19-token caveman answer: &amp;#x27;New object ref each render... Wrap in useMemo.&amp;#x27; Same technical fix, a third of the words.">בדוגמה מהריפו, תשובה רגילה של 69 טוקנים המסבירה מדוע קומפוננטת React מתרנדרת מחדש (עם ניתוח מפורט של useMemo) מתקצרת לתשובה של 19 טוקנים בלבד: &#x27;New object ref each render... Wrap in useMemo.&#x27; אותו פתרון טכני, שליש מהמילים.</p></div><div class="brief-section brief-section--matters"><p class="brief-label" data-he="למה זה רלוונטי לך" data-en="Why it matters for you">למה זה רלוונטי לך</p><p class="brief-text i18n" data-he="לאבי, שמתעניין בסוכני AI וכלי למידה, הרפו מדגים דרך פשוטה וחדה להפחית עומס קוגניטיבי וטוקנים בשיחות עם סוכנים, מה שרלוונטי לתכנון אינסטרוקציוני יעיל ולניהול ידע חסכוני. זה גם מקרה מעניין ללימוד על שינוי פרומפטים (prompt-engineering) כדי לשנות התנהגות סוכן בלי לפגוע באיכות המידע." data-en="For Avi, interested in AI agents and learning tools, this repo shows a simple, sharp way to reduce cognitive load and tokens in agent conversations, relevant to efficient instructional design and lean knowledge management. It is also a neat case study in prompt-engineering that changes agent behavior without sacrificing information quality.">לאבי, שמתעניין בסוכני AI וכלי למידה, הרפו מדגים דרך פשוטה וחדה להפחית עומס קוגניטיבי וטוקנים בשיחות עם סוכנים, מה שרלוונטי לתכנון אינסטרוקציוני יעיל ולניהול ידע חסכוני. זה גם מקרה מעניין ללימוד על שינוי פרומפטים (prompt-engineering) כדי לשנות התנהגות סוכן בלי לפגוע באיכות המידע.</p></div></div>
+
+      </div>
+    </article>
+
+    <article class="card">
+      <div class="card__rank">#7</div>
+      <div class="card__body">
+
+        <div class="card__header">
+          <div class="card__title-block">
+            <p class="card__eyebrow">Unknown</p>
+            <h2 class="card__title">
+              <a href="https://github.com/VoltAgent/awesome-design-md" target="_blank" rel="noopener">
+                <span class="card__org">VoltAgent/</span>awesome-design-md
+              </a>
+            </h2>
+          </div>
+          <div class="card__stats">
+            <span class="card__stars">&#9733;<br><span class="stars-num">107,073</span></span>
+          </div>
+        </div>
+
+        <div class="card__meta">
+          <span class="meta-item"><span class="meta-icon">&#128197;</span> 2026-03-31</span>
+          <span class="meta-item"><span class="meta-icon">&#9679;</span> push 2026-07-31</span>
+        </div>
+
+        <div class="card__tags"><span class="tag">awesome-list</span><span class="tag">design-md</span><span class="tag">design-system</span><span class="tag">design-tokens</span></div>
+
+        <div class="card__content"><div class="brief-section"><p class="brief-label" data-he="מה זה עושה" data-en="What it does">מה זה עושה</p><p class="brief-text i18n" data-he="המאגר מרכז 73 קבצי DESIGN.md שנוצרו מניתוח מערכות עיצוב של אתרים ומותגים מוכרים. כל קובץ הוא מסמך מארקדאון פשוט שמתאר טוקנים, דפוסים וכללי עיצוב, ומאפשר לסוכני AI ליצור ממשק שנראה עקבי עם השפה העיצובית של המקור. את הקובץ פשוט מניחים בשורש הפרויקט ואומרים לסוכן הקידוד לבנות דף שנראה כמוהו." data-en="This repo curates 73 DESIGN.md files derived from analyzing real brand design systems. Each file is a plain markdown document describing design tokens, patterns and rules, letting AI coding agents generate UI that stays visually consistent with the source style. You drop the file into your project root and tell your agent to build a page that matches it.">המאגר מרכז 73 קבצי DESIGN.md שנוצרו מניתוח מערכות עיצוב של אתרים ומותגים מוכרים. כל קובץ הוא מסמך מארקדאון פשוט שמתאר טוקנים, דפוסים וכללי עיצוב, ומאפשר לסוכני AI ליצור ממשק שנראה עקבי עם השפה העיצובית של המקור. את הקובץ פשוט מניחים בשורש הפרויקט ואומרים לסוכן הקידוד לבנות דף שנראה כמוהו.</p></div><div class="brief-section"><p class="brief-label" data-he="למה זה בטרנד" data-en="Why it&#x27;s trending">למה זה בטרנד</p><p class="brief-text i18n" data-he="הרעיון של DESIGN.md, שהוצג על ידי Google Stitch, מציע חלופה פשוטה לקבצי Figma או JSON מורכבים: מסמך טקסט שמודלי שפה קוראים בקלות. המאגר ממחיש כיצד מושג ה&amp;#x27;vibe coding&amp;#x27; והסוכנים מתרחב גם לתחום העיצוב, לא רק לקוד, מה שמסביר את הפופולריות המהירה שלו." data-en="The DESIGN.md concept, introduced by Google Stitch, offers a lightweight alternative to Figma exports or JSON schemas: a plain text file LLMs read natively. The repo shows how vibe coding and agentic workflows are expanding from code generation into design consistency, which explains its fast-growing popularity.">הרעיון של DESIGN.md, שהוצג על ידי Google Stitch, מציע חלופה פשוטה לקבצי Figma או JSON מורכבים: מסמך טקסט שמודלי שפה קוראים בקלות. המאגר ממחיש כיצד מושג ה&#x27;vibe coding&#x27; והסוכנים מתרחב גם לתחום העיצוב, לא רק לקוד, מה שמסביר את הפופולריות המהירה שלו.</p></div><div class="brief-section"><p class="brief-label" data-he="דוגמת שימוש" data-en="Example use case">דוגמת שימוש</p><p class="brief-text i18n" data-he="מפתח שרוצה לבנות עמוד נחיתה בסגנון מותג ידוע יכול להעתיק את קובץ ה-DESIGN.md המתאים מהמאגר לתוך הפרויקט שלו. לאחר מכן הוא פשוט מבקש מסוכן הקידוד AI &amp;#x27;לבנות עמוד שנראה כך&amp;#x27;, והסוכן משתמש בטוקנים ובכללים שבקובץ כדי לייצר ממשק תואם." data-en="A developer wanting a landing page in a well-known brand style can copy the matching DESIGN.md file from the repo into their project. They then simply ask their AI coding agent to build a page that looks like it, and the agent uses the tokens and rules in the file to generate a matching interface.">מפתח שרוצה לבנות עמוד נחיתה בסגנון מותג ידוע יכול להעתיק את קובץ ה-DESIGN.md המתאים מהמאגר לתוך הפרויקט שלו. לאחר מכן הוא פשוט מבקש מסוכן הקידוד AI &#x27;לבנות עמוד שנראה כך&#x27;, והסוכן משתמש בטוקנים ובכללים שבקובץ כדי לייצר ממשק תואם.</p></div><div class="brief-section brief-section--matters"><p class="brief-label" data-he="למה זה רלוונטי לך" data-en="Why it matters for you">למה זה רלוונטי לך</p><p class="brief-text i18n" data-he="עבור אבי, שמעוניין בכלי למידה ובסוכני AI, זהו דוגמה מעניינת ל&amp;#x27;קובץ הוראות&amp;#x27; פשוט שמייעל עבודה עם סוכנים, מקביל לרעיון AGENTS.md אך לעיצוב. זה יכול לשמש כתבנית להנחיה למידה: איך ליצור מסמכי הקשר קצרים וברורים שסוכני AI יודעים לפרש נכון." data-en="For Avi, interested in learning tools and AI agents, this is a neat example of a simple &amp;#x27;instruction file&amp;#x27; pattern (paralleling AGENTS.md but for design) that streamlines agent workflows. It can serve as a template for instructional design: how to craft short, clear context documents that AI agents interpret correctly.">עבור אבי, שמעוניין בכלי למידה ובסוכני AI, זהו דוגמה מעניינת ל&#x27;קובץ הוראות&#x27; פשוט שמייעל עבודה עם סוכנים, מקביל לרעיון AGENTS.md אך לעיצוב. זה יכול לשמש כתבנית להנחיה למידה: איך ליצור מסמכי הקשר קצרים וברורים שסוכני AI יודעים לפרש נכון.</p></div></div>
+
+      </div>
+    </article>
+
+    <article class="card">
+      <div class="card__rank">#8</div>
+      <div class="card__body">
+
+        <div class="card__header">
+          <div class="card__title-block">
+            <p class="card__eyebrow">Jupyter Notebook</p>
+            <h2 class="card__title">
+              <a href="https://github.com/lyogavin/airllm" target="_blank" rel="noopener">
+                <span class="card__org">lyogavin/</span>airllm
+              </a>
+            </h2>
+          </div>
+          <div class="card__stats">
+            <span class="card__stars">&#9733;<br><span class="stars-num">29,694</span></span>
+          </div>
+        </div>
+
+        <div class="card__meta">
+          <span class="meta-item"><span class="meta-icon">&#128197;</span> 2023-06-12</span>
+          <span class="meta-item"><span class="meta-icon">&#9679;</span> push 2026-08-06</span>
+        </div>
+
+        <div class="card__tags"><span class="tag">chinese-llm</span><span class="tag">chinese-nlp</span><span class="tag">finetune</span><span class="tag">generative-ai</span></div>
+
+        <div class="card__content"><div class="brief-section"><p class="brief-label" data-he="מה זה עושה" data-en="What it does">מה זה עושה</p><p class="brief-text i18n" data-he="AirLLM היא ספרייה שמאפשרת להריץ מודלי שפה גדולים, כמו 70B, על כרטיס GPU יחיד עם 4GB בלבד, בלי קוונטיזציה, דיסטילציה או pruning. היא עושה זאת על ידי טעינה הדרגתית של שכבות המודל בזיכרון, ובמודלי MoE כמו Kimi K3 היא סורקת רק את המומחים (experts) הרלוונטיים לכל טוקן." data-en="AirLLM is a library that lets large language models, such as 70B, run inference on a single 4GB GPU without quantization, distillation, or pruning. It works by streaming model layers into memory, and for MoE models like Kimi K3 it loads only the experts each token actually routes to.">AirLLM היא ספרייה שמאפשרת להריץ מודלי שפה גדולים, כמו 70B, על כרטיס GPU יחיד עם 4GB בלבד, בלי קוונטיזציה, דיסטילציה או pruning. היא עושה זאת על ידי טעינה הדרגתית של שכבות המודל בזיכרון, ובמודלי MoE כמו Kimi K3 היא סורקת רק את המומחים (experts) הרלוונטיים לכל טוקן.</p></div><div class="brief-section"><p class="brief-label" data-he="למה זה בטרנד" data-en="Why it&#x27;s trending">למה זה בטרנד</p><p class="brief-text i18n" data-he="הריפו צובר תשומת לב כי הוא מאפשר להריץ מודלים עצומים כמו DeepSeek-V3 (671B) על 12GB בלבד, ואת Kimi K3 (2.8T), המודל הפתוח הגדול בעולם, על כרטיס פחות מ-4GB. עדכון אחרון מדגים תמיכה במודל 2.8T טריליון פרמטרים על VRAM של 3.72GB בלבד, מדידה בפועל על RTX 6000 Ada." data-en="The repo is gaining attention because it enables running massive models like DeepSeek-V3 (671B) on just 12GB, and Kimi K3 (2.8T), the largest open-source model, on under 4GB. A recent update shows K3 support running in only 3.72GB VRAM, measured end to end on an RTX 6000 Ada.">הריפו צובר תשומת לב כי הוא מאפשר להריץ מודלים עצומים כמו DeepSeek-V3 (671B) על 12GB בלבד, ואת Kimi K3 (2.8T), המודל הפתוח הגדול בעולם, על כרטיס פחות מ-4GB. עדכון אחרון מדגים תמיכה במודל 2.8T טריליון פרמטרים על VRAM של 3.72GB בלבד, מדידה בפועל על RTX 6000 Ada.</p></div><div class="brief-section"><p class="brief-label" data-he="דוגמת שימוש" data-en="Example use case">דוגמת שימוש</p><p class="brief-text i18n" data-he="מפתח עם GPU צרכני חלש, כמו כרטיס עם 4GB זיכרון, יכול להריץ מודל 70B פרמטרים לצורך ניסויים או משימות אינפרנס מקומיות בלי להשקיע בחומרה יקרה. הפרויקט מגיע עם notebooks לדוגמה שמדגימים איך להתחיל." data-en="A developer with a modest consumer GPU, such as a 4GB card, can run a 70B parameter model for experimentation or local inference tasks without investing in expensive hardware. The project includes example notebooks demonstrating how to get started.">מפתח עם GPU צרכני חלש, כמו כרטיס עם 4GB זיכרון, יכול להריץ מודל 70B פרמטרים לצורך ניסויים או משימות אינפרנס מקומיות בלי להשקיע בחומרה יקרה. הפרויקט מגיע עם notebooks לדוגמה שמדגימים איך להתחיל.</p></div><div class="brief-section brief-section--matters"><p class="brief-label" data-he="למה זה רלוונטי לך" data-en="Why it matters for you">למה זה רלוונטי לך</p><p class="brief-text i18n" data-he="לאבי, שמתעניין בכלי AI וניהול ידע, זה רלוונטי כי זה מדגים איך להריץ מודלים כבדים בסביבה מוגבלת, מה שיכול לאפשר בניית כלי למידה או RAG מקומיים בלי תלות בשירותי עננה יקרים. זה גם פותח דלת לניסויים עם מודלים גדולים לצורך פיתוח תוכן לימודי." data-en="For Avi, who is interested in AI tools and knowledge management, this is relevant because it shows how to run heavy models in constrained environments, enabling local learning tools or RAG setups without dependency on costly cloud services. It also opens the door to experimenting with large models for instructional content development.">לאבי, שמתעניין בכלי AI וניהול ידע, זה רלוונטי כי זה מדגים איך להריץ מודלים כבדים בסביבה מוגבלת, מה שיכול לאפשר בניית כלי למידה או RAG מקומיים בלי תלות בשירותי עננה יקרים. זה גם פותח דלת לניסויים עם מודלים גדולים לצורך פיתוח תוכן לימודי.</p></div></div>
+
+      </div>
+    </article>
+
+    <article class="card">
+      <div class="card__rank">#9</div>
+      <div class="card__body">
+
+        <div class="card__header">
+          <div class="card__title-block">
+            <p class="card__eyebrow">Python</p>
+            <h2 class="card__title">
+              <a href="https://github.com/ayghri/i-have-adhd" target="_blank" rel="noopener">
+                <span class="card__org">ayghri/</span>i-have-adhd
+              </a>
+            </h2>
+          </div>
+          <div class="card__stats">
+            <span class="card__stars">&#9733;<br><span class="stars-num">17,847</span></span>
+          </div>
+        </div>
+
+        <div class="card__meta">
+          <span class="meta-item"><span class="meta-icon">&#128197;</span> 2026-05-13</span>
+          <span class="meta-item"><span class="meta-icon">&#9679;</span> push 2026-08-06</span>
+        </div>
+
+        <div class="card__tags"><span class="tag">adhd</span><span class="tag">claude-</span><span class="tag">claude-code-plugin</span><span class="tag">claude-skills</span></div>
+
+        <div class="card__content"><div class="brief-section"><p class="brief-label" data-he="מה זה עושה" data-en="What it does">מה זה עושה</p><p class="brief-text i18n" data-he="i-have-adhd הוא סקיל ל-Claude Code שמשנה את סגנון הפלט של סוכן הקוד: פעולה ראשונה, שלבים ממוספרים, וללא הקדמות או סיכומים מיותרים. הכלל מבוסס על 10 חוקים שמופיעים ב-SKILL.md, כמו סיום עם צעד קונקרטי אחד והגבלת רשימות לחמישה פריטים." data-en="i-have-adhd is a skill for Claude Code that changes the output style of the coding agent: action first, numbered steps, no preamble or unnecessary closers. It is based on 10 rules documented in SKILL.md, such as ending with one concrete next step and capping lists at 5 items.">i-have-adhd הוא סקיל ל-Claude Code שמשנה את סגנון הפלט של סוכן הקוד: פעולה ראשונה, שלבים ממוספרים, וללא הקדמות או סיכומים מיותרים. הכלל מבוסס על 10 חוקים שמופיעים ב-SKILL.md, כמו סיום עם צעד קונקרטי אחד והגבלת רשימות לחמישה פריטים.</p></div><div class="brief-section"><p class="brief-label" data-he="למה זה בטרנד" data-en="Why it&#x27;s trending">למה זה בטרנד</p><p class="brief-text i18n" data-he="הריפו קפץ ל-17,847 כוכבים כי הוא פותר תסכול מוכר לכל מי שעובד עם סוכני קוד: תשובות ארוכות ומייגעות שקוברות את הפעולה הנדרשת. הפורמט של לפני/אחרי בקובץ README ממחיש בצורה ברורה וקומית את הבעיה והפתרון." data-en="The repo jumped to 17,847 stars because it solves a familiar frustration for anyone working with coding agents: long, tedious answers that bury the needed action. The before/after format in the README illustrates the problem and solution clearly and humorously.">הריפו קפץ ל-17,847 כוכבים כי הוא פותר תסכול מוכר לכל מי שעובד עם סוכני קוד: תשובות ארוכות ומייגעות שקוברות את הפעולה הנדרשת. הפורמט של לפני/אחרי בקובץ README ממחיש בצורה ברורה וקומית את הבעיה והפתרון.</p></div><div class="brief-section"><p class="brief-label" data-he="דוגמת שימוש" data-en="Example use case">דוגמת שימוש</p><p class="brief-text i18n" data-he="בדוגמה מה-README, שאלה על זרימת אימות (auth flow) מקבלת לפני התיקון תשובה ארוכה עם רקע מיותר. אחרי התקנת הסקיל, התשובה היא פקודת טרמינל אחת, שלושה שלבים ממוספרים, וצעד הבא ברור אם בדיקה נכשלת." data-en="In the README example, a question about an auth flow gets a long answer full of unnecessary background before the skill is applied. After installing the skill, the response is one terminal command, three numbered steps, and a clear next step if a test fails.">בדוגמה מה-README, שאלה על זרימת אימות (auth flow) מקבלת לפני התיקון תשובה ארוכה עם רקע מיותר. אחרי התקנת הסקיל, התשובה היא פקודת טרמינל אחת, שלושה שלבים ממוספרים, וצעד הבא ברור אם בדיקה נכשלת.</p></div><div class="brief-section brief-section--matters"><p class="brief-label" data-he="למה זה רלוונטי לך" data-en="Why it matters for you">למה זה רלוונטי לך</p><p class="brief-text i18n" data-he="לאבי, שמתעניין בכלי למידה וכלים לניהול ידע, זהו דוגמה מעניינת לעיצוב פרומפט/סקיל שמכוון ישירות לנגישות קוגניטיבית ולתקשורת ברורה. זה רלוונטי גם לחשיבה על תוצרים חינוכיים שצריכים להיות ממוקדי פעולה ולא מציפים." data-en="For Avi, who is interested in learning tools and knowledge management, this is an interesting example of prompt/skill design aimed directly at cognitive accessibility and clear communication. It is also relevant to thinking about educational outputs that need to be action-focused rather than overwhelming.">לאבי, שמתעניין בכלי למידה וכלים לניהול ידע, זהו דוגמה מעניינת לעיצוב פרומפט/סקיל שמכוון ישירות לנגישות קוגניטיבית ולתקשורת ברורה. זה רלוונטי גם לחשיבה על תוצרים חינוכיים שצריכים להיות ממוקדי פעולה ולא מציפים.</p></div></div>
+
+      </div>
+    </article>
+
+    <article class="card">
+      <div class="card__rank">#10</div>
+      <div class="card__body">
+
+        <div class="card__header">
+          <div class="card__title-block">
+            <p class="card__eyebrow">JavaScript</p>
+            <h2 class="card__title">
+              <a href="https://github.com/addyosmani/agent-skills" target="_blank" rel="noopener">
+                <span class="card__org">addyosmani/</span>agent-skills
+              </a>
+            </h2>
+          </div>
+          <div class="card__stats">
+            <span class="card__stars">&#9733;<br><span class="stars-num">83,137</span></span>
+          </div>
+        </div>
+
+        <div class="card__meta">
+          <span class="meta-item"><span class="meta-icon">&#128197;</span> 2026-02-15</span>
+          <span class="meta-item"><span class="meta-icon">&#9679;</span> push 2026-08-06</span>
+        </div>
+
+        <div class="card__tags"><span class="tag">agent-skills</span><span class="tag">antigravity</span><span class="tag">claude-code</span><span class="tag">codex</span></div>
+
+        <div class="card__content"><div class="brief-section"><p class="brief-label" data-he="מה זה עושה" data-en="What it does">מה זה עושה</p><p class="brief-text i18n" data-he="אוסף של 24 &amp;quot;כשירויות&amp;quot; (skills) בקוד פתוח שמקודדות תהליכי עבודה, שערי איכות ושיטות עבודה של מהנדסים בכירים, כך שסוכני קידוד AI (כמו Claude Code, Cursor, Codex) יפעלו לפיהם באופן עקבי. הפרויקט מציע 8 פקודות סלאש שממפות את מחזור הפיתוח: הגדרה (/spec), תכנון (/plan), בנייה (/build), בדיקה (/test), סקירה (/review) והפצה (/ship)." data-en="A collection of 24 open-source &amp;quot;skills&amp;quot; that encode the workflows, quality gates, and best practices senior engineers use, so AI coding agents (Claude Code, Cursor, Codex, and others) follow them consistently. It ships 8 slash commands mapping to the full development lifecycle: defining a spec (/spec), planning (/plan), building (/build), testing (/test), reviewing (/review), and shipping (/ship).">אוסף של 24 &quot;כשירויות&quot; (skills) בקוד פתוח שמקודדות תהליכי עבודה, שערי איכות ושיטות עבודה של מהנדסים בכירים, כך שסוכני קידוד AI (כמו Claude Code, Cursor, Codex) יפעלו לפיהם באופן עקבי. הפרויקט מציע 8 פקודות סלאש שממפות את מחזור הפיתוח: הגדרה (/spec), תכנון (/plan), בנייה (/build), בדיקה (/test), סקירה (/review) והפצה (/ship).</p></div><div class="brief-section"><p class="brief-label" data-he="למה זה בטרנד" data-en="Why it&#x27;s trending">למה זה בטרנד</p><p class="brief-text i18n" data-he="הפרויקט מגיע מאדי אוסמני, מוכר בקהילת ה-web performance וההנדסה, ופותר בעיה בוערת: איך לגרום לסוכני AI לכתוב קוד באיכות עקבית ולא רק &amp;quot;עובד&amp;quot;. התקנה קלה באמצעות CLI פתוח לתוך יותר מ-70 סוכנים שונים הופכת אותו לנגיש מאוד, מה שמתבטא במספר הכוכבים הגבוה." data-en="The project comes from Addy Osmani, well known in the web performance and engineering community, and addresses a pressing problem: getting AI agents to write consistently high-quality code rather than just &amp;quot;working&amp;quot; code. Easy installation via an open CLI into 70+ different agents makes it highly accessible, reflected in its high star count.">הפרויקט מגיע מאדי אוסמני, מוכר בקהילת ה-web performance וההנדסה, ופותר בעיה בוערת: איך לגרום לסוכני AI לכתוב קוד באיכות עקבית ולא רק &quot;עובד&quot;. התקנה קלה באמצעות CLI פתוח לתוך יותר מ-70 סוכנים שונים הופכת אותו לנגיש מאוד, מה שמתבטא במספר הכוכבים הגבוה.</p></div><div class="brief-section"><p class="brief-label" data-he="דוגמת שימוש" data-en="Example use case">דוגמת שימוש</p><p class="brief-text i18n" data-he="לדוגמה, פקודת `/build auto` מייצרת תוכנית עבודה מפורטת מתוך מפרט קיים ומריצה את כל המשימות באופן אוטונומי במעבר אחד, כאשר כל משימה עדיין מבוססת בדיקות ומחויבת (committed) בנפרד, ועוצרת במקרה של כשל או צעד מסוכן." data-en="For example, the `/build auto` command generates a detailed plan from an existing spec and runs every task autonomously in a single pass, while each task remains test-driven and is committed individually, pausing on failures or risky steps.">לדוגמה, פקודת `/build auto` מייצרת תוכנית עבודה מפורטת מתוך מפרט קיים ומריצה את כל המשימות באופן אוטונומי במעבר אחד, כאשר כל משימה עדיין מבוססת בדיקות ומחויבת (committed) בנפרד, ועוצרת במקרה של כשל או צעד מסוכן.</p></div><div class="brief-section brief-section--matters"><p class="brief-label" data-he="למה זה רלוונטי לך" data-en="Why it matters for you">למה זה רלוונטי לך</p><p class="brief-text i18n" data-he="לאבי, שמתעניין בסוכנים וכלי למידה, זו דוגמה מוחשית לאיך &amp;quot;כשירויות&amp;quot; מבניות יכולות לשמש כמסגרת ניהול ידע לסוכני AI, בדומה לגישות מובנות ללמידה שהוא בוחן. זה גם רלוונטי לעבודה עם MCP וכלי אינטגרציה, כי ה-CLI תומך בעשרות פלטפורמות סוכנים שונות." data-en="For Avi, who is interested in agents and learning tools, this offers a concrete example of how structured &amp;quot;skills&amp;quot; can act as a knowledge management framework for AI agents, similar to structured learning approaches he explores. It is also relevant to MCP and integration tooling, since the CLI supports dozens of different agent platforms.">לאבי, שמתעניין בסוכנים וכלי למידה, זו דוגמה מוחשית לאיך &quot;כשירויות&quot; מבניות יכולות לשמש כמסגרת ניהול ידע לסוכני AI, בדומה לגישות מובנות ללמידה שהוא בוחן. זה גם רלוונטי לעבודה עם MCP וכלי אינטגרציה, כי ה-CLI תומך בעשרות פלטפורמות סוכנים שונות.</p></div></div>
+
+      </div>
+    </article>
+  </main>
+
+  <footer class="site-footer">
+    <span class="i18n" data-he="עיכול אוטומטי שבועי · מקור: GitHub Search API" data-en="Auto-generated weekly digest · Data: GitHub Search API">עיכול אוטומטי שבועי · מקור: GitHub Search API</span>
+    <p class="share-copied" id="shareCopied">&#128279; <span class="i18n" data-he="הקישור הועתק!" data-en="Link copied!">הקישור הועתק!</span></p>
+  </footer>
+
+</div>
+
+<script>
+// ── LANGUAGE TOGGLE ──
+var currentLang = 'he';
+function toggleLang() {
+  currentLang = currentLang === 'he' ? 'en' : 'he';
+  var isHe = currentLang === 'he';
+  document.documentElement.lang = currentLang;
+  document.documentElement.dir = isHe ? 'rtl' : 'ltr';
+  document.getElementById('langToggle').textContent = isHe ? 'EN' : 'עב';
+  document.querySelectorAll('.i18n').forEach(function(el) {
+    el.innerHTML = el.dataset[currentLang] || el.innerHTML;
+  });
+  // Flip brief labels
+  document.querySelectorAll('.brief-label').forEach(function(el) {
+    var he = el.dataset.he, en = el.dataset.en;
+    if (he && en) el.textContent = isHe ? he : en;
+  });
+}
+
+// ── SHARE ──
+function shareReport() {
+  var title = currentLang === 'he'
+    ? 'טרנד ב-AI/LLM – 2026-W32'
+    : 'Trending AI/LLM Repos – 2026-W32';
+  var url = window.location.href;
+  if (navigator.share) {
+    navigator.share({ title: title, url: url }).catch(function(){});
+  } else {
+    navigator.clipboard.writeText(url).then(function() {
+      var el = document.getElementById('shareCopied');
+      el.classList.add('show');
+      setTimeout(function() { el.classList.remove('show'); }, 2500);
+    }).catch(function() {
+      prompt('Copy this link:', url);
+    });
+  }
+}
+
+// ── AUDIO PLAYER ──
+var audio = document.getElementById('audio');
+var playBtn = document.getElementById('playBtn');
+var iconPlay = document.getElementById('iconPlay');
+var iconPause = document.getElementById('iconPause');
+var progressBar = document.getElementById('progressBar');
+var progressWrap = document.getElementById('progressWrap');
+var playerTime = document.getElementById('playerTime');
+
+function fmt(s) {
+  s = Math.floor(s || 0);
+  return Math.floor(s/60) + ':' + ('0' + (s%60)).slice(-2);
+}
+function updateTime() {
+  var cur = audio.currentTime, dur = audio.duration;
+  progressBar.style.width = (dur ? (cur/dur*100) : 0) + '%';
+  playerTime.textContent = fmt(cur) + ' / ' + fmt(dur);
+}
+function togglePlay() {
+  if (audio.paused) { audio.play(); } else { audio.pause(); }
+}
+audio.addEventListener('play', function() {
+  iconPlay.style.display = 'none';
+  iconPause.style.display = 'block';
+});
+audio.addEventListener('pause', function() {
+  iconPlay.style.display = 'block';
+  iconPause.style.display = 'none';
+});
+audio.addEventListener('ended', function() {
+  iconPlay.style.display = 'block';
+  iconPause.style.display = 'none';
+  progressBar.style.width = '0%';
+});
+audio.addEventListener('timeupdate', updateTime);
+audio.addEventListener('loadedmetadata', updateTime);
+function seek(e) {
+  if (!audio.duration) return;
+  var rect = progressWrap.getBoundingClientRect();
+  var frac = (e.clientX - rect.left) / rect.width;
+  audio.currentTime = Math.max(0, Math.min(1, frac)) * audio.duration;
+}
+</script>
+</body>
+</html>
