@@ -1,0 +1,864 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="theme-color" content="#1b1b1b">
+<title>טרנדים ב-AI 2026-W33</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Hebrew:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg: #1b1b1b;
+    --bg-elevated: #232323;
+    --fg: #c5c1b9;
+    --fg-strong: #dcdad5;
+    --fg-muted: #a09d96;
+    --fg-subtle: #96928c;
+    --accent: #22c55e;
+    --accent-glow: rgba(34,197,94,0.6);
+    --accent-soft: rgba(34,197,94,0.12);
+    --accent-softer: rgba(34,197,94,0.04);
+    --accent-border: rgba(34,197,94,0.12);
+    --accent-border-hover: rgba(34,197,94,0.3);
+    --shadow-glow-md: 0 0 15px rgba(34,197,94,0.3), 0 0 40px rgba(34,197,94,0.1);
+    --text-glow: 0 0 8px rgba(34,197,94,0.6), 0 0 20px rgba(34,197,94,0.3);
+    --font-sans: 'Noto Sans Hebrew', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+    --radius-sm: 8px;
+    --radius-md: 12px;
+    --radius-lg: 16px;
+    --radius-pill: 999px;
+    --transition: 0.3s cubic-bezier(0.4,0,0.2,1);
+    --transition-fast: 0.15s cubic-bezier(0.4,0,0.2,1);
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html { -webkit-text-size-adjust: 100%; }
+
+  body {
+    background: var(--bg);
+    color: var(--fg);
+    font-family: var(--font-sans);
+    font-size: clamp(1rem, 2vw, 1.0625rem);
+    line-height: 1.7;
+    padding-top: env(safe-area-inset-top);
+    padding-bottom: env(safe-area-inset-bottom);
+  }
+
+  /* ── GRID BACKGROUND ── */
+  body::before {
+    content: '';
+    position: fixed;
+    inset: 0;
+    z-index: 0;
+    pointer-events: none;
+    background-image:
+      linear-gradient(rgba(34,197,94,0.03) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(34,197,94,0.03) 1px, transparent 1px);
+    background-size: 40px 40px;
+    mask-image: radial-gradient(ellipse 80% 60% at 50% 0%, black 40%, transparent 100%);
+    -webkit-mask-image: radial-gradient(ellipse 80% 60% at 50% 0%, black 40%, transparent 100%);
+  }
+
+  .wrap {
+    position: relative;
+    z-index: 1;
+    max-width: 720px;
+    margin: 0 auto;
+    padding: 24px 16px 80px;
+  }
+
+  /* ── TOP BAR ── */
+  .top-bar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 16px;
+    gap: 10px;
+  }
+  .lang-btn, .share-btn {
+    background: var(--accent-softer);
+    border: 1px solid var(--accent-border);
+    border-radius: var(--radius-pill);
+    color: var(--accent);
+    font-family: var(--font-sans);
+    font-size: 0.8rem;
+    font-weight: 600;
+    letter-spacing: 0.5px;
+    padding: 7px 16px;
+    cursor: pointer;
+    transition: all var(--transition-fast);
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    min-height: 44px;
+    -webkit-tap-highlight-color: transparent;
+  }
+  .lang-btn:hover, .share-btn:hover {
+    background: var(--accent-soft);
+    border-color: var(--accent);
+    box-shadow: 0 0 10px var(--accent-glow);
+  }
+  .share-btn svg { width: 16px; height: 16px; stroke: var(--accent); }
+  .share-btn.copied { background: var(--accent-soft); }
+  .share-copied {
+    font-size: 0.72rem;
+    color: var(--accent);
+    margin-top: 4px;
+    text-align: center;
+    opacity: 0;
+    transition: opacity 0.3s;
+  }
+  .share-copied.show { opacity: 1; }
+
+  /* ── HEADER ── */
+  .site-header { margin-bottom: 24px; }
+  .header-eyebrow {
+    font-size: 0.8rem;
+    font-weight: 500;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: var(--accent);
+    text-shadow: var(--text-glow);
+    margin-bottom: 6px;
+  }
+  .header-title {
+    font-size: clamp(1.6rem, 4vw, 2.2rem);
+    font-weight: 700;
+    color: var(--fg-strong);
+    line-height: 1.3;
+    text-shadow: 0 0 30px rgba(34,197,94,0.1);
+    margin-bottom: 4px;
+  }
+  .header-sub {
+    font-size: 0.875rem;
+    color: var(--fg-muted);
+    font-weight: 300;
+  }
+
+  /* ── CUSTOM AUDIO PLAYER ── */
+  .player {
+    position: sticky;
+    top: 0;
+    z-index: 10;
+    background: rgba(27,27,27,0.92);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border-bottom: 1px solid var(--accent-border);
+    padding: 12px 16px;
+    margin: 0 -16px 24px;
+  }
+  .player audio { display: none; }
+
+  .player-ui {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+  }
+  .player-btn {
+    flex-shrink: 0;
+    width: 44px;
+    height: 44px;
+    border-radius: 50%;
+    background: var(--accent);
+    border: none;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all var(--transition-fast);
+    box-shadow: 0 0 12px rgba(34,197,94,0.4);
+  }
+  .player-btn:hover {
+    transform: scale(1.08);
+    box-shadow: 0 0 20px rgba(34,197,94,0.6);
+  }
+  .player-btn svg { width: 18px; height: 18px; fill: #0a1a0f; }
+
+  .player-center { flex: 1; min-width: 0; }
+  .player-track {
+    font-size: 0.8rem;
+    font-weight: 500;
+    color: var(--fg-strong);
+    margin-bottom: 6px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+  .player-progress-wrap {
+    position: relative;
+    height: 4px;
+    background: rgba(255,255,255,0.1);
+    border-radius: 2px;
+    cursor: pointer;
+    overflow: hidden;
+  }
+  .player-progress-bar {
+    height: 100%;
+    width: 0%;
+    background: var(--accent);
+    border-radius: 2px;
+    box-shadow: 0 0 6px var(--accent-glow);
+    transition: width 0.1s linear;
+    pointer-events: none;
+  }
+  .player-progress-wrap:hover .player-progress-bar {
+    box-shadow: 0 0 12px var(--accent-glow);
+  }
+
+  .player-time {
+    font-size: 0.72rem;
+    color: var(--fg-subtle);
+    white-space: nowrap;
+    flex-shrink: 0;
+    font-variant-numeric: tabular-nums;
+    min-width: 70px;
+    text-align: center;
+  }
+
+  .player-hint {
+    font-size: 0.72rem;
+    color: var(--fg-subtle);
+    margin-top: 7px;
+    letter-spacing: 0.3px;
+  }
+
+  /* ── RUN NOTES ── */
+  .run-notes {
+    background: var(--accent-softer);
+    border: 1px solid var(--accent-border);
+    border-right: 3px solid var(--accent);
+    border-radius: var(--radius-md) 0 0 var(--radius-md);
+    padding: 12px 16px;
+    margin-bottom: 24px;
+    font-size: 0.875rem;
+    color: var(--fg-strong);
+  }
+  [dir="ltr"] .run-notes {
+    border-right: 1px solid var(--accent-border);
+    border-left: 3px solid var(--accent);
+    border-radius: 0 var(--radius-md) var(--radius-md) 0;
+  }
+  .run-notes ul { padding-right: 20px; margin-top: 6px; }
+  [dir="ltr"] .run-notes ul { padding-right: 0; padding-left: 20px; }
+
+  /* ── CARDS ── */
+  .card {
+    position: relative;
+    background: var(--accent-softer);
+    border: 1px solid var(--accent-border);
+    border-radius: var(--radius-lg);
+    margin-bottom: 16px;
+    transition: border-color var(--transition), background var(--transition), box-shadow var(--transition);
+  }
+  .card:hover {
+    border-color: var(--accent-border-hover);
+    background: rgba(34,197,94,0.07);
+    box-shadow: var(--shadow-glow-md), 0 12px 32px rgba(0,0,0,0.25);
+  }
+
+  .card__rank {
+    position: absolute;
+    top: -1px;
+    right: 20px;
+    background: var(--accent);
+    color: #0a1a0f;
+    font-size: 0.75rem;
+    font-weight: 700;
+    letter-spacing: 0.5px;
+    padding: 3px 10px;
+    border-radius: 0 0 var(--radius-sm) var(--radius-sm);
+  }
+  [dir="ltr"] .card__rank { right: auto; left: 20px; }
+
+  .card__body { padding: 28px 20px 20px; }
+
+  /* card header: title block + star stat */
+  .card__header {
+    display: flex;
+    align-items: flex-start;
+    gap: 12px;
+    margin-bottom: 10px;
+  }
+  .card__title-block { flex: 1; min-width: 0; }
+  .card__eyebrow {
+    font-size: 0.78rem;
+    font-weight: 500;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    color: var(--accent);
+    text-shadow: var(--text-glow);
+    margin-bottom: 4px;
+  }
+  .card__title {
+    font-size: 1.1rem;
+    font-weight: 600;
+    line-height: 1.35;
+  }
+  .card__title a {
+    color: var(--fg-strong);
+    text-decoration: none;
+    transition: color var(--transition-fast);
+    word-break: break-word;
+  }
+  .card__title a:hover { color: var(--accent); }
+  .card__org {
+    color: var(--fg-muted);
+    font-weight: 400;
+  }
+
+  .card__stats {
+    flex-shrink: 0;
+    text-align: center;
+    background: var(--accent-soft);
+    border: 1px solid var(--accent-border);
+    border-radius: var(--radius-md);
+    padding: 8px 12px;
+    min-width: 56px;
+  }
+  .card__stars {
+    color: #f0c674;
+    font-size: 1.1rem;
+    line-height: 1;
+  }
+  .stars-num {
+    display: block;
+    font-size: 0.85rem;
+    font-weight: 700;
+    color: var(--fg-strong);
+    margin-top: 2px;
+  }
+
+  .card__meta {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 4px 14px;
+    font-size: 0.78rem;
+    color: var(--fg-subtle);
+    margin-bottom: 10px;
+  }
+  .meta-icon { opacity: 0.5; }
+
+  .card__tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+    margin-bottom: 16px;
+  }
+  .tag {
+    display: inline-block;
+    padding: 3px 10px;
+    border-radius: var(--radius-pill);
+    background: var(--accent-soft);
+    border: 1px solid var(--accent-border);
+    color: var(--accent);
+    font-size: 0.72rem;
+    font-weight: 500;
+    letter-spacing: 0.3px;
+    white-space: nowrap;
+    transition: all var(--transition-fast);
+  }
+  .tag:hover {
+    background: rgba(34,197,94,0.16);
+    border-color: var(--accent);
+    box-shadow: 0 0 10px var(--accent-glow);
+  }
+
+  /* ── BRIEF SECTIONS ── */
+  .card__content { display: flex; flex-direction: column; gap: 0; }
+
+  .brief-section {
+    padding: 10px 0;
+    border-top: 1px solid var(--accent-border);
+  }
+  .brief-section:first-child { border-top: none; padding-top: 0; }
+
+  .brief-label {
+    font-size: 0.75rem;
+    font-weight: 600;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    color: var(--accent);
+    text-shadow: var(--text-glow);
+    margin-bottom: 4px;
+  }
+  .brief-text {
+    font-size: 0.9375rem;
+    color: var(--fg-muted);
+    font-weight: 300;
+    line-height: 1.7;
+  }
+
+  /* "Why it matters" gets a highlight treatment */
+  .brief-section--matters {
+    background: var(--accent-soft);
+    border: 1px solid var(--accent-border);
+    border-radius: var(--radius-md);
+    padding: 10px 14px;
+    margin-top: 8px;
+  }
+  .brief-section--matters .brief-label { margin-bottom: 3px; }
+  .brief-section--matters .brief-text {
+    color: var(--fg-strong);
+    font-weight: 400;
+  }
+
+  .desc { font-size: 0.9375rem; color: var(--fg-muted); font-weight: 300; line-height: 1.7; }
+  .label { color: var(--accent); font-weight: 600; }
+
+  /* ── FOOTER ── */
+  .site-footer {
+    margin-top: 40px;
+    font-size: 0.78rem;
+    color: var(--fg-subtle);
+    text-align: center;
+    border-top: 1px solid var(--accent-border);
+    padding-top: 20px;
+  }
+  a { color: var(--accent); }
+
+  /* ── MOBILE SAFETY ── */
+  img, video, audio { max-width: 100%; }
+  .card__title a { word-break: break-word; }
+  @media (max-width: 480px) {
+    .card__body { padding: 28px 14px 16px; }
+    .card__stats { padding: 6px 10px; min-width: 50px; }
+    .player-time { display: none; }
+  }
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <div class="top-bar">
+    <button class="lang-btn" id="langToggle" onclick="toggleLang()">EN</button>
+    <button class="share-btn" id="shareBtn" onclick="shareReport()" aria-label="Share">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <circle cx="18" cy="5" r="3"/><circle cx="6" cy="12" r="3"/><circle cx="18" cy="19" r="3"/>
+        <line x1="8.59" y1="13.51" x2="15.42" y2="17.49"/>
+        <line x1="15.41" y1="6.51" x2="8.59" y2="10.49"/>
+      </svg>
+      <span class="share-label i18n" data-he="שתף" data-en="Share">שתף</span>
+    </button>
+  </div>
+
+  <header class="site-header">
+    <p class="header-eyebrow i18n" data-he="עיכול AI שבועי" data-en="Weekly AI Digest">עיכול AI שבועי</p>
+    <h1 class="header-title i18n" data-he="&#128293; טרנד ב-AI/LLM" data-en="&#128293; Trending AI/LLM Repos">&#128293; טרנד ב-AI/LLM</h1>
+    <p class="header-sub">2026-W33 &middot; 2026-08-14</p>
+  </header>
+
+  <div class="player">
+    <audio id="audio" src="report.mp3" preload="none"></audio>
+    <div class="player-ui">
+      <button class="player-btn" id="playBtn" onclick="togglePlay()" aria-label="Play">
+        <svg id="iconPlay" viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
+        <svg id="iconPause" viewBox="0 0 24 24" style="display:none"><path d="M6 19h4V5H6zm8-14v14h4V5z"/></svg>
+      </button>
+      <div class="player-center">
+        <div class="player-track i18n" data-he="&#127911; האזן בדרך לעבודה" data-en="&#127911; Listen on your commute">&#127911; האזן בדרך לעבודה</div>
+        <div class="player-progress-wrap" id="progressWrap" onclick="seek(event)">
+          <div class="player-progress-bar" id="progressBar"></div>
+        </div>
+      </div>
+      <div class="player-time" id="playerTime">0:00 / 0:00</div>
+    </div>
+    <p class="player-hint i18n" data-he="לחץ להפעלה · גלול למטה לקריאה" data-en="Tap to play · scroll to read">לחץ להפעלה · גלול למטה לקריאה</p>
+  </div>
+
+  
+
+  <main id="repoList">
+
+    <article class="card">
+      <div class="card__rank">#1</div>
+      <div class="card__body">
+
+        <div class="card__header">
+          <div class="card__title-block">
+            <p class="card__eyebrow">TypeScript</p>
+            <h2 class="card__title">
+              <a href="https://github.com/PrimeIntellect-ai/prime-agent" target="_blank" rel="noopener">
+                <span class="card__org">PrimeIntellect-ai/</span>prime-agent
+              </a>
+            </h2>
+          </div>
+          <div class="card__stats">
+            <span class="card__stars">&#9733;<br><span class="stars-num">15,595</span></span>
+          </div>
+        </div>
+
+        <div class="card__meta">
+          <span class="meta-item"><span class="meta-icon">&#128197;</span> 2026-05-08</span>
+          <span class="meta-item"><span class="meta-icon">&#9679;</span> push 2026-08-14</span>
+        </div>
+
+        <div class="card__tags"></div>
+
+        <div class="card__content"><div class="brief-section"><p class="brief-label" data-he="מה זה עושה" data-en="What it does">מה זה עושה</p><p class="brief-text i18n" data-he="Prime Agent הוא סוכן קוד ומחקר בקוד פתוח לעבודה כללית וארוכת טווח, הבנוי סביב שתי הפשטות מרכזיות: RLM שמתייחס להקשר כמשתנים וקורא לכלים ולתת-סוכנים כפונקציות בתוך REPL מתמשך, ו-Continual Harness ששומר פרומפטים משלימים, זיכרונות ומיומנויות כמצב בר-קיימא. הסוכן משלב סביבת בקרה פייתונית מתמשכת עם מצב הרנס עמיד, כך שההקשר ודפוסי העבודה השימושיים יכולים לשרוד מעבר לשיחה בודדת." data-en="Prime Agent is an open-source coding and research agent for general and long-running work, built around two core abstractions: an RLM that treats context as variables and calls tools or subagents as functions inside a persistent REPL, and a Continual Harness that stores supplemental prompts, memories, and skills as durable state. It combines a persistent Python control environment with durable harness state, letting useful context and operating patterns outlive a single chat window.">Prime Agent הוא סוכן קוד ומחקר בקוד פתוח לעבודה כללית וארוכת טווח, הבנוי סביב שתי הפשטות מרכזיות: RLM שמתייחס להקשר כמשתנים וקורא לכלים ולתת-סוכנים כפונקציות בתוך REPL מתמשך, ו-Continual Harness ששומר פרומפטים משלימים, זיכרונות ומיומנויות כמצב בר-קיימא. הסוכן משלב סביבת בקרה פייתונית מתמשכת עם מצב הרנס עמיד, כך שההקשר ודפוסי העבודה השימושיים יכולים לשרוד מעבר לשיחה בודדת.</p></div><div class="brief-section"><p class="brief-label" data-he="למה זה בטרנד" data-en="Why it&#x27;s trending">למה זה בטרנד</p><p class="brief-text i18n" data-he="הרעיון של RLM (Recursive Language Model) שמתייחס להקשר כמשתנה תכנותי ולא כטקסט קבוע הוא חדשני ומעניין למי שעוסק בסוכנים מורכבים. הפיצ&amp;#x27;ר של &amp;#x27;/refine&amp;#x27; שמאפשר לרנס להשתפר עצמאית תוך שמירה על snapshots לצורך rollback, יחד עם תת-סוכנים מובנים לעבודה מקבילית, ממקמים את הפרויקט בחזית פיתוח הסוכנים האוטונומיים." data-en="The RLM concept, treating context as programmatic variables rather than fixed text, is a novel approach that stands out for anyone working on complex agent architectures. The self-improving harness via &amp;#x27;/refine&amp;#x27; with rollback support, combined with built-in subagents for parallel work, positions this project at the forefront of autonomous agent development.">הרעיון של RLM (Recursive Language Model) שמתייחס להקשר כמשתנה תכנותי ולא כטקסט קבוע הוא חדשני ומעניין למי שעוסק בסוכנים מורכבים. הפיצ&#x27;ר של &#x27;/refine&#x27; שמאפשר לרנס להשתפר עצמאית תוך שמירה על snapshots לצורך rollback, יחד עם תת-סוכנים מובנים לעבודה מקבילית, ממקמים את הפרויקט בחזית פיתוח הסוכנים האוטונומיים.</p></div><div class="brief-section"><p class="brief-label" data-he="דוגמת שימוש" data-en="Example use case">דוגמת שימוש</p><p class="brief-text i18n" data-he="Avi יכול להריץ Prime Agent על משימת קוד ארוכת טווח, לתת לו ליצור תת-סוכנים דרך `rlm(...)` לביצוע עבודה ברקע, ולאחר מכן להשתמש בפקודת `/refine` כדי שהסוכן ילמד ויעדכן את מצב ההרנס שלו עבור משימות עתידיות דומות." data-en="Avi could run Prime Agent on a long-running coding task, let it spawn subagents via `rlm(...)` for background work, and then use the `/refine` command so the agent learns and updates its harness state for similar future tasks.">Avi יכול להריץ Prime Agent על משימת קוד ארוכת טווח, לתת לו ליצור תת-סוכנים דרך `rlm(...)` לביצוע עבודה ברקע, ולאחר מכן להשתמש בפקודת `/refine` כדי שהסוכן ילמד ויעדכן את מצב ההרנס שלו עבור משימות עתידיות דומות.</p></div><div class="brief-section brief-section--matters"><p class="brief-label" data-he="למה זה רלוונטי לך" data-en="Why it matters for you">למה זה רלוונטי לך</p><p class="brief-text i18n" data-he="עבור Avi, שמתעניין בסוכנים ובניהול ידע, הרעיון של הרנס מתמשך שמאחסן מיומנויות ודפוסי עבודה כחבילות פייתון ניתנות לייבוא רלוונטי ישירות לבניית כלי למידה חכמים יותר. יכולת התת-סוכנים המובנית והשיפור העצמי של המערכת יכולים לשמש כמודל לחשיבה על מערכות ניהול ידע אוטונומיות." data-en="For Avi, who focuses on agents and knowledge management, the concept of a durable harness that stores skills and operating patterns as importable Python packages is directly relevant to building smarter learning tools. The built-in subagent capability and self-improvement mechanism can serve as a model for thinking about autonomous knowledge management systems.">עבור Avi, שמתעניין בסוכנים ובניהול ידע, הרעיון של הרנס מתמשך שמאחסן מיומנויות ודפוסי עבודה כחבילות פייתון ניתנות לייבוא רלוונטי ישירות לבניית כלי למידה חכמים יותר. יכולת התת-סוכנים המובנית והשיפור העצמי של המערכת יכולים לשמש כמודל לחשיבה על מערכות ניהול ידע אוטונומיות.</p></div></div>
+
+      </div>
+    </article>
+
+    <article class="card">
+      <div class="card__rank">#2</div>
+      <div class="card__body">
+
+        <div class="card__header">
+          <div class="card__title-block">
+            <p class="card__eyebrow">TypeScript</p>
+            <h2 class="card__title">
+              <a href="https://github.com/TencentCloud/TencentDB-Agent-Memory" target="_blank" rel="noopener">
+                <span class="card__org">TencentCloud/</span>TencentDB-Agent-Memory
+              </a>
+            </h2>
+          </div>
+          <div class="card__stats">
+            <span class="card__stars">&#9733;<br><span class="stars-num">21,370</span></span>
+          </div>
+        </div>
+
+        <div class="card__meta">
+          <span class="meta-item"><span class="meta-icon">&#128197;</span> 2026-04-07</span>
+          <span class="meta-item"><span class="meta-icon">&#9679;</span> push 2026-08-11</span>
+        </div>
+
+        <div class="card__tags"><span class="tag">agent</span><span class="tag">ai-agent</span><span class="tag">embedding</span><span class="tag">llm</span></div>
+
+        <div class="card__content"><div class="brief-section"><p class="brief-label" data-he="מה זה עושה" data-en="What it does">מה זה עושה</p><p class="brief-text i18n" data-he="TencentDB Agent Memory הוא מרכז זיכרון ברמת צוות עבור סוכני AI, שהופך שיחות, מסמכים וקוד לארבעה נכסי זיכרון ניתנים לשימוש חוזר: Chat Memory, Skill, LLM-Wiki ו-Code-Graph. הנכסים הללו מנוהלים, משותפים וניתנים לציוד מחדש בין סוכנים ומסגרות עבודה שונות. ההתקנה כוללת שלושה שירותים (memory-core, memory-hub, proxy) שמופעלים בפקודה אחת." data-en="TencentDB Agent Memory is a team-level memory hub for AI agents that converts conversations, docs, and code into four reusable memory assets: Chat Memory, Skill, LLM-Wiki, and Code-Graph. These assets are governed, shared, and equipped across agents and frameworks, reducing repetitive work when using agents. Installation spins up three services (memory-core, memory-hub, proxy) with a single script and integrates with Claude Code and CodeBuddy.">TencentDB Agent Memory הוא מרכז זיכרון ברמת צוות עבור סוכני AI, שהופך שיחות, מסמכים וקוד לארבעה נכסי זיכרון ניתנים לשימוש חוזר: Chat Memory, Skill, LLM-Wiki ו-Code-Graph. הנכסים הללו מנוהלים, משותפים וניתנים לציוד מחדש בין סוכנים ומסגרות עבודה שונות. ההתקנה כוללת שלושה שירותים (memory-core, memory-hub, proxy) שמופעלים בפקודה אחת.</p></div><div class="brief-section"><p class="brief-label" data-he="למה זה בטרנד" data-en="Why it&#x27;s trending">למה זה בטרנד</p><p class="brief-text i18n" data-he="הפרויקט תפס תאוצה עם למעלה מ-21,000 כוכבים וסימון Trendshift, כנראה בזכות התמיכה שלו בפרוטוקולים פופולריים כמו OpenClaw ו-Hermes Gateway. הרעיון של זיכרון צוותי משותף בין סוכני AI (במקום זיכרון פרטני לכל סוכן) עונה על צורך אמיתי בעבודה עם מספר עוזרי קוד/סוכנים במקביל." data-en="The repo gained significant traction (21K+ stars, Trendshift badge), likely driven by its support for popular integrations like OpenClaw plugin and Hermes Gateway. The concept of shared team-level memory across AI agents, rather than isolated per-agent memory, addresses a real pain point for teams running multiple coding assistants.">הפרויקט תפס תאוצה עם למעלה מ-21,000 כוכבים וסימון Trendshift, כנראה בזכות התמיכה שלו בפרוטוקולים פופולריים כמו OpenClaw ו-Hermes Gateway. הרעיון של זיכרון צוותי משותף בין סוכני AI (במקום זיכרון פרטני לכל סוכן) עונה על צורך אמיתי בעבודה עם מספר עוזרי קוד/סוכנים במקביל.</p></div><div class="brief-section"><p class="brief-label" data-he="דוגמת שימוש" data-en="Example use case">דוגמת שימוש</p><p class="brief-text i18n" data-he="צוות פיתוח יכול להתקין את השירות עם סקריפט אחד (`start-all.sh`), לחבר אותו ל-Claude Code או CodeBuddy דרך ה-proxy, ולתת לכל הסוכנים בצוות לגשת לאותו Code-Graph ו-LLM-Wiki. כך ידע שנצבר בשיחה אחת (למשל פתרון בעיה בקוד) הופך זמין אוטומטית לסוכנים אחרים בפרויקט." data-en="A dev team can install the service with one script (`start-all.sh`), connect it to Claude Code or CodeBuddy via the proxy, and let all team agents access the same Code-Graph and LLM-Wiki. Knowledge gained in one conversation (e.g. solving a bug) becomes automatically available to other agents working on the project.">צוות פיתוח יכול להתקין את השירות עם סקריפט אחד (`start-all.sh`), לחבר אותו ל-Claude Code או CodeBuddy דרך ה-proxy, ולתת לכל הסוכנים בצוות לגשת לאותו Code-Graph ו-LLM-Wiki. כך ידע שנצבר בשיחה אחת (למשל פתרון בעיה בקוד) הופך זמין אוטומטית לסוכנים אחרים בפרויקט.</p></div><div class="brief-section brief-section--matters"><p class="brief-label" data-he="למה זה רלוונטי לך" data-en="Why it matters for you">למה זה רלוונטי לך</p><p class="brief-text i18n" data-he="לאבי, שעוסק בניהול ידע וכלי למידה, זה רלוונטי כדוגמה מוחשית לזיכרון ארוך-טווח משותף שיכול לשמש גם למערכות RAG/MCP חינוכיות, כלומר ידע שנצבר בשיחות לימוד הופך לנכס ניתן לשימוש חוזר. הארכיטקטורה של הפרדת ידע לסוגים (שיחה, מיומנות, wiki, קוד) יכולה להשראה לעיצוב מאגרי ידע מובנים." data-en="For Avi, who focuses on knowledge management and learning tools, this is a concrete example of shared long-term memory relevant to RAG/MCP-based educational systems, where knowledge from learning conversations becomes a reusable asset. The architecture of separating knowledge into types (chat, skill, wiki, code) could inspire structured knowledge base design for agents.">לאבי, שעוסק בניהול ידע וכלי למידה, זה רלוונטי כדוגמה מוחשית לזיכרון ארוך-טווח משותף שיכול לשמש גם למערכות RAG/MCP חינוכיות, כלומר ידע שנצבר בשיחות לימוד הופך לנכס ניתן לשימוש חוזר. הארכיטקטורה של הפרדת ידע לסוגים (שיחה, מיומנות, wiki, קוד) יכולה להשראה לעיצוב מאגרי ידע מובנים.</p></div></div>
+
+      </div>
+    </article>
+
+    <article class="card">
+      <div class="card__rank">#3</div>
+      <div class="card__body">
+
+        <div class="card__header">
+          <div class="card__title-block">
+            <p class="card__eyebrow">Python</p>
+            <h2 class="card__title">
+              <a href="https://github.com/semantica-agi/semantica" target="_blank" rel="noopener">
+                <span class="card__org">semantica-agi/</span>semantica
+              </a>
+            </h2>
+          </div>
+          <div class="card__stats">
+            <span class="card__stars">&#9733;<br><span class="stars-num">6,923</span></span>
+          </div>
+        </div>
+
+        <div class="card__meta">
+          <span class="meta-item"><span class="meta-icon">&#128197;</span> 2025-06-25</span>
+          <span class="meta-item"><span class="meta-icon">&#9679;</span> push 2026-08-14</span>
+        </div>
+
+        <div class="card__tags"><span class="tag">agent-memory</span><span class="tag">ai</span><span class="tag">ai-governance</span><span class="tag">ai-infrastructure</span></div>
+
+        <div class="card__content"><div class="brief-section"><p class="brief-label" data-he="מה זה עושה" data-en="What it does">מה זה עושה</p><p class="brief-text i18n" data-he="Semantica היא תשתית קוד פתוח שמאפשרת לייבא נתונים ארגוניים, לחלץ מהם את המידע המשמעותי, ולבנות Context Graph וגרף ידע (KG) שעליו ניתן להריץ אנליטיקת גרפים והיסק סיבתי. המערכת שומרת על שקיפות ומעקב מלא אחר כל החלטה, ותומכת גם ב-RDF וגם ב-LPG לפי תקני W3C." data-en="Semantica is an open-source, graph-native infrastructure that ingests enterprise data, extracts key information, and builds a Context Graph and knowledge graph (KG) for graph analytics and causal reasoning. It provides full decision provenance, is self-hostable, and supports both RDF and LPG storage under W3C standards.">Semantica היא תשתית קוד פתוח שמאפשרת לייבא נתונים ארגוניים, לחלץ מהם את המידע המשמעותי, ולבנות Context Graph וגרף ידע (KG) שעליו ניתן להריץ אנליטיקת גרפים והיסק סיבתי. המערכת שומרת על שקיפות ומעקב מלא אחר כל החלטה, ותומכת גם ב-RDF וגם ב-LPG לפי תקני W3C.</p></div><div class="brief-section"><p class="brief-label" data-he="למה זה בטרנד" data-en="Why it&#x27;s trending">למה זה בטרנד</p><p class="brief-text i18n" data-he="הפרויקט צובר תאוצה (כ-6,900 כוכבים) בזכות המיקוד בבינה מלאכותית ניתנת להסבר ואמינה, נושא קריטי עבור סוכני AI בתחומים רגולטוריים. הכותרת &amp;#x27;הפלנטיר הקוד-פתוח לסוכני AI&amp;#x27; ותמיכה בתקנים בין-מערכתיים מושכת קהל שמחפש שליטה מלאה בתשתית ה-context ו-governance." data-en="The repo is gaining traction (nearly 6,900 stars) due to its focus on explainable, accountable AI for high-stakes, regulated domains. Its positioning as &amp;#x27;the open-source Palantir for AI agents&amp;#x27; with zero vendor lock-in appeals to teams needing full control over context and governance infrastructure.">הפרויקט צובר תאוצה (כ-6,900 כוכבים) בזכות המיקוד בבינה מלאכותית ניתנת להסבר ואמינה, נושא קריטי עבור סוכני AI בתחומים רגולטוריים. הכותרת &#x27;הפלנטיר הקוד-פתוח לסוכני AI&#x27; ותמיכה בתקנים בין-מערכתיים מושכת קהל שמחפש שליטה מלאה בתשתית ה-context ו-governance.</p></div><div class="brief-section"><p class="brief-label" data-he="דוגמת שימוש" data-en="Example use case">דוגמת שימוש</p><p class="brief-text i18n" data-he="ניתן להזין מסמכים ארגוניים למערכת, לחלץ ישויות ויחסים, ולבנות אוטומטית גרף ידע עם מודל אונטולוגיה. לאחר מכן ניתן להריץ שאילתות היסק סיבתי על הגרף ולקבל תיעוד מלא של שרשרת ההחלטות שהובילה לכל תוצאה." data-en="A team can feed enterprise documents into Semantica, extract entities and relationships, and automatically build a knowledge graph with ontology modeling. They can then run causal reasoning queries over the graph and receive full end-to-end traceability of the decision chain behind each result.">ניתן להזין מסמכים ארגוניים למערכת, לחלץ ישויות ויחסים, ולבנות אוטומטית גרף ידע עם מודל אונטולוגיה. לאחר מכן ניתן להריץ שאילתות היסק סיבתי על הגרף ולקבל תיעוד מלא של שרשרת ההחלטות שהובילה לכל תוצאה.</p></div><div class="brief-section brief-section--matters"><p class="brief-label" data-he="למה זה רלוונטי לך" data-en="Why it matters for you">למה זה רלוונטי לך</p><p class="brief-text i18n" data-he="עבור אבי, שמתמקד בסוכני AI, RAG וניהול ידע, Semantica מציעה שכבת תשתית שממירה מידע לא מובנה לגרף ידע מובנה עם שקיפות מלאה. זה רלוונטי במיוחד לבניית מערכות RAG מבוססות גרף עם יכולת ביקורת ואמון, מעבר לחיפוש וקטורי פשוט." data-en="For Avi, who focuses on agents, RAG, and knowledge management, Semantica offers an infrastructure layer that converts unstructured data into a structured, auditable knowledge graph. This is especially relevant for building graph-based RAG systems with governance and trust, going beyond simple vector search.">עבור אבי, שמתמקד בסוכני AI, RAG וניהול ידע, Semantica מציעה שכבת תשתית שממירה מידע לא מובנה לגרף ידע מובנה עם שקיפות מלאה. זה רלוונטי במיוחד לבניית מערכות RAG מבוססות גרף עם יכולת ביקורת ואמון, מעבר לחיפוש וקטורי פשוט.</p></div></div>
+
+      </div>
+    </article>
+
+    <article class="card">
+      <div class="card__rank">#4</div>
+      <div class="card__body">
+
+        <div class="card__header">
+          <div class="card__title-block">
+            <p class="card__eyebrow">JavaScript</p>
+            <h2 class="card__title">
+              <a href="https://github.com/santifer/career-ops" target="_blank" rel="noopener">
+                <span class="card__org">santifer/</span>career-ops
+              </a>
+            </h2>
+          </div>
+          <div class="card__stats">
+            <span class="card__stars">&#9733;<br><span class="stars-num">63,761</span></span>
+          </div>
+        </div>
+
+        <div class="card__meta">
+          <span class="meta-item"><span class="meta-icon">&#128197;</span> 2026-04-04</span>
+          <span class="meta-item"><span class="meta-icon">&#9679;</span> push 2026-08-13</span>
+        </div>
+
+        <div class="card__tags"><span class="tag">ai</span><span class="tag">ai-agent</span><span class="tag">anthropic</span><span class="tag">ats</span></div>
+
+        <div class="card__content"><div class="brief-section"><p class="brief-label" data-he="מה זה עושה" data-en="What it does">מה זה עושה</p><p class="brief-text i18n" data-he="career-ops היא מערכת AI קוד-פתוח לחיפוש עבודה, שסורקת פורטלים של משרות, מעריכה כל משרה לפי רובריקה מובנית מ-A עד F (ציון 1.0 עד 5.0), מתאימה קורות חיים באופן אישי ועוקבת אחרי הגשות המועמדות. המערכת רצה מקומית בתוך כלי CLI לתכנות עם AI כמו Claude Code, Codex, OpenCode ו-Antigravity." data-en="career-ops is an open-source AI job search system that scans job portals, evaluates listings with a structured A-F rubric into a 1.0-5.0 score, tailors your CV, and tracks applications. It runs locally inside AI coding CLIs such as Claude Code, Codex, OpenCode, and Antigravity.">career-ops היא מערכת AI קוד-פתוח לחיפוש עבודה, שסורקת פורטלים של משרות, מעריכה כל משרה לפי רובריקה מובנית מ-A עד F (ציון 1.0 עד 5.0), מתאימה קורות חיים באופן אישי ועוקבת אחרי הגשות המועמדות. המערכת רצה מקומית בתוך כלי CLI לתכנות עם AI כמו Claude Code, Codex, OpenCode ו-Antigravity.</p></div><div class="brief-section"><p class="brief-label" data-he="למה זה בטרנד" data-en="Why it&#x27;s trending">למה זה בטרנד</p><p class="brief-text i18n" data-he="הפרויקט צבר יותר מ-63,000 כוכבים וקיבל סיקור בתקשורת (WIRED, Business Insider) וב-Product Hunt, כנראה בזכות הרעיון הפשוט: לתת למועמדים כלי AI לבחירת חברות, בדיוק כפי שחברות משתמשות ב-AI לסינון מועמדים. הוא תורגם ליותר מ-15 שפות, מה שמעיד על תפוצה גלובלית רחבה." data-en="The project has crossed 63,000+ stars and gained media coverage (WIRED, Business Insider) plus a Product Hunt feature, likely due to its simple pitch: give candidates AI to choose companies, mirroring how companies use AI to filter candidates. It has been translated into 15+ languages, signaling broad global adoption.">הפרויקט צבר יותר מ-63,000 כוכבים וקיבל סיקור בתקשורת (WIRED, Business Insider) וב-Product Hunt, כנראה בזכות הרעיון הפשוט: לתת למועמדים כלי AI לבחירת חברות, בדיוק כפי שחברות משתמשות ב-AI לסינון מועמדים. הוא תורגם ליותר מ-15 שפות, מה שמעיד על תפוצה גלובלית רחבה.</p></div><div class="brief-section"><p class="brief-label" data-he="דוגמת שימוש" data-en="Example use case">דוגמת שימוש</p><p class="brief-text i18n" data-he="לפי התיאור בריפו, המערכת כבר העריכה למעלה מ-740 משרות, יצרה מעל 100 קורות חיים מותאמים אישית, והובילה לנחיתה של תפקיד חלומי אחד. זהו דוגמה מוחשית לזרימת עבודה אוטומטית מקצה לקצה בחיפוש עבודה." data-en="According to the repo, the system has evaluated 740+ job listings, generated 100+ personalized CVs, and resulted in landing one dream role. This showcases a concrete end-to-end automated job search workflow.">לפי התיאור בריפו, המערכת כבר העריכה למעלה מ-740 משרות, יצרה מעל 100 קורות חיים מותאמים אישית, והובילה לנחיתה של תפקיד חלומי אחד. זהו דוגמה מוחשית לזרימת עבודה אוטומטית מקצה לקצה בחיפוש עבודה.</p></div><div class="brief-section brief-section--matters"><p class="brief-label" data-he="למה זה רלוונטי לך" data-en="Why it matters for you">למה זה רלוונטי לך</p><p class="brief-text i18n" data-he="לאבי, שעוסק בסוכני AI ובכלי למידה, זהו מקרה שימוש מעניין להדגמת סוכן AI מרובה-שלבים (multi-agent) שמריץ תהליך עבודה אמיתי מקצה לקצה, כולל הערכה מובנית ותיוג לפי רובריקה, שאפשר ללמוד ממנו לתכנון קורסים על סוכני AI ואוטומציה. זה גם דוגמה טובה לכלי הרץ מקומית תוך שילוב עם CLI קיימים כמו Claude Code." data-en="For Avi, who focuses on AI agents and learning tools, this is a compelling example of a multi-agent system running a real end-to-end workflow with structured rubric-based evaluation, useful for designing courses on AI agents and automation. It also demonstrates a practical local-first tool that integrates with existing coding CLIs like Claude Code.">לאבי, שעוסק בסוכני AI ובכלי למידה, זהו מקרה שימוש מעניין להדגמת סוכן AI מרובה-שלבים (multi-agent) שמריץ תהליך עבודה אמיתי מקצה לקצה, כולל הערכה מובנית ותיוג לפי רובריקה, שאפשר ללמוד ממנו לתכנון קורסים על סוכני AI ואוטומציה. זה גם דוגמה טובה לכלי הרץ מקומית תוך שילוב עם CLI קיימים כמו Claude Code.</p></div></div>
+
+      </div>
+    </article>
+
+    <article class="card">
+      <div class="card__rank">#5</div>
+      <div class="card__body">
+
+        <div class="card__header">
+          <div class="card__title-block">
+            <p class="card__eyebrow">Python</p>
+            <h2 class="card__title">
+              <a href="https://github.com/calesthio/OpenMontage" target="_blank" rel="noopener">
+                <span class="card__org">calesthio/</span>OpenMontage
+              </a>
+            </h2>
+          </div>
+          <div class="card__stats">
+            <span class="card__stars">&#9733;<br><span class="stars-num">48,004</span></span>
+          </div>
+        </div>
+
+        <div class="card__meta">
+          <span class="meta-item"><span class="meta-icon">&#128197;</span> 2026-03-29</span>
+          <span class="meta-item"><span class="meta-icon">&#9679;</span> push 2026-08-14</span>
+        </div>
+
+        <div class="card__tags"><span class="tag">agent</span><span class="tag">agentic-ai</span><span class="tag">ai</span><span class="tag">claude</span></div>
+
+        <div class="card__content"><div class="brief-section"><p class="brief-label" data-he="מה זה עושה" data-en="What it does">מה זה עושה</p><p class="brief-text i18n" data-he="OpenMontage היא מערכת קוד פתוח לייצור וידאו מבוססת סוכנים, הכוללת 12 צינורות ייצור, למעלה מ-100 כלים ומעל 700 קובצי מיומנות וידע ייצור לסוכן. המערכת הופכת עוזר קידוד מבוסס AI (כמו Claude, Copilot או Cursor) לסטודיו הפקת וידאו מלא." data-en="OpenMontage is an open-source, agentic video production system with 12 production pipelines, 100+ tools, and over 700 agent skill and production-knowledge files. It turns an AI coding assistant like Claude, Copilot, or Cursor into a full video production studio.">OpenMontage היא מערכת קוד פתוח לייצור וידאו מבוססת סוכנים, הכוללת 12 צינורות ייצור, למעלה מ-100 כלים ומעל 700 קובצי מיומנות וידע ייצור לסוכן. המערכת הופכת עוזר קידוד מבוסס AI (כמו Claude, Copilot או Cursor) לסטודיו הפקת וידאו מלא.</p></div><div class="brief-section"><p class="brief-label" data-he="למה זה בטרנד" data-en="Why it&#x27;s trending">למה זה בטרנד</p><p class="brief-text i18n" data-he="הריפו צבר כ-48,000 כוכבים ותויג כ&amp;#x27;ריפו היום מספר 1&amp;#x27; ב-GitHub Trending, מה שמעיד על עניין רחב בגישת ה-agentic AI ליישומים יצירתיים. השילוב של סוכני AI עם כלי ffmpeg ו-ElevenLabs לייצור וידאו מלא הוא רעיון חדשני שמושך תשומת לב בקהילת המפתחים." data-en="The repo has amassed about 48,000 stars and was tagged the #1 Repository of the Day on GitHub Trending, signaling broad interest in agentic AI applied to creative workflows. Combining AI agents with ffmpeg and ElevenLabs for full video production is a novel idea drawing strong developer attention.">הריפו צבר כ-48,000 כוכבים ותויג כ&#x27;ריפו היום מספר 1&#x27; ב-GitHub Trending, מה שמעיד על עניין רחב בגישת ה-agentic AI ליישומים יצירתיים. השילוב של סוכני AI עם כלי ffmpeg ו-ElevenLabs לייצור וידאו מלא הוא רעיון חדשני שמושך תשומת לב בקהילת המפתחים.</p></div><div class="brief-section"><p class="brief-label" data-he="דוגמת שימוש" data-en="Example use case">דוגמת שימוש</p><p class="brief-text i18n" data-he="לפי התיעוד, ניתן להדביק וידאו קיים או להשתמש בפקודות מוכנות (&amp;#x27;Try These Prompts&amp;#x27;) כדי להפעיל את אחד מ-12 צינורות הייצור, כאשר הסוכן משתמש בקבצי הידע והכלים כדי לבצע את המשימה מקצה לקצה. הפרויקט כולל מדריך סוכן (AGENT_GUIDE.md) המסביר כיצד לחבר את זה לעוזרי קידוד כמו Claude או Cursor." data-en="According to the README, you can paste an existing video or use ready-made prompts to trigger one of the 12 production pipelines, with the agent using the skill files and tools to complete the task end to end. The project includes an AGENT_GUIDE.md explaining how to connect it to coding assistants like Claude or Cursor.">לפי התיעוד, ניתן להדביק וידאו קיים או להשתמש בפקודות מוכנות (&#x27;Try These Prompts&#x27;) כדי להפעיל את אחד מ-12 צינורות הייצור, כאשר הסוכן משתמש בקבצי הידע והכלים כדי לבצע את המשימה מקצה לקצה. הפרויקט כולל מדריך סוכן (AGENT_GUIDE.md) המסביר כיצד לחבר את זה לעוזרי קידוד כמו Claude או Cursor.</p></div><div class="brief-section brief-section--matters"><p class="brief-label" data-he="למה זה רלוונטי לך" data-en="Why it matters for you">למה זה רלוונטי לך</p><p class="brief-text i18n" data-he="לאבי, שמתעניין בסוכנים, ניהול ידע ו-TTS, הריפו מציג דוגמה מעשית לאיך 700+ קובצי ידע וסוכן יכולים לארגן משימה מורכבת (הפקת וידאו) ולשלב כלי TTS כמו ElevenLabs. זה יכול להעניק השראה לבניית כלי למידה או תוכן המבוססים על סוכנים וידע מובנה." data-en="For Avi, who cares about agents, knowledge management, and TTS, this repo is a concrete example of how 700+ skill and knowledge files can organize a complex task (video production) while integrating a TTS tool like ElevenLabs. It could inspire building agent-driven learning or content tools backed by structured knowledge bases.">לאבי, שמתעניין בסוכנים, ניהול ידע ו-TTS, הריפו מציג דוגמה מעשית לאיך 700+ קובצי ידע וסוכן יכולים לארגן משימה מורכבת (הפקת וידאו) ולשלב כלי TTS כמו ElevenLabs. זה יכול להעניק השראה לבניית כלי למידה או תוכן המבוססים על סוכנים וידע מובנה.</p></div></div>
+
+      </div>
+    </article>
+
+    <article class="card">
+      <div class="card__rank">#6</div>
+      <div class="card__body">
+
+        <div class="card__header">
+          <div class="card__title-block">
+            <p class="card__eyebrow">Python</p>
+            <h2 class="card__title">
+              <a href="https://github.com/img2threejs/img2threejs" target="_blank" rel="noopener">
+                <span class="card__org">img2threejs/</span>img2threejs
+              </a>
+            </h2>
+          </div>
+          <div class="card__stats">
+            <span class="card__stars">&#9733;<br><span class="stars-num">11,630</span></span>
+          </div>
+        </div>
+
+        <div class="card__meta">
+          <span class="meta-item"><span class="meta-icon">&#128197;</span> 2026-07-15</span>
+          <span class="meta-item"><span class="meta-icon">&#9679;</span> push 2026-08-13</span>
+        </div>
+
+        <div class="card__tags"><span class="tag">3d</span><span class="tag">ai-agents</span><span class="tag">claude-code</span><span class="tag">computer-graphics</span></div>
+
+        <div class="card__content"><div class="brief-section"><p class="brief-label" data-he="מה זה עושה" data-en="What it does">מה זה עושה</p><p class="brief-text i18n" data-he="img2threejs לוקח תמונת ייחוס ובונה מחדש את האובייקט שבה כמודל תלת-ממדי פרוצדורלי מבוסס קוד בלבד עבור Three.js, במקום פוטוגרמטריה או חילוץ מש. התהליך כולל בקרת איכות (quality-gated) והמודל מוכן לאנימציה, תוך שמירה על יעילות טוקנים לעבודה עם סוכני AI." data-en="img2threejs reconstructs the object in a reference image as a code-only, procedural Three.js model, rather than using photogrammetry or mesh extraction. It is quality-gated, animation-ready, and built to be token-efficient for AI agent workflows.">img2threejs לוקח תמונת ייחוס ובונה מחדש את האובייקט שבה כמודל תלת-ממדי פרוצדורלי מבוסס קוד בלבד עבור Three.js, במקום פוטוגרמטריה או חילוץ מש. התהליך כולל בקרת איכות (quality-gated) והמודל מוכן לאנימציה, תוך שמירה על יעילות טוקנים לעבודה עם סוכני AI.</p></div><div class="brief-section"><p class="brief-label" data-he="למה זה בטרנד" data-en="Why it&#x27;s trending">למה זה בטרנד</p><p class="brief-text i18n" data-he="הפרויקט מחבר בין סוכני AI (כמו Claude Code) לגרפיקה תלת-ממדית גנרטיבית, גישה שמושכת מפתחים המעוניינים ביצירת נכסי 3D דרך קוד במקום קבצי מש כבדים. עם 11,630 כוכבים והופעה בטרנדים היומיים והשבועיים של Python, הוא משקף עניין גובר בהמרת תמונה ל-3D ובייצור פרוצדורלי." data-en="The project bridges AI agents (like Claude Code) with generative 3D graphics, an approach that appeals to developers who want to create 3D assets via code instead of heavy mesh files. With 11,630 stars and daily and weekly Python trending status, it reflects rising interest in image-to-3D and procedural generation.">הפרויקט מחבר בין סוכני AI (כמו Claude Code) לגרפיקה תלת-ממדית גנרטיבית, גישה שמושכת מפתחים המעוניינים ביצירת נכסי 3D דרך קוד במקום קבצי מש כבדים. עם 11,630 כוכבים והופעה בטרנדים היומיים והשבועיים של Python, הוא משקף עניין גובר בהמרת תמונה ל-3D ובייצור פרוצדורלי.</p></div><div class="brief-section"><p class="brief-label" data-he="דוגמת שימוש" data-en="Example use case">דוגמת שימוש</p><p class="brief-text i18n" data-he="מזינים לכלי תמונה של כיסא, והוא מפיק קוד Three.js שבונה פרוצדורלית מודל תלת-ממדי של כיסא, מוכן להצגה ולאנימציה בדפדפן." data-en="Feed it a photo of a chair, and it outputs Three.js code that procedurally builds a 3D chair model, ready to render and animate in the browser.">מזינים לכלי תמונה של כיסא, והוא מפיק קוד Three.js שבונה פרוצדורלית מודל תלת-ממדי של כיסא, מוכן להצגה ולאנימציה בדפדפן.</p></div><div class="brief-section brief-section--matters"><p class="brief-label" data-he="למה זה רלוונטי לך" data-en="Why it matters for you">למה זה רלוונטי לך</p><p class="brief-text i18n" data-he="לאבי, שמתעניין בסוכני AI וכלי עבודה חדשניים, img2threejs מדגים איך סוכן קוד יכול לייצר נכסי 3D מובנים ויעילים מבחינת טוקנים, תוך שמירה על שקיפות מלאה (הכל קוד, לא קבצי מש חשוכי-בנייה). זה לא כלי RAG, TTS או עברית, אך רלוונטי כדוגמה לאקוסיסטם של סוכנים ולכלי למידה אינטראקטיביים." data-en="For Avi, who is interested in AI agents and learning tools, img2threejs demonstrates how a coding agent can generate structured, token-efficient 3D assets with full transparency (everything is code, not opaque mesh files). It is not a RAG, TTS, or Hebrew tool, but it is a relevant example of the agent-tooling ecosystem and potential interactive learning assets.">לאבי, שמתעניין בסוכני AI וכלי עבודה חדשניים, img2threejs מדגים איך סוכן קוד יכול לייצר נכסי 3D מובנים ויעילים מבחינת טוקנים, תוך שמירה על שקיפות מלאה (הכל קוד, לא קבצי מש חשוכי-בנייה). זה לא כלי RAG, TTS או עברית, אך רלוונטי כדוגמה לאקוסיסטם של סוכנים ולכלי למידה אינטראקטיביים.</p></div></div>
+
+      </div>
+    </article>
+
+    <article class="card">
+      <div class="card__rank">#7</div>
+      <div class="card__body">
+
+        <div class="card__header">
+          <div class="card__title-block">
+            <p class="card__eyebrow">Python</p>
+            <h2 class="card__title">
+              <a href="https://github.com/Panniantong/Agent-Reach" target="_blank" rel="noopener">
+                <span class="card__org">Panniantong/</span>Agent-Reach
+              </a>
+            </h2>
+          </div>
+          <div class="card__stats">
+            <span class="card__stars">&#9733;<br><span class="stars-num">71,510</span></span>
+          </div>
+        </div>
+
+        <div class="card__meta">
+          <span class="meta-item"><span class="meta-icon">&#128197;</span> 2026-02-24</span>
+          <span class="meta-item"><span class="meta-icon">&#9679;</span> push 2026-08-12</span>
+        </div>
+
+        <div class="card__tags"><span class="tag">agent-infrastructure</span><span class="tag">ai-agent</span><span class="tag">ai-search</span><span class="tag">automation</span></div>
+
+        <div class="card__content"><div class="brief-section"><p class="brief-label" data-he="מה זה עושה" data-en="What it does">מה זה עושה</p><p class="brief-text i18n" data-he="Agent Reach הוא CLI המעניק ל-AI Agent יכולת לקרוא ולחפש ברחבי האינטרנט, כולל טוויטר, רדיט, יוטיוב, גיטהאב, Bilibili ו-XiaoHongShu, הכל דרך ממשק אחד וללא עלויות API." data-en="Agent Reach is a CLI tool that gives AI agents eyes on the internet, enabling reading and searching across Twitter, Reddit, YouTube, GitHub, Bilibili and XiaoHongShu through one unified interface with zero API fees.">Agent Reach הוא CLI המעניק ל-AI Agent יכולת לקרוא ולחפש ברחבי האינטרנט, כולל טוויטר, רדיט, יוטיוב, גיטהאב, Bilibili ו-XiaoHongShu, הכל דרך ממשק אחד וללא עלויות API.</p></div><div class="brief-section"><p class="brief-label" data-he="למה זה בטרנד" data-en="Why it&#x27;s trending">למה זה בטרנד</p><p class="brief-text i18n" data-he="הפרויקט הגיע למקום הראשון ב-Trendshift ליום נתון, וצבר מעל 71 אלף כוכבים, ככל הנראה בזכות פתרון פשוט לבעיה נפוצה: איך לתת ל-Agent גישה לרשתות חברתיות ופלטפורמות שונות בלי לנהל מפתחות API מרובים." data-en="The project hit #1 on Trendshift&amp;#x27;s daily trending and gathered over 71,000 stars, likely due to solving a common pain point: giving agents unified access to multiple social platforms without juggling API keys and fees.">הפרויקט הגיע למקום הראשון ב-Trendshift ליום נתון, וצבר מעל 71 אלף כוכבים, ככל הנראה בזכות פתרון פשוט לבעיה נפוצה: איך לתת ל-Agent גישה לרשתות חברתיות ופלטפורמות שונות בלי לנהל מפתחות API מרובים.</p></div><div class="brief-section"><p class="brief-label" data-he="דוגמת שימוש" data-en="Example use case">דוגמת שימוש</p><p class="brief-text i18n" data-he="מפתח שבונה agent מבוסס Claude Code או Cursor יכול להשתמש ב-Agent Reach כדי לבצע חיפוש בטוויטר או ביוטיוב ישירות מתוך שיחת ה-CLI, ללא צורך בהגדרת אינטגרציות API נפרדות לכל פלטפורמה." data-en="A developer building an agent with Claude Code or Cursor can use Agent Reach to search Twitter or YouTube directly from the CLI session, without setting up separate API integrations for each platform.">מפתח שבונה agent מבוסס Claude Code או Cursor יכול להשתמש ב-Agent Reach כדי לבצע חיפוש בטוויטר או ביוטיוב ישירות מתוך שיחת ה-CLI, ללא צורך בהגדרת אינטגרציות API נפרדות לכל פלטפורמה.</p></div><div class="brief-section brief-section--matters"><p class="brief-label" data-he="למה זה רלוונטי לך" data-en="Why it matters for you">למה זה רלוונטי לך</p><p class="brief-text i18n" data-he="לאבי, שמתעניין בסוכנים ובכלי אוטומציה, זהו בסיס תשתית שיכול לחסוך זמן פיתוח משמעותי בבניית agents שצריכים לגשת למידע חי מהרשת, ומדגים גישה מעניינת ל-agent-infrastructure." data-en="For Avi, who follows agents and automation tools, this is an infrastructure building block that could save significant development time when creating agents needing live web access, and it demonstrates an interesting approach to agent-infrastructure.">לאבי, שמתעניין בסוכנים ובכלי אוטומציה, זהו בסיס תשתית שיכול לחסוך זמן פיתוח משמעותי בבניית agents שצריכים לגשת למידע חי מהרשת, ומדגים גישה מעניינת ל-agent-infrastructure.</p></div></div>
+
+      </div>
+    </article>
+
+    <article class="card">
+      <div class="card__rank">#8</div>
+      <div class="card__body">
+
+        <div class="card__header">
+          <div class="card__title-block">
+            <p class="card__eyebrow">Python</p>
+            <h2 class="card__title">
+              <a href="https://github.com/rohitg00/ai-engineering-from-scratch" target="_blank" rel="noopener">
+                <span class="card__org">rohitg00/</span>ai-engineering-from-scratch
+              </a>
+            </h2>
+          </div>
+          <div class="card__stats">
+            <span class="card__stars">&#9733;<br><span class="stars-num">46,692</span></span>
+          </div>
+        </div>
+
+        <div class="card__meta">
+          <span class="meta-item"><span class="meta-icon">&#128197;</span> 2026-03-18</span>
+          <span class="meta-item"><span class="meta-icon">&#9679;</span> push 2026-08-10</span>
+        </div>
+
+        <div class="card__tags"><span class="tag">agents</span><span class="tag">ai</span><span class="tag">ai-agents</span><span class="tag">ai-engineering</span></div>
+
+        <div class="card__content"><div class="brief-section"><p class="brief-label" data-he="מה זה עושה" data-en="What it does">מה זה עושה</p><p class="brief-text i18n" data-he="מאגר קוד שמציע תוכנית לימודים מקיפה בהנדסת AI: 503 שיעורים ב-20 שלבים, כ-320 שעות למידה בפייתון, TypeScript, Rust ו-Julia. כל שיעור מפיק תוצר שימושי, כמו פרומפט, סקיל, סוכן או שרת MCP, וניתן להתחיל ללמוד תוך 30 שניות דרך פקודת npx skills שהופכת את סוכן הקוד שלך למורה אישי." data-en="This repo is a full AI engineering curriculum: 503 lessons across 20 phases, roughly 320 hours, covering Python, TypeScript, Rust and Julia. Every lesson ships a reusable artifact such as a prompt, skill, agent, or MCP server, and learners can start in 30 seconds using an npx skills command that turns their coding agent into a tutor.">מאגר קוד שמציע תוכנית לימודים מקיפה בהנדסת AI: 503 שיעורים ב-20 שלבים, כ-320 שעות למידה בפייתון, TypeScript, Rust ו-Julia. כל שיעור מפיק תוצר שימושי, כמו פרומפט, סקיל, סוכן או שרת MCP, וניתן להתחיל ללמוד תוך 30 שניות דרך פקודת npx skills שהופכת את סוכן הקוד שלך למורה אישי.</p></div><div class="brief-section"><p class="brief-label" data-he="למה זה בטרנד" data-en="Why it&#x27;s trending">למה זה בטרנד</p><p class="brief-text i18n" data-he="המאגר צבר כמעט 47,000 כוכבים ומדווח על יותר מ-150,000 קוראים ו-241,000 צפיות דף בחודש האחרון, מה שמעיד על ביקוש עצום ללמידה מובנית ב-AI. השילוב של MCP, סוכנים, זיכרון סוכנים ותרגומים ל-12 שפות הופך אותו לרלוונטי עבור קהל בינלאומי רחב." data-en="The project has nearly 47,000 stars and reports over 150,000 readers with 241,000 page views in the last 30 days, signaling strong demand for structured AI education. Its focus on MCP servers, agents, reusable artifacts, and translated landing pages in 12 languages broadens its appeal to a global audience.">המאגר צבר כמעט 47,000 כוכבים ומדווח על יותר מ-150,000 קוראים ו-241,000 צפיות דף בחודש האחרון, מה שמעיד על ביקוש עצום ללמידה מובנית ב-AI. השילוב של MCP, סוכנים, זיכרון סוכנים ותרגומים ל-12 שפות הופך אותו לרלוונטי עבור קהל בינלאומי רחב.</p></div><div class="brief-section"><p class="brief-label" data-he="דוגמת שימוש" data-en="Example use case">דוגמת שימוש</p><p class="brief-text i18n" data-he="לדוגמה, שיעור בודד בקורס עשוי ללמד בניית שרת MCP או סוכן AI, כאשר בסיום השיעור התלמיד מקבל תוצר עובד שניתן לשלב ישירות בפרויקט אמיתי. הגישה &amp;#x27;אתה לא רק לומד AI, אתה בונה אותו&amp;#x27; חוזרת לאורך כל התוכנית." data-en="For example, a single lesson might teach building an MCP server or an AI agent, and by the end the learner walks away with a working artifact ready to plug into a real project. The repo&amp;#x27;s philosophy, &amp;#x27;you don&amp;#x27;t just learn AI, you build it&amp;#x27;, runs through the entire curriculum.">לדוגמה, שיעור בודד בקורס עשוי ללמד בניית שרת MCP או סוכן AI, כאשר בסיום השיעור התלמיד מקבל תוצר עובד שניתן לשלב ישירות בפרויקט אמיתי. הגישה &#x27;אתה לא רק לומד AI, אתה בונה אותו&#x27; חוזרת לאורך כל התוכנית.</p></div><div class="brief-section brief-section--matters"><p class="brief-label" data-he="למה זה רלוונטי לך" data-en="Why it matters for you">למה זה רלוונטי לך</p><p class="brief-text i18n" data-he="עבור אבי, שמתעניין בסוכנים, RAG, MCP וכלי למידה, זהו מאגר שמדגים איך אפשר לבנות תוכנית לימודים מובנית סביב אותם נושאים בדיוק, עם תוצרים מוחשיים בכל שלב. זה יכול לשמש כמקור השראה לעיצוב הדרכתי ולפיתוח חומרי לימוד דומים בעברית." data-en="For Avi, who focuses on agents, RAG, MCP, and learning tools, this repo demonstrates how to structure a curriculum around exactly those topics with tangible artifacts at every step. It can serve as inspiration for instructional design and for building similar Hebrew-language learning materials.">עבור אבי, שמתעניין בסוכנים, RAG, MCP וכלי למידה, זהו מאגר שמדגים איך אפשר לבנות תוכנית לימודים מובנית סביב אותם נושאים בדיוק, עם תוצרים מוחשיים בכל שלב. זה יכול לשמש כמקור השראה לעיצוב הדרכתי ולפיתוח חומרי לימוד דומים בעברית.</p></div></div>
+
+      </div>
+    </article>
+
+    <article class="card">
+      <div class="card__rank">#9</div>
+      <div class="card__body">
+
+        <div class="card__header">
+          <div class="card__title-block">
+            <p class="card__eyebrow">TypeScript</p>
+            <h2 class="card__title">
+              <a href="https://github.com/cloudflare/computer" target="_blank" rel="noopener">
+                <span class="card__org">cloudflare/</span>computer
+              </a>
+            </h2>
+          </div>
+          <div class="card__stats">
+            <span class="card__stars">&#9733;<br><span class="stars-num">8,013</span></span>
+          </div>
+        </div>
+
+        <div class="card__meta">
+          <span class="meta-item"><span class="meta-icon">&#128197;</span> 2026-06-05</span>
+          <span class="meta-item"><span class="meta-icon">&#9679;</span> push 2026-08-13</span>
+        </div>
+
+        <div class="card__tags"></div>
+
+        <div class="card__content"><div class="brief-section"><p class="brief-label" data-he="מה זה עושה" data-en="What it does">מה זה עושה</p><p class="brief-text i18n" data-he="Cloudflare Computer הוא מערכת קבצים וירטואלית שחיה בתוך Durable Object, עם מצב מאוחסן ב-SQLite וממשק הרצה אחד שניתן להחליף (workspace.runtime). המערכת תומכת בשלושה backends: קונטיינר עם FUSE mount מלא, isolate shell שמריץ just-bash, ו-isolate JavaScript שמריץ מודול ECMAScript." data-en="Cloudflare Computer is a virtual filesystem living inside a Durable Object, with authoritative state in SQLite and a single pluggable execution surface (workspace.runtime). It ships three backends: a container with a real FUSE mount and full Linux userland, an isolate shell running just-bash, and an isolate JavaScript backend that runs ECMAScript modules with Workspace-backed fs.">Cloudflare Computer הוא מערכת קבצים וירטואלית שחיה בתוך Durable Object, עם מצב מאוחסן ב-SQLite וממשק הרצה אחד שניתן להחליף (workspace.runtime). המערכת תומכת בשלושה backends: קונטיינר עם FUSE mount מלא, isolate shell שמריץ just-bash, ו-isolate JavaScript שמריץ מודול ECMAScript.</p></div><div class="brief-section"><p class="brief-label" data-he="למה זה בטרנד" data-en="Why it&#x27;s trending">למה זה בטרנד</p><p class="brief-text i18n" data-he="הרעיון של לתת לסוכן AI &amp;#x27;מחשב&amp;#x27; עם מערכת קבצים אמיתית, גישה לרשת ויכולת הרצת קוד הוא ליבה מרכזית בפיתוח agentic. הפרויקט מגיע מ-Cloudflare ומציע גמישות בין ריצה בקונטיינר מלא לבין isolates קלים, מה שמעניין מפתחי כלים לסוכנים." data-en="The idea of giving an AI agent a real computer, with an actual filesystem, network access, and code execution, sits at the core of agentic tooling development. Coming from Cloudflare, it offers flexibility between full container runtimes and lightweight isolates, appealing to builders of agent infrastructure.">הרעיון של לתת לסוכן AI &#x27;מחשב&#x27; עם מערכת קבצים אמיתית, גישה לרשת ויכולת הרצת קוד הוא ליבה מרכזית בפיתוח agentic. הפרויקט מגיע מ-Cloudflare ומציע גמישות בין ריצה בקונטיינר מלא לבין isolates קלים, מה שמעניין מפתחי כלים לסוכנים.</p></div><div class="brief-section"><p class="brief-label" data-he="דוגמת שימוש" data-en="Example use case">דוגמת שימוש</p><p class="brief-text i18n" data-he="בתיקיית examples אפשר לראות container שמריץ computerd עם mount מלא ותקשורת capnweb, לצד worker-shell ו-worker-javascript שמריצים את אותה חשיפת HTTP (write/read/exec) בלי קונטיינר בכלל, רק ב-Dynamic Worker." data-en="The examples directory shows a container example running computerd with a full FUSE mount over capnweb, alongside worker-shell and worker-javascript examples that expose the same write/read/exec HTTP surface entirely inside Dynamic Workers with no container.">בתיקיית examples אפשר לראות container שמריץ computerd עם mount מלא ותקשורת capnweb, לצד worker-shell ו-worker-javascript שמריצים את אותה חשיפת HTTP (write/read/exec) בלי קונטיינר בכלל, רק ב-Dynamic Worker.</p></div><div class="brief-section brief-section--matters"><p class="brief-label" data-he="למה זה רלוונטי לך" data-en="Why it matters for you">למה זה רלוונטי לך</p><p class="brief-text i18n" data-he="עבור אבי, זה רלוונטי לחשיבה על סוכנים אוטונומיים שצריכים סביבת עבודה אמיתית, כלי ניהול ידע וקבצים, ותשתית להרצת קוד בבטחה. זה גם דוגמה מעניינת לניהול state דרך SQLite בתוך Durable Object שיכולה להשפיע על ארכיטקטורת RAG וסוכנים." data-en="For Avi, this is relevant to thinking about autonomous agents that need a real working environment, filesystem-based knowledge management, and infrastructure for safely executing code. It is also an interesting example of managing state via SQLite inside a Durable Object, which could influence RAG and agent architecture decisions.">עבור אבי, זה רלוונטי לחשיבה על סוכנים אוטונומיים שצריכים סביבת עבודה אמיתית, כלי ניהול ידע וקבצים, ותשתית להרצת קוד בבטחה. זה גם דוגמה מעניינת לניהול state דרך SQLite בתוך Durable Object שיכולה להשפיע על ארכיטקטורת RAG וסוכנים.</p></div></div>
+
+      </div>
+    </article>
+
+    <article class="card">
+      <div class="card__rank">#10</div>
+      <div class="card__body">
+
+        <div class="card__header">
+          <div class="card__title-block">
+            <p class="card__eyebrow">Python</p>
+            <h2 class="card__title">
+              <a href="https://github.com/MemPalace/mempalace" target="_blank" rel="noopener">
+                <span class="card__org">MemPalace/</span>mempalace
+              </a>
+            </h2>
+          </div>
+          <div class="card__stats">
+            <span class="card__stars">&#9733;<br><span class="stars-num">58,356</span></span>
+          </div>
+        </div>
+
+        <div class="card__meta">
+          <span class="meta-item"><span class="meta-icon">&#128197;</span> 2026-04-05</span>
+          <span class="meta-item"><span class="meta-icon">&#9679;</span> push 2026-08-13</span>
+        </div>
+
+        <div class="card__tags"><span class="tag">ai</span><span class="tag">chromadb</span><span class="tag">llm</span><span class="tag">mcp</span></div>
+
+        <div class="card__content"><div class="brief-section"><p class="brief-label" data-he="מה זה עושה" data-en="What it does">מה זה עושה</p><p class="brief-text i18n" data-he="MemPalace היא מערכת זיכרון מקומית ל-AI ששומרת היסטוריית שיחות כטקסט מילה במילה, ללא סיכום או פרפרזה, ומאחזרת אותו בעזרת חיפוש סמנטי. המידע מאורגן במבנה של wings (אנשים/פרויקטים), rooms (נושאים) ו-drawers (התוכן המקורי), כך שאפשר לחפש בצורה ממוקדת ולא מול קורפוס שטוח." data-en="MemPalace is a local-first AI memory system that stores conversation history verbatim, without summarizing or paraphrasing, and retrieves it via semantic search. Content is organized into wings (people/projects), rooms (topics), and drawers (original content), enabling scoped rather than flat-corpus search.">MemPalace היא מערכת זיכרון מקומית ל-AI ששומרת היסטוריית שיחות כטקסט מילה במילה, ללא סיכום או פרפרזה, ומאחזרת אותו בעזרת חיפוש סמנטי. המידע מאורגן במבנה של wings (אנשים/פרויקטים), rooms (נושאים) ו-drawers (התוכן המקורי), כך שאפשר לחפש בצורה ממוקדת ולא מול קורפוס שטוח.</p></div><div class="brief-section"><p class="brief-label" data-he="למה זה בטרנד" data-en="Why it&#x27;s trending">למה זה בטרנד</p><p class="brief-text i18n" data-he="הפרויקט מדגיש ביצועים גבוהים במיוחד: 96.6% R@5 raw במבחן LongMemEval, ללא קריאות API כלל. הוא גם פועל כשרת MCP, מה שהופך אותו לרלוונטי לכלי סוכנים כמו Claude Code, וכולל אזהרה בולטת מפני אתרים מזויפים שמצביעה על תשומת לב קהילתית גבוהה." data-en="The project touts strong benchmark results, 96.6% R@5 raw on LongMemEval, with zero API calls required. It also functions as an MCP server, making it directly relevant to agent tools like Claude Code, and the prominent warning about impostor sites signals notable community attention.">הפרויקט מדגיש ביצועים גבוהים במיוחד: 96.6% R@5 raw במבחן LongMemEval, ללא קריאות API כלל. הוא גם פועל כשרת MCP, מה שהופך אותו לרלוונטי לכלי סוכנים כמו Claude Code, וכולל אזהרה בולטת מפני אתרים מזויפים שמצביעה על תשומת לב קהילתית גבוהה.</p></div><div class="brief-section"><p class="brief-label" data-he="דוגמת שימוש" data-en="Example use case">דוגמת שימוש</p><p class="brief-text i18n" data-he="ניתן להתקין את הכלי בקלות עם uv tool install mempalace ולאתחל פרויקט עם mempalace init, או להריץ אותו כקונטיינר Docker (כולל תמיכה ב-Apple Silicon) עבור שרת MCP או CLI ללא צורך בסביבת פייתון מקומית." data-en="You can install it via uv tool install mempalace and initialize a project with mempalace init, or run it as a Docker container (multi-arch, including Apple Silicon) to use the MCP server or CLI without a local Python toolchain.">ניתן להתקין את הכלי בקלות עם uv tool install mempalace ולאתחל פרויקט עם mempalace init, או להריץ אותו כקונטיינר Docker (כולל תמיכה ב-Apple Silicon) עבור שרת MCP או CLI ללא צורך בסביבת פייתון מקומית.</p></div><div class="brief-section brief-section--matters"><p class="brief-label" data-he="למה זה רלוונטי לך" data-en="Why it matters for you">למה זה רלוונטי לך</p><p class="brief-text i18n" data-he="עבור אבי, הכלי הזה רלוונטי ישירות לתחומי הסוכנים, MCP וניהול ידע: הוא נותן פתרון זיכרון מקומי ומובנה לסוכני AI, ששומר היסטוריה מדויקת ומאורגנת במקום סיכומים שעלולים לאבד מידע. הגישה הפתוחה, המבוססת ChromaDB עם backend נתיק להחלפה, גם תואמת עניין בכלים ניתנים להתאמה ולבנייה עצמית." data-en="For Avi, this is directly relevant to his interest in agents, MCP, and knowledge management: it offers a local, structured memory solution for AI agents that preserves exact history instead of lossy summaries. Its open, pluggable ChromaDB-backed architecture also aligns with interest in customizable, buildable tools.">עבור אבי, הכלי הזה רלוונטי ישירות לתחומי הסוכנים, MCP וניהול ידע: הוא נותן פתרון זיכרון מקומי ומובנה לסוכני AI, ששומר היסטוריה מדויקת ומאורגנת במקום סיכומים שעלולים לאבד מידע. הגישה הפתוחה, המבוססת ChromaDB עם backend נתיק להחלפה, גם תואמת עניין בכלים ניתנים להתאמה ולבנייה עצמית.</p></div></div>
+
+      </div>
+    </article>
+  </main>
+
+  <footer class="site-footer">
+    <span class="i18n" data-he="עיכול אוטומטי שבועי · מקור: GitHub Search API" data-en="Auto-generated weekly digest · Data: GitHub Search API">עיכול אוטומטי שבועי · מקור: GitHub Search API</span>
+    <p class="share-copied" id="shareCopied">&#128279; <span class="i18n" data-he="הקישור הועתק!" data-en="Link copied!">הקישור הועתק!</span></p>
+  </footer>
+
+</div>
+
+<script>
+// ── LANGUAGE TOGGLE ──
+var currentLang = 'he';
+function toggleLang() {
+  currentLang = currentLang === 'he' ? 'en' : 'he';
+  var isHe = currentLang === 'he';
+  document.documentElement.lang = currentLang;
+  document.documentElement.dir = isHe ? 'rtl' : 'ltr';
+  document.getElementById('langToggle').textContent = isHe ? 'EN' : 'עב';
+  document.querySelectorAll('.i18n').forEach(function(el) {
+    el.innerHTML = el.dataset[currentLang] || el.innerHTML;
+  });
+  // Flip brief labels
+  document.querySelectorAll('.brief-label').forEach(function(el) {
+    var he = el.dataset.he, en = el.dataset.en;
+    if (he && en) el.textContent = isHe ? he : en;
+  });
+}
+
+// ── SHARE ──
+function shareReport() {
+  var title = currentLang === 'he'
+    ? 'טרנד ב-AI/LLM – 2026-W33'
+    : 'Trending AI/LLM Repos – 2026-W33';
+  var url = window.location.href;
+  if (navigator.share) {
+    navigator.share({ title: title, url: url }).catch(function(){});
+  } else {
+    navigator.clipboard.writeText(url).then(function() {
+      var el = document.getElementById('shareCopied');
+      el.classList.add('show');
+      setTimeout(function() { el.classList.remove('show'); }, 2500);
+    }).catch(function() {
+      prompt('Copy this link:', url);
+    });
+  }
+}
+
+// ── AUDIO PLAYER ──
+var audio = document.getElementById('audio');
+var playBtn = document.getElementById('playBtn');
+var iconPlay = document.getElementById('iconPlay');
+var iconPause = document.getElementById('iconPause');
+var progressBar = document.getElementById('progressBar');
+var progressWrap = document.getElementById('progressWrap');
+var playerTime = document.getElementById('playerTime');
+
+function fmt(s) {
+  s = Math.floor(s || 0);
+  return Math.floor(s/60) + ':' + ('0' + (s%60)).slice(-2);
+}
+function updateTime() {
+  var cur = audio.currentTime, dur = audio.duration;
+  progressBar.style.width = (dur ? (cur/dur*100) : 0) + '%';
+  playerTime.textContent = fmt(cur) + ' / ' + fmt(dur);
+}
+function togglePlay() {
+  if (audio.paused) { audio.play(); } else { audio.pause(); }
+}
+audio.addEventListener('play', function() {
+  iconPlay.style.display = 'none';
+  iconPause.style.display = 'block';
+});
+audio.addEventListener('pause', function() {
+  iconPlay.style.display = 'block';
+  iconPause.style.display = 'none';
+});
+audio.addEventListener('ended', function() {
+  iconPlay.style.display = 'block';
+  iconPause.style.display = 'none';
+  progressBar.style.width = '0%';
+});
+audio.addEventListener('timeupdate', updateTime);
+audio.addEventListener('loadedmetadata', updateTime);
+function seek(e) {
+  if (!audio.duration) return;
+  var rect = progressWrap.getBoundingClientRect();
+  var frac = (e.clientX - rect.left) / rect.width;
+  audio.currentTime = Math.max(0, Math.min(1, frac)) * audio.duration;
+}
+</script>
+</body>
+</html>
