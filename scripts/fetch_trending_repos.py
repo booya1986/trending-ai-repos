@@ -33,48 +33,79 @@ AI_TOPICS = {
     "llm", "agents", "ai-agents", "rag", "machine-learning",
     "generative-ai", "llmops", "mcp", "prompt-engineering",
     "ai", "deep-learning", "transformers", "agent",
+    # generative media — these repos often never say "llm" or "ai"
+    "text-to-image", "image-generation", "text-to-video", "video-generation",
+    "stable-diffusion", "diffusion-models", "comfyui", "text-to-speech",
+    "multimodal", "ai-tools", "ai-assistant", "openai", "anthropic", "chatgpt",
 }
 AI_KEYWORDS = (
     "llm", "agent", "rag", "machine learning", "generative",
     "gpt", "transformer", "neural", "prompt", "inference",
     "fine-tun", "embedding", "diffusion", "ai ",
+    "text-to-image", "text-to-video", "image generation", "video generation",
+    "comfyui", "multimodal", "claude", "openai", "anthropic", "copilot",
+    "text-to-speech",
 )
 
-# Avi's interest signals, derived from a vault review. Repos matching more of
-# these rank higher (see interest_score). Grouped only for readability.
-INTEREST_SIGNALS = (
-    # Agent skills, workflows, multi-agent, MCP
-    "agent", "agents", "agentic", "multi-agent", "orchestrat", "mcp",
-    "claude", "claude-code", "skill", "skills", "workflow", "autonomous",
-    "agent-memory", "human-in-the-loop", "tool-use", "harness",
-    # Prompt / context engineering
+# What the digest is FOR: generative AI that changes how work gets done. The
+# lanes are named because they do double duty — they feed interest_score, and
+# select_top reserves slots for the ones that would otherwise get outrun (see
+# LANE_FLOORS).
+
+# Generative media: making pictures, video, audio and voice. Deliberately NOT
+# the word "design" on its own, which matches every DESIGN.md coding-agent repo
+# and would let the creative lane fill up without any actual media in it.
+CREATIVE_SIGNALS = (
+    "image generation", "image-generation", "text-to-image", "text to image",
+    "text-to-video", "text to video", "video generation", "video-generation",
+    "video", "diffusion", "comfyui", "inpaint", "outpaint", "upscal",
+    "image edit", "photo edit", "animation", "animate", "avatar",
+    "lipsync", "lip-sync", "3d model", "render", "music", "audio",
+    "voice clone", "voice-clone", "text-to-speech", "text to speech", "tts",
+    "speech", "voice", "transcription", "subtitle", "caption",
+    "generative art", "creative",
+)
+
+# Getting more out of a model: the craft, not the product.
+TECHNIQUE_SIGNALS = (
     "prompt", "context engineering", "context-engineering", "system prompt",
-    "instruction",
-    # RAG, knowledge, memory, Obsidian, PKM
-    "rag", "retrieval", "vector", "semantic search", "semantic-search",
-    "knowledge base", "knowledge-base", "knowledge management", "memory",
-    "persistent memory", "second brain", "obsidian", "pkm", "note", "notes",
-    "embedding",
-    # Gen AI for content, video, audio, TTS
-    "text-to-speech", "text to speech", "tts", "speech", "voice",
-    "transcription", "diarization", "video", "audio", "subtitle", "caption",
-    "content", "generative",
-    # Learning / education / L&D
-    "edtech", "instructional", "learning", "education", "course",
-    "training", "teach", "tutor", "curriculum", "learn",
-    # Vibe coding / build-with-AI / learn-to-build
-    "vibe", "no-code", "low-code", "code generation", "code-gen", "scaffold",
-    "from scratch", "nanogpt", "build your own", "minimal", "explained",
-    # Local-first / privacy / governance
-    "local-first", "on-device", "privacy", "self-host", "governance",
+    "fine-tun", "lora", "distill", "quantiz", "evaluation", "benchmark",
+    "reasoning", "chain-of-thought", "tool use", "tool-use",
+    "structured output", "rag", "retrieval", "embedding", "context window",
+    "from scratch", "build your own",
 )
 
-# Topics/keywords that look AI-adjacent but are NOT Avi's interest. A repo whose
-# signal is dominated by these is dropped (see is_relevant).
+# Assistants, copilots, and agents that do real work.
+PRODUCTIVITY_SIGNALS = (
+    "assistant", "copilot", "automation", "automate", "workflow",
+    "productivity", "browser agent", "computer use", "computer-use",
+    "coding agent", "code generation", "code-generation", "vibe coding",
+    "vibe-coding", "deep research", "research agent", "presentation", "slides",
+)
+
+# Agents, skills, MCP, orchestration — the substrate all three lanes run on.
+AGENT_SIGNALS = (
+    "agent", "agents", "agentic", "multi-agent", "orchestrat", "mcp",
+    "claude", "claude-code", "skill", "skills", "autonomous",
+    "human-in-the-loop", "harness", "open-source model", "local-first",
+)
+
+# Repos matching more of these rank higher (see interest_score).
+INTEREST_SIGNALS = (
+    CREATIVE_SIGNALS + TECHNIQUE_SIGNALS + PRODUCTIVITY_SIGNALS + AGENT_SIGNALS
+)
+
+# Topics/keywords that look AI-adjacent but are NOT what this digest is for. A
+# repo whose signal is dominated by these is dropped (see is_relevant). The
+# note-taking / PKM entries are deliberate: an AI note app is a knowledge-
+# management tool, not a generative-AI one, and those were crowding the list.
 ANTI_SIGNALS = (
     "crypto", "blockchain", "web3", "trading-bot", "robot", "robotics",
     "game", "gaming", "anti-detect", "antidetect", "scraper", "scraping",
     "deepfake", "face-swap", "faceswap",
+    "note-taking", "note taking", "zettelkasten", "second brain",
+    "second-brain", "personal knowledge", "knowledge management",
+    "knowledge-management", "obsidian plugin", "wiki",
 )
 
 
@@ -132,6 +163,7 @@ def is_relevant(repo):
 # Momentum (share of total stars earned this week) separates a repo still
 # climbing from one that arrived years ago and merely stayed popular.
 
+REPO_COUNT = 5        # repos in the weekly digest
 MIN_MOMENTUM = 0.03   # must have earned >=3% of its stars in the last week
 STAR_FLOOR = 150      # below this, weekly velocity is noise
 INTEREST_WEIGHT = 0.12
@@ -178,6 +210,80 @@ def momentum(repo, today=None):
     return weekly_velocity(repo, today) / total
 
 
+LANE_SIGNALS = {
+    "creative": CREATIVE_SIGNALS,
+    "technique": TECHNIQUE_SIGNALS,
+}
+# Slots held for lanes that raw velocity would otherwise crowd out. Coding-agent
+# tooling moves an order of magnitude faster than generative-media work, so
+# without this the list is whatever agent framework is hottest, every week.
+# Sized against REPO_COUNT: 1 of 5 each, the same 60/40 velocity-to-reserved
+# split as the 2-of-10 the list used before it was cut to five.
+LANE_FLOORS = {"creative": 1, "technique": 1}
+
+
+def repo_lanes(repo):
+    """Which reserved lanes this repo belongs to (may be none, or several)."""
+    text = _repo_text(repo)
+    return {
+        lane for lane, signals in LANE_SIGNALS.items()
+        if any(sig in text for sig in signals)
+    }
+
+
+def _trade_in(picked, promo, floors, protected=()):
+    """Lowest-ranked pick we can swap out for `promo` without breaking a floor.
+
+    `picked` holds the originals in rank order, so walking it backwards gives up
+    the slowest repo first. Two kinds of pick are passed over: one already
+    promoted into a reserved slot (otherwise a lane keeps trading its own repo
+    away and never reaches its floor), and the last one holding up another
+    lane's floor.
+    """
+    before = {lane: sum(1 for r in picked if lane in repo_lanes(r)) for lane in floors}
+    for cand in reversed(picked):
+        if any(cand is p for p in protected):
+            continue
+        trial = [r for r in picked if r is not cand] + [promo]
+        after = {lane: sum(1 for r in trial if lane in repo_lanes(r)) for lane in floors}
+        if all(after[lane] >= min(floors[lane], before[lane]) for lane in floors):
+            return cand
+    return None
+
+
+def fill_lane_floors(ranked, limit, floors=LANE_FLOORS, warnings=None):
+    """Promote the fastest repo of an under-represented lane into the list.
+
+    Velocity still decides the order and still fills most of the list; this only
+    guarantees the reserved lanes are represented when candidates exist.
+    """
+    picked = list(ranked[:limit])
+    if len(picked) < limit:
+        return picked  # list isn't even full — nothing to trade away
+    waiting = list(ranked[limit:])
+    promoted = []
+    for lane in sorted(floors):
+        floor = floors[lane]
+        while sum(1 for r in picked if lane in repo_lanes(r)) < floor:
+            promo = next((r for r in waiting if lane in repo_lanes(r)), None)
+            if promo is None:
+                if warnings is not None:
+                    have = sum(1 for r in picked if lane in repo_lanes(r))
+                    warnings.append(
+                        f"only {have} '{lane}' repos qualified this week "
+                        f"({floor} slots reserved); filled with the next fastest"
+                    )
+                break
+            victim = _trade_in(picked, promo, floors, protected=promoted)
+            if victim is None:
+                break
+            picked.remove(victim)
+            waiting.remove(promo)
+            picked.append(promo)
+            promoted.append(promo)
+    return picked
+
+
 def emergence_score(repo, today=None):
     """Velocity leads; Avi's interest signals tune it within a bounded range.
 
@@ -189,13 +295,19 @@ def emergence_score(repo, today=None):
 
 
 _GH_LINK = re.compile(r"github\.com/([^/\s)]+/[^/\s)]+)")
+# Only weekly report notes count as history. The folder also holds index notes
+# ("מדריך…", "📌 Trending Repos…") whose names sort ABOVE every report, so an
+# unfiltered reverse sort spent the whole limit on them and deduped against a
+# single week — which is how W32 repos resurfaced in W34's candidate pool.
+_REPORT_NOTE = re.compile(r"^\d{4}-W\d{2}\b")
 
 
 def previously_seen_repos(notes_dir, limit=3):
     if not os.path.isdir(notes_dir):
         return set()
     files = sorted(
-        (f for f in os.listdir(notes_dir) if f.endswith(".md")),
+        (f for f in os.listdir(notes_dir)
+         if f.endswith(".md") and _REPORT_NOTE.match(f)),
         reverse=True,
     )[:limit]
     seen = set()
@@ -344,12 +456,15 @@ def normalize_repo(raw, readme="", today=None):
 
 
 SEARCH_TOPICS = [
-    # core AI/LLM
-    "llm", "agents", "ai-agents", "generative-ai", "mcp",
-    # Avi's interest areas
-    "rag", "agent-skills", "prompt-engineering", "ai-agent",
-    "knowledge-management", "text-to-speech", "obsidian",
-    "instructional-design", "vibe-coding", "local-llm",
+    # core gen AI
+    "generative-ai", "llm", "ai-agents", "agents", "mcp", "multimodal",
+    # techniques — getting more out of a model
+    "prompt-engineering", "rag", "fine-tuning", "llmops",
+    # creative work — image, video, audio
+    "text-to-image", "image-generation", "text-to-video", "video-generation",
+    "stable-diffusion", "comfyui", "text-to-speech",
+    # productivity — assistants, copilots, agentic tooling
+    "ai-tools", "ai-assistant", "code-generation", "vibe-coding",
 ]
 
 # Trending-page slices. "" is the all-languages page; the rest widen the catch
@@ -405,7 +520,8 @@ def select_top(repos, seen, limit=10, star_floor=STAR_FLOOR,
             )
 
     ranked = sorted(qualified, key=lambda r: emergence_score(r, today), reverse=True)
-    return ranked[:limit]
+    picked = fill_lane_floors(ranked, limit, warnings=warnings)
+    return sorted(picked, key=lambda r: emergence_score(r, today), reverse=True)
 
 
 def main():
@@ -479,9 +595,11 @@ def main():
         except Exception as e:
             warnings.append(f"search failed for topic '{topic}': {e}")
 
-    top = select_top(collected, seen=seen, limit=10, today=today, warnings=warnings)
-    if len(top) < 10:
-        warnings.append(f"only {len(top)} emerging AI/LLM repos found (wanted 10)")
+    top = select_top(collected, seen=seen, limit=REPO_COUNT, today=today, warnings=warnings)
+    if len(top) < REPO_COUNT:
+        warnings.append(
+            f"only {len(top)} emerging gen-AI repos found (wanted {REPO_COUNT})"
+        )
 
     briefs = []
     for r in top:

@@ -37,12 +37,54 @@ def read_narration(week):
                 name = parts[1].strip()
                 desc = parts[2].split('.')[0].strip()
                 repos.append((name, desc))
-    return repos[:4]
+    return repos[:5]
+
+
+def read_news(week, limit=5):
+    """The week's gen-AI headlines, written by summarize_news.py.
+
+    Returns [] when the file is missing or unreadable, so a week without news
+    sends exactly the email it always did.
+    """
+    path = os.path.join(REPORTS_DIR, week, 'news.json')
+    if not os.path.exists(path):
+        return []
+    try:
+        data = json.load(open(path, encoding='utf-8'))
+    except (ValueError, OSError):
+        return []
+    return (data.get('stories') or [])[:limit]
+
+
+def build_news_block(week):
+    stories = read_news(week)
+    if not stories:
+        return ''
+    items = ''
+    for i, s in enumerate(stories):
+        border = 'border-bottom:1px solid #2d2d2d;' if i < len(stories) - 1 else ''
+        headline = s.get('headline_he') or s.get('headline_en') or ''
+        summary = s.get('summary_he') or s.get('summary_en') or ''
+        url = s.get('url', '')
+        source = s.get('source', '')
+        items += f'''<tr><td style="padding:10px 0;{border}">
+        <p style="margin:0 0 3px;font-size:14px;color:#f3f4f6;font-family:Arial,sans-serif;">
+          <a href="{url}" style="color:#22c55e;text-decoration:none;font-weight:bold;">{headline}</a>
+        </p>
+        <p style="margin:0;font-size:13px;color:#9ca3af;line-height:1.5;font-family:Arial,sans-serif;">{summary}</p>
+        <p style="margin:3px 0 0;font-size:11px;color:#6b7280;font-family:Arial,sans-serif;">{source}</p>
+        </td></tr>'''
+    return f'''  <tr><td style="background:#1b1b1b;padding:4px 28px 16px;">
+    <p style="margin:0 0 10px;font-size:11px;font-weight:bold;color:#22c55e;letter-spacing:2px;font-family:Arial,sans-serif;">&#128240; החדשות של השבוע</p>
+    <table width="100%" cellpadding="0" cellspacing="0">{items}</table>
+  </td></tr>
+'''
 
 
 def build_html(week, top_repos):
     report_url = f"{BASE_URL}/{week}/"
     mp3_url = f"{BASE_URL}/{week}/report.mp3"
+    news_block = build_news_block(week)
     rows = ''
     for i, (name, desc) in enumerate(top_repos):
         border = 'border-bottom:1px solid #2d2d2d;' if i < len(top_repos) - 1 else ''
@@ -61,12 +103,11 @@ def build_html(week, top_repos):
   <tr><td style="background:#1b1b1b;border-radius:12px 12px 0 0;padding:24px 28px 18px;border-bottom:3px solid #22c55e;">
     <p style="margin:0 0 6px;font-size:11px;color:#22c55e;letter-spacing:2px;font-family:Arial,sans-serif;">WEEKLY AI DIGEST</p>
     <h1 style="margin:0 0 4px;font-size:22px;color:#f9fafb;font-family:Arial,sans-serif;">&#x1F525; טרנדים ב-AI/LLM</h1>
-    <p style="margin:0;font-size:13px;color:#9ca3af;font-family:Arial,sans-serif;">{week_label} &middot; 10 repos נבחרים לפי הפרופיל שלך</p>
+    <p style="margin:0;font-size:13px;color:#9ca3af;font-family:Arial,sans-serif;">{week_label} &middot; 5 כתבות + 5 repos מובילים</p>
   </td></tr>
-  <tr><td style="background:#1b1b1b;padding:20px 28px 16px;">
-    <p style="margin:0 0 14px;font-size:11px;font-weight:bold;color:#22c55e;letter-spacing:2px;font-family:Arial,sans-serif;">TL;DR — ההיילייטס של השבוע</p>
+{news_block}  <tr><td style="background:#1b1b1b;padding:4px 28px 16px;">
+    <p style="margin:0 0 14px;font-size:11px;font-weight:bold;color:#22c55e;letter-spacing:2px;font-family:Arial,sans-serif;">&#128200; 5 ה-REPOS המובילים</p>
     <table width="100%" cellpadding="0" cellspacing="0">{rows}</table>
-    <p style="margin:12px 0 0;font-size:12px;color:#6b7280;font-family:Arial,sans-serif;">+ repos נוספים בדוח המלא</p>
   </td></tr>
   <tr><td style="background:#1b1b1b;padding:20px 28px 10px;">
     <a href="{report_url}" style="display:block;background:#22c55e;color:#0a1a0f;padding:16px 0;border-radius:50px;text-decoration:none;font-weight:bold;font-size:16px;text-align:center;font-family:Arial,sans-serif;">&#x1F4F1; קרא את הדוח המלא</a>
@@ -92,7 +133,7 @@ def send(week):
     msg['To'] = TO
     msg['From'] = TO
     msg['Subject'] = f'🔥 דוח AI שבועי מוכן – {week_label}'
-    msg.attach(MIMEText('10 repos AI מובילים השבוע. פתח לקרוא ולהאזין.', 'plain', 'utf-8'))
+    msg.attach(MIMEText('5 הכתבות ו-5 ה-repos המובילים השבוע ב-Gen AI. פתח לקרוא ולהאזין.', 'plain', 'utf-8'))
     msg.attach(MIMEText(html, 'html', 'utf-8'))
 
     raw = base64.urlsafe_b64encode(msg.as_bytes()).decode()

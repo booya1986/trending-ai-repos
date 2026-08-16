@@ -13,9 +13,61 @@ import json
 import os
 import sys
 
+SITE_BASE = "https://booya1986.github.io/trending-ai-repos/reports"
+
 
 def _tags(topics, n=4):
     return topics[:n] if topics else []
+
+
+NEWS_TAGS = {
+    "product": ("מוצר", "Product"),
+    "company": ("חברה", "Company"),
+    "technique": ("טכניקה", "Technique"),
+    "creative": ("קריאייטיב", "Creative"),
+    "research": ("מחקר", "Research"),
+}
+
+
+def render_news(stories):
+    """The week's gen-AI news, above the repo cards. Empty string when there is
+    no news, so a failed news fetch leaves the report exactly as it was."""
+    if not stories:
+        return ""
+    items = []
+    for s in stories:
+        tag_he, tag_en = NEWS_TAGS.get(s.get("category", "product"), NEWS_TAGS["product"])
+        url = html.escape(s.get("url", ""))
+        source = html.escape(s.get("source", ""))
+        published = html.escape((s.get("published") or "")[:10])
+        head_he = html.escape(s.get("headline_he") or s.get("headline_en") or "")
+        head_en = html.escape(s.get("headline_en") or "")
+        sum_he = html.escape(s.get("summary_he") or "")
+        sum_en = html.escape(s.get("summary_en") or "")
+        why_he = html.escape(s.get("why_he") or "")
+        why_en = html.escape(s.get("why_en") or "")
+        why_block = ""
+        if why_he or why_en:
+            why_block = (
+                f'<p class="news__why i18n" data-he="{why_he}" data-en="{why_en}">{why_he}</p>'
+            )
+        items.append(f"""
+      <div class="news__item">
+        <span class="news__tag i18n" data-he="{tag_he}" data-en="{tag_en}">{tag_he}</span>
+        <p class="news__title">
+          <a href="{url}" target="_blank" rel="noopener"
+             class="i18n" data-he="{head_he}" data-en="{head_en}">{head_he}</a>
+        </p>
+        <p class="news__text i18n" data-he="{sum_he}" data-en="{sum_en}">{sum_he}</p>
+        {why_block}
+        <p class="news__source">{source}{" &middot; " + published if published else ""}</p>
+      </div>""")
+    return f"""
+  <section class="news">
+    <p class="news__eyebrow i18n" data-he="&#128240; 5 הכתבות המובילות" data-en="&#128240; Top 5 Articles">&#128240; 5 הכתבות המובילות</p>
+    <p class="news__sub i18n" data-he="הסיפורים הגדולים ביותר בעולם ה-Gen AI בשבוע האחרון" data-en="The biggest gen AI stories of the past week">הסיפורים הגדולים ביותר בעולם ה-Gen AI בשבוע האחרון</p>
+{"".join(items)}
+  </section>"""
 
 
 def render_html(data):
@@ -23,6 +75,7 @@ def render_html(data):
     generated_for = data.get("generated_for", "")
     repos = data.get("repos", [])
     warnings = data.get("warnings", []) or []
+    news_html = render_news(data.get("news") or [])
 
     cards = []
     for i, r in enumerate(repos, 1):
@@ -74,6 +127,19 @@ def render_html(data):
     cards_html = "\n".join(cards)
     week_display = html.escape(week)
 
+    # Social preview. WhatsApp, Slack, LinkedIn, and X all read og:*; without
+    # it a shared link renders as a bare grey box. The URLs must be absolute.
+    page_url = f"{SITE_BASE}/{week}/"
+    og_image = f"{SITE_BASE}/{week}/og.png"
+    og_title = f"טרנדים ב-AI/LLM — {week}"
+    lead = ""
+    if repos:
+        lead = (repos[0].get("full_name") or "")
+    og_desc = "ה-repos והחדשות הבולטים בעולם ה-AI השבוע"
+    if lead:
+        og_desc += f". פותח ב: {lead}"
+    og_desc = og_desc[:200]
+
     return f"""<!DOCTYPE html>
 <html lang="he" dir="rtl">
 <head>
@@ -81,6 +147,28 @@ def render_html(data):
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <meta name="theme-color" content="#1b1b1b">
 <title>טרנדים ב-AI {week_display}</title>
+<meta name="description" content="{html.escape(og_desc)}">
+<link rel="canonical" href="{html.escape(page_url)}">
+
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="טרנדים ב-AI/LLM">
+<meta property="og:locale" content="he_IL">
+<meta property="og:url" content="{html.escape(page_url)}">
+<meta property="og:title" content="{html.escape(og_title)}">
+<meta property="og:description" content="{html.escape(og_desc)}">
+<meta property="og:image" content="{html.escape(og_image)}">
+<meta property="og:image:secure_url" content="{html.escape(og_image)}">
+<meta property="og:image:type" content="image/png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="{html.escape(og_title)}">
+
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="{html.escape(og_title)}">
+<meta name="twitter:description" content="{html.escape(og_desc)}">
+<meta name="twitter:image" content="{html.escape(og_image)}">
+
+<link rel="icon" href="data:image/svg+xml,&lt;svg xmlns=&quot;http://www.w3.org/2000/svg&quot; viewBox=&quot;0 0 100 100&quot;&gt;&lt;text y=&quot;.9em&quot; font-size=&quot;90&quot;&gt;&#128293;&lt;/text&gt;&lt;/svg&gt;">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Hebrew:wght@300;400;500;600;700&display=swap" rel="stylesheet">
@@ -494,13 +582,82 @@ def render_html(data):
   }}
   a {{ color: var(--accent); }}
 
+  /* ── NEWS ── */
+  .news {{
+    margin-bottom: 32px;
+    border: 1px solid var(--accent-border);
+    border-radius: var(--radius-lg);
+    background: var(--accent-softer);
+    padding: 20px 18px 8px;
+  }}
+  .news__eyebrow {{
+    font-size: 0.72rem;
+    font-weight: 600;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: var(--accent);
+    text-shadow: var(--text-glow);
+    margin-bottom: 4px;
+  }}
+  .news__sub {{
+    font-size: 0.78rem;
+    color: var(--fg-subtle);
+    margin-bottom: 16px;
+  }}
+  .news__item {{
+    padding: 14px 0;
+    border-top: 1px solid var(--accent-border);
+  }}
+  .news__item:first-of-type {{ border-top: none; padding-top: 0; }}
+  .news__tag {{
+    display: inline-block;
+    font-size: 0.62rem;
+    font-weight: 600;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    color: var(--accent);
+    background: var(--accent-soft);
+    border-radius: var(--radius-pill);
+    padding: 2px 10px;
+    margin-bottom: 6px;
+  }}
+  .news__title {{
+    font-size: 1rem;
+    font-weight: 600;
+    line-height: 1.45;
+    margin-bottom: 6px;
+  }}
+  .news__title a {{ text-decoration: none; }}
+  .news__title a:hover {{ text-shadow: var(--text-glow); }}
+  .news__text {{ font-size: 0.88rem; line-height: 1.65; margin-bottom: 4px; }}
+  .news__why {{ font-size: 0.85rem; color: var(--fg-subtle); line-height: 1.6; }}
+  .news__source {{ font-size: 0.72rem; color: var(--fg-subtle); margin-top: 6px; }}
+
+  /* ── SECTION HEADINGS ── */
+  .section-eyebrow {{
+    font-size: 0.72rem;
+    font-weight: 600;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: var(--accent);
+    text-shadow: var(--text-glow);
+    margin-bottom: 4px;
+  }}
+  .section-sub {{
+    font-size: 0.78rem;
+    color: var(--fg-subtle);
+    margin-bottom: 14px;
+  }}
+
   /* ── MOBILE SAFETY ── */
   img, video, audio {{ max-width: 100%; }}
   .card__title a {{ word-break: break-word; }}
+  .news__title a {{ word-break: break-word; }}
   @media (max-width: 480px) {{
     .card__body {{ padding: 28px 14px 16px; }}
     .card__stats {{ padding: 6px 10px; min-width: 50px; }}
     .player-time {{ display: none; }}
+    .news {{ padding: 16px 12px 6px; }}
   }}
 </style>
 </head>
@@ -545,12 +702,17 @@ def render_html(data):
 
   {warn_html}
 
+  {news_html}
+
+  <p class="section-eyebrow i18n" data-he="&#128200; 5 ה-REPOS המובילים" data-en="&#128200; Top 5 Repos">&#128200; 5 ה-REPOS המובילים</p>
+  <p class="section-sub i18n" data-he="הפרויקטים שצוברים תאוצה בשבוע האחרון" data-en="The projects gaining the most momentum this week">הפרויקטים שצוברים תאוצה בשבוע האחרון</p>
+
   <main id="repoList">
 {cards_html}
   </main>
 
   <footer class="site-footer">
-    <span class="i18n" data-he="עיכול אוטומטי שבועי · מקור: GitHub Search API" data-en="Auto-generated weekly digest · Data: GitHub Search API">עיכול אוטומטי שבועי · מקור: GitHub Search API</span>
+    <span class="i18n" data-he="עיכול אוטומטי שבועי · מקורות: GitHub + עדכוני חדשות Gen AI" data-en="Auto-generated weekly digest · Sources: GitHub + gen AI news feeds">עיכול אוטומטי שבועי · מקורות: GitHub + עדכוני חדשות Gen AI</span>
     <p class="share-copied" id="shareCopied">&#128279; <span class="i18n" data-he="הקישור הועתק!" data-en="Link copied!">הקישור הועתק!</span></p>
   </footer>
 
@@ -682,12 +844,30 @@ def render_narration(data):
         yr, wn = week.split("-W")
         week_he = f"שבוע {int(wn)}, {yr}"
 
+    stories = data.get("news") or []
+
     lines = [
-        f"שלום, זה הדוח השבועי שלך על הרפוזיטוריות המובילות בתחום הבינה המלאכותית.",
+        "שלום, זה הדוח השבועי שלך על מה שקורה בעולם ה-Gen AI.",
         f"{week_he}.",
-        f"השבוע יש לנו {len(repos)} רפוזיטוריות שרלוונטיות במיוחד לתחומים שלך.",
         "",
     ]
+
+    # Same order as the page: the week's stories first, then the repos. Skipped
+    # entirely when the news fetch produced nothing, so a newsless week narrates
+    # exactly as it always did.
+    if stories:
+        lines.append(f"נתחיל עם {len(stories)} הכתבות המובילות של השבוע.")
+        lines.append("")
+        for s in stories:
+            head = (s.get("headline_he") or s.get("headline_en") or "").strip()
+            summary = (s.get("summary_he") or "").strip().rstrip(".")
+            if not head:
+                continue
+            lines.append(f"{head}. {summary}." if summary else f"{head}.")
+            lines.append("")
+
+    lines.append(f"ועכשיו, {len(repos)} הרפוזיטוריות שצוברות הכי הרבה תאוצה השבוע.")
+    lines.append("")
     for i, r in enumerate(repos, 1):
         name = r.get("full_name", "").split("/")[-1].replace("-", " ")
         stars = r.get("stars", 0)
@@ -698,6 +878,7 @@ def render_narration(data):
             desc = (r.get("description") or "").strip().rstrip(".")
             lines.append(f"מספר {i}. {name}, עם {stars:,} כוכבים. {desc}.")
         lines.append("")
+
     lines.append("זה הכל להשבוע. שיהיה לך שבוע מעולה!")
     return "\n".join(lines)
 
@@ -706,6 +887,8 @@ def main():
     ap = argparse.ArgumentParser()
     ap.add_argument("--in", dest="infile", default="-")
     ap.add_argument("--outdir", required=True)
+    ap.add_argument("--news", dest="newsfile", default=None,
+                    help="summarize_news.py output; the news section is omitted without it")
     args = ap.parse_args()
 
     raw = (
@@ -714,6 +897,17 @@ def main():
         else open(args.infile, encoding="utf-8").read()
     )
     data = json.loads(raw)
+
+    # News must never be able to break the repo digest: a missing or malformed
+    # news file degrades to no news section, not to a failed build.
+    if args.newsfile:
+        try:
+            news = json.load(open(args.newsfile, encoding="utf-8"))
+            data["news"] = news.get("stories") or []
+            print(f"news stories: {len(data['news'])}")
+        except Exception as e:
+            print(f"could not read news file: {type(e).__name__}: {e}", file=sys.stderr)
+            data["news"] = []
 
     os.makedirs(args.outdir, exist_ok=True)
     with open(os.path.join(args.outdir, "index.html"), "w", encoding="utf-8") as fh:

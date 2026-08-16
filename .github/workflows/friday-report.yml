@@ -37,7 +37,9 @@ jobs:
           python-version: "3.12"
 
       - name: Install dependencies
-        run: pip install anthropic
+        run: |
+          pip install anthropic playwright
+          playwright install --with-deps chromium
 
       - name: Fetch trending repos
         env:
@@ -87,11 +89,28 @@ jobs:
           ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
         run: python3 scripts/generate_briefs.py /tmp/trending.json /tmp/trending_rich.json
 
+      # News is additive and must never be able to break the repo digest: every
+      # command here is `|| true`, and both scripts degrade to a smaller (or
+      # empty) news section rather than failing.
+      - name: Fetch and summarize AI news (non-fatal)
+        if: steps.dedup.outputs.skip == 'false'
+        env:
+          ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
+          FIRECRAWL_API_KEY: ${{ secrets.FIRECRAWL_API_KEY }}
+        run: |
+          python3 scripts/fetch_ai_news.py > /tmp/news.json || echo '{"items":[],"warnings":["news fetch crashed"]}' > /tmp/news.json
+          python3 -c "import json;d=json.load(open('/tmp/news.json'));print('news candidates:',d.get('count',0));[print('::warning title=news::'+w) for w in d.get('warnings') or []]"
+          python3 scripts/summarize_news.py /tmp/news.json /tmp/news_rich.json || cp /tmp/news.json /tmp/news_rich.json
+          python3 -c "import json;d=json.load(open('/tmp/news_rich.json'));n=len(d.get('stories') or []);print('news stories:',n);print('::warning title=news::only %d news stories'%n) if n<3 else None"
+
       - name: Build HTML report and narration
         if: steps.dedup.outputs.skip == 'false'
         run: |
           mkdir -p "${{ env.outdir }}"
-          python3 scripts/build_report.py --in /tmp/trending_rich.json --outdir "${{ env.outdir }}"
+          python3 scripts/build_report.py --in /tmp/trending_rich.json --news /tmp/news_rich.json --outdir "${{ env.outdir }}"
+          # news.json ships next to the report: the Sunday email and the vault
+          # note both read it from the committed report directory.
+          cp /tmp/news_rich.json "${{ env.outdir }}/news.json" || true
           # Brief sections are the bilingual body of each card. Zero means the
           # briefs step produced nothing and the report would ship empty cards
           # (and the vault note would fall back to its thin format).
@@ -121,6 +140,14 @@ jobs:
           open(note_path, 'w', encoding='utf-8').write('\n'.join(lines))
           print('note written:', note_path)
           PY
+
+      - name: Build social card (non-fatal)
+        if: steps.dedup.outputs.skip == 'false'
+        run: |
+          python3 scripts/build_og_image.py "${{ env.outdir }}" /tmp/trending_rich.json || true
+          if [ ! -f "${{ env.outdir }}/og.png" ]; then
+            echo "::warning title=og::no og.png produced -- shared links will preview without an image"
+          fi
 
       # Runs on dry runs too: it writes into the throwaway outdir, so the MP3
       # path is exercised for real (and lands in the artifact) without touching
