@@ -41,6 +41,19 @@ jobs:
           pip install anthropic playwright
           playwright install --with-deps chromium
 
+      - name: Verify required secrets are present
+        env:
+          ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
+        run: |
+          # generate_briefs.py degrades to plain descriptions without a key,
+          # which is right for a transient API failure but wrong for a missing
+          # secret: the run would go green and ship a report with no briefs.
+          if [ -z "$ANTHROPIC_API_KEY" ]; then
+            echo "::error title=config::ANTHROPIC_API_KEY is not set. Set it with: gh secret set ANTHROPIC_API_KEY --repo booya1986/trending-ai-repos"
+            exit 1
+          fi
+          echo "ANTHROPIC_API_KEY present"
+
       - name: Fetch trending repos
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
