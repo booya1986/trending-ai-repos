@@ -115,8 +115,16 @@ def load(outdir, enriched):
         page = os.path.join(outdir, "index.html")
         if os.path.exists(page):
             src = open(page, encoding="utf-8").read()
-            names = re.findall(r'href="https://github\.com/([\w.\-]+/[\w.\-]+)"', src)[:3]
-            repo_count = repo_count or len(set(names))
+            found = re.findall(r'href="https://github\.com/([\w.\-]+/[\w.\-]+)"', src)
+            # Count every distinct repo on the page, then display the first few.
+            # Counting the displayed slice instead reports "3" on a 10-repo report.
+            seen, uniq = set(), []
+            for n in found:
+                if n not in seen:
+                    seen.add(n)
+                    uniq.append(n)
+            repo_count = repo_count or len(uniq)
+            names = uniq[:3]
     if not week:
         week = os.path.basename(outdir.rstrip("/"))
     return week, repo_count, news_count, names
