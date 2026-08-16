@@ -47,7 +47,9 @@ FEEDS = [
     ("Latent Space", "https://www.latent.space/feed", 2),
     ("Simon Willison", "https://simonwillison.net/atom/everything/", 2),
     ("Interconnects", "https://www.interconnects.ai/feed", 2),
-    ("Import AI", "https://importai.substack.com/feed", 2),
+    # Import AI removed: importai.substack.com 403s from GitHub Actions runner
+    # IPs, so it fetched fine locally and never in CI, warning every week.
+    # Substack custom domains (Latent Space, Interconnects) are unaffected.
     ("OpenAI", "https://openai.com/blog/rss.xml", 3),
     ("Hugging Face", "https://huggingface.co/blog/feed.xml", 3),
     ("Google DeepMind", "https://deepmind.google/blog/rss.xml", 3),
