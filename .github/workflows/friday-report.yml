@@ -130,7 +130,12 @@ jobs:
           sections=$(grep -o 'brief-section' "${{ env.outdir }}/index.html" | wc -l | tr -d ' ')
           echo "brief-sections in report: $sections"
           if [ "$sections" -lt 20 ]; then
-            echo "::warning title=briefs::only $sections brief-section markers in the report -- bilingual briefs are missing or partial"
+            # Hard failure, not a warning. generate_briefs.py degrades to plain
+            # descriptions on any exception, so a real bug produced a GREEN run
+            # shipping a report with no briefs. The sibling L&D pipeline hit
+            # exactly that. Fail and let the Friday safety-net crons retry.
+            echo "::error title=briefs::only $sections brief-section markers -- the briefs step degraded. Refusing to publish a report without briefs."
+            exit 1
           fi
 
       - name: Write Obsidian note
