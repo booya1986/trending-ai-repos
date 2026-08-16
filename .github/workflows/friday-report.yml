@@ -164,6 +164,10 @@ jobs:
             echo "::warning title=tts::no report.mp3 produced -- see warnings.txt"
           fi
 
+      - name: Rebuild archive index
+        if: steps.dedup.outputs.skip == 'false' && inputs.dry_run != true
+        run: python3 scripts/build_index.py
+
       - name: Upload dry-run report
         if: inputs.dry_run == true
         uses: actions/upload-artifact@v4
@@ -177,6 +181,7 @@ jobs:
           git config user.email "avi.j.levi@gmail.com"
           git config user.name "Avi Levi (Friday robot)"
           git add "reports/${{ env.week }}/" 2>/dev/null || true
+          git add reports/index.html 2>/dev/null || true
           git add "reports/${{ env.week }} Trending AI Repos.md" 2>/dev/null || true
           if ! git diff --cached --quiet; then
             git commit -m "Add trending AI repos report for ${{ env.week }}"
