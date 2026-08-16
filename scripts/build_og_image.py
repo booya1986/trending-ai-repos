@@ -100,6 +100,16 @@ def load(outdir, enriched):
         repo_count = len(repos)
         news_count = len(data.get("news") or data.get("stories") or [])
         names = [r.get("full_name", "") for r in repos]
+    if not news_count:
+        # News is built in its own file and copied next to the report, so the
+        # enriched repo JSON alone reports zero stories.
+        news_path = os.path.join(outdir, "news.json")
+        if os.path.exists(news_path):
+            try:
+                nd = json.load(open(news_path, encoding="utf-8"))
+                news_count = len(nd.get("stories") or nd.get("items") or [])
+            except (ValueError, OSError):
+                pass
     if not names:
         import re
         page = os.path.join(outdir, "index.html")
