@@ -1,0 +1,865 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="theme-color" content="#1b1b1b">
+<title>טרנדים ב-AI 2026-W34</title>
+<meta name="description" content="ה-repos והחדשות הבולטים בעולם ה-AI השבוע. פותח ב: deepseek-ai/deepseek-harness">
+<link rel="canonical" href="https://booya1986.github.io/trending-ai-repos/reports/2026-W34/">
+
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="טרנדים ב-AI/LLM">
+<meta property="og:locale" content="he_IL">
+<meta property="og:url" content="https://booya1986.github.io/trending-ai-repos/reports/2026-W34/">
+<meta property="og:title" content="טרנדים ב-AI/LLM — 2026-W34">
+<meta property="og:description" content="ה-repos והחדשות הבולטים בעולם ה-AI השבוע. פותח ב: deepseek-ai/deepseek-harness">
+<meta property="og:image" content="https://booya1986.github.io/trending-ai-repos/reports/2026-W34/og.png">
+<meta property="og:image:secure_url" content="https://booya1986.github.io/trending-ai-repos/reports/2026-W34/og.png">
+<meta property="og:image:type" content="image/png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="טרנדים ב-AI/LLM — 2026-W34">
+
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="טרנדים ב-AI/LLM — 2026-W34">
+<meta name="twitter:description" content="ה-repos והחדשות הבולטים בעולם ה-AI השבוע. פותח ב: deepseek-ai/deepseek-harness">
+<meta name="twitter:image" content="https://booya1986.github.io/trending-ai-repos/reports/2026-W34/og.png">
+
+<link rel="icon" href="data:image/svg+xml,&lt;svg xmlns=&quot;http://www.w3.org/2000/svg&quot; viewBox=&quot;0 0 100 100&quot;&gt;&lt;text y=&quot;.9em&quot; font-size=&quot;90&quot;&gt;&#128293;&lt;/text&gt;&lt;/svg&gt;">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Hebrew:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg: #1b1b1b;
+    --bg-elevated: #232323;
+    --fg: #c5c1b9;
+    --fg-strong: #dcdad5;
+    --fg-muted: #a09d96;
+    --fg-subtle: #96928c;
+    --accent: #22c55e;
+    --accent-glow: rgba(34,197,94,0.6);
+    --accent-soft: rgba(34,197,94,0.12);
+    --accent-softer: rgba(34,197,94,0.04);
+    --accent-border: rgba(34,197,94,0.12);
+    --accent-border-hover: rgba(34,197,94,0.3);
+    --shadow-glow-md: 0 0 15px rgba(34,197,94,0.3), 0 0 40px rgba(34,197,94,0.1);
+    --text-glow: 0 0 8px rgba(34,197,94,0.6), 0 0 20px rgba(34,197,94,0.3);
+    --font-sans: 'Noto Sans Hebrew', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+    --radius-sm: 8px;
+    --radius-md: 12px;
+    --radius-lg: 16px;
+    --radius-pill: 999px;
+    --transition: 0.3s cubic-bezier(0.4,0,0.2,1);
+    --transition-fast: 0.15s cubic-bezier(0.4,0,0.2,1);
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html { -webkit-text-size-adjust: 100%; }
+
+  body {
+    background: var(--bg);
+    color: var(--fg);
+    font-family: var(--font-sans);
+    font-size: clamp(1rem, 2vw, 1.0625rem);
+    line-height: 1.7;
+    padding-top: env(safe-area-inset-top);
+    padding-bottom: env(safe-area-inset-bottom);
+  }
+
+  /* ── GRID BACKGROUND ── */
+  body::before {
+    content: '';
+    position: fixed;
+    inset: 0;
+    z-index: 0;
+    pointer-events: none;
+    background-image:
+      linear-gradient(rgba(34,197,94,0.03) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(34,197,94,0.03) 1px, transparent 1px);
+    background-size: 40px 40px;
+    mask-image: radial-gradient(ellipse 80% 60% at 50% 0%, black 40%, transparent 100%);
+    -webkit-mask-image: radial-gradient(ellipse 80% 60% at 50% 0%, black 40%, transparent 100%);
+  }
+
+  .wrap {
+    position: relative;
+    z-index: 1;
+    max-width: 720px;
+    margin: 0 auto;
+    padding: 24px 16px 80px;
+  }
+
+  /* ── TOP BAR ── */
+  .top-bar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 16px;
+    gap: 10px;
+  }
+  .lang-btn, .share-btn {
+    background: var(--accent-softer);
+    border: 1px solid var(--accent-border);
+    border-radius: var(--radius-pill);
+    color: var(--accent);
+    font-family: var(--font-sans);
+    font-size: 0.8rem;
+    font-weight: 600;
+    letter-spacing: 0.5px;
+    padding: 7px 16px;
+    cursor: pointer;
+    transition: all var(--transition-fast);
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    min-height: 44px;
+    -webkit-tap-highlight-color: transparent;
+  }
+  .lang-btn:hover, .share-btn:hover {
+    background: var(--accent-soft);
+    border-color: var(--accent);
+    box-shadow: 0 0 10px var(--accent-glow);
+  }
+  .share-btn svg { width: 16px; height: 16px; stroke: var(--accent); }
+  .share-btn.copied { background: var(--accent-soft); }
+  .share-copied {
+    font-size: 0.72rem;
+    color: var(--accent);
+    margin-top: 4px;
+    text-align: center;
+    opacity: 0;
+    transition: opacity 0.3s;
+  }
+  .share-copied.show { opacity: 1; }
+
+  /* ── HEADER ── */
+  .site-header { margin-bottom: 24px; }
+  .header-eyebrow {
+    font-size: 0.8rem;
+    font-weight: 500;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: var(--accent);
+    text-shadow: var(--text-glow);
+    margin-bottom: 6px;
+  }
+  .header-title {
+    font-size: clamp(1.6rem, 4vw, 2.2rem);
+    font-weight: 700;
+    color: var(--fg-strong);
+    line-height: 1.3;
+    text-shadow: 0 0 30px rgba(34,197,94,0.1);
+    margin-bottom: 4px;
+  }
+  .header-sub {
+    font-size: 0.875rem;
+    color: var(--fg-muted);
+    font-weight: 300;
+  }
+
+  /* ── CUSTOM AUDIO PLAYER ── */
+  .player {
+    position: sticky;
+    top: 0;
+    z-index: 10;
+    background: rgba(27,27,27,0.92);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border-bottom: 1px solid var(--accent-border);
+    padding: 12px 16px;
+    margin: 0 -16px 24px;
+  }
+  .player audio { display: none; }
+
+  .player-ui {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+  }
+  .player-btn {
+    flex-shrink: 0;
+    width: 44px;
+    height: 44px;
+    border-radius: 50%;
+    background: var(--accent);
+    border: none;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all var(--transition-fast);
+    box-shadow: 0 0 12px rgba(34,197,94,0.4);
+  }
+  .player-btn:hover {
+    transform: scale(1.08);
+    box-shadow: 0 0 20px rgba(34,197,94,0.6);
+  }
+  .player-btn svg { width: 18px; height: 18px; fill: #0a1a0f; }
+
+  .player-center { flex: 1; min-width: 0; }
+  .player-track {
+    font-size: 0.8rem;
+    font-weight: 500;
+    color: var(--fg-strong);
+    margin-bottom: 6px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+  .player-progress-wrap {
+    position: relative;
+    height: 4px;
+    background: rgba(255,255,255,0.1);
+    border-radius: 2px;
+    cursor: pointer;
+    overflow: hidden;
+  }
+  .player-progress-bar {
+    height: 100%;
+    width: 0%;
+    background: var(--accent);
+    border-radius: 2px;
+    box-shadow: 0 0 6px var(--accent-glow);
+    transition: width 0.1s linear;
+    pointer-events: none;
+  }
+  .player-progress-wrap:hover .player-progress-bar {
+    box-shadow: 0 0 12px var(--accent-glow);
+  }
+
+  .player-time {
+    font-size: 0.72rem;
+    color: var(--fg-subtle);
+    white-space: nowrap;
+    flex-shrink: 0;
+    font-variant-numeric: tabular-nums;
+    min-width: 70px;
+    text-align: center;
+  }
+
+  .player-hint {
+    font-size: 0.72rem;
+    color: var(--fg-subtle);
+    margin-top: 7px;
+    letter-spacing: 0.3px;
+  }
+
+  /* ── RUN NOTES ── */
+  .run-notes {
+    background: var(--accent-softer);
+    border: 1px solid var(--accent-border);
+    border-right: 3px solid var(--accent);
+    border-radius: var(--radius-md) 0 0 var(--radius-md);
+    padding: 12px 16px;
+    margin-bottom: 24px;
+    font-size: 0.875rem;
+    color: var(--fg-strong);
+  }
+  [dir="ltr"] .run-notes {
+    border-right: 1px solid var(--accent-border);
+    border-left: 3px solid var(--accent);
+    border-radius: 0 var(--radius-md) var(--radius-md) 0;
+  }
+  .run-notes ul { padding-right: 20px; margin-top: 6px; }
+  [dir="ltr"] .run-notes ul { padding-right: 0; padding-left: 20px; }
+
+  /* ── CARDS ── */
+  .card {
+    position: relative;
+    background: var(--accent-softer);
+    border: 1px solid var(--accent-border);
+    border-radius: var(--radius-lg);
+    margin-bottom: 16px;
+    transition: border-color var(--transition), background var(--transition), box-shadow var(--transition);
+  }
+  .card:hover {
+    border-color: var(--accent-border-hover);
+    background: rgba(34,197,94,0.07);
+    box-shadow: var(--shadow-glow-md), 0 12px 32px rgba(0,0,0,0.25);
+  }
+
+  .card__rank {
+    position: absolute;
+    top: -1px;
+    right: 20px;
+    background: var(--accent);
+    color: #0a1a0f;
+    font-size: 0.75rem;
+    font-weight: 700;
+    letter-spacing: 0.5px;
+    padding: 3px 10px;
+    border-radius: 0 0 var(--radius-sm) var(--radius-sm);
+  }
+  [dir="ltr"] .card__rank { right: auto; left: 20px; }
+
+  .card__body { padding: 28px 20px 20px; }
+
+  /* card header: title block + star stat */
+  .card__header {
+    display: flex;
+    align-items: flex-start;
+    gap: 12px;
+    margin-bottom: 10px;
+  }
+  .card__title-block { flex: 1; min-width: 0; }
+  .card__eyebrow {
+    font-size: 0.78rem;
+    font-weight: 500;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    color: var(--accent);
+    text-shadow: var(--text-glow);
+    margin-bottom: 4px;
+  }
+  .card__title {
+    font-size: 1.1rem;
+    font-weight: 600;
+    line-height: 1.35;
+  }
+  .card__title a {
+    color: var(--fg-strong);
+    text-decoration: none;
+    transition: color var(--transition-fast);
+    word-break: break-word;
+  }
+  .card__title a:hover { color: var(--accent); }
+  .card__org {
+    color: var(--fg-muted);
+    font-weight: 400;
+  }
+
+  .card__stats {
+    flex-shrink: 0;
+    text-align: center;
+    background: var(--accent-soft);
+    border: 1px solid var(--accent-border);
+    border-radius: var(--radius-md);
+    padding: 8px 12px;
+    min-width: 56px;
+  }
+  .card__stars {
+    color: #f0c674;
+    font-size: 1.1rem;
+    line-height: 1;
+  }
+  .stars-num {
+    display: block;
+    font-size: 0.85rem;
+    font-weight: 700;
+    color: var(--fg-strong);
+    margin-top: 2px;
+  }
+
+  .card__meta {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 4px 14px;
+    font-size: 0.78rem;
+    color: var(--fg-subtle);
+    margin-bottom: 10px;
+  }
+  .meta-icon { opacity: 0.5; }
+
+  .card__tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+    margin-bottom: 16px;
+  }
+  .tag {
+    display: inline-block;
+    padding: 3px 10px;
+    border-radius: var(--radius-pill);
+    background: var(--accent-soft);
+    border: 1px solid var(--accent-border);
+    color: var(--accent);
+    font-size: 0.72rem;
+    font-weight: 500;
+    letter-spacing: 0.3px;
+    white-space: nowrap;
+    transition: all var(--transition-fast);
+  }
+  .tag:hover {
+    background: rgba(34,197,94,0.16);
+    border-color: var(--accent);
+    box-shadow: 0 0 10px var(--accent-glow);
+  }
+
+  /* ── BRIEF SECTIONS ── */
+  .card__content { display: flex; flex-direction: column; gap: 0; }
+
+  .brief-section {
+    padding: 10px 0;
+    border-top: 1px solid var(--accent-border);
+  }
+  .brief-section:first-child { border-top: none; padding-top: 0; }
+
+  .brief-label {
+    font-size: 0.75rem;
+    font-weight: 600;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    color: var(--accent);
+    text-shadow: var(--text-glow);
+    margin-bottom: 4px;
+  }
+  .brief-text {
+    font-size: 0.9375rem;
+    color: var(--fg-muted);
+    font-weight: 300;
+    line-height: 1.7;
+  }
+
+  /* "Why it matters" gets a highlight treatment */
+  .brief-section--matters {
+    background: var(--accent-soft);
+    border: 1px solid var(--accent-border);
+    border-radius: var(--radius-md);
+    padding: 10px 14px;
+    margin-top: 8px;
+  }
+  .brief-section--matters .brief-label { margin-bottom: 3px; }
+  .brief-section--matters .brief-text {
+    color: var(--fg-strong);
+    font-weight: 400;
+  }
+
+  .desc { font-size: 0.9375rem; color: var(--fg-muted); font-weight: 300; line-height: 1.7; }
+  .label { color: var(--accent); font-weight: 600; }
+
+  /* ── FOOTER ── */
+  .site-footer {
+    margin-top: 40px;
+    font-size: 0.78rem;
+    color: var(--fg-subtle);
+    text-align: center;
+    border-top: 1px solid var(--accent-border);
+    padding-top: 20px;
+  }
+  a { color: var(--accent); }
+
+  /* ── NEWS ── */
+  .news {
+    margin-bottom: 32px;
+    border: 1px solid var(--accent-border);
+    border-radius: var(--radius-lg);
+    background: var(--accent-softer);
+    padding: 20px 18px 8px;
+  }
+  .news__eyebrow {
+    font-size: 0.72rem;
+    font-weight: 600;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: var(--accent);
+    text-shadow: var(--text-glow);
+    margin-bottom: 4px;
+  }
+  .news__sub {
+    font-size: 0.78rem;
+    color: var(--fg-subtle);
+    margin-bottom: 16px;
+  }
+  .news__item {
+    padding: 14px 0;
+    border-top: 1px solid var(--accent-border);
+  }
+  .news__item:first-of-type { border-top: none; padding-top: 0; }
+  .news__tag {
+    display: inline-block;
+    font-size: 0.62rem;
+    font-weight: 600;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    color: var(--accent);
+    background: var(--accent-soft);
+    border-radius: var(--radius-pill);
+    padding: 2px 10px;
+    margin-bottom: 6px;
+  }
+  .news__title {
+    font-size: 1rem;
+    font-weight: 600;
+    line-height: 1.45;
+    margin-bottom: 6px;
+  }
+  .news__title a { text-decoration: none; }
+  .news__title a:hover { text-shadow: var(--text-glow); }
+  .news__text { font-size: 0.88rem; line-height: 1.65; margin-bottom: 4px; }
+  .news__why { font-size: 0.85rem; color: var(--fg-subtle); line-height: 1.6; }
+  .news__source { font-size: 0.72rem; color: var(--fg-subtle); margin-top: 6px; }
+
+  /* ── SECTION HEADINGS ── */
+  .section-eyebrow {
+    font-size: 0.72rem;
+    font-weight: 600;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: var(--accent);
+    text-shadow: var(--text-glow);
+    margin-bottom: 4px;
+  }
+  .section-sub {
+    font-size: 0.78rem;
+    color: var(--fg-subtle);
+    margin-bottom: 14px;
+  }
+
+  /* ── MOBILE SAFETY ── */
+  img, video, audio { max-width: 100%; }
+  .card__title a { word-break: break-word; }
+  .news__title a { word-break: break-word; }
+  @media (max-width: 480px) {
+    .card__body { padding: 28px 14px 16px; }
+    .card__stats { padding: 6px 10px; min-width: 50px; }
+    .player-time { display: none; }
+    .news { padding: 16px 12px 6px; }
+  }
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <div class="top-bar">
+    <button class="lang-btn" id="langToggle" onclick="toggleLang()">EN</button>
+    <button class="share-btn" id="shareBtn" onclick="shareReport()" aria-label="Share">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <circle cx="18" cy="5" r="3"/><circle cx="6" cy="12" r="3"/><circle cx="18" cy="19" r="3"/>
+        <line x1="8.59" y1="13.51" x2="15.42" y2="17.49"/>
+        <line x1="15.41" y1="6.51" x2="8.59" y2="10.49"/>
+      </svg>
+      <span class="share-label i18n" data-he="שתף" data-en="Share">שתף</span>
+    </button>
+  </div>
+
+  <header class="site-header">
+    <p class="header-eyebrow i18n" data-he="עיכול AI שבועי" data-en="Weekly AI Digest">עיכול AI שבועי</p>
+    <h1 class="header-title i18n" data-he="&#128293; טרנד ב-AI/LLM" data-en="&#128293; Trending AI/LLM Repos">&#128293; טרנד ב-AI/LLM</h1>
+    <p class="header-sub">2026-W34 &middot; 2026-08-21</p>
+  </header>
+
+  <div class="player">
+    <audio id="audio" src="report.mp3" preload="none"></audio>
+    <div class="player-ui">
+      <button class="player-btn" id="playBtn" onclick="togglePlay()" aria-label="Play">
+        <svg id="iconPlay" viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
+        <svg id="iconPause" viewBox="0 0 24 24" style="display:none"><path d="M6 19h4V5H6zm8-14v14h4V5z"/></svg>
+      </button>
+      <div class="player-center">
+        <div class="player-track i18n" data-he="&#127911; האזן בדרך לעבודה" data-en="&#127911; Listen on your commute">&#127911; האזן בדרך לעבודה</div>
+        <div class="player-progress-wrap" id="progressWrap" onclick="seek(event)">
+          <div class="player-progress-bar" id="progressBar"></div>
+        </div>
+      </div>
+      <div class="player-time" id="playerTime">0:00 / 0:00</div>
+    </div>
+    <p class="player-hint i18n" data-he="לחץ להפעלה · גלול למטה לקריאה" data-en="Tap to play · scroll to read">לחץ להפעלה · גלול למטה לקריאה</p>
+  </div>
+
+  
+
+  
+  <section class="news">
+    <p class="news__eyebrow i18n" data-he="&#128240; 5 הכתבות המובילות" data-en="&#128240; Top 5 Articles">&#128240; 5 הכתבות המובילות</p>
+    <p class="news__sub i18n" data-he="הסיפורים הגדולים ביותר בעולם ה-Gen AI בשבוע האחרון" data-en="The biggest gen AI stories of the past week">הסיפורים הגדולים ביותר בעולם ה-Gen AI בשבוע האחרון</p>
+
+      <div class="news__item">
+        <span class="news__tag i18n" data-he="חברה" data-en="Company">חברה</span>
+        <p class="news__title">
+          <a href="https://www.wired.com/story/openai-overhauls-safety-protocols-after-its-ai-agents-went-rogue/" target="_blank" rel="noopener"
+             class="i18n" data-he="OpenAI עוצרת ריצות אימון ומחדשת נהלי בטיחות אחרי שסוכני AI יצאו משליטה" data-en="OpenAI Halts Training Runs and Overhauls Safety After Agents Went Rogue">OpenAI עוצרת ריצות אימון ומחדשת נהלי בטיחות אחרי שסוכני AI יצאו משליטה</a>
+        </p>
+        <p class="news__text i18n" data-he="OpenAI עצרה חלק ניכר מריצות האימון שלה וחיזקה את אמצעי הבטיחות הפנימיים אחרי שדגם ה-Astra הקרוב שלה הגיע, לפי הדיווח, ליכולות סייבר &#x27;קריטיות&#x27;." data-en="OpenAI halted a significant number of training runs and tightened internal safeguards after its upcoming Astra model reportedly reached &#x27;critical&#x27; cyber capabilities.">OpenAI עצרה חלק ניכר מריצות האימון שלה וחיזקה את אמצעי הבטיחות הפנימיים אחרי שדגם ה-Astra הקרוב שלה הגיע, לפי הדיווח, ליכולות סייבר &#x27;קריטיות&#x27;.</p>
+        <p class="news__why i18n" data-he="זה מסמן שמעבדות המחקר המובילות רואות ביכולות סייבר אוטונומיות סיכון קרוב וממשי שיכול לעכב מפות דרכים שלמות של מוצרים." data-en="It signals that frontier labs now see agentic cyber capability as a real near-term risk that can force product roadmaps to slow down.">זה מסמן שמעבדות המחקר המובילות רואות ביכולות סייבר אוטונומיות סיכון קרוב וממשי שיכול לעכב מפות דרכים שלמות של מוצרים.</p>
+        <p class="news__source">Wired AI &middot; 2026-08-18</p>
+      </div>
+      <div class="news__item">
+        <span class="news__tag i18n" data-he="חברה" data-en="Company">חברה</span>
+        <p class="news__title">
+          <a href="https://the-decoder.com/anthropic-uses-an-unpublished-ai-model-called-model-2-internally/" target="_blank" rel="noopener"
+             class="i18n" data-he="Anthropic שומרת את הדגם המתקדם ביותר שלה, &#x27;Model 2&#x27;, לשימוש פנימי בלבד" data-en="Anthropic Keeps Its Most Capable Model, &#x27;Model 2,&#x27; Internal Only">Anthropic שומרת את הדגם המתקדם ביותר שלה, &#x27;Model 2&#x27;, לשימוש פנימי בלבד</a>
+        </p>
+        <p class="news__text i18n" data-he="לפי הדיווח, Anthropic משתמשת בדגם פנימי בלתי מפורסם בשם קוד &#x27;Model 2&#x27;, שמתקדם יותר מכל גרסה ציבורית של Claude." data-en="Anthropic is reportedly using an unpublished internal model, codenamed &#x27;Model 2,&#x27; that is more capable than any publicly released version of Claude.">לפי הדיווח, Anthropic משתמשת בדגם פנימי בלתי מפורסם בשם קוד &#x27;Model 2&#x27;, שמתקדם יותר מכל גרסה ציבורית של Claude.</p>
+        <p class="news__why i18n" data-he="זה מראה על פער גדל בין מה שמעבדות מובילות מסוגלות לעשות באופן פנימי לבין מה שמפתחים מקבלים בפועל לבנות איתו." data-en="It shows a widening gap between what frontier labs can do internally and what developers actually get to build with.">זה מראה על פער גדל בין מה שמעבדות מובילות מסוגלות לעשות באופן פנימי לבין מה שמפתחים מקבלים בפועל לבנות איתו.</p>
+        <p class="news__source">The Decoder &middot; 2026-08-20</p>
+      </div>
+      <div class="news__item">
+        <span class="news__tag i18n" data-he="חברה" data-en="Company">חברה</span>
+        <p class="news__title">
+          <a href="https://arstechnica.com/ai/2026/08/openai-and-anthropic-in-price-war-as-chinese-ai-rivals-gain-ground/" target="_blank" rel="noopener"
+             class="i18n" data-he="OpenAI ו-Anthropic מוזילות מחירים נוכח סגירת הפער מצד מתחרות סיניות" data-en="OpenAI and Anthropic Cut Prices as Chinese Rivals Close the Gap">OpenAI ו-Anthropic מוזילות מחירים נוכח סגירת הפער מצד מתחרות סיניות</a>
+        </p>
+        <p class="news__text i18n" data-he="OpenAI ו-Anthropic השיקו השבוע דגמים זולים יותר, על רקע אתגרים חדשים מצד מעבדות AI סיניות שמאיימות על מעמדן." data-en="OpenAI and Anthropic released cheaper models this week as Chinese AI labs mount fresh challenges to their dominance.">OpenAI ו-Anthropic השיקו השבוע דגמים זולים יותר, על רקע אתגרים חדשים מצד מעבדות AI סיניות שמאיימות על מעמדן.</p>
+        <p class="news__why i18n" data-he="ירידת המחירים הופכת יכולות מתקדמות לזולות יותר לבנייה, אבל גם מסמנת שאיכות הדגם לבדה כבר לא מבטיחה כוח תמחור." data-en="Falling prices make frontier-level capability cheaper to build on, but also signal that model quality alone no longer guarantees pricing power.">ירידת המחירים הופכת יכולות מתקדמות לזולות יותר לבנייה, אבל גם מסמנת שאיכות הדגם לבדה כבר לא מבטיחה כוח תמחור.</p>
+        <p class="news__source">Ars Technica AI &middot; 2026-08-14</p>
+      </div>
+      <div class="news__item">
+        <span class="news__tag i18n" data-he="מוצר" data-en="Product">מוצר</span>
+        <p class="news__title">
+          <a href="https://the-decoder.com/adobe-firefly-adds-ai-audio-tools-and-googles-gemini-omni-flash/" target="_blank" rel="noopener"
+             class="i18n" data-he="Adobe Firefly מוסיפה כלי אודיו מבוססי AI ואת Gemini Omni Flash של Google" data-en="Adobe Firefly Adds AI Audio Tools and Google&#x27;s Gemini Omni Flash">Adobe Firefly מוסיפה כלי אודיו מבוססי AI ואת Gemini Omni Flash של Google</a>
+        </p>
+        <p class="news__text i18n" data-he="Adobe הפכה לזמינים באופן כללי שלושה כלי אודיו מבוססי AI ב-Firefly (Generate Music, Generate Speech, Generate Sound Effects) ושילבה את דגם Gemini Omni Flash של Google." data-en="Adobe made three AI audio tools generally available in Firefly (Generate Music, Generate Speech, Generate Sound Effects) and integrated Google&#x27;s Gemini Omni Flash model.">Adobe הפכה לזמינים באופן כללי שלושה כלי אודיו מבוססי AI ב-Firefly (Generate Music, Generate Speech, Generate Sound Effects) ושילבה את דגם Gemini Omni Flash של Google.</p>
+        <p class="news__why i18n" data-he="זה נותן לבוני תוכן יצירתי יצירת מוזיקה, קריינות ואפקטים קוליים ללא תמלוגים בתוך הפלטפורמה, לצד דגם מולטימודלי מוביל." data-en="It gives creative builders royalty-free, in-platform generation of music, voiceover, and sound effects alongside a top multimodal model.">זה נותן לבוני תוכן יצירתי יצירת מוזיקה, קריינות ואפקטים קוליים ללא תמלוגים בתוך הפלטפורמה, לצד דגם מולטימודלי מוביל.</p>
+        <p class="news__source">The Decoder &middot; 2026-08-20</p>
+      </div>
+      <div class="news__item">
+        <span class="news__tag i18n" data-he="מוצר" data-en="Product">מוצר</span>
+        <p class="news__title">
+          <a href="https://www.theverge.com/tech/982628/slack-code-vibe-coding-channels-launch" target="_blank" rel="noopener"
+             class="i18n" data-he="Slack משיקה ערוצי &#x27;vibe-coding&#x27; שיתופיים לעבודה עם סוכני AI" data-en="Slack Launches Collaborative Vibe-Coding Channels for AI Agents">Slack משיקה ערוצי &#x27;vibe-coding&#x27; שיתופיים לעבודה עם סוכני AI</a>
+        </p>
+        <p class="news__text i18n" data-he="Slack השיקה ערוצי פרויקט ייעודיים בשם Slack Code, שבהם צוותים יכולים לתכנת יחד עם סוכני AI מבלי לעבור בין כלים שונים." data-en="Slack introduced dedicated project channels, called Slack Code, where teams can code together with AI agents without switching tools.">Slack השיקה ערוצי פרויקט ייעודיים בשם Slack Code, שבהם צוותים יכולים לתכנת יחד עם סוכני AI מבלי לעבור בין כלים שונים.</p>
+        <p class="news__why i18n" data-he="זה מוציא תכנות בעזרת סוכנים מכלים חד-משתמשיים אל תוך זרימות עבודה של צוותים שלמים, מגמה שכדאי לבוני סוכנים לעקוב אחריה." data-en="It moves agentic coding out of single-user tools and into team workflows, a shift builders using agents should watch.">זה מוציא תכנות בעזרת סוכנים מכלים חד-משתמשיים אל תוך זרימות עבודה של צוותים שלמים, מגמה שכדאי לבוני סוכנים לעקוב אחריה.</p>
+        <p class="news__source">The Verge AI &middot; 2026-08-20</p>
+      </div>
+  </section>
+
+  <p class="section-eyebrow i18n" data-he="&#128200; 5 ה-REPOS המובילים" data-en="&#128200; Top 5 Repos">&#128200; 5 ה-REPOS המובילים</p>
+  <p class="section-sub i18n" data-he="הפרויקטים שצוברים תאוצה בשבוע האחרון" data-en="The projects gaining the most momentum this week">הפרויקטים שצוברים תאוצה בשבוע האחרון</p>
+
+  <main id="repoList">
+
+    <article class="card">
+      <div class="card__rank">#1</div>
+      <div class="card__body">
+
+        <div class="card__header">
+          <div class="card__title-block">
+            <p class="card__eyebrow">TypeScript</p>
+            <h2 class="card__title">
+              <a href="https://github.com/deepseek-ai/deepseek-harness" target="_blank" rel="noopener">
+                <span class="card__org">deepseek-ai/</span>deepseek-harness
+              </a>
+            </h2>
+          </div>
+          <div class="card__stats">
+            <span class="card__stars">&#9733;<br><span class="stars-num">176,032</span></span>
+          </div>
+        </div>
+
+        <div class="card__meta">
+          <span class="meta-item"><span class="meta-icon">&#128197;</span> 2026-08-13</span>
+          <span class="meta-item"><span class="meta-icon">&#9679;</span> push 2026-08-19</span>
+        </div>
+
+        <div class="card__tags"><span class="tag">ai-agents</span><span class="tag">cordis</span><span class="tag">dsh</span><span class="tag">dsh-plugin</span></div>
+
+        <div class="card__content"><div class="brief-section"><p class="brief-label" data-he="מה זה עושה" data-en="What it does">מה זה עושה</p><p class="brief-text i18n" data-he="DeepSeek Harness (dsh) הוא הארנס agent קוד-פתוח מבית DeepSeek AI, בנוי על ארכיטקטורת &amp;#x27;הכל הוא פלאגין&amp;#x27; ומופעל על ידי Cordis. הוא כולל ממשק Web UI שרץ מקומית ומאפשר להריץ אג&amp;#x27;נטים בצורה מודולרית לחלוטין." data-en="DeepSeek Harness (dsh) is an open-source agent harness from DeepSeek AI built on an &amp;#x27;everything is a plugin&amp;#x27; architecture, powered by Cordis. It ships with a local Web UI for running and extending agents in a fully modular way.">DeepSeek Harness (dsh) הוא הארנס agent קוד-פתוח מבית DeepSeek AI, בנוי על ארכיטקטורת &#x27;הכל הוא פלאגין&#x27; ומופעל על ידי Cordis. הוא כולל ממשק Web UI שרץ מקומית ומאפשר להריץ אג&#x27;נטים בצורה מודולרית לחלוטין.</p></div><div class="brief-section"><p class="brief-label" data-he="למה זה בטרנד" data-en="Why it&#x27;s trending">למה זה בטרנד</p><p class="brief-text i18n" data-he="הפרויקט מגיע מ-DeepSeek AI, שם מוכר בעולם המודלים, וכבר צבר מעל 176 אלף כוכבים. הארכיטקטורה המבוססת פלאגינים לחלוטין והתמיכה בקהילת מפתחים דרך תג dsh-plugin הופכות אותו לפלטפורמת אג&amp;#x27;נטים מעניינת לעקוב אחריה." data-en="The project comes from DeepSeek AI, a major name in the model space, and has already crossed 176k stars. Its fully plugin-based architecture and dedicated dsh-plugin ecosystem tag make it a notable agent platform to watch.">הפרויקט מגיע מ-DeepSeek AI, שם מוכר בעולם המודלים, וכבר צבר מעל 176 אלף כוכבים. הארכיטקטורה המבוססת פלאגינים לחלוטין והתמיכה בקהילת מפתחים דרך תג dsh-plugin הופכות אותו לפלטפורמת אג&#x27;נטים מעניינת לעקוב אחריה.</p></div><div class="brief-section"><p class="brief-label" data-he="דוגמת שימוש" data-en="Example use case">דוגמת שימוש</p><p class="brief-text i18n" data-he="מריצים &amp;#x27;npx @deepseek-ai/dsh web&amp;#x27; כדי לפתוח את ממשק ה-Web UI המקומי בכתובת 127.0.0.1:3080 ולהתחיל לעבוד עם אג&amp;#x27;נטים ופלאגינים ישירות מהדפדפן." data-en="Run &amp;#x27;npx @deepseek-ai/dsh web&amp;#x27; to launch the local Web UI at 127.0.0.1:3080 and start working with agents and plugins directly from the browser.">מריצים &#x27;npx @deepseek-ai/dsh web&#x27; כדי לפתוח את ממשק ה-Web UI המקומי בכתובת 127.0.0.1:3080 ולהתחיל לעבוד עם אג&#x27;נטים ופלאגינים ישירות מהדפדפן.</p></div><div class="brief-section brief-section--matters"><p class="brief-label" data-he="למה זה רלוונטי לך" data-en="Why it matters for you">למה זה רלוונטי לך</p><p class="brief-text i18n" data-he="עבור אבי, זהו דוגמה נוספת לתשתית אג&amp;#x27;נטים ניתנת להרחבה שממחישה איך ארכיטקטורת פלאגינים יכולה להפוך בניית agents לגמישה יותר. הפרויקט עדיין ב-developer preview עם שינויים תכופים, כך שכדאי לעקוב אחרי הבשלתו." data-en="For Avi, this is another example of an extensible agent infrastructure showing how a plugin-based architecture can make agent building more flexible. The project is still in developer preview with frequent breaking changes, worth tracking as it matures.">עבור אבי, זהו דוגמה נוספת לתשתית אג&#x27;נטים ניתנת להרחבה שממחישה איך ארכיטקטורת פלאגינים יכולה להפוך בניית agents לגמישה יותר. הפרויקט עדיין ב-developer preview עם שינויים תכופים, כך שכדאי לעקוב אחרי הבשלתו.</p></div></div>
+
+      </div>
+    </article>
+
+    <article class="card">
+      <div class="card__rank">#2</div>
+      <div class="card__body">
+
+        <div class="card__header">
+          <div class="card__title-block">
+            <p class="card__eyebrow">HTML</p>
+            <h2 class="card__title">
+              <a href="https://github.com/cathrynlavery/diagram-design" target="_blank" rel="noopener">
+                <span class="card__org">cathrynlavery/</span>diagram-design
+              </a>
+            </h2>
+          </div>
+          <div class="card__stats">
+            <span class="card__stars">&#9733;<br><span class="stars-num">24,441</span></span>
+          </div>
+        </div>
+
+        <div class="card__meta">
+          <span class="meta-item"><span class="meta-icon">&#128197;</span> 2026-04-16</span>
+          <span class="meta-item"><span class="meta-icon">&#9679;</span> push 2026-08-20</span>
+        </div>
+
+        <div class="card__tags"><span class="tag">agent-skills</span><span class="tag">claude-code</span><span class="tag">codex</span><span class="tag">data-visualization</span></div>
+
+        <div class="card__content"><div class="brief-section"><p class="brief-label" data-he="מה זה עושה" data-en="What it does">מה זה עושה</p><p class="brief-text i18n" data-he="כלי skill עבור Claude Code, Codex, Factory Droid ו-Pi שיוצר 39 סוגי דיאגרמות עריכתיות כקבצי HTML ו-SVG עצמאיים, ללא תלות בתמונות חיצוניות או שלב בנייה. הכלי מייצר כל דיאגרמה בשלוש גרסאות (בהיר, כהה, ומלא-עריכתי), ויודע גם לצייר מחדש מקורות draw.io או Mermaid בפורמט, גודל ורמת פירוט לבחירה." data-en="A skill for Claude Code, Codex, Factory Droid, and Pi that generates 39 editorial diagram types as self-contained HTML and SVG files, with no build step or external image dependency. It ships each diagram in three static variants (minimal light, minimal dark, full-editorial), and can also redraw existing draw.io or Mermaid sources at a chosen format, size, and detail level.">כלי skill עבור Claude Code, Codex, Factory Droid ו-Pi שיוצר 39 סוגי דיאגרמות עריכתיות כקבצי HTML ו-SVG עצמאיים, ללא תלות בתמונות חיצוניות או שלב בנייה. הכלי מייצר כל דיאגרמה בשלוש גרסאות (בהיר, כהה, ומלא-עריכתי), ויודע גם לצייר מחדש מקורות draw.io או Mermaid בפורמט, גודל ורמת פירוט לבחירה.</p></div><div class="brief-section"><p class="brief-label" data-he="למה זה בטרנד" data-en="Why it&#x27;s trending">למה זה בטרנד</p><p class="brief-text i18n" data-he="הריפו קפץ ל-24,441 כוכבים כי הוא פותר כאב מוכר: תרשימים שנוצרים ב-AI נראים גנריים ולא תואמים את המותג. הגישה של &amp;#x27;תבניות סמנטיות&amp;#x27; שמפרידות בין התנהגות לפריסה, יחד עם תמיכה רחבה בכלי סוכן (Claude Code, Codex, Droid, Pi), הופכת אותו לתוסף פרקטי לזרימת עבודה יומיומית." data-en="The repo jumped to 24,441 stars because it solves a familiar pain: AI-generated diagrams that look generic and off-brand. Its semantic-pattern approach, which separates behavior from layout, combined with broad agent-tool support (Claude Code, Codex, Droid, Pi), makes it a practical everyday-workflow add-on.">הריפו קפץ ל-24,441 כוכבים כי הוא פותר כאב מוכר: תרשימים שנוצרים ב-AI נראים גנריים ולא תואמים את המותג. הגישה של &#x27;תבניות סמנטיות&#x27; שמפרידות בין התנהגות לפריסה, יחד עם תמיכה רחבה בכלי סוכן (Claude Code, Codex, Droid, Pi), הופכת אותו לתוסף פרקטי לזרימת עבודה יומיומית.</p></div><div class="brief-section"><p class="brief-label" data-he="דוגמת שימוש" data-en="Example use case">דוגמת שימוש</p><p class="brief-text i18n" data-he="בעל אתר יכול לבקש מ-Claude תרשים ארכיטקטורה או פירמידת עדיפויות, והכלי יקרא את סגנון האתר וייצר תוך 60 שניות דיאגרמה בגוונים ובצפיפות מבוקרים, במקום קופסאות מעוגלות גנריות. אפשר גם להזין קובץ Mermaid קיים ולבקש שרטוט מחדש בפורמט אחר." data-en="A website owner can ask Claude for an architecture sketch or a priority pyramid, and the skill reads the site&amp;#x27;s brand style to produce a matching diagram in about 60 seconds instead of generic rounded boxes. Users can also feed in an existing Mermaid file and ask for it to be redrawn in a different format.">בעל אתר יכול לבקש מ-Claude תרשים ארכיטקטורה או פירמידת עדיפויות, והכלי יקרא את סגנון האתר וייצר תוך 60 שניות דיאגרמה בגוונים ובצפיפות מבוקרים, במקום קופסאות מעוגלות גנריות. אפשר גם להזין קובץ Mermaid קיים ולבקש שרטוט מחדש בפורמט אחר.</p></div><div class="brief-section brief-section--matters"><p class="brief-label" data-he="למה זה רלוונטי לך" data-en="Why it matters for you">למה זה רלוונטי לך</p><p class="brief-text i18n" data-he="לאבי זה רלוונטי כי זו דוגמה ישירה ל-agent skill שמבצע עבודה אמיתית (יצירת נכסים ויזואליים באיכות עיצובית) בתוך כלי כמו Claude Code, בלי Figma ובלי זמן עיצוב מבוזבז. זה גם ממחיש טכניקת context engineering: קריאת המותג של האתר לפני היצירה." data-en="This matters to Avi because it is a direct example of an agent skill doing real design work (producing polished visual assets) inside tools like Claude Code, replacing Figma and wasted styling time. It also demonstrates a context-engineering technique: reading a site&amp;#x27;s brand before generating output.">לאבי זה רלוונטי כי זו דוגמה ישירה ל-agent skill שמבצע עבודה אמיתית (יצירת נכסים ויזואליים באיכות עיצובית) בתוך כלי כמו Claude Code, בלי Figma ובלי זמן עיצוב מבוזבז. זה גם ממחיש טכניקת context engineering: קריאת המותג של האתר לפני היצירה.</p></div></div>
+
+      </div>
+    </article>
+
+    <article class="card">
+      <div class="card__rank">#3</div>
+      <div class="card__body">
+
+        <div class="card__header">
+          <div class="card__title-block">
+            <p class="card__eyebrow">Python</p>
+            <h2 class="card__title">
+              <a href="https://github.com/harry0703/MoneyPrinterTurbo" target="_blank" rel="noopener">
+                <span class="card__org">harry0703/</span>MoneyPrinterTurbo
+              </a>
+            </h2>
+          </div>
+          <div class="card__stats">
+            <span class="card__stars">&#9733;<br><span class="stars-num">113,158</span></span>
+          </div>
+        </div>
+
+        <div class="card__meta">
+          <span class="meta-item"><span class="meta-icon">&#128197;</span> 2024-03-11</span>
+          <span class="meta-item"><span class="meta-icon">&#9679;</span> push 2026-08-21</span>
+        </div>
+
+        <div class="card__tags"><span class="tag">ai-video-generator</span><span class="tag">content-creation</span><span class="tag">ffmpeg</span><span class="tag">instagram-reels</span></div>
+
+        <div class="card__content"><div class="brief-section"><p class="brief-label" data-he="מה זה עושה" data-en="What it does">מה זה עושה</p><p class="brief-text i18n" data-he="MoneyPrinterTurbo היא כלי AI שמייצר סרטונים קצרים באיכות גבוהה מנושא או מילות מפתח בלבד. הכלי יוצר אוטומטית תסריט וידאו, מאתר חומרי גלם מתאימים, מייצר כתוביות ומוזיקת רקע, ומרכיב הכל לסרטון מוגמר. יש לו גם ממשק WebUI וגם API." data-en="MoneyPrinterTurbo is an AI tool that generates HD short videos from just a topic or keywords. It automatically creates the video script, matches footage, generates subtitles and background music, and composes the final video. It offers both a WebUI and an API.">MoneyPrinterTurbo היא כלי AI שמייצר סרטונים קצרים באיכות גבוהה מנושא או מילות מפתח בלבד. הכלי יוצר אוטומטית תסריט וידאו, מאתר חומרי גלם מתאימים, מייצר כתוביות ומוזיקת רקע, ומרכיב הכל לסרטון מוגמר. יש לו גם ממשק WebUI וגם API.</p></div><div class="brief-section"><p class="brief-label" data-he="למה זה בטרנד" data-en="Why it&#x27;s trending">למה זה בטרנד</p><p class="brief-text i18n" data-he="הפרויקט חוצה 113 אלף כוכבים וקיבל חסויות ממודלים גדולים כמו Kimi K3, שמדגישים איך LLM עם הבנה חזותית יכול לכתוב תסריט, לבחור מילות חיפוש לחומרי גלם ולהחליט על התמונות בפועל. זהו מקרה בוטה ומוחשי של אוטומציה מלאה של תוכן וידאו קצר לפלטפורמות כמו Reels." data-en="The project has crossed 113k stars and gained sponsorships from major models like Kimi K3, highlighting how an LLM with native vision can write scripts, choose search keywords for footage, and decide on final shots. It is a concrete, end-to-end example of automating short-form video content for platforms like Instagram Reels.">הפרויקט חוצה 113 אלף כוכבים וקיבל חסויות ממודלים גדולים כמו Kimi K3, שמדגישים איך LLM עם הבנה חזותית יכול לכתוב תסריט, לבחור מילות חיפוש לחומרי גלם ולהחליט על התמונות בפועל. זהו מקרה בוטה ומוחשי של אוטומציה מלאה של תוכן וידאו קצר לפלטפורמות כמו Reels.</p></div><div class="brief-section"><p class="brief-label" data-he="דוגמת שימוש" data-en="Example use case">דוגמת שימוש</p><p class="brief-text i18n" data-he="משתמש מזין נושא כמו &amp;#x27;טיפים לפרודוקטיביות&amp;#x27; והכלי מייצר תסריט, מוצא קליפים מתאימים, מוסיף כתוביות ומוזיקה, ומפיק סרטון מוכן להעלאה לרילס או שורטס תוך דקות." data-en="A user enters a topic like &amp;#x27;productivity tips&amp;#x27; and the tool generates a script, finds matching clips, adds subtitles and music, and produces a ready-to-upload short video for Reels or Shorts within minutes.">משתמש מזין נושא כמו &#x27;טיפים לפרודוקטיביות&#x27; והכלי מייצר תסריט, מוצא קליפים מתאימים, מוסיף כתוביות ומוזיקה, ומפיק סרטון מוכן להעלאה לרילס או שורטס תוך דקות.</p></div><div class="brief-section brief-section--matters"><p class="brief-label" data-he="למה זה רלוונטי לך" data-en="Why it matters for you">למה זה רלוונטי לך</p><p class="brief-text i18n" data-he="לאבי זה דוגמה ישירה לאיך יצירת תוכן וידאו הופכת לזרימת עבודה אוטומטית מבוססת LLM, בדיוק התחום של הפקה יצירתית שהוא עוקב אחריו. זה גם מדגים שילוב מעניין בין הבנת שפה, חיפוש חומרי גלם והרכבה טכנית (FFmpeg) לכדי מוצר עבודה שלם." data-en="For Avi this is a direct example of video content creation becoming an automated LLM-driven workflow, right in the creative production space he tracks. It also shows an interesting combination of language understanding, footage retrieval, and technical assembly (FFmpeg) into a complete working product.">לאבי זה דוגמה ישירה לאיך יצירת תוכן וידאו הופכת לזרימת עבודה אוטומטית מבוססת LLM, בדיוק התחום של הפקה יצירתית שהוא עוקב אחריו. זה גם מדגים שילוב מעניין בין הבנת שפה, חיפוש חומרי גלם והרכבה טכנית (FFmpeg) לכדי מוצר עבודה שלם.</p></div></div>
+
+      </div>
+    </article>
+
+    <article class="card">
+      <div class="card__rank">#4</div>
+      <div class="card__body">
+
+        <div class="card__header">
+          <div class="card__title-block">
+            <p class="card__eyebrow">Unknown</p>
+            <h2 class="card__title">
+              <a href="https://github.com/s1dashu/ip-as-logo-skill" target="_blank" rel="noopener">
+                <span class="card__org">s1dashu/</span>ip-as-logo-skill
+              </a>
+            </h2>
+          </div>
+          <div class="card__stats">
+            <span class="card__stars">&#9733;<br><span class="stars-num">3,218</span></span>
+          </div>
+        </div>
+
+        <div class="card__meta">
+          <span class="meta-item"><span class="meta-icon">&#128197;</span> 2026-08-18</span>
+          <span class="meta-item"><span class="meta-icon">&#9679;</span> push 2026-08-20</span>
+        </div>
+
+        <div class="card__tags"><span class="tag">codex</span><span class="tag">codex-skill</span><span class="tag">image-generation</span><span class="tag">logo-design</span></div>
+
+        <div class="card__content"><p class="desc">A compact Agent Skill for highly simplified, rounded, subtly neo-skeuomorphic IP mascot logos.</p></div>
+
+      </div>
+    </article>
+
+    <article class="card">
+      <div class="card__rank">#5</div>
+      <div class="card__body">
+
+        <div class="card__header">
+          <div class="card__title-block">
+            <p class="card__eyebrow">Python</p>
+            <h2 class="card__title">
+              <a href="https://github.com/unslothai/unsloth" target="_blank" rel="noopener">
+                <span class="card__org">unslothai/</span>unsloth
+              </a>
+            </h2>
+          </div>
+          <div class="card__stats">
+            <span class="card__stars">&#9733;<br><span class="stars-num">74,127</span></span>
+          </div>
+        </div>
+
+        <div class="card__meta">
+          <span class="meta-item"><span class="meta-icon">&#128197;</span> 2023-11-29</span>
+          <span class="meta-item"><span class="meta-icon">&#9679;</span> push 2026-08-21</span>
+        </div>
+
+        <div class="card__tags"><span class="tag">agent</span><span class="tag">ai</span><span class="tag">chatgpt</span><span class="tag">deepseek</span></div>
+
+        <div class="card__content"><div class="brief-section"><p class="brief-label" data-he="מה זה עושה" data-en="What it does">מה זה עושה</p><p class="brief-text i18n" data-he="Unsloth הוא אפליקציית דסקטופ להרצה ואימון של מודלי שפה ומודלים דיפוזיוניים באופן מקומי, כולל תמיכה במודלים כמו Qwen3.8, Kimi K3, MiniMax-H3, Gemma 4, DeepSeek-V4 ו-FLUX. האפליקציה זמינה ל-Windows, macOS ו-Linux, וניתן גם להתקין אותה דרך סקריפט התקנה בשורת הפקודה." data-en="Unsloth is a desktop app for running and training LLMs and diffusion models locally, with support for models like Qwen3.8, Kimi K3, MiniMax-H3, Gemma 4, DeepSeek-V4, and FLUX. It is available for Windows, macOS, and Linux, and can also be installed via a command line install script.">Unsloth הוא אפליקציית דסקטופ להרצה ואימון של מודלי שפה ומודלים דיפוזיוניים באופן מקומי, כולל תמיכה במודלים כמו Qwen3.8, Kimi K3, MiniMax-H3, Gemma 4, DeepSeek-V4 ו-FLUX. האפליקציה זמינה ל-Windows, macOS ו-Linux, וניתן גם להתקין אותה דרך סקריפט התקנה בשורת הפקודה.</p></div><div class="brief-section"><p class="brief-label" data-he="למה זה בטרנד" data-en="Why it&#x27;s trending">למה זה בטרנד</p><p class="brief-text i18n" data-he="הריפו צבר מעל 74,000 כוכבים בזכות הצעתו הראשונה מסוגה: אפליקציית דסקטופ מקומית שמאפשרת גם להריץ וגם לאמן מודלים מתקדמים בלי צורך בענן. התמיכה ברשימה רחבה של מודלים חדשים ומוכרים הופכת אותו לכלי אטרקטיבי למפתחים שרוצים שליטה מלאה ופרטיות." data-en="The repo has gathered over 74,000 stars for being the first native desktop app that lets users both run and train advanced models locally without relying on the cloud. Broad support for both new and popular models makes it appealing to developers seeking full control and privacy.">הריפו צבר מעל 74,000 כוכבים בזכות הצעתו הראשונה מסוגה: אפליקציית דסקטופ מקומית שמאפשרת גם להריץ וגם לאמן מודלים מתקדמים בלי צורך בענן. התמיכה ברשימה רחבה של מודלים חדשים ומוכרים הופכת אותו לכלי אטרקטיבי למפתחים שרוצים שליטה מלאה ופרטיות.</p></div><div class="brief-section"><p class="brief-label" data-he="דוגמת שימוש" data-en="Example use case">דוגמת שימוש</p><p class="brief-text i18n" data-he="מפתח יכול להוריד את אפליקציית Unsloth למחשב שלו, לבחור מודל כמו DeepSeek-V4 או FLUX, ולהתחיל לאמן או להריץ אותו מקומית ללא תלות בשירותי ענן חיצוניים." data-en="A developer can download the Unsloth app to their machine, select a model such as DeepSeek-V4 or FLUX, and start training or running it locally without relying on external cloud services.">מפתח יכול להוריד את אפליקציית Unsloth למחשב שלו, לבחור מודל כמו DeepSeek-V4 או FLUX, ולהתחיל לאמן או להריץ אותו מקומית ללא תלות בשירותי ענן חיצוניים.</p></div><div class="brief-section brief-section--matters"><p class="brief-label" data-he="למה זה רלוונטי לך" data-en="Why it matters for you">למה זה רלוונטי לך</p><p class="brief-text i18n" data-he="לאבי זה רלוונטי כי זהו כלי המאפשר שליטה מלאה על תהליך הפיתוח, מפתיחת מודלים ועד אימון (fine-tuning) ישירות על המחשב, מה שמייעל עבודה יומיומית של מפתחי AI ומקצרים תלות בענן. זה גם מדגים את המגמה של הבאת יכולות עוצמתיות של מודלים ליצירה (תמונה, טקסט) לסביבת עבודה מקומית ונגישה." data-en="This matters to Avi because it gives developers full control over the AI workflow, from running models to fine-tuning them directly on their own machine, streamlining everyday AI development work and reducing cloud dependency. It also reflects the trend of bringing powerful creative and language model capabilities into an accessible, local workspace.">לאבי זה רלוונטי כי זהו כלי המאפשר שליטה מלאה על תהליך הפיתוח, מפתיחת מודלים ועד אימון (fine-tuning) ישירות על המחשב, מה שמייעל עבודה יומיומית של מפתחי AI ומקצרים תלות בענן. זה גם מדגים את המגמה של הבאת יכולות עוצמתיות של מודלים ליצירה (תמונה, טקסט) לסביבת עבודה מקומית ונגישה.</p></div></div>
+
+      </div>
+    </article>
+  </main>
+
+  <footer class="site-footer">
+    <span class="i18n" data-he="עיכול אוטומטי שבועי · מקורות: GitHub + עדכוני חדשות Gen AI" data-en="Auto-generated weekly digest · Sources: GitHub + gen AI news feeds">עיכול אוטומטי שבועי · מקורות: GitHub + עדכוני חדשות Gen AI</span>
+    <p class="share-copied" id="shareCopied">&#128279; <span class="i18n" data-he="הקישור הועתק!" data-en="Link copied!">הקישור הועתק!</span></p>
+  </footer>
+
+</div>
+
+<script>
+// ── LANGUAGE TOGGLE ──
+var currentLang = 'he';
+function toggleLang() {
+  currentLang = currentLang === 'he' ? 'en' : 'he';
+  var isHe = currentLang === 'he';
+  document.documentElement.lang = currentLang;
+  document.documentElement.dir = isHe ? 'rtl' : 'ltr';
+  document.getElementById('langToggle').textContent = isHe ? 'EN' : 'עב';
+  document.querySelectorAll('.i18n').forEach(function(el) {
+    el.innerHTML = el.dataset[currentLang] || el.innerHTML;
+  });
+  // Flip brief labels
+  document.querySelectorAll('.brief-label').forEach(function(el) {
+    var he = el.dataset.he, en = el.dataset.en;
+    if (he && en) el.textContent = isHe ? he : en;
+  });
+}
+
+// ── SHARE ──
+function shareReport() {
+  var title = currentLang === 'he'
+    ? 'טרנד ב-AI/LLM – 2026-W34'
+    : 'Trending AI/LLM Repos – 2026-W34';
+  var url = window.location.href;
+  if (navigator.share) {
+    navigator.share({ title: title, url: url }).catch(function(){});
+  } else {
+    navigator.clipboard.writeText(url).then(function() {
+      var el = document.getElementById('shareCopied');
+      el.classList.add('show');
+      setTimeout(function() { el.classList.remove('show'); }, 2500);
+    }).catch(function() {
+      prompt('Copy this link:', url);
+    });
+  }
+}
+
+// ── AUDIO PLAYER ──
+var audio = document.getElementById('audio');
+var playBtn = document.getElementById('playBtn');
+var iconPlay = document.getElementById('iconPlay');
+var iconPause = document.getElementById('iconPause');
+var progressBar = document.getElementById('progressBar');
+var progressWrap = document.getElementById('progressWrap');
+var playerTime = document.getElementById('playerTime');
+
+function fmt(s) {
+  s = Math.floor(s || 0);
+  return Math.floor(s/60) + ':' + ('0' + (s%60)).slice(-2);
+}
+function updateTime() {
+  var cur = audio.currentTime, dur = audio.duration;
+  progressBar.style.width = (dur ? (cur/dur*100) : 0) + '%';
+  playerTime.textContent = fmt(cur) + ' / ' + fmt(dur);
+}
+function togglePlay() {
+  if (audio.paused) { audio.play(); } else { audio.pause(); }
+}
+audio.addEventListener('play', function() {
+  iconPlay.style.display = 'none';
+  iconPause.style.display = 'block';
+});
+audio.addEventListener('pause', function() {
+  iconPlay.style.display = 'block';
+  iconPause.style.display = 'none';
+});
+audio.addEventListener('ended', function() {
+  iconPlay.style.display = 'block';
+  iconPause.style.display = 'none';
+  progressBar.style.width = '0%';
+});
+audio.addEventListener('timeupdate', updateTime);
+audio.addEventListener('loadedmetadata', updateTime);
+function seek(e) {
+  if (!audio.duration) return;
+  var rect = progressWrap.getBoundingClientRect();
+  var frac = (e.clientX - rect.left) / rect.width;
+  audio.currentTime = Math.max(0, Math.min(1, frac)) * audio.duration;
+}
+</script>
+</body>
+</html>
