@@ -31,14 +31,12 @@ import os
 import re
 import sys
 
-# Default to the LIVE clone, not the in-vault one. The copy under
-# ~/Documents/avi-workspace/Researches/Trending Repos/trending-site is stale
-# (it stopped being pulled) and pointing here at it meant any run without the
-# TRENDING_SITE_CLONE override silently read months-old reports.
-# Default to the repo this script lives in, which is correct on the Mac clone
-# and on a CI runner alike. It used to default to the Mac path, so the Friday
-# `--emit` step read a directory that does not exist on a runner, found no
-# report, and refused to write the note.
+# Default to the repo this script lives in: correct on the Mac clone and on a
+# CI runner alike. Two earlier defaults each broke in their own way. Pointing
+# at a copy inside the vault meant silently reading months-old reports once
+# that copy stopped being pulled, and pointing at the Mac path meant the
+# Friday `--emit` step read a directory that does not exist on a runner, found
+# no report, and refused to write the note.
 _REPO_ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 SITE_DIR = os.environ.get("TRENDING_SITE_CLONE", _REPO_ROOT)
 VAULT_DIR = os.path.expanduser("~/Documents/avi-workspace/Researches/AI News")
