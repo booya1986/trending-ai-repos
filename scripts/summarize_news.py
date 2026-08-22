@@ -22,6 +22,13 @@ import sys
 MODEL = "claude-sonnet-5"      # matches generate_briefs.py
 CANDIDATES = 40                # how many headlines the model chooses from
 WANTED = 10                    # how many make the digest
+# max_tokens covers thinking AND text together on claude-sonnet-5, where
+# adaptive thinking is on by default. 16000 was sized for five stories with two
+# short fields each; ten stories with an insight paragraph apiece truncated the
+# response mid-string, the JSON failed to parse, and the digest silently
+# published English headlines with empty summaries. Sized with real headroom,
+# and retried at double on a truncated response.
+MAX_TOKENS = 32000
 
 SYSTEM_PROMPT = """\
 You are the news editor for Avi Levi's weekly generative-AI digest. He wants to \
@@ -124,11 +131,15 @@ def _fallback(items, warnings):
     """No API key, or the call failed: ship English headlines rather than nothing."""
     out = []
     for it in items[:WANTED]:
+        # Both language slots carry the same English text on purpose. Leaving
+        # the Hebrew side empty rendered ten blank paragraphs on the page,
+        # which reads as a broken report rather than a degraded one.
+        text = (it.get("summary") or "")[:300]
         out.append({
             "headline_he": it["title"],
             "headline_en": it["title"],
-            "insight_he": "",
-            "insight_en": (it.get("summary") or "")[:300],
+            "insight_he": text,
+            "insight_en": text,
             "category": "product",
             "url": it["url"],
             "source": it.get("source", ""),
@@ -164,17 +175,25 @@ def summarize(infile, outfile):
                 f"{_candidate_list(pool)}\n\n"
                 f"Choose the {WANTED} most significant and write the digest entries."
             )
-            # max_tokens covers thinking + text together on claude-sonnet-5
-            # (adaptive thinking is on by default), so leave real headroom.
-            message = client.messages.create(
-                model=MODEL,
-                max_tokens=16000,
-                system=SYSTEM_PROMPT,
-                messages=[{"role": "user", "content": prompt}],
-                output_config={"format": {"type": "json_schema", "schema": NEWS_SCHEMA}},
-            )
+            def call(budget):
+                return client.messages.create(
+                    model=MODEL,
+                    max_tokens=budget,
+                    system=SYSTEM_PROMPT,
+                    messages=[{"role": "user", "content": prompt}],
+                    output_config={"format": {"type": "json_schema", "schema": NEWS_SCHEMA}},
+                )
+
+            message = call(MAX_TOKENS)
             if message.stop_reason == "max_tokens":
-                warnings.append("news summary hit max_tokens; section may be short")
+                # A truncated response is unparseable JSON, so retrying here is
+                # the difference between the real digest and English headlines.
+                warnings.append(
+                    f"news summary hit max_tokens at {MAX_TOKENS}; retried at {MAX_TOKENS * 2}")
+                print(f"news summary truncated at {MAX_TOKENS}, retrying", file=sys.stderr)
+                message = call(MAX_TOKENS * 2)
+                if message.stop_reason == "max_tokens":
+                    warnings.append("news summary truncated again; falling back to headlines")
             parsed = json.loads(_response_text(message))
             stories = []
             for entry in parsed.get("items", []):

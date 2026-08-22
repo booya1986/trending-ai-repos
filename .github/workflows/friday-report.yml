@@ -138,6 +138,23 @@ jobs:
             echo "::error title=briefs::only $sections brief-section markers -- the briefs step degraded. Refusing to publish a report without briefs."
             exit 1
           fi
+          # Same reasoning as the briefs gate, applied to the news section. When
+          # the summarizer falls back it emits English headlines with no Hebrew
+          # insight, which renders as ten blank paragraphs: a green run shipping
+          # an empty product. Seen for real on 2026-08-22, from a max_tokens
+          # truncation.
+          python3 - <<'PYCHECK'
+          import json, sys
+          stories = json.load(open("/tmp/news_rich.json")).get("stories") or []
+          blank = sum(1 for s in stories if not (s.get("insight_he") or "").strip())
+          print(f"news stories: {len(stories)}, blank Hebrew insights: {blank}")
+          if stories and blank > len(stories) // 2:
+              print(f"::error title=news::{blank} of {len(stories)} stories have no Hebrew "
+                    "insight -- the summarizer fell back. Refusing to publish.")
+              sys.exit(1)
+          if blank:
+              print(f"::warning title=news::{blank} story/stories missing a Hebrew insight")
+          PYCHECK
 
       # The vault note is RENDERED HERE, in the cloud, and committed inside the
       # report directory. The Obsidian vault is a local folder with no git
