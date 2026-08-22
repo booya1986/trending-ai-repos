@@ -96,9 +96,9 @@ SUBREDDITS = (
     "AI_Agents", "StableDiffusion", "LocalLLaMA",
 )
 MAX_PER_SUBREDDIT = 6
-# Reddit serves the first feed and then 429s the rest of a burst. One request
-# every few seconds is enough to walk the whole list; measured 2026-08-22.
-REDDIT_DELAY_SECONDS = 2
+REDDIT_LIMIT = 100        # entries in the single combined feed request
+# Reddit's rate-limit window is long, so a 429 means waiting, not giving up.
+REDDIT_RETRY_WAITS = (0, 20, 60)
 
 _UA = {
     "User-Agent": (
@@ -400,10 +400,16 @@ def firecrawl_fetch(url, api_key, fmt="rawHtml", timeout=90):
     return data.get(fmt) or data.get("rawHtml") or data.get("html") or data.get("markdown") or ""
 
 
-# Reddit's .json endpoints answer 403 Blocked to every User-Agent, browser or
-# named client, so they are unusable. The per-subreddit Atom feed is served
-# normally and carries what matters: the outbound link, the timestamp, and
-# top-of-week ordering. Verified 2026-08-22.
+# Reddit is read through ONE combined multireddit feed, not one request per
+# subreddit. Three things forced that shape, all measured 2026-08-22:
+#   * every .json endpoint answers 403 Blocked, whatever the User-Agent
+#   * the per-subreddit .rss feed works but 429s after the first request or
+#     two, and worse from CI runner IPs
+#   * Firecrawl cannot rescue it: it refuses reddit.com outright, with
+#     "we do not support this site"
+# Reddit does support /r/a+b+c/, so all eight subreddits arrive in a single
+# request that nothing rate limits. Each entry names its own subreddit in
+# <category term="...">, so per-sub caps still work.
 _REDDIT_OUTBOUND = re.compile(r'<a href="([^"]+)">\s*\[link\]', re.I)
 _REDDIT_INTERNAL = ("reddit.com", "redd.it", "i.redd.it", "v.redd.it", "preview.redd.it")
 
@@ -412,9 +418,9 @@ def _reddit_outbound(content_html, permalink):
     """The article a post points at, or the discussion if it points nowhere.
 
     Preferring the destination is what lets a Reddit link post collide with the
-    RSS and HN copies of the same article in dedupe(). Self posts and Reddit
-    hosted media have no destination, so those keep the permalink and stand on
-    their own.
+    press and HN copies of the same article in dedupe(). Self posts and Reddit
+    hosted media have no destination, so those keep the permalink, and the
+    caller drops them.
     """
     m = _REDDIT_OUTBOUND.search(_html.unescape(content_html or ""))
     if not m:
@@ -430,79 +436,75 @@ def _reddit_outbound(content_html, permalink):
 
 
 def fetch_reddit(subreddits=SUBREDDITS, per_sub=MAX_PER_SUBREDDIT, warnings=None,
-                 now=None, firecrawl_key=None):
-    """This week's top posts from the applied gen-AI subreddits. No key needed.
+                 now=None, retry_waits=REDDIT_RETRY_WAITS):
+    """This week's top LINK posts from the applied gen-AI subreddits.
 
-    The feed is already ordered top-of-week, so a post's position in it is the
-    community signal the JSON score would have given. That rank is passed
-    through as rank_hint rather than being written into `points`, which would
-    have put a made-up number next to Hacker News's real one.
+    Link posts only. A subreddit's top-of-week rewards jokes, not significance:
+    the five highest scoring posts in r/OpenAI the week this was written were
+    memes, "POV: you're born as an AI" among them, and every one passed the
+    gen-AI keyword filter. Memes are self or image posts, so requiring an
+    outbound article drops them, and it makes a post collide with the press
+    copy of the same story in dedupe() instead of duplicating it.
 
-    A subreddit that fails is a warning, never fatal: one dead sub must not
-    cost the other seven.
+    The feed is ordered top-of-week, so a post's position is the community
+    signal the (blocked) JSON score would have carried. It travels as
+    rank_hint rather than being written into `points`, which would have put a
+    made-up number beside Hacker News's real one.
     """
-    now = now or datetime.datetime.now(datetime.timezone.utc)
-    out = []
-    for sub in subreddits:
-        url = f"https://www.reddit.com/r/{sub}/top/.rss?t=week"
-        if out or sub != subreddits[0]:
-            time.sleep(REDDIT_DELAY_SECONDS)
-        xml_text = None
+    url = (f"https://www.reddit.com/r/{'+'.join(subreddits)}/top/.rss"
+           f"?t=week&limit={REDDIT_LIMIT}")
+    # This is one request per week: waiting a couple of minutes for it is
+    # cheap, and losing the whole source to a transient 429 is not.
+    xml_text = None
+    last = None
+    for wait in retry_waits:
+        if wait:
+            time.sleep(wait)
         try:
             xml_text = _get(url)
-        except Exception as direct_err:
-            # Rate limited or blocked. Firecrawl fetches from its own IPs, so
-            # this is the path that actually works from a CI runner.
-            if firecrawl_key:
-                try:
-                    xml_text = firecrawl_fetch(url, firecrawl_key)
-                except Exception as fc_err:
-                    if warnings is not None:
-                        warnings.append(
-                            f"reddit r/{sub} failed direct ({type(direct_err).__name__}) "
-                            f"and via firecrawl ({type(fc_err).__name__})")
-            elif warnings is not None:
-                warnings.append(f"reddit r/{sub} failed: {type(direct_err).__name__}: {direct_err}")
-        if not xml_text:
+            break
+        except Exception as e:
+            last = e
+    if xml_text is None:
+        if warnings is not None:
+            warnings.append(f"reddit failed after 3 attempts: {type(last).__name__}: {last}")
+        return []
+
+    entries = xml_text.split("<entry>")[1:]
+    if not entries and warnings is not None:
+        warnings.append("reddit parsed 0 entries (format change?)")
+
+    out = []
+    per_sub_count = {}
+    for rank, raw in enumerate(entries):
+        title = _clean(_first(raw, "title"))
+        if not title:
             continue
-        entries = xml_text.split("<entry>")[1:]
-        if not entries and warnings is not None:
-            warnings.append(f"reddit r/{sub} parsed 0 entries (format change?)")
-        kept = 0
-        for rank, raw in enumerate(entries):
-            title = _clean(_first(raw, "title"))
-            if not title:
-                continue
-            published = _first(raw, "published") or _first(raw, "updated")
-            published_dt = parse_date(published)
-            m = re.search(r'<link href="([^"]+)"', raw)
-            permalink = m.group(1) if m else f"https://www.reddit.com/r/{sub}/"
-            content = re.search(r"<content[^>]*>(.*?)</content>", raw, re.S)
-            link = _reddit_outbound(content.group(1) if content else "", permalink)
-            # Link posts only. A subreddit's top-of-week is dominated by memes
-            # and screenshots ("POV: you're born as an AI" outranked every
-            # actual story in r/OpenAI the week this was written), and those
-            # are self or image posts with no destination. Requiring an
-            # outbound article drops them, and makes the post collide with the
-            # press copy of the same story in dedupe() instead of duplicating
-            # it.
-            if link == permalink:
-                continue
-            out.append({
-                "title": title,
-                "url": link,
-                "source": f"r/{sub}",
-                "tier": 2,
-                "published": published or "",
-                "published_dt": published_dt,
-                "summary": "",
-                "points": 0,
-                # Position in a top-of-week feed, 0 = the week's top post.
-                "rank_hint": rank,
-            })
-            kept += 1
-            if kept >= per_sub:
-                break
+        m_sub = re.search(r'<category term="([^"]+)"', raw)
+        sub = m_sub.group(1) if m_sub else "reddit"
+        if sub == "multi":          # the feed's own self-description
+            continue
+        if per_sub_count.get(sub, 0) >= per_sub:
+            continue
+        m_link = re.search(r'<link href="([^"]+)"', raw)
+        permalink = m_link.group(1) if m_link else f"https://www.reddit.com/r/{sub}/"
+        content = re.search(r"<content[^>]*>(.*?)</content>", raw, re.S)
+        link = _reddit_outbound(content.group(1) if content else "", permalink)
+        if link == permalink:
+            continue                # self or image post, not an article
+        published = _first(raw, "published") or _first(raw, "updated")
+        out.append({
+            "title": title,
+            "url": link,
+            "source": f"r/{sub}",
+            "tier": 2,
+            "published": published or "",
+            "published_dt": parse_date(published),
+            "summary": "",
+            "points": 0,
+            "rank_hint": rank,
+        })
+        per_sub_count[sub] = per_sub_count.get(sub, 0) + 1
     return out
 
 
@@ -523,73 +525,90 @@ X_SOURCES = [
     "https://x.com/OpenAI",
     "https://x.com/AnthropicAI",
     "https://x.com/GoogleDeepMind",
-    "https://x.com/search?q=%28AI%20OR%20LLM%20OR%20%22AI%20agents%22%29%20min_faves%3A2000&f=top",
 ]
-X_MIN_CHARS = 60
-X_MAX_CHARS = 280
+X_MIN_CHARS = 80
+X_TITLE_CHARS = 220
+
+# Firecrawl renders an X profile as structured markdown, not as a wall of
+# timeline text: a "## Latest Posts" section, then one "### N. Post" block per
+# post carrying "Posted: <ISO>", "URL: [..](..)", the body as a blockquote, and
+# "Likes: n | Retweets: n". Verified against a live scrape 2026-08-22. That
+# gives a real per-post URL, a real timestamp, and a real engagement number, so
+# X items rank on the same axes as everything else and dedupe on URL like
+# everything else.
+_X_POST = re.compile(r"^###\s+\d+\.\s*Post\s*$", re.M)
+_X_POSTED = re.compile(r"Posted:\s*([^\s]+)")
+_X_URL = re.compile(r"URL:\s*\[[^\]]*\]\(([^)]+)\)")
+_X_ENGAGEMENT = re.compile(r"Likes:\s*([\d,]+)\s*\|\s*Retweets:\s*([\d,]+)")
 
 
-def _x_lines(markdown):
-    """Post-like lines out of a scraped timeline.
+def _x_unescape(text):
+    """Firecrawl backslash-escapes markdown punctuation, dates included."""
+    return re.sub(r"\\([^A-Za-z0-9])", r"\1", text or "")
 
-    Firecrawl returns the page as markdown, so the timeline arrives as a wall
-    of mixed navigation chrome and post text. Keep lines that read like a post
-    and drop the furniture.
-    """
-    chrome = (
-        "follow", "log in", "sign up", "trending", "who to follow", "show more",
-        "replies", "reposts", "quotes", "views", "subscribe", "see new posts",
-        "something went wrong", "retry", "terms of service", "privacy policy",
-    )
-    out = []
-    for line in markdown.splitlines():
-        line = line.strip().strip("*_# \t")
-        if not (X_MIN_CHARS <= len(line) <= X_MAX_CHARS):
+
+def _x_posts(markdown):
+    """Structured posts out of a scraped X profile."""
+    body = markdown.split("## Latest Posts", 1)
+    if len(body) < 2:
+        return []
+    posts = []
+    for chunk in _X_POST.split(body[1])[1:]:
+        m_url = _X_URL.search(chunk)
+        if not m_url:
             continue
-        if line.startswith(("!", "[", "|", ">", "-", "http")):
+        quote = " ".join(
+            _x_unescape(line.lstrip("> ").strip())
+            for line in chunk.splitlines()
+            if line.lstrip().startswith(">")
+        ).strip()
+        quote = re.sub(r"\s+", " ", quote)
+        if len(quote) < X_MIN_CHARS:
             continue
-        low = line.lower()
-        if any(c in low for c in chrome):
-            continue
-        out.append(_clean(line))
-    return out
+        m_posted = _X_POSTED.search(chunk)
+        m_eng = _X_ENGAGEMENT.search(chunk)
+        likes = retweets = 0
+        if m_eng:
+            likes = int(m_eng.group(1).replace(",", ""))
+            retweets = int(m_eng.group(2).replace(",", ""))
+        posts.append({
+            "text": quote,
+            "url": _x_unescape(m_url.group(1)),
+            "posted": _x_unescape(m_posted.group(1)) if m_posted else "",
+            "points": likes + retweets,
+        })
+    return posts
 
 
 def fetch_x_via_firecrawl(api_key, urls=X_SOURCES, limit_per_url=5,
                           warnings=None, now=None):
     now = now or datetime.datetime.now(datetime.timezone.utc)
     items = []
-    seen_text = set()
     for target in urls:
+        handle = target.rstrip("/").split("/")[-1]
         try:
             markdown = firecrawl_fetch(target, api_key, fmt="markdown")
         except Exception as e:
             if warnings is not None:
-                warnings.append(f"x {target.split('/')[-1][:24]} failed: {type(e).__name__}: {e}")
+                warnings.append(f"x @{handle} failed: {type(e).__name__}: {e}")
             continue
-        kept = 0
-        for text in _x_lines(markdown):
-            key = text.lower()[:80]
-            if key in seen_text:
-                continue
-            seen_text.add(key)
+        posts = _x_posts(markdown)
+        if not posts and warnings is not None:
+            warnings.append(f"x @{handle} parsed 0 posts (page shape changed?)")
+        for post in posts[:limit_per_url]:
+            text = post["text"]
             items.append({
-                "title": text,
-                "url": target,
-                "source": "X",
-                "tier": 2,
-                "published": "",
-                # A scraped timeline carries no reliable per-post timestamp.
-                # These came off a live view this minute, so stamp them now and
-                # let is_recent() keep them; the summarizer decides if they
-                # matter.
-                "published_dt": now,
-                "summary": "",
-                "points": 0,
+                # An announcement post has no headline, so the opening of the
+                # post is the title and the whole post is the summary.
+                "title": text[:X_TITLE_CHARS],
+                "url": post["url"],
+                "source": f"X @{handle}",
+                "tier": 3,      # the lab announcing its own thing
+                "published": post["posted"],
+                "published_dt": parse_date(post["posted"]),
+                "summary": text,
+                "points": post["points"],
             })
-            kept += 1
-            if kept >= limit_per_url:
-                break
     return items
 
 
@@ -619,10 +638,9 @@ def collect(now=None, warnings=None):
     firecrawl_key = os.environ.get("FIRECRAWL_API_KEY")
 
     try:
-        reddit_items = fetch_reddit(warnings=warnings, now=now,
-                                    firecrawl_key=firecrawl_key)
+        reddit_items = fetch_reddit(warnings=warnings, now=now)
         if not reddit_items:
-            warnings.append("reddit returned 0 items across all subreddits")
+            warnings.append("reddit returned 0 link posts this week")
         collected.extend(reddit_items)
     except Exception as e:
         warnings.append(f"reddit failed: {type(e).__name__}: {e}")

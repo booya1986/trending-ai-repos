@@ -10,7 +10,8 @@ from fetch_ai_news import (
     iso_week_string,
     canonical_url,
     _reddit_outbound,
-    _x_lines,
+    fetch_reddit,
+    _x_posts,
 )
 
 NOW = datetime.datetime(2026, 8, 16, 12, 0, tzinfo=datetime.timezone.utc)
@@ -186,17 +187,117 @@ def test_canonical_url_keeps_a_meaningful_query():
     assert canonical_url("https://a.com/x?page=2") != canonical_url("https://a.com/x")
 
 
-# --- X ---------------------------------------------------------------------
+# --- X, as Firecrawl actually renders it -----------------------------------
 
-def test_x_lines_drop_timeline_chrome():
-    md = "\n".join([
-        "Follow",
-        "Something went wrong. Try reloading.",
-        "OpenAI just shipped a new agent runtime that runs tools in parallel "
-        "and it changes how you build multi step flows.",
-        "[image](https://x.com/pic)",
-        "short",
-    ])
-    lines = _x_lines(md)
-    assert len(lines) == 1
-    assert lines[0].startswith("OpenAI just shipped")
+X_MARKDOWN = """# OpenAI (@OpenAI)
+
+- Followers: 4,000,000
+
+## Latest Posts
+
+### 1. Post
+Posted: 2026\\-08\\-21T10:00:00\\.000Z
+URL: [https://x\\.com/OpenAI/status/123](https://x.com/OpenAI/status/123)
+
+> Previewing Ultrafast mode: GPT\\-5.6 Sol at up to 14x the speed, available to
+>
+> all paid tiers starting today.
+
+Likes: 15,000 | Retweets: 925
+
+### 2. Post
+Posted: 2026\\-08\\-20T10:00:00\\.000Z
+URL: [https://x\\.com/OpenAI/status/124](https://x.com/OpenAI/status/124)
+
+> short
+
+Likes: 3 | Retweets: 0
+"""
+
+
+def test_x_posts_recover_url_timestamp_and_engagement():
+    posts = _x_posts(X_MARKDOWN)
+    assert len(posts) == 1          # the "short" post is below the length floor
+    post = posts[0]
+    assert post["url"] == "https://x.com/OpenAI/status/123"
+    assert post["posted"] == "2026-08-21T10:00:00.000Z"   # backslashes stripped
+    assert post["points"] == 15925                        # likes + retweets
+    assert "Ultrafast mode" in post["text"]
+    assert "\\" not in post["text"]
+
+
+def test_x_posts_survive_a_page_without_the_posts_section():
+    assert _x_posts("# OpenAI\n\nNo posts here.") == []
+
+
+def test_x_timestamp_parses_into_the_freshness_window():
+    posts = _x_posts(X_MARKDOWN)
+    dt = parse_date(posts[0]["posted"])
+    assert dt is not None
+    assert is_recent({"published_dt": dt},
+                     datetime.datetime(2026, 8, 22, 12, 0, tzinfo=datetime.timezone.utc))
+
+
+MULTI_RSS = """<?xml version="1.0"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+<category term="multi" label="multi"/>
+<entry>
+  <category term="OpenAI" label="r/OpenAI"/>
+  <content type="html">&lt;span&gt;&lt;a href="https://techcrunch.com/a"&gt;[link]&lt;/a&gt;&lt;/span&gt;</content>
+  <link href="https://www.reddit.com/r/OpenAI/comments/a/"/>
+  <published>2026-08-16T01:00:00+00:00</published>
+  <title>OpenAI ships an agent runtime</title>
+</entry>
+<entry>
+  <category term="OpenAI" label="r/OpenAI"/>
+  <content type="html">&lt;span&gt;&lt;a href="https://i.redd.it/meme.jpeg"&gt;[link]&lt;/a&gt;&lt;/span&gt;</content>
+  <link href="https://www.reddit.com/r/OpenAI/comments/b/"/>
+  <published>2026-08-16T02:00:00+00:00</published>
+  <title>POV: you are born as an AI</title>
+</entry>
+<entry>
+  <category term="LocalLLaMA" label="r/LocalLLaMA"/>
+  <content type="html">no outbound link at all</content>
+  <link href="https://www.reddit.com/r/LocalLLaMA/comments/c/"/>
+  <published>2026-08-16T03:00:00+00:00</published>
+  <title>What GPU should I buy</title>
+</entry>
+</feed>"""
+
+
+def test_reddit_keeps_only_link_posts(monkeypatch):
+    # The meme (Reddit-hosted image) and the self post must both be dropped:
+    # top-of-week rewards those, and neither is news.
+    monkeypatch.setattr("fetch_ai_news._get", lambda url, **kw: MULTI_RSS)
+    items = fetch_reddit(warnings=[])
+    assert len(items) == 1
+    assert items[0]["url"] == "https://techcrunch.com/a"
+    assert items[0]["source"] == "r/OpenAI"
+    assert items[0]["rank_hint"] == 0
+
+
+def test_reddit_uses_one_combined_request(monkeypatch):
+    # One multireddit URL, not one request per subreddit: per-subreddit calls
+    # 429 after the first, and Firecrawl refuses reddit.com outright.
+    seen = []
+    monkeypatch.setattr("fetch_ai_news._get",
+                        lambda url, **kw: seen.append(url) or MULTI_RSS)
+    fetch_reddit(subreddits=("OpenAI", "ClaudeAI", "LocalLLaMA"), warnings=[])
+    assert len(seen) == 1
+    assert "r/OpenAI+ClaudeAI+LocalLLaMA/top/.rss" in seen[0]
+
+
+def test_reddit_caps_each_subreddit(monkeypatch):
+    monkeypatch.setattr("fetch_ai_news._get", lambda url, **kw: MULTI_RSS)
+    items = fetch_reddit(per_sub=0, warnings=[])
+    assert items == []
+
+
+def test_reddit_failure_is_not_fatal(monkeypatch):
+    def boom(url, **kw):
+        raise OSError("blocked")
+    monkeypatch.setattr("fetch_ai_news._get", boom)
+    warnings = []
+    # retry_waits=(0,) so the gate does not sit through the real backoff.
+    assert fetch_reddit(warnings=warnings, retry_waits=(0,)) == []
+    assert any("reddit failed" in w for w in warnings)
