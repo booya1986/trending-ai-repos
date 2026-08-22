@@ -21,10 +21,12 @@ The vault is a local folder with no git remote, so CI cannot write into it.
 Rendering the note in the cloud means it exists regardless of the Mac, and the
 local step is a copy that backfills every week the vault is missing.
 
-Sources: 14 press and lab feeds, Hacker News, gen-AI subreddits (link posts
-only, because top-of-week rewards memes), and X. Reddit and X are reached
-through Firecrawl, which is what makes them work from a CI runner; both are
-optional and never fail the build.
+Sources: 14 press and lab feeds, Hacker News, eight gen-AI subreddits (link
+posts only, because top-of-week rewards memes), and three X accounts. Reddit
+arrives as a single multireddit request, because per-subreddit requests 429 and
+Firecrawl refuses reddit.com outright. X goes through Firecrawl, which renders
+a profile as structured markdown with real post URLs, timestamps and
+engagement counts. Every source is optional and none can fail the build.
 
 ## Secrets
 
@@ -33,7 +35,7 @@ optional and never fail the build.
 | `ANTHROPIC_API_KEY` | briefs, news summaries | Yes |
 | `GMAIL_APP_PASSWORD` | Sunday email | Yes |
 | `GOOGLE_TTS_API_KEY` | MP3 narration | Optional |
-| `FIRECRAWL_API_KEY` | Reddit fallback and X | Optional; without it both go quiet |
+| `FIRECRAWL_API_KEY` | X only (Firecrawl refuses Reddit) | Optional; without it X goes quiet |
 
 ## Variables
 
