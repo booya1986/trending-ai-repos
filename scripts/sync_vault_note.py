@@ -43,9 +43,7 @@ _REPO_ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 SITE_DIR = os.environ.get("TRENDING_SITE_CLONE", _REPO_ROOT)
 VAULT_DIR = os.path.expanduser("~/Documents/avi-workspace/Researches/AI News")
 NOTE_SUFFIX = "AI News"
-INDEX_NOTE = "📌 AI News — מפת תוכן.md"
-INDEX_START = "<!-- INDEX:START -->"
-INDEX_END = "<!-- INDEX:END -->"
+INDEX_NOTE = "📇 AI News — אינדקס דוחות.md"
 REPORTS_DIR = os.path.join(SITE_DIR, "reports")
 BASE_URL = "https://booya1986.github.io/trending-ai-repos/reports"
 
@@ -313,15 +311,32 @@ def installed_weeks():
 
 
 def render_index(weeks):
-    """The generated table of contents for the vault folder.
+    """The whole index note, regenerated from scratch every run.
 
-    Written as plain markdown with wikilinks rather than a dataview query, so
-    it reads correctly in preview, in source mode, and anywhere the note is
-    exported or opened outside Obsidian.
+    A standalone note rather than a block inside the hand-written map, because
+    under launchd this process cannot READ files in the vault: TCC allows stat
+    and write but denies open-for-read and listdir. A marker-scoped edit needs
+    to read the file first, so it could never work from the scheduled job.
+    Owning a file outright needs no read at all, and leaves the hand-written
+    map untouched.
     """
-    lines = [INDEX_START,
-             "<!-- נוצר אוטומטית על ידי sync_vault_note.py. אין לערוך ידנית. -->",
-             ""]
+    lines = [
+        "---",
+        'description: "אינדקס כל הדוחות השבועיים של AI News, נוצר אוטומטית"',
+        "type: index",
+        "category: research",
+        "lang: he",
+        "status: active",
+        "tags: [ai-news, index, gen-ai, weekly-digest]",
+        "text-to-speech: no",
+        "---",
+        "",
+        "# 📇 AI News — אינדקס דוחות",
+        "",
+        "> נוצר אוטומטית בכל סנכרון. אין לערוך ידנית: כל שינוי כאן יידרס.",
+        "> המפה עם ההסברים היא [[📌 AI News — מפת תוכן]].",
+        "",
+    ]
     if not weeks:
         lines.append("_עוד אין דוחות._")
     else:
@@ -333,32 +348,18 @@ def render_index(weeks):
                          f"| [פתח]({BASE_URL}/{week}/) |")
         lines.append("")
         lines.append(f"_{len(weeks)} דוחות._")
-    lines.append(INDEX_END)
-    return "\n".join(lines)
+    return "\n".join(lines) + "\n"
 
 
 def update_index():
-    """Refresh the generated block inside the folder's index note.
-
-    Marker scoped: the note carries hand-written documentation above the table
-    which has to survive.
-    """
+    """Write the index note. Never fatal: the notes matter more than the index."""
     path = os.path.join(VAULT_DIR, INDEX_NOTE)
-    table = render_index(installed_weeks())
     try:
-        with open(path, encoding="utf-8") as fh:
-            text = fh.read()
-    except OSError:
-        print(f"index note not found at {path}, skipping")
-        return
-    if INDEX_START in text and INDEX_END in text:
-        text = (text[:text.index(INDEX_START)] + table
-                + text[text.index(INDEX_END) + len(INDEX_END):])
-    else:
-        text = text.rstrip("\n") + "\n\n## 📝 כל הדוחות\n\n" + table + "\n"
-    with open(path, "w", encoding="utf-8") as fh:
-        fh.write(text)
-    print(f"index updated: {path}")
+        with open(path, "w", encoding="utf-8") as fh:
+            fh.write(render_index(installed_weeks()))
+        print(f"index written: {path}")
+    except OSError as e:
+        print(f"could not write the index note ({type(e).__name__}: {e})")
 
 
 def main():
