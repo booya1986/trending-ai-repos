@@ -163,7 +163,7 @@ def is_relevant(repo):
 # Momentum (share of total stars earned this week) separates a repo still
 # climbing from one that arrived years ago and merely stayed popular.
 
-REPO_COUNT = 5        # repos in the weekly digest
+REPO_COUNT = 3        # repos in the weekly digest
 MIN_MOMENTUM = 0.03   # must have earned >=3% of its stars in the last week
 STAR_FLOOR = 150      # below this, weekly velocity is noise
 INTEREST_WEIGHT = 0.12
@@ -294,12 +294,25 @@ def emergence_score(repo, today=None):
     return weekly_velocity(repo, today) * (1 + INTEREST_WEIGHT * interest)
 
 
-_GH_LINK = re.compile(r"github\.com/([^/\s)]+/[^/\s)]+)")
+# Excludes quotes and angle brackets as well as whitespace and the closing
+# paren: the same regex reads markdown links from the vault notes and href
+# attributes from the published reports, and an HTML capture would otherwise
+# swallow the quote and everything after it.
+_GH_LINK = re.compile(r"github\.com/([^/\s)\"'<>]+/[^/\s)\"'<>]+)")
 # Only weekly report notes count as history. The folder also holds index notes
-# ("מדריך…", "📌 Trending Repos…") whose names sort ABOVE every report, so an
+# ("מדריך…", "📌 AI News…") whose names sort ABOVE every report, so an
 # unfiltered reverse sort spent the whole limit on them and deduped against a
 # single week — which is how W32 repos resurfaced in W34's candidate pool.
 _REPORT_NOTE = re.compile(r"^\d{4}-W\d{2}\b")
+
+
+def _clean_repo_ref(ref):
+    """owner/name, with whatever punctuation the surrounding markup left on it.
+
+    The vault notes are markdown (trailing paren) and the reports are HTML
+    (trailing quote), and the same regex reads both.
+    """
+    return ref.rstrip(')">\'<,.;').removesuffix(".git")
 
 
 def previously_seen_repos(notes_dir, limit=3):
@@ -315,10 +328,40 @@ def previously_seen_repos(notes_dir, limit=3):
         try:
             with open(os.path.join(notes_dir, fname), encoding="utf-8") as fh:
                 for m in _GH_LINK.finditer(fh.read()):
-                    seen.add(m.group(1).rstrip(")"))
+                    seen.add(_clean_repo_ref(m.group(1)))
         except OSError:
             continue
-    return seen
+    return seen - {""}
+
+
+def previously_seen_from_reports(reports_dir, limit=3):
+    """The repos in the last few PUBLISHED reports.
+
+    previously_seen_repos() reads the Obsidian vault, which exists only on the
+    Mac: in GitHub Actions that directory is absent, so the guard returned an
+    empty set and every cloud run was free to republish last week's repos.
+    The published reports live in this repo and are present everywhere, so
+    they are the source that actually works in CI. At three repos a week a
+    repeat costs a third of the section, so this matters more than it did at
+    five.
+    """
+    if not os.path.isdir(reports_dir):
+        return set()
+    weeks = sorted(
+        (d for d in os.listdir(reports_dir)
+         if os.path.isdir(os.path.join(reports_dir, d)) and _REPORT_NOTE.match(d)),
+        reverse=True,
+    )[:limit]
+    seen = set()
+    for week in weeks:
+        path = os.path.join(reports_dir, week, "index.html")
+        try:
+            with open(path, encoding="utf-8") as fh:
+                for m in _GH_LINK.finditer(fh.read()):
+                    seen.add(_clean_repo_ref(m.group(1)))
+        except OSError:
+            continue
+    return seen - {""}
 
 
 _API = "https://api.github.com"
@@ -531,10 +574,17 @@ def main():
     notes_dir = os.path.expanduser(
         os.environ.get(
             "TRENDING_NOTES_DIR",
-            "~/Documents/avi-workspace/Researches/Trending Repos",
+            "~/Documents/avi-workspace/Researches/AI News",
         )
     )
-    seen = previously_seen_repos(notes_dir, limit=3)
+    reports_dir = os.environ.get(
+        "TRENDING_REPORTS_DIR",
+        os.path.join(os.path.dirname(os.path.dirname(os.path.abspath(__file__))), "reports"),
+    )
+    # Union of both: the vault when running on the Mac, the published reports
+    # everywhere including CI.
+    seen = previously_seen_repos(notes_dir, limit=3) | previously_seen_from_reports(reports_dir, limit=3)
+    print(f"deduping against {len(seen)} repo(s) from the last 3 weeks", file=sys.stderr)
 
     warnings = []
     collected = []

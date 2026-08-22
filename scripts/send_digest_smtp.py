@@ -25,7 +25,12 @@ sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 import send_digest as sd  # noqa: E402
 
 GMAIL_USER = os.environ.get("GMAIL_USER", "avi.j.levi@gmail.com")
-TO = os.environ.get("DIGEST_TO", "avi.j.levi@gmail.com")
+# Comma separated, matching the L&D sender, so the audience is a repo
+# variable rather than a code change. `or` not a get() default: an unset repo
+# variable arrives as an empty string.
+RECIPIENTS = [a.strip() for a in
+              (os.environ.get("DIGEST_TO") or "avi.j.levi@gmail.com").split(",")
+              if a.strip()]
 APP_PASSWORD = os.environ.get("GMAIL_APP_PASSWORD", "").replace(" ", "")
 
 
@@ -35,16 +40,18 @@ def send(week):
     week_label = week.replace("-", " ").replace("W", "שבוע ")
 
     msg = MIMEMultipart("alternative")
-    msg["To"] = TO
+    msg["To"] = ", ".join(RECIPIENTS)
     msg["From"] = GMAIL_USER
     msg["Subject"] = f"🔥 דוח AI שבועי מוכן – {week_label}"
-    msg.attach(MIMEText("10 repos AI מובילים השבוע. פתח לקרוא ולהאזין.", "plain", "utf-8"))
+    msg.attach(MIMEText(
+        "10 הכתבות הגדולות ב-Gen AI השבוע, ו-3 הרפוזיטוריות שצוברות הכי הרבה "
+        "תאוצה. פתח לקרוא ולהאזין.", "plain", "utf-8"))
     msg.attach(MIMEText(html, "html", "utf-8"))
 
     with smtplib.SMTP_SSL("smtp.gmail.com", 465, timeout=60) as s:
         s.login(GMAIL_USER, APP_PASSWORD)
-        s.sendmail(GMAIL_USER, [TO], msg.as_string())
-    print(f"Email sent via SMTP to {TO} | Week: {week}")
+        s.sendmail(GMAIL_USER, RECIPIENTS, msg.as_string())
+    print(f"Email sent via SMTP to {', '.join(RECIPIENTS)} | Week: {week}")
 
 
 def main():
@@ -53,6 +60,9 @@ def main():
     if os.path.exists(sent_marker):
         print(f"Email already sent for {week}, skipping.")
         return 0
+    if not RECIPIENTS:
+        print("DIGEST_TO resolved to no recipients.", file=sys.stderr)
+        return 2
     if not APP_PASSWORD:
         print("GMAIL_APP_PASSWORD not set — cannot send.", file=sys.stderr)
         return 2

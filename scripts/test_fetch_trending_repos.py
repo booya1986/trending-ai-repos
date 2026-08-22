@@ -2,6 +2,7 @@ import datetime
 from fetch_trending_repos import iso_week_string, since_date
 from fetch_trending_repos import is_ai_relevant
 from fetch_trending_repos import previously_seen_repos
+from fetch_trending_repos import previously_seen_from_reports
 from fetch_trending_repos import normalize_repo
 from fetch_trending_repos import select_top
 from fetch_trending_repos import interest_score, is_relevant
@@ -38,7 +39,7 @@ def test_irrelevant_when_no_signal():
 
 
 def test_extracts_full_names_from_note_text(tmp_path):
-    note = tmp_path / "2026-W22 Trending AI Repos.md"
+    note = tmp_path / "2026-W22 AI News.md"
     note.write_text("## [foo/bar](https://github.com/foo/bar) — `Python`\nstuff\n"
                     "## [baz/qux](https://github.com/baz/qux) — `Go`\n")
     seen = previously_seen_repos(str(tmp_path), limit=5)
@@ -48,10 +49,10 @@ def test_extracts_full_names_from_note_text(tmp_path):
 def test_index_notes_do_not_consume_the_history_limit(tmp_path):
     # The folder holds index notes whose names sort above every report. They
     # must not crowd the weekly notes out of the dedup window.
-    (tmp_path / "📌 Trending Repos — map.md").write_text("https://github.com/idx/one\n")
+    (tmp_path / "📌 AI News — map.md").write_text("https://github.com/idx/one\n")
     (tmp_path / "מדריך - trending.md").write_text("https://github.com/idx/two\n")
     for week, repo in (("W31", "a/one"), ("W32", "b/two"), ("W33", "c/three")):
-        (tmp_path / f"2026-{week} Trending AI Repos.md").write_text(
+        (tmp_path / f"2026-{week} AI News.md").write_text(
             f"https://github.com/{repo}\n"
         )
     seen = previously_seen_repos(str(tmp_path), limit=3)
@@ -428,3 +429,32 @@ def test_select_top_returns_results_in_velocity_order():
     out = select_top(repos, seen=set(), limit=10, today=TODAY)
     scores = [emergence_score(r, TODAY) for r in out]
     assert scores == sorted(scores, reverse=True)
+
+
+def test_seen_repos_read_from_published_reports(tmp_path):
+    # The vault directory does not exist in CI, so the reports in this repo are
+    # what the cloud run can actually dedup against. Names arrive out of HTML
+    # here, so they carry a trailing quote the markdown path never produces.
+    for week, repo in (("2026-W31", "a/one"), ("2026-W32", "b/two")):
+        d = tmp_path / week
+        d.mkdir()
+        (d / "index.html").write_text(
+            f'<a href="https://github.com/{repo}" class="card">{repo}</a>'
+        )
+    seen = previously_seen_from_reports(str(tmp_path), limit=3)
+    assert seen == {"a/one", "b/two"}
+
+
+def test_seen_reports_window_is_the_most_recent_weeks(tmp_path):
+    for week, repo in (("2026-W30", "old/one"), ("2026-W31", "a/one"),
+                       ("2026-W32", "b/two"), ("2026-W33", "c/three")):
+        d = tmp_path / week
+        d.mkdir()
+        (d / "index.html").write_text(f'<a href="https://github.com/{repo}">x</a>')
+    seen = previously_seen_from_reports(str(tmp_path), limit=3)
+    assert "old/one" not in seen
+    assert seen == {"a/one", "b/two", "c/three"}
+
+
+def test_missing_reports_dir_is_not_an_error(tmp_path):
+    assert previously_seen_from_reports(str(tmp_path / "nope")) == set()

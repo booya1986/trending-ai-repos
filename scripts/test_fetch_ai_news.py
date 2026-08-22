@@ -8,6 +8,9 @@ from fetch_ai_news import (
     news_score,
     dedupe,
     iso_week_string,
+    canonical_url,
+    _reddit_outbound,
+    _x_lines,
 )
 
 NOW = datetime.datetime(2026, 8, 16, 12, 0, tzinfo=datetime.timezone.utc)
@@ -122,3 +125,78 @@ def test_dedupe_collapses_identical_urls_with_tracking_params():
 
 def test_iso_week_matches_the_repo_digest_week():
     assert iso_week_string(datetime.date(2026, 8, 16)) == "2026-W33"
+
+
+# --- Reddit ----------------------------------------------------------------
+
+REDDIT_ENTRY_LINK = (
+    '<content type="html">&lt;a href=&quot;https://www.reddit.com/r/OpenAI/comments/x/&quot;&gt;'
+    '&lt;/a&gt; &lt;span&gt;&lt;a href=&quot;https://techcrunch.com/2026/08/20/openai-ships/&quot;&gt;'
+    '[link]&lt;/a&gt;&lt;/span&gt; &lt;span&gt;&lt;a href=&quot;https://www.reddit.com/r/OpenAI/comments/x/&quot;&gt;'
+    '[comments]&lt;/a&gt;&lt;/span&gt;</content>'
+)
+REDDIT_ENTRY_IMAGE = (
+    '<content type="html">&lt;span&gt;&lt;a href=&quot;https://i.redd.it/abc.jpeg&quot;&gt;'
+    '[link]&lt;/a&gt;&lt;/span&gt;</content>'
+)
+PERMALINK = "https://www.reddit.com/r/OpenAI/comments/x/"
+
+
+def test_reddit_link_post_resolves_to_the_article():
+    # This is what makes a Reddit post collide with the press copy in dedupe()
+    # instead of appearing twice.
+    assert _reddit_outbound(REDDIT_ENTRY_LINK, PERMALINK) == \
+        "https://techcrunch.com/2026/08/20/openai-ships/"
+
+
+def test_reddit_image_post_keeps_the_permalink():
+    # Reddit-hosted media is not an article. Returning the permalink is what
+    # the caller uses to drop the post: memes dominate top-of-week otherwise.
+    assert _reddit_outbound(REDDIT_ENTRY_IMAGE, PERMALINK) == PERMALINK
+
+
+def test_reddit_self_post_keeps_the_permalink():
+    assert _reddit_outbound("<content>no link here</content>", PERMALINK) == PERMALINK
+
+
+def test_reddit_rank_lifts_score_but_less_than_hn_traction():
+    top = {"title": "OpenAI ships a thing", "summary": "", "rank_hint": 0,
+           "published_dt": NOW}
+    buried = {"title": "OpenAI ships a thing", "summary": "", "rank_hint": 8,
+              "published_dt": NOW}
+    hn = {"title": "OpenAI ships a thing", "summary": "", "points": 500,
+          "published_dt": NOW}
+    assert news_score(top, NOW) > news_score(buried, NOW)
+    assert news_score(hn, NOW) > news_score(top, NOW)
+
+
+# --- canonical URLs --------------------------------------------------------
+
+def test_canonical_url_collapses_the_ways_four_sources_link_one_article():
+    variants = [
+        "https://www.techcrunch.com/2026/08/20/x/?utm_source=rss&utm_medium=feed",
+        "http://techcrunch.com/2026/08/20/x",
+        "https://m.techcrunch.com/2026/08/20/x/amp",
+        "https://techcrunch.com/2026/08/20/x/",
+    ]
+    assert len({canonical_url(v) for v in variants}) == 1
+
+
+def test_canonical_url_keeps_a_meaningful_query():
+    assert canonical_url("https://a.com/x?page=2") != canonical_url("https://a.com/x")
+
+
+# --- X ---------------------------------------------------------------------
+
+def test_x_lines_drop_timeline_chrome():
+    md = "\n".join([
+        "Follow",
+        "Something went wrong. Try reloading.",
+        "OpenAI just shipped a new agent runtime that runs tools in parallel "
+        "and it changes how you build multi step flows.",
+        "[image](https://x.com/pic)",
+        "short",
+    ])
+    lines = _x_lines(md)
+    assert len(lines) == 1
+    assert lines[0].startswith("OpenAI just shipped")

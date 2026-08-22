@@ -37,10 +37,10 @@ def read_narration(week):
                 name = parts[1].strip()
                 desc = parts[2].split('.')[0].strip()
                 repos.append((name, desc))
-    return repos[:5]
+    return repos[:3]
 
 
-def read_news(week, limit=5):
+def read_news(week, limit=10):
     """The week's gen-AI headlines, written by summarize_news.py.
 
     Returns [] when the file is missing or unreadable, so a week without news
@@ -64,18 +64,20 @@ def build_news_block(week):
     for i, s in enumerate(stories):
         border = 'border-bottom:1px solid #2d2d2d;' if i < len(stories) - 1 else ''
         headline = s.get('headline_he') or s.get('headline_en') or ''
-        summary = s.get('summary_he') or s.get('summary_en') or ''
+        insight = s.get('insight_he') or s.get('insight_en') or ''
         url = s.get('url', '')
         source = s.get('source', '')
         items += f'''<tr><td style="padding:10px 0;{border}">
         <p style="margin:0 0 3px;font-size:14px;color:#f3f4f6;font-family:Arial,sans-serif;">
           <a href="{url}" style="color:#22c55e;text-decoration:none;font-weight:bold;">{headline}</a>
         </p>
-        <p style="margin:0;font-size:13px;color:#9ca3af;line-height:1.5;font-family:Arial,sans-serif;">{summary}</p>
-        <p style="margin:3px 0 0;font-size:11px;color:#6b7280;font-family:Arial,sans-serif;">{source}</p>
+        <p style="margin:0;font-size:13px;color:#9ca3af;line-height:1.6;font-family:Arial,sans-serif;">{insight}</p>
+        <p style="margin:5px 0 0;font-size:11px;font-family:Arial,sans-serif;">
+          <a href="{url}" style="color:#6b7280;text-decoration:underline;">{source or 'מקור'}</a>
+        </p>
         </td></tr>'''
     return f'''  <tr><td style="background:#1b1b1b;padding:4px 28px 16px;">
-    <p style="margin:0 0 10px;font-size:11px;font-weight:bold;color:#22c55e;letter-spacing:2px;font-family:Arial,sans-serif;">&#128240; החדשות של השבוע</p>
+    <p style="margin:0 0 10px;font-size:11px;font-weight:bold;color:#22c55e;letter-spacing:2px;font-family:Arial,sans-serif;">&#128240; 10 הכתבות המובילות</p>
     <table width="100%" cellpadding="0" cellspacing="0">{items}</table>
   </td></tr>
 '''

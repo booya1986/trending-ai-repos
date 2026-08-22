@@ -20,8 +20,8 @@ import os
 import sys
 
 MODEL = "claude-sonnet-5"      # matches generate_briefs.py
-CANDIDATES = 25                # how many headlines the model chooses from
-WANTED = 5                     # how many make the digest
+CANDIDATES = 40                # how many headlines the model chooses from
+WANTED = 10                    # how many make the digest
 
 SYSTEM_PROMPT = """\
 You are the news editor for Avi Levi's weekly generative-AI digest. He wants to \
@@ -31,23 +31,32 @@ techniques are now practical. He builds with Claude, agents, and MCP, and works 
 in creative and productivity tooling.
 
 Rules:
-- Pick the five biggest gen-AI stories of the week, ranked by how much they \
+- Pick the ten biggest gen-AI stories of the week, ranked by how much they \
 matter, across every area of AI. Rank on the story itself: how significant it \
 is, how much attention it is getting, and how much it changes what someone \
 building with gen AI can do.
-- Do NOT balance across categories. If the five biggest stories of the week \
-are all model launches, return five model launches. The category label is \
+- Do NOT balance across categories. If the ten biggest stories of the week \
+are all model launches, return ten model launches. The category label is \
 descriptive only, never a quota.
 - Prefer concrete news (launches, releases, funding, acquisitions, benchmarks, \
 technique write-ups) over opinion and think-pieces.
-- Never pick two items covering the same story. Choose the better source.
+- Never pick two items covering the same story. Candidates arrive from press \
+feeds, Hacker News, Reddit and X at once, so the SAME story often appears \
+several times under different wording. Before choosing, group the candidates \
+by the event they describe and take at most one from each group. Prefer the \
+primary source or the outlet that reported it over the aggregator, forum \
+thread or social post about it.
 - Ground every claim in the headline and summary you are given. Never invent \
 details, numbers, or capabilities.
 - Do not use em-dashes anywhere. Use colons, commas, or parentheses instead.
 - Hebrew must read naturally, not as translated English. Keep product and \
 company names in Latin script inside the Hebrew text.
-- summary: one sentence on what happened. why: one sentence on why it matters \
-to someone building with gen AI."""
+- insight: one short paragraph, three or four sentences. Say what happened, \
+then what Avi can actually take away or learn from it: what it changes, what \
+it makes possible, what it tells him about where things are going. No filler, \
+no hedging, no restating the headline in other words, no "this is significant \
+because it is significant". If there is nothing to take away, the story does \
+not belong in the ten."""
 
 NEWS_SCHEMA = {
     "type": "object",
@@ -67,14 +76,15 @@ NEWS_SCHEMA = {
                     },
                     "headline_he": {"type": "string"},
                     "headline_en": {"type": "string"},
-                    "summary_he": {"type": "string"},
-                    "summary_en": {"type": "string"},
-                    "why_he": {"type": "string"},
-                    "why_en": {"type": "string"},
+                    "insight_he": {
+                        "type": "string",
+                        "description": "3-4 sentences: what happened and what to take away from it.",
+                    },
+                    "insight_en": {"type": "string"},
                 },
                 "required": [
                     "index", "category", "headline_he", "headline_en",
-                    "summary_he", "summary_en", "why_he", "why_en",
+                    "insight_he", "insight_en",
                 ],
                 "additionalProperties": False,
             },
@@ -90,7 +100,9 @@ def _candidate_list(items):
     for i, it in enumerate(items):
         summary = (it.get("summary") or "")[:280]
         points = it.get("points") or 0
-        traction = f" [{points} HN points]" if points else ""
+        # Points now come from Hacker News and from Reddit, so label them by
+        # source rather than calling everything HN.
+        traction = f" [{points} points]" if points else ""
         lines.append(
             f"{i}. {it['title']}\n"
             f"   source: {it.get('source', '')}{traction} | {it.get('published', '')[:10]}\n"
@@ -115,10 +127,8 @@ def _fallback(items, warnings):
         out.append({
             "headline_he": it["title"],
             "headline_en": it["title"],
-            "summary_he": "",
-            "summary_en": (it.get("summary") or "")[:200],
-            "why_he": "",
-            "why_en": "",
+            "insight_he": "",
+            "insight_en": (it.get("summary") or "")[:300],
             "category": "product",
             "url": it["url"],
             "source": it.get("source", ""),
@@ -175,10 +185,8 @@ def summarize(infile, outfile):
                 stories.append({
                     "headline_he": entry["headline_he"],
                     "headline_en": entry["headline_en"],
-                    "summary_he": entry["summary_he"],
-                    "summary_en": entry["summary_en"],
-                    "why_he": entry["why_he"],
-                    "why_en": entry["why_en"],
+                    "insight_he": entry["insight_he"],
+                    "insight_en": entry["insight_en"],
                     "category": entry.get("category", "product"),
                     "url": src["url"],
                     "source": src.get("source", ""),

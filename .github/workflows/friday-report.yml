@@ -114,7 +114,7 @@ jobs:
           python3 scripts/fetch_ai_news.py > /tmp/news.json || echo '{"items":[],"warnings":["news fetch crashed"]}' > /tmp/news.json
           python3 -c "import json;d=json.load(open('/tmp/news.json'));print('news candidates:',d.get('count',0));[print('::warning title=news::'+w) for w in d.get('warnings') or []]"
           python3 scripts/summarize_news.py /tmp/news.json /tmp/news_rich.json || cp /tmp/news.json /tmp/news_rich.json
-          python3 -c "import json;d=json.load(open('/tmp/news_rich.json'));n=len(d.get('stories') or []);print('news stories:',n);print('::warning title=news::only %d news stories'%n) if n<3 else None"
+          python3 -c "import json;d=json.load(open('/tmp/news_rich.json'));n=len(d.get('stories') or []);print('news stories:',n);print('::warning title=news::only %d news stories of 10'%n) if n<8 else None"
 
       - name: Build HTML report and narration
         if: steps.dedup.outputs.skip == 'false'
@@ -127,9 +127,10 @@ jobs:
           # Brief sections are the bilingual body of each card. Zero means the
           # briefs step produced nothing and the report would ship empty cards
           # (and the vault note would fall back to its thin format).
+          # 12 = 4 brief sections x 3 repos. Update together with REPO_COUNT.
           sections=$(grep -o 'brief-section' "${{ env.outdir }}/index.html" | wc -l | tr -d ' ')
           echo "brief-sections in report: $sections"
-          if [ "$sections" -lt 20 ]; then
+          if [ "$sections" -lt 12 ]; then
             # Hard failure, not a warning. generate_briefs.py degrades to plain
             # descriptions on any exception, so a real bug produced a GREEN run
             # shipping a report with no briefs. The sibling L&D pipeline hit
@@ -138,26 +139,19 @@ jobs:
             exit 1
           fi
 
-      - name: Write Obsidian note
+      # The vault note is RENDERED HERE, in the cloud, and committed inside the
+      # report directory. The Obsidian vault is a local folder with no git
+      # remote, so nothing in CI can write into it; but rendering here means the
+      # note EXISTS whether or not the Mac is on, and the Mac's only job becomes
+      # copying files it does not have yet (sync_vault_note.py --install-all).
+      # Before this, the note was built on the Mac from the published HTML and
+      # only ever for the newest week, so a Mac that was off across a Friday
+      # lost that week's note permanently.
+      - name: Render vault note
         if: steps.dedup.outputs.skip == 'false' && inputs.dry_run != true
         run: |
-          python3 - <<'PY'
-          import json
-          data = json.load(open('/tmp/trending_rich.json'))
-          week = data['week']
-          note_path = f'reports/{week} Trending AI Repos.md'
-          lines = ['---', f'created: {data["generated_for"]}', f'week: {week}',
-                   'tags: [trending-repos, ai, llm, research]', 'type: weekly-digest', '---', '',
-                   f'# Trending AI/LLM Repos: {week}', '',
-                   f'Full report: https://booya1986.github.io/trending-ai-repos/reports/{week}/', '']
-          for r in data['repos']:
-              lines.append(f'## [{r["full_name"]}]({r["url"]})')
-              lines.append(f'Stars: {r["stars"]:,} | {r["language"]} | {r["created_at"]}')
-              lines.append(r.get("description") or "")
-              lines.append('')
-          open(note_path, 'w', encoding='utf-8').write('\n'.join(lines))
-          print('note written:', note_path)
-          PY
+          python3 scripts/sync_vault_note.py "${{ env.week }}" \
+            --emit "${{ env.outdir }}/vault-note.md"
 
       - name: Build social card (non-fatal)
         if: steps.dedup.outputs.skip == 'false'
@@ -200,7 +194,6 @@ jobs:
           git config user.name "Avi Levi (Friday robot)"
           git add "reports/${{ env.week }}/" 2>/dev/null || true
           git add reports/index.html 2>/dev/null || true
-          git add "reports/${{ env.week }} Trending AI Repos.md" 2>/dev/null || true
           if ! git diff --cached --quiet; then
             git commit -m "Add trending AI repos report for ${{ env.week }}"
             git push

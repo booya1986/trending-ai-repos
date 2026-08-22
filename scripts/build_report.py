@@ -42,15 +42,10 @@ def render_news(stories):
         published = html.escape((s.get("published") or "")[:10])
         head_he = html.escape(s.get("headline_he") or s.get("headline_en") or "")
         head_en = html.escape(s.get("headline_en") or "")
-        sum_he = html.escape(s.get("summary_he") or "")
-        sum_en = html.escape(s.get("summary_en") or "")
-        why_he = html.escape(s.get("why_he") or "")
-        why_en = html.escape(s.get("why_en") or "")
-        why_block = ""
-        if why_he or why_en:
-            why_block = (
-                f'<p class="news__why i18n" data-he="{why_he}" data-en="{why_en}">{why_he}</p>'
-            )
+        # One insight paragraph replaced the old summary + "why it matters"
+        # pair: what happened plus what to take away, in the reader's words.
+        ins_he = html.escape(s.get("insight_he") or "")
+        ins_en = html.escape(s.get("insight_en") or "")
         items.append(f"""
       <div class="news__item">
         <span class="news__tag i18n" data-he="{tag_he}" data-en="{tag_en}">{tag_he}</span>
@@ -58,13 +53,14 @@ def render_news(stories):
           <a href="{url}" target="_blank" rel="noopener"
              class="i18n" data-he="{head_he}" data-en="{head_en}">{head_he}</a>
         </p>
-        <p class="news__text i18n" data-he="{sum_he}" data-en="{sum_en}">{sum_he}</p>
-        {why_block}
-        <p class="news__source">{source}{" &middot; " + published if published else ""}</p>
+        <p class="news__text i18n" data-he="{ins_he}" data-en="{ins_en}">{ins_he}</p>
+        <p class="news__source">
+          <a href="{url}" target="_blank" rel="noopener">{source or "מקור"}</a>{" &middot; " + published if published else ""}
+        </p>
       </div>""")
     return f"""
   <section class="news">
-    <p class="news__eyebrow i18n" data-he="&#128240; 5 הכתבות המובילות" data-en="&#128240; Top 5 Articles">&#128240; 5 הכתבות המובילות</p>
+    <p class="news__eyebrow i18n" data-he="&#128240; 10 הכתבות המובילות" data-en="&#128240; Top 10 Articles">&#128240; 10 הכתבות המובילות</p>
     <p class="news__sub i18n" data-he="הסיפורים הגדולים ביותר בעולם ה-Gen AI בשבוע האחרון" data-en="The biggest gen AI stories of the past week">הסיפורים הגדולים ביותר בעולם ה-Gen AI בשבוע האחרון</p>
 {"".join(items)}
   </section>"""
@@ -630,7 +626,8 @@ def render_html(data):
   .news__title a {{ text-decoration: none; }}
   .news__title a:hover {{ text-shadow: var(--text-glow); }}
   .news__text {{ font-size: 0.88rem; line-height: 1.65; margin-bottom: 4px; }}
-  .news__why {{ font-size: 0.85rem; color: var(--fg-subtle); line-height: 1.6; }}
+  .news__source a {{ color: inherit; text-decoration: none; border-bottom: 1px solid currentColor; }}
+  .news__source a:hover {{ color: var(--accent); }}
   .news__source {{ font-size: 0.72rem; color: var(--fg-subtle); margin-top: 6px; }}
 
   /* ── SECTION HEADINGS ── */
@@ -704,7 +701,7 @@ def render_html(data):
 
   {news_html}
 
-  <p class="section-eyebrow i18n" data-he="&#128200; 5 ה-REPOS המובילים" data-en="&#128200; Top 5 Repos">&#128200; 5 ה-REPOS המובילים</p>
+  <p class="section-eyebrow i18n" data-he="&#128200; 3 ה-REPOS המובילים" data-en="&#128200; Top 3 Repos">&#128200; 3 ה-REPOS המובילים</p>
   <p class="section-sub i18n" data-he="הפרויקטים שצוברים תאוצה בשבוע האחרון" data-en="The projects gaining the most momentum this week">הפרויקטים שצוברים תאוצה בשבוע האחרון</p>
 
   <main id="repoList">
@@ -860,7 +857,7 @@ def render_narration(data):
         lines.append("")
         for s in stories:
             head = (s.get("headline_he") or s.get("headline_en") or "").strip()
-            summary = (s.get("summary_he") or "").strip().rstrip(".")
+            summary = (s.get("insight_he") or "").strip().rstrip(".")
             if not head:
                 continue
             lines.append(f"{head}. {summary}." if summary else f"{head}.")
