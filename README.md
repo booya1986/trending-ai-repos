@@ -48,7 +48,7 @@ optional and never fail the build.
 
 | Week | Date | Report | News | Repos | Audio | Emailed |
 |---|---|---|---|---|---|---|
-| `2026-W34` | 2026-08-21 | [open](https://booya1986.github.io/trending-ai-repos/reports/2026-W34/) | 5 | 5 | 🎧 |  |
+| `2026-W34` | 2026-08-21 | [open](https://booya1986.github.io/trending-ai-repos/reports/2026-W34/) | 10 | 3 | 🎧 |  |
 | `2026-W33` | 2026-08-14 | [open](https://booya1986.github.io/trending-ai-repos/reports/2026-W33/) |  | 10 | 🎧 | ✅ |
 | `2026-W32` | 2026-08-07 | [open](https://booya1986.github.io/trending-ai-repos/reports/2026-W32/) |  | 10 | 🎧 | ✅ |
 | `2026-W31` | 2026-07-31 | [open](https://booya1986.github.io/trending-ai-repos/reports/2026-W31/) |  | 10 |  | ✅ |
