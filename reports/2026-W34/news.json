@@ -1,0 +1,706 @@
+{
+  "week": "2026-W34",
+  "since": "2026-08-15",
+  "generated_for": "2026-08-22",
+  "count": 63,
+  "sources_tried": 15,
+  "warnings": [
+    "reddit r/ClaudeAI failed: HTTPError: HTTP Error 429: Too Many Requests",
+    "reddit r/generativeAI failed: HTTPError: HTTP Error 429: Too Many Requests",
+    "reddit r/LLMDevs failed: HTTPError: HTTP Error 429: Too Many Requests",
+    "reddit r/AI_Agents failed: HTTPError: HTTP Error 429: Too Many Requests",
+    "reddit r/StableDiffusion failed: HTTPError: HTTP Error 429: Too Many Requests",
+    "reddit r/LocalLLaMA failed: HTTPError: HTTP Error 429: Too Many Requests"
+  ],
+  "items": [
+    {
+      "title": "HoneyBook bets on agentic AI to streamline small business operations with its new Claude connector",
+      "url": "https://www.artificialintelligence-news.com/news/honeybook-bets-on-agentic-ai-to-streamline-small-business-operations-with-its-new-claude-connector/",
+      "source": "AI News",
+      "published": "2026-08-20T07:35:07+00:00",
+      "summary": "Autonomous artificial intelligence agents have already penetrated the offices of large, global enterprises. Now, HoneyBook is trying to bring that same capability to independent businesses with the launch of HoneyBook MCP, recently released as a connector for Anthropic’s AI assistant Claude. The move addresses a real gap. McKinsey’s recent State of AI survey found that […] The post HoneyBook bets on agentic AI to streamline small business operations with its new Claude connector appeared first on AI News .",
+      "points": 0,
+      "score": 24.95
+    },
+    {
+      "title": "We still don’t know how people are really using AI",
+      "url": "https://www.technologyreview.com/2026/08/18/1142226/how-people-use-ai/",
+      "source": "MIT Tech Review",
+      "published": "2026-08-18T10:06:43+00:00",
+      "summary": "AI companies like Anthropic and OpenAI regularly publish reports on how people are using products like Claude and ChatGPT, but they only release the data they want us to see, AI researchers say. “There is no independent source to corroborate it,” says Anka Reuel, a computer science PhD candidate at the Stanford Trustworthy AI Research…",
+      "points": 0,
+      "score": 19.0
+    },
+    {
+      "title": "OpenAI Overhauls Safety Protocols After Its AI Agents Went Rogue",
+      "url": "https://www.wired.com/story/openai-overhauls-safety-protocols-after-its-ai-agents-went-rogue/",
+      "source": "Wired AI",
+      "published": "2026-08-18T18:33:11+00:00",
+      "summary": "The ChatGPT maker says its upcoming Astra model may have reached “critical” cyber capabilities, prompting it to halt a significant number of training runs while it tightens internal safeguards.",
+      "points": 0,
+      "score": 18.18
+    },
+    {
+      "title": "ChatGPT Apple Messages 💬, Anthropic’s meeting recorder 💼, Mistral Agentic Search 🔍",
+      "url": "https://tldr.tech/ai/2026-08-21",
+      "source": "TLDR AI",
+      "published": "2026-08-21T00:00:00+00:00",
+      "summary": "",
+      "points": 0,
+      "score": 16.29
+    },
+    {
+      "title": "ChatGPT search now uses the site:operator at scale",
+      "url": "https://simonwillison.net/2026/Aug/20/chatgpt-search-now-uses-the-siteoperator-at-scale/",
+      "source": "Simon Willison",
+      "published": "2026-08-20T23:57:32+00:00",
+      "summary": "ChatGPT search now uses the site:operator at scale Promptwatch is part of the emerging \"GEO\" space, for Generative Engine Optimization - the chatbot version of SEO, where companies offer tools and consulting to help your site increase its presence in replies to prompts inside tools like ChatGPT. The Promptwatch product uses automation to track responses to prompts across end-user chat products like ChatGPT, Claude, and Gemini. They publish aggregate reports on this as part of their own content marketing strategy, which do seem to provide credible hints as to otherwise invisible design changes ",
+      "points": 0,
+      "score": 15.29
+    },
+    {
+      "title": "OpenAI is gaining on Anthropic with business users, new data indicates",
+      "url": "https://techcrunch.com/2026/08/20/openai-is-gaining-on-anthropic-with-business-users-new-data-indicates/",
+      "source": "TechCrunch AI",
+      "published": "2026-08-20T22:36:37+00:00",
+      "summary": "Businesses are willing to flop back and forth as each lab releases new models, volatility that should give both companies' investors pause about how \"sticky\" enterprise AI spending really is.",
+      "points": 0,
+      "score": 15.26
+    },
+    {
+      "title": "Nvidia just showed that the harness, not the AI model, is now the real hero",
+      "url": "https://techcrunch.com/2026/08/21/nvidia-just-showed-that-the-harness-not-the-ai-model-is-now-the-real-hero/",
+      "source": "TechCrunch AI",
+      "published": "2026-08-21T19:43:39+00:00",
+      "summary": "Nvidia research shows that AI agents can perform well, and not go off the deep end, through fine-tuning, even if the AI model isn't that great at the task.",
+      "points": 0,
+      "score": 14.7
+    },
+    {
+      "title": "Anthropic puts its most powerful model Claude Mythos 5 to work for cyber defense",
+      "url": "https://the-decoder.com/anthropic-puts-its-most-powerful-model-claude-mythos-5-to-work-for-cyber-defense/",
+      "source": "The Decoder",
+      "published": "2026-08-21T19:35:37+00:00",
+      "summary": "Anthropic is now running its security scanner Claude Security on Claude Mythos 5. The tool scans codebases for vulnerabilities, provides severity ratings with CWE classifications, and suggests patches. Anthropic is also plugging Mythos 5 into partner security products protecting critical infrastructure. The article Anthropic puts its most powerful model Claude Mythos 5 to work for cyber defense appeared first on The Decoder .",
+      "points": 0,
+      "score": 13.7
+    },
+    {
+      "title": "Offering Zero Data Retention for frontier models",
+      "url": "https://openai.com/index/offering-zero-data-retention-for-frontier-models",
+      "source": "OpenAI",
+      "published": "2026-08-19T19:00:00+00:00",
+      "summary": "OpenAI reaffirms Zero Data Retention for eligible API customers and previews Private Safety Processing for advanced AI safety without compromising data privacy.",
+      "points": 0,
+      "score": 13.19
+    },
+    {
+      "title": "Slack is launching collaborative vibe-coding channels",
+      "url": "https://www.theverge.com/tech/982628/slack-code-vibe-coding-channels-launch",
+      "source": "The Verge AI",
+      "published": "2026-08-20T12:00:00+00:00",
+      "summary": "Slack is introducing dedicated channels where teams can vibe-code together with AI agents instead of jumping between different tools and conversations. The Slack Code launch includes open, project-specific code channels with dedicated user tabs, alongside features that compare coding changes and preview HTML output before the project is shipped. \"With Slack Code, when you have […]",
+      "points": 0,
+      "score": 13.04
+    },
+    {
+      "title": "Anthropic’s Opus 4.6 is a smut-machine",
+      "url": "https://techcrunch.com/2026/08/21/anthropics-opus-4-6-is-a-smut-machine/",
+      "source": "TechCrunch AI",
+      "published": "2026-08-21T23:07:25+00:00",
+      "summary": "Anthropic forbids its Claude models from generating sexually explicit content. But a series of tests conducted by TechCrunch found that it didn't take much to get past the restriction.",
+      "points": 0,
+      "score": 12.78
+    },
+    {
+      "title": "Deepseek releases experimental Flash vision model that rivals Opus 4.8 on agent benchmarks",
+      "url": "https://the-decoder.com/deepseek-releases-experimental-flash-vision-model-that-rivals-opus-4-8-on-agent-benchmarks/",
+      "source": "The Decoder",
+      "published": "2026-08-21T19:08:27+00:00",
+      "summary": "Deepseek has released V4-Flash-Vision-Exp, an experimental multimodal model that adds image understanding to V4-Flash's text capabilities. On the company's own multimodal agent benchmarks, it approaches Opus 4.8 and sometimes beats it. The article Deepseek releases experimental Flash vision model that rivals Opus 4.8 on agent benchmarks appeared first on The Decoder .",
+      "points": 0,
+      "score": 12.69
+    },
+    {
+      "title": "llm 0.32.1",
+      "url": "https://simonwillison.net/2026/Aug/21/llm/",
+      "source": "Simon Willison",
+      "published": "2026-08-21T17:16:13+00:00",
+      "summary": "Release: llm 0.32.1 Fresh installs of LLM stopped working the other day because the OpenAI Python library dropped its usage of httpx , and it turned out LLM depended on that library but only installed it via a transitive openai dependency. This dot-release fixes that for the moment by pinning to openai<3 , and a soon-to-drop 0.33 release will switch from httpx to httpx2 . Tags: httpx , openai , llm",
+      "points": 0,
+      "score": 12.65
+    },
+    {
+      "title": "Coders Say They Already Found Workarounds to Claude’s Invisible Watermarks",
+      "url": "https://www.wired.com/story/coders-say-they-already-found-workarounds-to-claudes-invisible-watermarks/",
+      "source": "Wired AI",
+      "published": "2026-08-19T16:44:07+00:00",
+      "summary": "Anthropic announced last week it would include invisible watermarks in AI-generated content to comply with new EU rules. Within hours, overrides were being touted online.",
+      "points": 0,
+      "score": 12.64
+    },
+    {
+      "title": "Debates over AI consciousness are a trap",
+      "url": "https://www.technologyreview.com/2026/08/20/1142571/ai-consciousness-debate-trap/",
+      "source": "MIT Tech Review",
+      "published": "2026-08-20T15:42:39+00:00",
+      "summary": "“Runaway” AI, “rogue” agents, and “autonomous” actors—the current rhetoric would have you believe that AI agents are not only awake and aware, but angry at their creators. Prominent tech leaders such as Demis Hassabis, Dario Amodei, and Sam Altman push for regulation of these seemingly “superhuman” systems, while a separate faction, led by policy organizations…",
+      "points": 0,
+      "score": 12.12
+    },
+    {
+      "title": "OpenAI president urges enterprises to hasten AI security defences",
+      "url": "https://www.artificialintelligence-news.com/news/openai-president-urges-enterprises-hasten-ai-security-defences/",
+      "source": "AI News",
+      "published": "2026-08-18T14:58:27+00:00",
+      "summary": "OpenAI president and co-founder Greg Brockman warns that enterprise security teams face a compressed timeline to adopt AI defences. Brockman has published an account of what the company calls the “OpenAI-Hugging Face” incident, using it to argue that organisations need to uplevel their security practices with what he terms unprecedented speed. He writes that he […] The post OpenAI president urges enterprises to hasten AI security defences appeared first on AI News .",
+      "points": 0,
+      "score": 12.11
+    },
+    {
+      "title": "OpenAI hit the brakes. Now what?",
+      "url": "https://www.theverge.com/ai-artificial-intelligence/982323/openai-hit-brakes-voluntary-pacing-ai",
+      "source": "The Verge AI",
+      "published": "2026-08-19T17:10:09+00:00",
+      "summary": "With a looming IPO, intense competition from Anthropic, and Chinese and open-weight rivals nipping at its heels, OpenAI has plenty of reasons to move fast. Instead, it hit the brakes. On Tuesday, the company said it had slowed the pace of some AI development while it tightened security and safeguards. That included a two-week pause […]",
+      "points": 0,
+      "score": 11.65
+    },
+    {
+      "title": "Gemini 3.7 Flash aces our Baba Is You benchmark: 20x cheaper than 3.6 Flash, and only Claude Fable 5 solves puzzles faster",
+      "url": "https://quesma.com/blog/baba-is-aug-2026/",
+      "source": "r/GeminiAI",
+      "published": "2026-08-20T17:04:38+00:00",
+      "summary": "",
+      "points": 0,
+      "score": 11.15
+    },
+    {
+      "title": "It’s Greg Brockman’s OpenAI now",
+      "url": "https://www.theverge.com/ai-artificial-intelligence/982774/greg-brockman-openai-role-expansion",
+      "source": "The Verge AI",
+      "published": "2026-08-20T15:45:55+00:00",
+      "summary": "OpenAI has had a hell of a year. The company spent months battling former cofounder Elon Musk in a sensational jury trial, was hit with a high-profile trade secrets lawsuit from Apple, and faced widespread scrutiny after an unreleased model hacked another AI company. As it prepares for an IPO, a steady string of executives […]",
+      "points": 0,
+      "score": 11.12
+    },
+    {
+      "title": "GPT-5.6 Sol Pricing Cut by 50% on OpenRouter",
+      "url": "https://openrouter.ai/openai/gpt-5.6-sol",
+      "source": "Hacker News",
+      "published": "2026-08-17T21:03:18+00:00",
+      "summary": "",
+      "points": 634,
+      "score": 10.73
+    },
+    {
+      "title": "Teaching Everyone to Fish for Tokens",
+      "url": "https://www.interconnects.ai/p/teaching-everyone-to-fish-for-tokens",
+      "source": "Interconnects",
+      "published": "2026-08-17T15:07:49+00:00",
+      "summary": "Nvidia wants you building your own model, not buying from Anthropic/OpenAI.",
+      "points": 0,
+      "score": 10.61
+    },
+    {
+      "title": "Google has acquired the data of failed US airline Spirit",
+      "url": "https://www.theregister.com/ai-and-ml/2026/08/18/google-buys-crashed-airline-spirits-data-at-auction-because-ai/5288962",
+      "source": "Hacker News",
+      "published": "2026-08-18T10:13:28+00:00",
+      "summary": "",
+      "points": 615,
+      "score": 10.01
+    },
+    {
+      "title": "World models that ignore human beliefs predict the wrong actions, new research shows",
+      "url": "https://the-decoder.com/world-models-that-ignore-human-beliefs-predict-the-wrong-actions-new-research-shows/",
+      "source": "The Decoder",
+      "published": "2026-08-22T09:00:20+00:00",
+      "summary": "Current world models like Sora or Genie only simulate physics and ignore what people think, want, or feel. The new \"Mental World Modeling\" framework adds mental variables like beliefs and intentions. Even weaker language models using this approach outperform stronger models without mental modeling. The biggest bottleneck: predicting how physical and mental states change together. The article World models that ignore human beliefs predict the wrong actions, new research shows appeared first on The Decoder .",
+      "points": 0,
+      "score": 9.98
+    },
+    {
+      "title": "A third of ChatGPT ads appear in irrelevant conversations",
+      "url": "https://www.artificialintelligence-news.com/news/a-third-of-chatgpt-ads-appear-in-irrelevant-conversations/",
+      "source": "AI News",
+      "published": "2026-08-20T08:07:40+00:00",
+      "summary": "Advertising inside ChatGPT arrived with a promise that the assistant already knows what the user wants. So far, that hasn’t entirely been the case. Searchable, the AI visibility platform, analysed more than 11,000 ads served inside real ChatGPT conversations between 4 July and 4 August 2026, pairing every ad with the conversation it appeared in, […] The post A third of ChatGPT ads appear in irrelevant conversations appeared first on AI News .",
+      "points": 0,
+      "score": 9.96
+    },
+    {
+      "title": "Quoting Matt Webb",
+      "url": "https://simonwillison.net/2026/Aug/21/matt-webb/",
+      "source": "Simon Willison",
+      "published": "2026-08-21T15:06:26+00:00",
+      "summary": "After I released version 1.0, I figured I would have to do the rotations myself. So I sat down with ChatGPT and I didn’t get it to write the code, but I got it to educate me. With a patient, interactive tutor, I was able to finally do what I hadn’t by reading books and asking mathematician friends – I learnt how to use quaternions just enough to make the app work. So learning doesn’t stop just because I outsource a bunch of thinking to AI. It pushes me to learn more. I like that as an outcome. — Matt Webb , Galactic Compass 2: now with new augmented reality mode Tags: matt-webb , generative-ai",
+      "points": 0,
+      "score": 9.61
+    },
+    {
+      "title": "Stampli cuts launch hours by 68% using ChatGPT Work",
+      "url": "https://openai.com/index/stampli",
+      "source": "OpenAI",
+      "published": "2026-08-20T00:00:00+00:00",
+      "summary": "With a fixed deadline and design resources committed elsewhere, Stampli used Codex and ChatGPT Work to compress weeks of launch production into days.",
+      "points": 0,
+      "score": 9.29
+    },
+    {
+      "title": "Florida man told ChatGPT he'd murder his ex. OpenAI alerted the FBI",
+      "url": "https://www.usatoday.com/story/news/crime/2026/08/14/openai-alerted-fbi-threat/91308065007",
+      "source": "r/OpenAI",
+      "published": "2026-08-15T15:04:40+00:00",
+      "summary": "",
+      "points": 0,
+      "score": 9.11
+    },
+    {
+      "title": "Welcome to the AI crisis in math",
+      "url": "https://www.theverge.com/podcast/982434/ai-math-openai-astra-existential-crisis",
+      "source": "The Verge AI",
+      "published": "2026-08-20T14:00:00+00:00",
+      "summary": "Today on Decoder, I’m talking with Robert Hart, The Verge’s London-based AI reporter, about what AI is doing to the field of mathematics and the existential crisis many lead mathematicians are having about it. OpenAI just published a set of solutions to longstanding problems in math that went off like a bombshell in the field. […]",
+      "points": 0,
+      "score": 9.09
+    },
+    {
+      "title": "From Atari to EVE Online: Building on 15 Years of AI Research in Games",
+      "url": "https://deepmind.google/blog/from-atari-to-eve-online-building-on-15-years-of-ai-research-in-games/",
+      "source": "Google DeepMind",
+      "published": "2026-08-21T11:59:48+00:00",
+      "summary": "Google DeepMind partners with game studios to prototype breakthrough AI gameplay.",
+      "points": 0,
+      "score": 9.04
+    },
+    {
+      "title": "Agentic AI in government just hit the hard part: deciding what a machine may decide",
+      "url": "https://www.artificialintelligence-news.com/news/agentic-ai-in-government-uae-classification/",
+      "source": "AI News",
+      "published": "2026-08-20T09:00:00+00:00",
+      "summary": "The United Arab Emirates (UAE) has been early in adopting artificial intelligence for 9 years. It published a national AI strategy in October 2017 and, days later, created a ministerial post to run it, making Omar Sultan Al Olama the world’s first minister of state for artificial intelligence at 27. In the years since, it […] The post Agentic AI in government just hit the hard part: deciding what a machine may decide appeared first on AI News .",
+      "points": 0,
+      "score": 8.98
+    },
+    {
+      "title": "Psychological methods reveal major weaknesses in AI security testing",
+      "url": "https://the-decoder.com/psychological-methods-reveal-major-weaknesses-in-ai-security-testing/",
+      "source": "The Decoder",
+      "published": "2026-08-22T07:00:05+00:00",
+      "summary": "Researchers at the UK AI Security Institute used psychometric methods to show that popular safety benchmarks for language models don't measure one consistent trait. Blanket blocking of requests can artificially inflate a safety score even as the model gets less useful day to day. The study also offers a method for catching models that act more cautious during tests than they do in normal use. The article Psychological methods reveal major weaknesses in AI security testing appeared first on The Decoder .",
+      "points": 0,
+      "score": 8.94
+    },
+    {
+      "title": "Cursor Origin 👨‍💻, Anthropic $65B revenue 💰, deadline dividend scaling 📈",
+      "url": "https://tldr.tech/ai/2026-08-18",
+      "source": "TLDR AI",
+      "published": "2026-08-18T00:00:00+00:00",
+      "summary": "",
+      "points": 0,
+      "score": 8.79
+    },
+    {
+      "title": "Simulation: the new Scaling Law — Joon Sung Park, Simile AI",
+      "url": "https://www.latent.space/p/simile",
+      "source": "Latent Space",
+      "published": "2026-08-21T23:37:38+00:00",
+      "summary": "Simile’s CEO about his journey from the viral Generative Agents to creating 8 Billion Digital Twins of every living human... and why it’s gone from fun exploration to very serious business.",
+      "points": 0,
+      "score": 8.79
+    },
+    {
+      "title": "Over 1 million people have clicked LinkedIn’s AI slop button",
+      "url": "https://www.theverge.com/ai-artificial-intelligence/983502/linkedin-ai-slop-button-one-million-people-message",
+      "source": "The Verge AI",
+      "published": "2026-08-21T21:25:50+00:00",
+      "summary": "LinkedIn actually announced a \"Seems like AI slop\" button on July 30th, and the company says that a lot of people have already used it. According to a Thursday post from chief product officer Hari Srinivasan, \"over a million people\" have clicked on the button, which is accessible from the three dots menu on a […]",
+      "points": 0,
+      "score": 8.74
+    },
+    {
+      "title": "Strengthening democratic oversight in national security",
+      "url": "https://openai.com/index/strengthening-democratic-oversight-in-national-security",
+      "source": "OpenAI",
+      "published": "2026-08-18T19:00:00+00:00",
+      "summary": "OpenAI launches an initiative to strengthen democratic oversight of AI in national security, supporting government institutions with tools, training, and expertise.",
+      "points": 0,
+      "score": 8.69
+    },
+    {
+      "title": "Stop Making TUIs",
+      "url": "https://simonwillison.net/2026/Aug/21/stop-making-tuis/",
+      "source": "Simon Willison",
+      "published": "2026-08-21T16:07:32+00:00",
+      "summary": "Stop Making TUIs Thomas Ptacek advocates for building real native user interfaces for even the smallest of personal tools, because coding agents have reduced the cost of getting a usable-enough GUI up and running to almost nothing. I wrote about my vibe-coded bandwidth and GPU monitoring macOS task bar apps back in March , and I'm still using both of those on a daily basis. I'm not habitually knocking out real UIs for my other projects yet, but I'm running out of excuses! Thomas: If you haven’t tried your hand at turning one of your 500 throwaway CLIs into a native app, you’re doing yourself a",
+      "points": 0,
+      "score": 8.63
+    },
+    {
+      "title": "Starcloud raises $250 million for orbital data centers as launch options dry up",
+      "url": "https://techcrunch.com/2026/08/21/starcloud-raises-200-million-for-orbital-data-centers-as-launch-options-dry-up/",
+      "source": "TechCrunch AI",
+      "published": "2026-08-21T14:00:00+00:00",
+      "summary": "There's about to be a big fight to secure access to space.",
+      "points": 0,
+      "score": 8.59
+    },
+    {
+      "title": "Pacing model development in an era of cyber-critical capabilities",
+      "url": "https://openai.com/index/pacing-model-development-cyber-capabilities",
+      "source": "OpenAI",
+      "published": "2026-08-18T11:00:00+00:00",
+      "summary": "OpenAI is strengthening monitoring, alignment, and security for frontier AI models. See how new safeguards are guiding the pace of model development.",
+      "points": 0,
+      "score": 8.52
+    },
+    {
+      "title": "Introducing AI Futures",
+      "url": "https://openai.com/index/introducing-ai-futures",
+      "source": "OpenAI",
+      "published": "2026-08-20T07:00:00+00:00",
+      "summary": "Introducing AI Futures, a new OpenAI blog exploring how transformative AI could reshape power, governance, the economy, and individual freedom.",
+      "points": 0,
+      "score": 8.44
+    },
+    {
+      "title": "AI data startup Micro1 reaches $500M gross run rate amid AI training boom",
+      "url": "https://techcrunch.com/2026/08/20/ai-data-startup-micro1-reaches-500m-gross-run-rate-amid-ai-training-boom/",
+      "source": "TechCrunch AI",
+      "published": "2026-08-21T00:13:44+00:00",
+      "summary": "Surging demand for AI training data is driving rapid growth for the startup and its rivals.",
+      "points": 0,
+      "score": 8.3
+    },
+    {
+      "title": "GLM-5.3 API 🤖, Cerebras’ new chip ⚡, OpenAI cyber slowdown 🚨",
+      "url": "https://tldr.tech/ai/2026-08-19",
+      "source": "TLDR AI",
+      "published": "2026-08-19T00:00:00+00:00",
+      "summary": "",
+      "points": 0,
+      "score": 8.29
+    },
+    {
+      "title": "ChatGPT can now send texts for you with new Apple Messages plug-in",
+      "url": "https://techcrunch.com/2026/08/20/chatgpt-can-now-send-texts-for-you-with-new-apple-messages-plugin/",
+      "source": "TechCrunch AI",
+      "published": "2026-08-20T22:09:51+00:00",
+      "summary": "Ever wanted someone else to do your texting for you? ChatGPT is being offered up as an automated text scribe via a new Apple Messages integration.",
+      "points": 0,
+      "score": 8.26
+    },
+    {
+      "title": "Frontier Model Cost and Open-Weights Popularity is Driving Demand for Model Routing",
+      "url": "https://www.latent.space/p/glean-model-routing",
+      "source": "Latent Space",
+      "published": "2026-08-18T21:41:10+00:00",
+      "summary": "Glean CEO Arvind Jain explains why model routing helps control AI costs for organizations, and how human feedback loops at scale improve its routing systems.",
+      "points": 0,
+      "score": 8.25
+    },
+    {
+      "title": "Microsoft Copilot reveals secret input that allowed it to be hacked",
+      "url": "https://arstechnica.com/security/2026/08/microsoft-copilot-reveals-secret-input-that-allowed-it-to-be-hacked/",
+      "source": "Ars Technica AI",
+      "published": "2026-08-18T13:00:04+00:00",
+      "summary": "Secret parameter allowed hackers to steal passwords when a target clicked on a link.",
+      "points": 0,
+      "score": 8.06
+    },
+    {
+      "title": "AI’s recursive self-improvement might not come so quickly after all",
+      "url": "https://www.technologyreview.com/2026/08/18/1142188/ai-recursive-self-improvement/",
+      "source": "MIT Tech Review",
+      "published": "2026-08-18T09:00:00+00:00",
+      "summary": "The AI industry’s boldest promise right now is that AI will soon improve itself, with almost no need for human oversight. LLMs can already write code, generate synthetic data for training, and optimize the computer chips they run on. Forecasts of explosive AI progress predict that what researchers call recursive self-improvement is on the horizon. …",
+      "points": 0,
+      "score": 7.98
+    },
+    {
+      "title": "RayNeo's new AI glasses skip the camera, focus on text overlays",
+      "url": "https://the-decoder.com/rayneos-new-ai-glasses-skip-the-camera-focus-on-text-overlays/",
+      "source": "The Decoder",
+      "published": "2026-08-22T08:00:14+00:00",
+      "summary": "RayNeo is launching a new headset without a camera or speakers. The article RayNeo's new AI glasses skip the camera, focus on text overlays appeared first on The Decoder .",
+      "points": 0,
+      "score": 7.96
+    },
+    {
+      "title": "Netflix tests language model as alternative to hand-built recommendation logic",
+      "url": "https://the-decoder.com/netflix-tests-language-model-as-alternative-to-hand-built-recommendation-logic/",
+      "source": "The Decoder",
+      "published": "2026-08-22T07:30:16+00:00",
+      "summary": "Netflix pitted its years-old recommendation engine against an in-house language model called GenRec and says it got better results. Instead of relying on thousands of hand-crafted features, GenRec converts viewing behavior into plain text. Netflix itself calls it \"an early but promising step.\" The article Netflix tests language model as alternative to hand-built recommendation logic appeared first on The Decoder .",
+      "points": 0,
+      "score": 7.95
+    },
+    {
+      "title": "smolmachines / smolvm as a sandbox for untrusted Python & JavaScript",
+      "url": "https://simonwillison.net/2026/Aug/19/smolmachines-untrusted-sandbox/",
+      "source": "Simon Willison",
+      "published": "2026-08-19T23:16:00+00:00",
+      "summary": "Research: smolmachines / smolvm as a sandbox for untrusted Python & JavaScript I tasked Claude Fable 5 running in Claude Code for web with the following research task: Put https://smolmachines.com through its paces as a fast secure sandbox. Explore what it would take to use this to run untrusted Python and JavaScript code in a way that is limited in what RAM and CPU time it can take up (protection against \"while true\") with no network access and filesystem access only to designated files Goal is to be able to use this to execute user-provided tasks for things like data transformations It quick",
+      "points": 0,
+      "score": 7.78
+    },
+    {
+      "title": "Quoting Jeremy Morrell",
+      "url": "https://simonwillison.net/2026/Aug/19/jeremy-morrell/",
+      "source": "Simon Willison",
+      "published": "2026-08-19T22:56:31+00:00",
+      "summary": "My hypothesis is that there is a new opportunity for Extensible Software on the web . LLMs radically lower the cost of authoring extensions, and modern sandbox primitives lower the deployment cost and provide good security boundaries. We can build our app as a solid, accountable core, and allow users to safely extend it in many directions by having LLMs fill in the missing pieces. We can give our users super powers. — Jeremy Morrell , Extensible Software in the age of LLMs Tags: sandboxing , llms , ai , generative-ai",
+      "points": 0,
+      "score": 7.77
+    },
+    {
+      "title": "Google Gemini is getting a dedicated student hub",
+      "url": "https://www.theverge.com/ai-artificial-intelligence/982425/google-gemini-student-hub",
+      "source": "The Verge AI",
+      "published": "2026-08-19T19:00:00+00:00",
+      "summary": "As we're gearing up for back-to-school season, Google is rolling out a new dedicated student hub in Gemini. It's a one-stop repository for collecting research in a study notebook, creating flashcards, taking practice quizzes, and more. Google is also enhancing its study notebooks with support for graphs and images. It can even add test dates […]",
+      "points": 0,
+      "score": 7.69
+    },
+    {
+      "title": "OpenAI acquires a 17 year old's Ethereum project",
+      "url": "https://www.linkedin.com/posts/conall-o%E2%80%99reilly-579a89346_heres-how-i-went-from-a-moonshot-research-ugcPost-7495067476704067584-bQsa",
+      "source": "r/OpenAI",
+      "published": "2026-08-17T15:50:00+00:00",
+      "summary": "",
+      "points": 0,
+      "score": 7.62
+    },
+    {
+      "title": "The DOJ is investigating a16z. What does this mean for venture capital?",
+      "url": "https://techcrunch.com/podcast/the-doj-is-investigating-a16z-what-does-this-mean-for-venture-capital/",
+      "source": "TechCrunch AI",
+      "published": "2026-08-21T14:00:00+00:00",
+      "summary": "Andreessen Horowitz has two partners sitting on the boards of companies that now compete with each other: Ben Horowitz at Databricks and Martin Casado at Fivetran. Nothing too scandalous on the surface, except the Department of Justice has reportedly been investigating the arrangement for almost a year, dusting off a 112-year-old antitrust law that’s rarely used against VCs. Board conflicts aren’t exactly new, and these companies weren’t necessarily direct competitors when a16z first invested […]",
+      "points": 0,
+      "score": 7.59
+    },
+    {
+      "title": "Major YouTube creators are facing backlash for accepting AI money",
+      "url": "https://www.theverge.com/ai-artificial-intelligence/983181/matti-haapoja-sam-kold-kolder-higgsfield-seedance-backlash",
+      "source": "The Verge AI",
+      "published": "2026-08-21T13:37:52+00:00",
+      "summary": "Over the past few days, a number of prominent filmmaking content creators including Matti Haapoja and Sam \"Kold\" Kolder have posted videos of themselves demonstrating what's possible with AI platform Higgsfield. The videos highlight Higgsfield's recently added Seedance 2.5 functionality and pitch these technologies as the future of video production. In response to these videos, […]",
+      "points": 0,
+      "score": 7.58
+    },
+    {
+      "title": "Partnering with CodeAI to prepare the first AI generation",
+      "url": "https://openai.com/index/partnering-with-codeai",
+      "source": "OpenAI",
+      "published": "2026-08-18T11:00:00+00:00",
+      "summary": "OpenAI and CodeAI are partnering to help students build AI literacy, think critically about AI, and develop the skills to use and shape it responsibly.",
+      "points": 0,
+      "score": 7.52
+    },
+    {
+      "title": "A shot-scraper-style JSON API on Bun 1.4's new Bun.WebView",
+      "url": "https://simonwillison.net/2026/Aug/20/bun-webview-json-api/",
+      "source": "Simon Willison",
+      "published": "2026-08-20T15:37:00+00:00",
+      "summary": "Research: A shot-scraper-style JSON API on Bun 1.4's new Bun.WebView Today saw the long awaited release of Bun 1.4 , the first stable version since the infamous Rust rewrite a few months ago . Interestingly, the Rust rewrite was downplayed in the release notes, which introduced a bewildering array of new features and claimed 2,900 additional bug fixes: Bun 1.4 adds +1,517 tests from the Node.js test suite - our biggest jump in Node.js compatibility since Bun 1.0. Bun v1.4 also fixes over 2,900 issues. It reduces idle CPU usage by 5x, reduces memory usage by up to 35%, and starts 50% faster on ",
+      "points": 0,
+      "score": 7.12
+    },
+    {
+      "title": "The Powerful Chinese AI Model Experts Warned About Is Here",
+      "url": "https://www.wired.com/story/zai-open-weight-ai-models-release-cybersecurity-hacking/",
+      "source": "Wired AI",
+      "published": "2026-08-18T09:00:00+00:00",
+      "summary": "Z.ai’s latest AI model release could help companies secure their systems—or find its way into the hands of hackers.",
+      "points": 0,
+      "score": 6.98
+    },
+    {
+      "title": "[AINews] 10% worse, 100x cheaper, 10000x faster: Why Simulation is taking over",
+      "url": "https://www.latent.space/p/ainews-10-worse-100x-cheaper-10000x",
+      "source": "Latent Space",
+      "published": "2026-08-22T07:36:00+00:00",
+      "summary": "Did you think RSI stopped at model training?",
+      "points": 0,
+      "score": 6.95
+    },
+    {
+      "title": "Replit expands access to software creation with GPT-5.6 Luna",
+      "url": "https://openai.com/index/replit",
+      "source": "OpenAI",
+      "published": "2026-08-19T07:00:00+00:00",
+      "summary": "Replit introduces Free Mode, powered by GPT-5.6 Luna, so anyone can turn ideas into working software without worrying about token costs.",
+      "points": 0,
+      "score": 6.94
+    },
+    {
+      "title": "Measuring benchmark optimization in speech recognition",
+      "url": "https://huggingface.co/blog/asr-benchmark-optimization",
+      "source": "Hugging Face",
+      "published": "2026-08-21T00:00:00+00:00",
+      "summary": "",
+      "points": 0,
+      "score": 6.79
+    },
+    {
+      "title": "ChatGPT Ads expands across Europe",
+      "url": "https://openai.com/index/chatgpt-ads-expands-across-europe",
+      "source": "OpenAI",
+      "published": "2026-08-18T22:00:00+00:00",
+      "summary": "ChatGPT Ads is expanding to 31 European markets. Learn how advertisers can reach people as they explore, compare options, and make decisions.",
+      "points": 0,
+      "score": 6.75
+    },
+    {
+      "title": "US Lead in the AI Race With China Is Rapidly Narrowing",
+      "url": "https://www.bloomberg.com/graphics/2026-us-china-ai-race/?terminal=true",
+      "source": "r/OpenAI",
+      "published": "2026-08-21T00:37:36+00:00",
+      "summary": "",
+      "points": 0,
+      "score": 6.31
+    },
+    {
+      "title": "GLM-5.3 🤖, Stripe OpenRouter deal 💰, AI agent consensus 🤝",
+      "url": "https://tldr.tech/ai/2026-08-17",
+      "source": "TLDR AI",
+      "published": "2026-08-17T00:00:00+00:00",
+      "summary": "",
+      "points": 0,
+      "score": 6.29
+    },
+    {
+      "title": "What Flock’s defenders are missing",
+      "url": "https://www.technologyreview.com/2026/08/17/1142200/what-flocks-defenders-are-missing/",
+      "source": "MIT Tech Review",
+      "published": "2026-08-17T19:16:09+00:00",
+      "summary": "This story originally appeared in The Algorithm, our weekly newsletter on AI. To get stories like this in your inbox first, sign up here. Flock, the police-tech giant known for its network of some 120,000 automatic license plate readers around the US, announced some changes to its platform last Thursday. The updates are meant to prevent…",
+      "points": 0,
+      "score": 5.69
+    }
+  ],
+  "stories": [
+    {
+      "headline_he": "OpenAI עוצרת ריצות אימון ומחמירה פרוטוקולי בטיחות אחרי שסוכני AI חרגו מהמצופה",
+      "headline_en": "OpenAI Overhauls Safety Protocols After Its AI Agents Went Rogue",
+      "summary_he": "OpenAI עצרה מספר ניכר מריצות האימון והידקה את אמצעי הבטיחות הפנימיים, לאחר שהתברר כי מודל Astra הקרוב עשוי להגיע ליכולות סייבר \"קריטיות\".",
+      "summary_en": "OpenAI halted a significant number of training runs and tightened internal safeguards after determining its upcoming Astra model may have reached \"critical\" cyber capabilities.",
+      "insight_he": "זו אחת ההודעות הפומביות הראשונות של מעבדת AI מובילה שבה יכולת סייבר התקפית של מודל, ולא רק התנהגות בצ'אט, הופכת לתנאי חוסם בפיתוח. אפשר לצפות לקצב שחרורים איטי יותר ולשקיפות רבה יותר בבדיקות אדום מכל המעבדות המובילות ככל שסף היכולות המסוכנות מתמסד.",
+      "insight_en": "This is one of the first public admissions from a frontier lab that a model's offensive cyber capability, not just chat behavior, is now a hard safety gate. Expect slower release cadences and more red-teaming disclosure from major labs as capability thresholds get formalized.",
+      "category": "policy",
+      "url": "https://www.wired.com/story/openai-overhauls-safety-protocols-after-its-ai-agents-went-rogue/",
+      "source": "Wired AI",
+      "published": "2026-08-18T18:33:11+00:00"
+    },
+    {
+      "headline_he": "Anthropic מפעילה את Claude Mythos 5 להגנת סייבר",
+      "headline_en": "Anthropic Puts Claude Mythos 5 to Work Defending Networks",
+      "summary_he": "Anthropic שדרגה את סורק האבטחה שלה Claude Security כך שירוץ על המודל המתקדם ביותר שלה, Claude Mythos 5, הסורק כעת בסיסי קוד לאיתור פרצות, מדרג חומרה לפי סיווגי CWE ומציע תיקונים, ומשולב במוצרי אבטחה של שותפים.",
+      "summary_en": "Anthropic upgraded its Claude Security scanner to run on its most powerful model, Claude Mythos 5, which now scans codebases for vulnerabilities, assigns CWE-classified severity ratings, and suggests patches, and is being integrated into partner security products.",
+      "insight_he": "מיצוב הדגל של Anthropic ככלי הגנת סייבר ולא רק כעוזר קידוד מרמז על הימור אסטרטגי על תחום האבטחה כמקרה שימוש ארגוני מרכזי. עבור מפתחים זה מרמז איך ייראו כלי \"אבטחה אגנטית\" הבנויים מעל Claude דרך ה-API.",
+      "insight_en": "Positioning the flagship model as a security tool, not just a coding assistant, signals a strategic bet on cyber defense as a flagship enterprise use case. For builders it hints at what agentic security tooling on top of Claude's API could look like.",
+      "category": "model",
+      "url": "https://the-decoder.com/anthropic-puts-its-most-powerful-model-claude-mythos-5-to-work-for-cyber-defense/",
+      "source": "The Decoder",
+      "published": "2026-08-21T19:35:37+00:00"
+    },
+    {
+      "headline_he": "המודל הניסיוני של DeepSeek מתחרה ב-Opus 4.8 בבנצ'מרקים של סוכנים",
+      "headline_en": "DeepSeek's Experimental Vision Model Rivals Claude Opus 4.8 on Agent Benchmarks",
+      "summary_he": "DeepSeek שחררה את V4-Flash-Vision-Exp, מודל מולטימודלי ניסיוני שמוסיף הבנת תמונות ליכולות הטקסט של V4-Flash, והוא מתקרב ל-Opus 4.8 ולעיתים אף עוקף אותו בבנצ'מרקים הפנימיים של החברה לסוכני מולטימודל.",
+      "summary_en": "DeepSeek released V4-Flash-Vision-Exp, an experimental multimodal model adding image understanding to V4-Flash's text abilities, which approaches or beats Opus 4.8 on the company's own multimodal agent benchmarks.",
+      "insight_he": "זהו עוד סימן לכך שמעבדות סיניות עם משקלים פתוחים מצמצמות את הפער בביצועי סוכנים מולטימודליים מובילים, ככל הנראה במחיר נמוך משמעותית. כדאי לבחון אותו מול Claude במשימות סוכן מבוססות ראייה לפני שמניחים שנדרש מודל פרימיום סגור.",
+      "insight_en": "Another sign that open-weight Chinese labs are closing the gap on frontier multimodal agent performance, likely at far lower cost. Worth testing against Claude for vision-heavy agent tasks before assuming a paid frontier model is required.",
+      "category": "model",
+      "url": "https://the-decoder.com/deepseek-releases-experimental-flash-vision-model-that-rivals-opus-4-8-on-agent-benchmarks/",
+      "source": "The Decoder",
+      "published": "2026-08-21T19:08:27+00:00"
+    },
+    {
+      "headline_he": "מחקר Nvidia: ה\"רתמה\" סביב הסוכן חשובה יותר מהמודל עצמו",
+      "headline_en": "Nvidia Research: The Agent Harness Matters More Than the Model",
+      "summary_he": "מחקר של Nvidia מראה שסוכני AI יכולים לתפקד באמינות ולהימנע מכשלים באמצעות כיוונון קפדני של ה\"רתמה\" (harness) שסביבם, גם כשהמודל הבסיסי עצמו לא חזק במיוחד במשימה.",
+      "summary_en": "Nvidia research shows that AI agents can perform reliably and avoid failure through careful fine-tuning of the surrounding harness, even when the underlying model itself isn't especially strong at the task.",
+      "insight_he": "הממצא הזה משנה לאן כדאי להפנות מאמצי הנדסה: במקום לרדוף אחרי המודל החדש ביותר, השקעה בשכבת התזמור, בכלים ובגבולות בטיחות עשויה להניב שיפור אמינות גדול יותר. רלוונטי ישירות לכל מי שבונה מערכות סוכנים עם Claude או MCP כיום.",
+      "insight_en": "This reframes where engineering effort should go: instead of chasing the newest frontier model, investing in scaffolding, tool orchestration, and guardrails may yield bigger reliability gains. Directly relevant to anyone building agent systems with Claude or MCP today.",
+      "category": "technique",
+      "url": "https://techcrunch.com/2026/08/21/nvidia-just-showed-that-the-harness-not-the-ai-model-is-now-the-real-hero/",
+      "source": "TechCrunch AI",
+      "published": "2026-08-21T19:43:39+00:00"
+    },
+    {
+      "headline_he": "מפתחים עקפו את סימני המים הבלתי נראים של Claude תוך שעות",
+      "headline_en": "Coders Bypass Claude's Invisible Watermarks Within Hours",
+      "summary_he": "ימים ספורים אחרי ש-Anthropic הכריזה על סימני מים בלתי נראים בתוכן שנוצר על ידי Claude כדי לעמוד בתקנות חדשות של האיחוד האירופי, מפתחים ברשת כבר פרסמו שיטות לעקוף ולהסיר אותם.",
+      "summary_en": "Days after Anthropic announced invisible watermarks in Claude-generated content to comply with new EU rules, coders online published overrides that strip the watermarks out.",
+      "insight_he": "זה מדגים עד כמה שבריריים מנגנוני סימון מקור וwatermarking ככלי ציות, ושדרישה רגולטורית יכולה להתמלא על הנייר בלי שום ערובה אמיתית לזיהוי. מי שנשען על תיוג תוכן AI לצורכי אמון או רגולציה לא צריך להתייחס לסימני מים כאל מנגנון חסין.",
+      "insight_en": "It shows how fragile provenance and watermarking schemes are as a compliance mechanism, and that regulatory requirements can be satisfied on paper while offering little real detection guarantee. Builders relying on AI content labeling for trust or compliance shouldn't treat watermarks as robust.",
+      "category": "policy",
+      "url": "https://www.wired.com/story/coders-say-they-already-found-workarounds-to-claudes-invisible-watermarks/",
+      "source": "Wired AI",
+      "published": "2026-08-19T16:44:07+00:00"
+    },
+    {
+      "headline_he": "מחיר GPT-5.6 Sol צנח ב-50% ב-OpenRouter",
+      "headline_en": "GPT-5.6 Sol Gets a 50% Price Cut on OpenRouter",
+      "summary_he": "רשומות המחירים ב-OpenRouter מראות שמודל GPT-5.6 Sol של OpenAI הוזל ב-50%, שינוי שמשך תשומת לב רחבה (מעל 600 נקודות) ב-Hacker News.",
+      "summary_en": "OpenRouter listings show OpenAI's GPT-5.6 Sol model priced 50% lower, a change that drew over 600 points of attention on Hacker News.",
+      "insight_he": "מחירי המודלים המובילים ממשיכים לצנוח במהירות, מה שהופך עומסי עבודה שהיו יקרים מדי לישימים בקנה מידה. כדאי לבחון מחדש הנחות עלות בכל החלטת ניתוב בין Claude ל-GPT במערכות סוכן בפרודקשן.",
+      "insight_en": "Frontier-adjacent model pricing keeps falling fast, making previously expensive workloads viable at scale. Worth revisiting cost assumptions for any Claude-vs-GPT routing decisions in production agents.",
+      "category": "company",
+      "url": "https://openrouter.ai/openai/gpt-5.6-sol",
+      "source": "Hacker News",
+      "published": "2026-08-17T21:03:18+00:00"
+    },
+    {
+      "headline_he": "Slack משיקה ערוצי \"vibe-coding\" ייעודיים לצוותים",
+      "headline_en": "Slack Launches Dedicated \"Vibe-Coding\" Channels for Teams",
+      "summary_he": "Slack הציגה את Slack Code, ערוצים ייעודיים לפי פרויקט שבהם צוותים יכולים לתכנת יחד עם סוכני AI במקום אחד, כולל לשוניות אישיות לכל חבר צוות וכלים להשוואת שינויי קוד מתחרים.",
+      "summary_en": "Slack introduced Slack Code, dedicated project-specific channels where teams can code together with AI agents in one place, including tabs for individual contributors and tools to compare competing code changes.",
+      "insight_he": "המהלך מוציא את הקידוד האגנטי מסביבות פיתוח בודדות אל מרחבי עבודה משותפים לצוות, ומתייחס לקוד שנוצר על ידי AI כאל תוצר שיתופי הניתן לביקורת ולא כפלט אישי. סביר שנראה עוד כלי פרודוקטיביות שמשלבים תהליכי עבודה מבוססי סוכן במקום לבנות סביבות קידוד נפרדות.",
+      "insight_en": "The move pushes agentic coding out of individual IDEs and into shared team workspaces, treating AI-generated code as a collaborative, reviewable artifact rather than a solo output. Expect more productivity tools to bolt on agent-native workflows rather than build separate coding surfaces.",
+      "category": "tool",
+      "url": "https://www.theverge.com/tech/982628/slack-code-vibe-coding-channels-launch",
+      "source": "The Verge AI",
+      "published": "2026-08-20T12:00:00+00:00"
+    },
+    {
+      "headline_he": "ניתוח פסיכומטרי חושף פגמים בבנצ'מרקים לבטיחות AI",
+      "headline_en": "Psychometric Analysis Exposes Flaws in AI Safety Benchmarks",
+      "summary_he": "חוקרים ב-UK AI Security Institute הפעילו שיטות פסיכומטריות על בנצ'מרקים נפוצים לבטיחות מודלי שפה, ומצאו שהם לא מודדים תכונה עקבית אחת: חסימה גורפת של בקשות יכולה לנפח ציון בטיחות גם כשהמודל הופך פחות שימושי מיום ליום.",
+      "summary_en": "Researchers at the UK AI Security Institute applied psychometric methods to popular language model safety benchmarks and found they don't measure one consistent trait; blanket refusal of requests can inflate a safety score even as the model becomes less useful.",
+      "insight_he": "זו אזהרה מפני הסתמכות על ציון בטיחות בודד כמדד לסיכון אמיתי, מכיוון שקל \"לשחק\" את שיעורי הסירוב בלי שזה מתורגם לצמצום נזק בפועל. מי שבוחן מודלים לפריסה צריך להסתכל מעבר לבנצ'מרקים הראשיים ולבצע בדיקות אדום ממוקדות משימה.",
+      "insight_en": "This is a warning against trusting a single safety score as a proxy for real-world risk, since gaming refusal rates is easy and doesn't correlate with actual harm reduction. Anyone evaluating models for deployment should look past headline safety benchmarks toward task-specific red-teaming.",
+      "category": "research",
+      "url": "https://the-decoder.com/psychological-methods-reveal-major-weaknesses-in-ai-security-testing/",
+      "source": "The Decoder",
+      "published": "2026-08-22T07:00:05+00:00"
+    },
+    {
+      "headline_he": "סטארטאפ נתוני האימון Micro1 מגיע לקצב הכנסות שנתי של 500 מיליון דולר",
+      "headline_en": "AI Training-Data Startup Micro1 Hits $500M Run Rate",
+      "summary_he": "Micro1, סטארטאפ המספק נתוני אימון בתיוג אנושי למודלי AI, דיווח על הגעה לקצב הכנסות גולמי שנתי של 500 מיליון דולר, על רקע ביקוש גואה מצד מעבדות המאמנות מודלים מובילים.",
+      "summary_en": "Micro1, a startup supplying human-annotated training data for AI models, reported reaching a $500 million gross run rate amid surging demand from labs training frontier models.",
+      "insight_he": "שרשרת האספקה של תיוג נתונים ו-RLHF הופכת לעסק גדול בפני עצמו ולא רק מרכיב שולי, וזה משנה איך כדאי לחשוב על מקור השיפורים באיכות המודלים. סביר שנראה עוד ספקי נתונים ממוקדים וממומנים היטב שמתחרים על חוזי מעבדות.",
+      "insight_en": "The data-labeling and RLHF supply chain is becoming a large business in its own right, which matters for anyone thinking about where model quality gains actually come from. Expect more well-funded specialized data vendors competing for lab contracts.",
+      "category": "company",
+      "url": "https://techcrunch.com/2026/08/20/ai-data-startup-micro1-reaches-500m-gross-run-rate-amid-ai-training-boom/",
+      "source": "TechCrunch AI",
+      "published": "2026-08-21T00:13:44+00:00"
+    },
+    {
+      "headline_he": "HoneyBook משיקה מחבר MCP כדי להביא AI אגנטי לעסקים קטנים",
+      "headline_en": "HoneyBook Launches an MCP Connector to Bring Agentic AI to Small Businesses",
+      "summary_he": "HoneyBook השיקה את HoneyBook MCP, מחבר ל-Claude של Anthropic, במטרה להביא יכולות AI אגנטי שכבר בשימוש בארגונים גדולים אל עסקים עצמאיים וקטנים.",
+      "summary_en": "HoneyBook released HoneyBook MCP, a connector for Anthropic's Claude, aiming to bring the agentic AI capabilities already used by large enterprises to independent and small businesses.",
+      "insight_he": "זה מראה איך MCP מתבגר מעבר להדגמות מפתחים אל מוצרי SaaS אנכיים המיועדים לבעלי עסקים קטנים ולא טכניים, סימן אימוץ חשוב לפרוטוקול שאיתו Avi כבר בונה. סביר שנראה עוד כלי SaaS נישתיים שמשלבים מחברי MCP כתכונה סטנדרטית ולא כיתרון מבדל.",
+      "insight_en": "This shows MCP maturing beyond developer demos into vertical SaaS products aimed at non-technical small business owners, an important adoption signal for a protocol Avi already builds with. Expect more niche SaaS tools to ship MCP connectors as a standard feature rather than a differentiator.",
+      "category": "tool",
+      "url": "https://www.artificialintelligence-news.com/news/honeybook-bets-on-agentic-ai-to-streamline-small-business-operations-with-its-new-claude-connector/",
+      "source": "AI News",
+      "published": "2026-08-20T07:35:07+00:00"
+    }
+  ]
+}
