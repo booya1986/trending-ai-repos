@@ -109,11 +109,11 @@ def build_html(week, top_repos):
 <table width="100%" style="max-width:520px;" cellpadding="0" cellspacing="0">
   <tr><td style="background:#1b1b1b;border-radius:12px 12px 0 0;padding:24px 28px 18px;border-bottom:3px solid #22c55e;">
     <p style="margin:0 0 6px;font-size:11px;color:#22c55e;letter-spacing:2px;font-family:Arial,sans-serif;">WEEKLY AI DIGEST</p>
-    <h1 style="margin:0 0 4px;font-size:22px;color:#f9fafb;font-family:Arial,sans-serif;">&#x1F525; טרנדים ב-AI/LLM</h1>
-    <p style="margin:0;font-size:13px;color:#9ca3af;font-family:Arial,sans-serif;">{week_label} &middot; 5 כתבות + 5 repos מובילים</p>
+    <h1 style="margin:0 0 4px;font-size:22px;color:#f9fafb;font-family:Arial,sans-serif;">&#128240; AI News</h1>
+    <p style="margin:0;font-size:13px;color:#9ca3af;font-family:Arial,sans-serif;">{week_label} &middot; 10 כתבות + 3 repos מובילים</p>
   </td></tr>
 {news_block}  <tr><td style="background:#1b1b1b;padding:4px 28px 16px;">
-    <p style="margin:0 0 14px;font-size:11px;font-weight:bold;color:#22c55e;letter-spacing:2px;font-family:Arial,sans-serif;">&#128200; 5 ה-REPOS המובילים</p>
+    <p style="margin:0 0 14px;font-size:11px;font-weight:bold;color:#22c55e;letter-spacing:2px;font-family:Arial,sans-serif;">&#128200; 3 ה-REPOS המובילים</p>
     <table width="100%" cellpadding="0" cellspacing="0">{rows}</table>
   </td></tr>
   <tr><td style="background:#1b1b1b;padding:20px 28px 10px;">

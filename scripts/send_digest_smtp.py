@@ -42,7 +42,7 @@ def send(week):
     msg = MIMEMultipart("alternative")
     msg["To"] = ", ".join(RECIPIENTS)
     msg["From"] = GMAIL_USER
-    msg["Subject"] = f"🔥 דוח AI שבועי מוכן – {week_label}"
+    msg["Subject"] = f"📰 AI News שבועי – {week_label}"
     msg.attach(MIMEText(
         "10 הכתבות הגדולות ב-Gen AI השבוע, ו-3 הרפוזיטוריות שצוברות הכי הרבה "
         "תאוצה. פתח לקרוא ולהאזין.", "plain", "utf-8"))
