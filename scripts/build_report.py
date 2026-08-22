@@ -21,11 +21,14 @@ def _tags(topics, n=4):
 
 
 NEWS_TAGS = {
+    "model": ("מודל", "Model"),
     "product": ("מוצר", "Product"),
     "company": ("חברה", "Company"),
-    "technique": ("טכניקה", "Technique"),
-    "creative": ("קריאייטיב", "Creative"),
     "research": ("מחקר", "Research"),
+    "technique": ("טכניקה", "Technique"),
+    "tool": ("כלי", "Tool"),
+    "creative": ("קריאייטיב", "Creative"),
+    "policy": ("רגולציה", "Policy"),
 }
 
 
@@ -42,10 +45,18 @@ def render_news(stories):
         published = html.escape((s.get("published") or "")[:10])
         head_he = html.escape(s.get("headline_he") or s.get("headline_en") or "")
         head_en = html.escape(s.get("headline_en") or "")
-        # One insight paragraph replaced the old summary + "why it matters"
-        # pair: what happened plus what to take away, in the reader's words.
+        # Two blocks, deliberately separate: the summary is what happened,
+        # the insight is what to take from it. Collapsing them into one
+        # paragraph made the model blur the two together.
+        sum_he = html.escape(s.get("summary_he") or "")
+        sum_en = html.escape(s.get("summary_en") or "")
         ins_he = html.escape(s.get("insight_he") or "")
         ins_en = html.escape(s.get("insight_en") or "")
+        insight_block = ""
+        if ins_he or ins_en:
+            insight_block = (
+                f'<p class="news__insight i18n" data-he="{ins_he}" data-en="{ins_en}">{ins_he}</p>'
+            )
         items.append(f"""
       <div class="news__item">
         <span class="news__tag i18n" data-he="{tag_he}" data-en="{tag_en}">{tag_he}</span>
@@ -53,9 +64,10 @@ def render_news(stories):
           <a href="{url}" target="_blank" rel="noopener"
              class="i18n" data-he="{head_he}" data-en="{head_en}">{head_he}</a>
         </p>
-        <p class="news__text i18n" data-he="{ins_he}" data-en="{ins_en}">{ins_he}</p>
+        <p class="news__text i18n" data-he="{sum_he}" data-en="{sum_en}">{sum_he}</p>
+        {insight_block}
         <p class="news__source">
-          <a href="{url}" target="_blank" rel="noopener">{source or "מקור"}</a>{" &middot; " + published if published else ""}
+          <a href="{url}" target="_blank" rel="noopener"><bdi>{source or "מקור"}</bdi></a>{" &middot; <bdi>" + published + "</bdi>" if published else ""}
         </p>
       </div>""")
     return f"""
@@ -127,7 +139,7 @@ def render_html(data):
     # it a shared link renders as a bare grey box. The URLs must be absolute.
     page_url = f"{SITE_BASE}/{week}/"
     og_image = f"{SITE_BASE}/{week}/og.png"
-    og_title = f"טרנדים ב-AI/LLM — {week}"
+    og_title = f"AI News — {week}"
     lead = ""
     if repos:
         lead = (repos[0].get("full_name") or "")
@@ -142,12 +154,12 @@ def render_html(data):
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <meta name="theme-color" content="#1b1b1b">
-<title>טרנדים ב-AI {week_display}</title>
+<title>AI News {week_display}</title>
 <meta name="description" content="{html.escape(og_desc)}">
 <link rel="canonical" href="{html.escape(page_url)}">
 
 <meta property="og:type" content="article">
-<meta property="og:site_name" content="טרנדים ב-AI/LLM">
+<meta property="og:site_name" content="AI News">
 <meta property="og:locale" content="he_IL">
 <meta property="og:url" content="{html.escape(page_url)}">
 <meta property="og:title" content="{html.escape(og_title)}">
@@ -626,6 +638,8 @@ def render_html(data):
   .news__title a {{ text-decoration: none; }}
   .news__title a:hover {{ text-shadow: var(--text-glow); }}
   .news__text {{ font-size: 0.88rem; line-height: 1.65; margin-bottom: 4px; }}
+  .news__insight {{ font-size: 0.85rem; line-height: 1.7; color: var(--fg); margin-top: 8px;
+     padding-inline-start: 10px; border-inline-start: 2px solid var(--accent); }}
   .news__source a {{ color: inherit; text-decoration: none; border-bottom: 1px solid currentColor; }}
   .news__source a:hover {{ color: var(--accent); }}
   .news__source {{ font-size: 0.72rem; color: var(--fg-subtle); margin-top: 6px; }}
@@ -675,8 +689,10 @@ def render_html(data):
 
   <header class="site-header">
     <p class="header-eyebrow i18n" data-he="עיכול AI שבועי" data-en="Weekly AI Digest">עיכול AI שבועי</p>
-    <h1 class="header-title i18n" data-he="&#128293; טרנד ב-AI/LLM" data-en="&#128293; Trending AI/LLM Repos">&#128293; טרנד ב-AI/LLM</h1>
-    <p class="header-sub">{week_display} &middot; {html.escape(generated_for)}</p>
+    <h1 class="header-title i18n" data-he="&#128240; AI News" data-en="&#128240; AI News">&#128240; AI News</h1>
+    <!-- bdi, because in the RTL page "2026-W34 · 2026-08-22" reorders into
+         "W34 · 2026-08-22-2026". Isolating each run keeps them readable. -->
+    <p class="header-sub"><bdi>{week_display}</bdi> &middot; <bdi>{html.escape(generated_for)}</bdi></p>
   </header>
 
   <div class="player">
@@ -737,8 +753,8 @@ function toggleLang() {{
 // ── SHARE ──
 function shareReport() {{
   var title = currentLang === 'he'
-    ? 'טרנד ב-AI/LLM – {week_display}'
-    : 'Trending AI/LLM Repos – {week_display}';
+    ? 'AI News – {week_display}'
+    : 'AI News – {week_display}';
   var url = window.location.href;
   if (navigator.share) {{
     navigator.share({{ title: title, url: url }}).catch(function(){{}});
@@ -857,7 +873,10 @@ def render_narration(data):
         lines.append("")
         for s in stories:
             head = (s.get("headline_he") or s.get("headline_en") or "").strip()
-            summary = (s.get("insight_he") or "").strip().rstrip(".")
+            summary = " ".join(x for x in (
+                (s.get("summary_he") or "").strip(),
+                (s.get("insight_he") or "").strip(),
+            ) if x).rstrip(".")
             if not head:
                 continue
             lines.append(f"{head}. {summary}." if summary else f"{head}.")

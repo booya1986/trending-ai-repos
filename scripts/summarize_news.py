@@ -38,13 +38,18 @@ techniques are now practical. He builds with Claude, agents, and MCP, and works 
 in creative and productivity tooling.
 
 Rules:
-- Pick the ten biggest gen-AI stories of the week, ranked by how much they \
-matter, across every area of AI. Rank on the story itself: how significant it \
-is, how much attention it is getting, and how much it changes what someone \
-building with gen AI can do.
-- Do NOT balance across categories. If the ten biggest stories of the week \
-are all model launches, return ten model launches. The category label is \
-descriptive only, never a quota.
+- Pick the ten stories that would keep Avi best informed about generative AI \
+this week. The test is simple: after reading these ten, is he up to date? \
+Rank on the story itself: how significant it is, how much attention it is \
+getting, and how much it changes what someone building with gen AI can do.
+- COVER THE WHOLE FIELD, not just product launches. Model releases and \
+capability jumps, company and money news, research results and benchmarks, \
+new techniques and tools worth using, creative and media generation, and \
+policy, safety or regulation when it actually changes what people can build. \
+A week of ten product announcements is almost always a sign you have looked \
+only at the obvious sources.
+- Do NOT balance mechanically. If one area genuinely dominated the week, let \
+it dominate. But do not let a single category fill the list by default.
 - Prefer concrete news (launches, releases, funding, acquisitions, benchmarks, \
 technique write-ups) over opinion and think-pieces.
 - Never pick two items covering the same story. Candidates arrive from press \
@@ -58,12 +63,13 @@ details, numbers, or capabilities.
 - Do not use em-dashes anywhere. Use colons, commas, or parentheses instead.
 - Hebrew must read naturally, not as translated English. Keep product and \
 company names in Latin script inside the Hebrew text.
-- insight: one short paragraph, three or four sentences. Say what happened, \
-then what Avi can actually take away or learn from it: what it changes, what \
-it makes possible, what it tells him about where things are going. No filler, \
-no hedging, no restating the headline in other words, no "this is significant \
-because it is significant". If there is nothing to take away, the story does \
-not belong in the ten."""
+- summary: one or two sentences, strictly WHAT HAPPENED. Facts only: who did \
+what, what shipped, what the numbers were. No interpretation here.
+- insight: two or three sentences, strictly WHAT TO TAKE FROM IT. What it \
+changes, what it now makes possible, what it says about where things are \
+going, or what Avi should do differently knowing it. Never restate the \
+summary. If the only thing you can write is a rephrasing of what happened, \
+the story does not belong in the ten."""
 
 NEWS_SCHEMA = {
     "type": "object",
@@ -79,19 +85,25 @@ NEWS_SCHEMA = {
                     },
                     "category": {
                         "type": "string",
-                        "enum": ["product", "company", "technique", "creative", "research"],
+                        "enum": ["model", "product", "company", "research",
+                                 "technique", "tool", "creative", "policy"],
                     },
                     "headline_he": {"type": "string"},
                     "headline_en": {"type": "string"},
+                    "summary_he": {
+                        "type": "string",
+                        "description": "1-2 sentences, facts only: what happened.",
+                    },
+                    "summary_en": {"type": "string"},
                     "insight_he": {
                         "type": "string",
-                        "description": "3-4 sentences: what happened and what to take away from it.",
+                        "description": "2-3 sentences: what to take from it. Never restates the summary.",
                     },
                     "insight_en": {"type": "string"},
                 },
                 "required": [
                     "index", "category", "headline_he", "headline_en",
-                    "insight_he", "insight_en",
+                    "summary_he", "summary_en", "insight_he", "insight_en",
                 ],
                 "additionalProperties": False,
             },
@@ -136,10 +148,16 @@ def _fallback(items, warnings):
         # which reads as a broken report rather than a degraded one.
         text = (it.get("summary") or "")[:300]
         out.append({
+            # Flagged explicitly rather than inferred. An earlier gate looked
+            # for empty Hebrew text, which stopped detecting anything the
+            # moment the fallback started filling both language slots.
+            "degraded": True,
             "headline_he": it["title"],
             "headline_en": it["title"],
-            "insight_he": text,
-            "insight_en": text,
+            "summary_he": text,
+            "summary_en": text,
+            "insight_he": "",
+            "insight_en": "",
             "category": "product",
             "url": it["url"],
             "source": it.get("source", ""),
@@ -176,13 +194,18 @@ def summarize(infile, outfile):
                 f"Choose the {WANTED} most significant and write the digest entries."
             )
             def call(budget):
-                return client.messages.create(
+                # Streaming, not create(): the SDK refuses a non-streaming
+                # request whose max_tokens implies it could run past ten
+                # minutes, which 32000 does. Same pattern the L&D pipeline's
+                # editorial review already uses.
+                with client.messages.stream(
                     model=MODEL,
                     max_tokens=budget,
                     system=SYSTEM_PROMPT,
                     messages=[{"role": "user", "content": prompt}],
                     output_config={"format": {"type": "json_schema", "schema": NEWS_SCHEMA}},
-                )
+                ) as stream:
+                    return stream.get_final_message()
 
             message = call(MAX_TOKENS)
             if message.stop_reason == "max_tokens":
@@ -204,6 +227,8 @@ def summarize(infile, outfile):
                 stories.append({
                     "headline_he": entry["headline_he"],
                     "headline_en": entry["headline_en"],
+                    "summary_he": entry["summary_he"],
+                    "summary_en": entry["summary_en"],
                     "insight_he": entry["insight_he"],
                     "insight_en": entry["insight_en"],
                     "category": entry.get("category", "product"),

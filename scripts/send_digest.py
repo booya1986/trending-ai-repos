@@ -64,14 +64,19 @@ def build_news_block(week):
     for i, s in enumerate(stories):
         border = 'border-bottom:1px solid #2d2d2d;' if i < len(stories) - 1 else ''
         headline = s.get('headline_he') or s.get('headline_en') or ''
+        summary = s.get('summary_he') or s.get('summary_en') or ''
         insight = s.get('insight_he') or s.get('insight_en') or ''
+        insight_row = (f'<p style="margin:6px 0 0;padding:0 8px 0 0;font-size:13px;'
+                       f'color:#d1d5db;line-height:1.6;border-right:2px solid #22c55e;'
+                       f'font-family:Arial,sans-serif;">{insight}</p>') if insight else ''
         url = s.get('url', '')
         source = s.get('source', '')
         items += f'''<tr><td style="padding:10px 0;{border}">
         <p style="margin:0 0 3px;font-size:14px;color:#f3f4f6;font-family:Arial,sans-serif;">
           <a href="{url}" style="color:#22c55e;text-decoration:none;font-weight:bold;">{headline}</a>
         </p>
-        <p style="margin:0;font-size:13px;color:#9ca3af;line-height:1.6;font-family:Arial,sans-serif;">{insight}</p>
+        <p style="margin:0;font-size:13px;color:#9ca3af;line-height:1.6;font-family:Arial,sans-serif;">{summary}</p>
+        {insight_row}
         <p style="margin:5px 0 0;font-size:11px;font-family:Arial,sans-serif;">
           <a href="{url}" style="color:#6b7280;text-decoration:underline;">{source or 'מקור'}</a>
         </p>

@@ -153,8 +153,11 @@ def build_news_section(stories):
         if meta:
             lines.append(f"_{meta}_")
         lines.append("")
+        if s.get("summary_he"):
+            lines.append(s["summary_he"])
+            lines.append("")
         if s.get("insight_he"):
-            lines.append(s["insight_he"])
+            lines.append(f"**מה לקחת מזה:** {s['insight_he']}")
             lines.append("")
         if head_en and head_en != head_he:
             lines.append(f"_{head_en}_")

@@ -146,11 +146,15 @@ jobs:
           python3 - <<'PYCHECK'
           import json, sys
           stories = json.load(open("/tmp/news_rich.json")).get("stories") or []
+          # The fallback flags itself. An earlier version of this gate looked
+          # for empty Hebrew text and stopped detecting anything the moment the
+          # fallback began filling both language slots.
+          degraded = sum(1 for s in stories if s.get("degraded"))
           blank = sum(1 for s in stories if not (s.get("insight_he") or "").strip())
-          print(f"news stories: {len(stories)}, blank Hebrew insights: {blank}")
-          if stories and blank > len(stories) // 2:
-              print(f"::error title=news::{blank} of {len(stories)} stories have no Hebrew "
-                    "insight -- the summarizer fell back. Refusing to publish.")
+          print(f"news stories: {len(stories)}, degraded: {degraded}, blank insights: {blank}")
+          if stories and (degraded or blank > len(stories) // 2):
+              print("::error title=news::the summarizer fell back to headlines. "
+                    "Refusing to publish a news section without summaries and insights.")
               sys.exit(1)
           if blank:
               print(f"::warning title=news::{blank} story/stories missing a Hebrew insight")
