@@ -4,12 +4,12 @@ Send weekly AI repos digest email via Gmail API (gws auth).
 Usage: python3 scripts/send_digest.py [week]
 If week not provided, uses the latest report folder.
 """
-import base64, json, os, subprocess, sys
-from email.mime.multipart import MIMEMultipart
-from email.mime.text import MIMEText
+import json, os, re
 
 REPORTS_DIR = os.path.join(os.path.dirname(__file__), '..', 'reports')
-TO = 'avi.j.levi@gmail.com'
+# No recipient here. Recipients live in send_digest_smtp.py, read from the
+# DIGEST_TO repo variable. This module is a LIBRARY ONLY: it builds the
+# email HTML and reads the report, and it must never send anything.
 BASE_URL = 'https://booya1986.github.io/trending-ai-repos/reports'
 
 
@@ -129,45 +129,3 @@ def build_html(week, top_repos):
 </td></tr>
 </table>
 </body></html>"""
-
-
-def send(week):
-    top_repos = read_narration(week)
-    html = build_html(week, top_repos)
-    week_label = week.replace('-', ' ').replace('W', 'שבוע ')
-
-    msg = MIMEMultipart('alternative')
-    msg['To'] = TO
-    msg['From'] = TO
-    msg['Subject'] = f'🔥 דוח AI שבועי מוכן – {week_label}'
-    msg.attach(MIMEText('5 הכתבות ו-5 ה-repos המובילים השבוע ב-Gen AI. פתח לקרוא ולהאזין.', 'plain', 'utf-8'))
-    msg.attach(MIMEText(html, 'html', 'utf-8'))
-
-    raw = base64.urlsafe_b64encode(msg.as_bytes()).decode()
-    body = json.dumps({"raw": raw})
-
-    result = subprocess.run(
-        ['gws', 'gmail', 'users', 'messages', 'send',
-         '--params', '{"userId": "me"}',
-         '--json', body],
-        capture_output=True, text=True
-    )
-    if result.returncode != 0:
-        print(f"Send failed: {result.stderr}", file=sys.stderr)
-        sys.exit(1)
-
-    # strip "Using keyring backend: keyring" prefix line before parsing JSON
-    stdout = '\n'.join(l for l in result.stdout.splitlines() if not l.startswith('Using keyring'))
-    resp = json.loads(stdout) if stdout.strip() else {}
-    print(f"Email sent! Message ID: {resp.get('id')} | Week: {week}")
-    return resp
-
-
-if __name__ == '__main__':
-    week = sys.argv[1] if len(sys.argv) > 1 else latest_week()
-    sent_marker = os.path.join(REPORTS_DIR, week, '.email_sent')
-    if os.path.exists(sent_marker):
-        print(f"Email already sent for {week}, skipping.")
-        sys.exit(0)
-    send(week)
-    open(sent_marker, 'w').write(week)
