@@ -6,6 +6,12 @@ repos gaining the most momentum. Built every Friday by
 Sunday by [`sunday-digest.yml`](.github/workflows/sunday-digest.yml). Both run
 in GitHub Actions, so neither needs a machine of Avi's to be on.
 
+The Sunday send is triggered by a claude.ai routine that pushes
+`.send-trigger` at 07:25 IL, because GitHub's own cron cannot promise a time:
+it fired 41 minutes late on 2026-08-23 and not at all on 2026-08-16. A push
+starts a workflow immediately. GitHub's cron remains only as a late backup,
+starting after 07:30 in both Israeli timezones so it can never send early.
+
 Published archive: <https://booya1986.github.io/trending-ai-repos/reports/>
 
 ## How it runs
@@ -14,7 +20,7 @@ Published archive: <https://booya1986.github.io/trending-ai-repos/reports/>
 |---|---|---|
 | Friday 07:05 IL | Fetch news and repos, write briefs, build the report and the MP3 | GitHub Actions |
 | Friday, same run | Render the Obsidian note into `reports/<week>/vault-note.md` | GitHub Actions |
-| Sunday 07:07 IL | Email the digest | GitHub Actions |
+| Sunday 07:30 IL | Email the digest | Cloud routine pushes `.send-trigger`, GitHub Actions sends |
 | Whenever the Mac is awake | Copy any missing `vault-note.md` into the vault | launchd, `com.avilevi.trending-vault-note` |
 
 The vault is a local folder with no git remote, so CI cannot write into it.
