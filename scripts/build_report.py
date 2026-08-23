@@ -32,6 +32,24 @@ NEWS_TAGS = {
 }
 
 
+def news_cta(source):
+    """Label the button by its destination, not generically.
+
+    "Wired AI" under a headline reads as a byline, not as something to click,
+    so the section looked like it linked to the publication rather than to the
+    story. Naming the destination ("the post on X", "the r/LocalLLaMA thread")
+    tells the reader where the tap goes before they take it.
+    """
+    src = (source or "").strip()
+    if src.startswith("X @"):
+        return ("לפוסט המקורי ב-X", "View the post on X")
+    if src.startswith("r/"):
+        return (f"לדיון ב-{src}", f"View the {src} thread")
+    if src == "Hacker News":
+        return ("לדיון ב-Hacker News", "View the Hacker News thread")
+    return ("לכתבה המלאה", "Read the full article")
+
+
 def render_news(stories):
     """The week's gen-AI news, above the repo cards. Empty string when there is
     no news, so a failed news fetch leaves the report exactly as it was."""
@@ -52,6 +70,7 @@ def render_news(stories):
         sum_en = html.escape(s.get("summary_en") or "")
         ins_he = html.escape(s.get("insight_he") or "")
         ins_en = html.escape(s.get("insight_en") or "")
+        cta_he, cta_en = (html.escape(x) for x in news_cta(s.get("source")))
         insight_block = ""
         if ins_he or ins_en:
             insight_block = (
@@ -66,9 +85,9 @@ def render_news(stories):
         </p>
         <p class="news__text i18n" data-he="{sum_he}" data-en="{sum_en}">{sum_he}</p>
         {insight_block}
-        <p class="news__source">
-          <a href="{url}" target="_blank" rel="noopener"><bdi>{source or "מקור"}</bdi></a>{" &middot; <bdi>" + published + "</bdi>" if published else ""}
-        </p>
+        <p class="news__source"><bdi>{source or "מקור"}</bdi>{" &middot; <bdi>" + published + "</bdi>" if published else ""}</p>
+        <a class="news__cta i18n" href="{url}" target="_blank" rel="noopener"
+           data-he="{cta_he} &#8592;" data-en="{cta_en} &#8594;">{cta_he} &#8592;</a>
       </div>""")
     return f"""
   <section class="news">
@@ -640,8 +659,14 @@ def render_html(data):
   .news__text {{ font-size: 0.88rem; line-height: 1.65; margin-bottom: 4px; }}
   .news__insight {{ font-size: 0.85rem; line-height: 1.7; color: var(--fg); margin-top: 8px;
      padding-inline-start: 10px; border-inline-start: 2px solid var(--accent); }}
-  .news__source a {{ color: inherit; text-decoration: none; border-bottom: 1px solid currentColor; }}
-  .news__source a:hover {{ color: var(--accent); }}
+  .news__cta {{
+    display: inline-block; margin-top: 10px; padding: 7px 15px;
+    border-radius: 999px; font-size: 0.78rem; font-weight: 600;
+    text-decoration: none; color: var(--accent);
+    border: 1px solid var(--accent-border); background: var(--accent-softer);
+    transition: background .15s ease, color .15s ease, border-color .15s ease;
+  }}
+  .news__cta:hover {{ background: var(--accent); color: var(--bg); border-color: var(--accent); }}
   .news__source {{ font-size: 0.72rem; color: var(--fg-subtle); margin-top: 6px; }}
 
   /* ── SECTION HEADINGS ── */

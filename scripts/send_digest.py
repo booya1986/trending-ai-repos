@@ -5,6 +5,7 @@ Usage: python3 scripts/send_digest.py [week]
 If week not provided, uses the latest report folder.
 """
 import json, os, re
+from build_report import news_cta
 
 REPORTS_DIR = os.path.join(os.path.dirname(__file__), '..', 'reports')
 # No recipient here. Recipients live in send_digest_smtp.py, read from the
@@ -71,14 +72,16 @@ def build_news_block(week):
                        f'font-family:Arial,sans-serif;">{insight}</p>') if insight else ''
         url = s.get('url', '')
         source = s.get('source', '')
+        cta_he = news_cta(source)[0]
         items += f'''<tr><td style="padding:10px 0;{border}">
         <p style="margin:0 0 3px;font-size:14px;color:#f3f4f6;font-family:Arial,sans-serif;">
           <a href="{url}" style="color:#22c55e;text-decoration:none;font-weight:bold;">{headline}</a>
         </p>
         <p style="margin:0;font-size:13px;color:#9ca3af;line-height:1.6;font-family:Arial,sans-serif;">{summary}</p>
         {insight_row}
-        <p style="margin:5px 0 0;font-size:11px;font-family:Arial,sans-serif;">
-          <a href="{url}" style="color:#6b7280;text-decoration:underline;">{source or 'מקור'}</a>
+        <p style="margin:5px 0 0;font-size:11px;color:#6b7280;font-family:Arial,sans-serif;">{source or 'מקור'}</p>
+        <p style="margin:8px 0 0;">
+          <a href="{url}" style="display:inline-block;padding:6px 14px;border-radius:999px;border:1px solid #22c55e;color:#22c55e;font-size:12px;font-weight:bold;text-decoration:none;font-family:Arial,sans-serif;">{cta_he} &#8592;</a>
         </p>
         </td></tr>'''
     return f'''  <tr><td style="background:#1b1b1b;padding:4px 28px 16px;">

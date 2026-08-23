@@ -134,6 +134,18 @@ def read_news(week):
         return []
 
 
+def _cta_label(source):
+    """Hebrew label naming where the link goes. Mirrors build_report.news_cta."""
+    src = (source or "").strip()
+    if src.startswith("X @"):
+        return "לפוסט המקורי ב-X"
+    if src.startswith("r/"):
+        return f"לדיון ב-{src}"
+    if src == "Hacker News":
+        return "לדיון ב-Hacker News"
+    return "לכתבה המלאה"
+
+
 def build_news_section(stories):
     if not stories:
         return []
@@ -154,6 +166,11 @@ def build_news_section(stories):
             lines.append("")
         if s.get("insight_he"):
             lines.append(f"**מה לקחת מזה:** {s['insight_he']}")
+            lines.append("")
+        # Name the destination, so the link reads as an action rather than a
+        # citation. Same wording as the report and the email.
+        if url:
+            lines.append(f"[{_cta_label(source)} ←]({url})")
             lines.append("")
         if head_en and head_en != head_he:
             lines.append(f"_{head_en}_")

@@ -301,3 +301,17 @@ def test_reddit_failure_is_not_fatal(monkeypatch):
     # retry_waits=(0,) so the gate does not sit through the real backoff.
     assert fetch_reddit(warnings=warnings, retry_waits=(0,)) == []
     assert any("reddit failed" in w for w in warnings)
+
+
+# --- the story button names its destination --------------------------------
+
+def test_cta_names_where_the_link_goes():
+    from build_report import news_cta
+    assert news_cta("X @OpenAI")[0] == "לפוסט המקורי ב-X"
+    assert news_cta("X @OpenAI")[1] == "View the post on X"
+    assert news_cta("r/LocalLLaMA")[0] == "לדיון ב-r/LocalLLaMA"
+    assert news_cta("Hacker News")[0] == "לדיון ב-Hacker News"
+    # Anything else is a publication, so it is an article.
+    assert news_cta("Wired AI")[0] == "לכתבה המלאה"
+    assert news_cta("")[0] == "לכתבה המלאה"
+    assert news_cta(None)[0] == "לכתבה המלאה"
