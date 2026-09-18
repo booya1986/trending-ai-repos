@@ -56,7 +56,8 @@ engagement counts. Every source is optional and none can fail the build.
 
 | Week | Date | Report | News | Repos | Audio | Emailed |
 |---|---|---|---|---|---|---|
-| `2026-W37` | 2026-09-11 | [open](https://booya1986.github.io/trending-ai-repos/reports/2026-W37/) | 10 | 3 | 🎧 |  |
+| `2026-W38` | 2026-09-18 | [open](https://booya1986.github.io/trending-ai-repos/reports/2026-W38/) | 10 | 3 | 🎧 |  |
+| `2026-W37` | 2026-09-11 | [open](https://booya1986.github.io/trending-ai-repos/reports/2026-W37/) | 10 | 3 | 🎧 | ✅ |
 | `2026-W36` | 2026-09-04 | [open](https://booya1986.github.io/trending-ai-repos/reports/2026-W36/) | 10 | 3 | 🎧 | ✅ |
 | `2026-W35` | 2026-08-28 | [open](https://booya1986.github.io/trending-ai-repos/reports/2026-W35/) | 10 | 3 | 🎧 | ✅ |
 | `2026-W34` | 2026-08-21 | [open](https://booya1986.github.io/trending-ai-repos/reports/2026-W34/) | 10 | 3 | 🎧 | ✅ |
@@ -71,5 +72,5 @@ engagement counts. Every source is optional and none can fail the build.
 | `2026-W24` | 2026-06-12 | [open](https://booya1986.github.io/trending-ai-repos/reports/2026-W24/) |  | 10 | 🎧 | ✅ |
 | `2026-W23` | 2026-06-05 | [open](https://booya1986.github.io/trending-ai-repos/reports/2026-W23/) |  | 10 | 🎧 | ✅ |
 
-_14 reports._
+_15 reports._
 <!-- REPORTS:END -->
