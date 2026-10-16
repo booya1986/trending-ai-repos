@@ -1,0 +1,886 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="theme-color" content="#1b1b1b">
+<title>AI News 2026-W42</title>
+<meta name="description" content="ה-repos והחדשות הבולטים בעולם ה-AI השבוע. פותח ב: morluto/rea">
+<link rel="canonical" href="https://booya1986.github.io/trending-ai-repos/reports/2026-W42/">
+
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="AI News">
+<meta property="og:locale" content="he_IL">
+<meta property="og:url" content="https://booya1986.github.io/trending-ai-repos/reports/2026-W42/">
+<meta property="og:title" content="AI News — 2026-W42">
+<meta property="og:description" content="ה-repos והחדשות הבולטים בעולם ה-AI השבוע. פותח ב: morluto/rea">
+<meta property="og:image" content="https://booya1986.github.io/trending-ai-repos/reports/2026-W42/og.png">
+<meta property="og:image:secure_url" content="https://booya1986.github.io/trending-ai-repos/reports/2026-W42/og.png">
+<meta property="og:image:type" content="image/png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="AI News — 2026-W42">
+
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="AI News — 2026-W42">
+<meta name="twitter:description" content="ה-repos והחדשות הבולטים בעולם ה-AI השבוע. פותח ב: morluto/rea">
+<meta name="twitter:image" content="https://booya1986.github.io/trending-ai-repos/reports/2026-W42/og.png">
+
+<link rel="icon" href="data:image/svg+xml,&lt;svg xmlns=&quot;http://www.w3.org/2000/svg&quot; viewBox=&quot;0 0 100 100&quot;&gt;&lt;text y=&quot;.9em&quot; font-size=&quot;90&quot;&gt;&#128293;&lt;/text&gt;&lt;/svg&gt;">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Hebrew:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg: #1b1b1b;
+    --bg-elevated: #232323;
+    --fg: #c5c1b9;
+    --fg-strong: #dcdad5;
+    --fg-muted: #a09d96;
+    --fg-subtle: #96928c;
+    --accent: #22c55e;
+    --accent-glow: rgba(34,197,94,0.6);
+    --accent-soft: rgba(34,197,94,0.12);
+    --accent-softer: rgba(34,197,94,0.04);
+    --accent-border: rgba(34,197,94,0.12);
+    --accent-border-hover: rgba(34,197,94,0.3);
+    --shadow-glow-md: 0 0 15px rgba(34,197,94,0.3), 0 0 40px rgba(34,197,94,0.1);
+    --text-glow: 0 0 8px rgba(34,197,94,0.6), 0 0 20px rgba(34,197,94,0.3);
+    --font-sans: 'Noto Sans Hebrew', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+    --radius-sm: 8px;
+    --radius-md: 12px;
+    --radius-lg: 16px;
+    --radius-pill: 999px;
+    --transition: 0.3s cubic-bezier(0.4,0,0.2,1);
+    --transition-fast: 0.15s cubic-bezier(0.4,0,0.2,1);
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html { -webkit-text-size-adjust: 100%; }
+
+  body {
+    background: var(--bg);
+    color: var(--fg);
+    font-family: var(--font-sans);
+    font-size: clamp(1rem, 2vw, 1.0625rem);
+    line-height: 1.7;
+    padding-top: env(safe-area-inset-top);
+    padding-bottom: env(safe-area-inset-bottom);
+  }
+
+  /* ── GRID BACKGROUND ── */
+  body::before {
+    content: '';
+    position: fixed;
+    inset: 0;
+    z-index: 0;
+    pointer-events: none;
+    background-image:
+      linear-gradient(rgba(34,197,94,0.03) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(34,197,94,0.03) 1px, transparent 1px);
+    background-size: 40px 40px;
+    mask-image: radial-gradient(ellipse 80% 60% at 50% 0%, black 40%, transparent 100%);
+    -webkit-mask-image: radial-gradient(ellipse 80% 60% at 50% 0%, black 40%, transparent 100%);
+  }
+
+  .wrap {
+    position: relative;
+    z-index: 1;
+    max-width: 720px;
+    margin: 0 auto;
+    padding: 24px 16px 80px;
+  }
+
+  /* ── TOP BAR ── */
+  .top-bar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 16px;
+    gap: 10px;
+  }
+  .lang-btn, .share-btn {
+    background: var(--accent-softer);
+    border: 1px solid var(--accent-border);
+    border-radius: var(--radius-pill);
+    color: var(--accent);
+    font-family: var(--font-sans);
+    font-size: 0.8rem;
+    font-weight: 600;
+    letter-spacing: 0.5px;
+    padding: 7px 16px;
+    cursor: pointer;
+    transition: all var(--transition-fast);
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    min-height: 44px;
+    -webkit-tap-highlight-color: transparent;
+  }
+  .lang-btn:hover, .share-btn:hover {
+    background: var(--accent-soft);
+    border-color: var(--accent);
+    box-shadow: 0 0 10px var(--accent-glow);
+  }
+  .share-btn svg { width: 16px; height: 16px; stroke: var(--accent); }
+  .share-btn.copied { background: var(--accent-soft); }
+  .share-copied {
+    font-size: 0.72rem;
+    color: var(--accent);
+    margin-top: 4px;
+    text-align: center;
+    opacity: 0;
+    transition: opacity 0.3s;
+  }
+  .share-copied.show { opacity: 1; }
+
+  /* ── HEADER ── */
+  .site-header { margin-bottom: 24px; }
+  .header-eyebrow {
+    font-size: 0.8rem;
+    font-weight: 500;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: var(--accent);
+    text-shadow: var(--text-glow);
+    margin-bottom: 6px;
+  }
+  .header-title {
+    font-size: clamp(1.6rem, 4vw, 2.2rem);
+    font-weight: 700;
+    color: var(--fg-strong);
+    line-height: 1.3;
+    text-shadow: 0 0 30px rgba(34,197,94,0.1);
+    margin-bottom: 4px;
+  }
+  .header-sub {
+    font-size: 0.875rem;
+    color: var(--fg-muted);
+    font-weight: 300;
+  }
+
+  /* ── CUSTOM AUDIO PLAYER ── */
+  .player {
+    position: sticky;
+    top: 0;
+    z-index: 10;
+    background: rgba(27,27,27,0.92);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border-bottom: 1px solid var(--accent-border);
+    padding: 12px 16px;
+    margin: 0 -16px 24px;
+  }
+  .player audio { display: none; }
+
+  .player-ui {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+  }
+  .player-btn {
+    flex-shrink: 0;
+    width: 44px;
+    height: 44px;
+    border-radius: 50%;
+    background: var(--accent);
+    border: none;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all var(--transition-fast);
+    box-shadow: 0 0 12px rgba(34,197,94,0.4);
+  }
+  .player-btn:hover {
+    transform: scale(1.08);
+    box-shadow: 0 0 20px rgba(34,197,94,0.6);
+  }
+  .player-btn svg { width: 18px; height: 18px; fill: #0a1a0f; }
+
+  .player-center { flex: 1; min-width: 0; }
+  .player-track {
+    font-size: 0.8rem;
+    font-weight: 500;
+    color: var(--fg-strong);
+    margin-bottom: 6px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+  .player-progress-wrap {
+    position: relative;
+    height: 4px;
+    background: rgba(255,255,255,0.1);
+    border-radius: 2px;
+    cursor: pointer;
+    overflow: hidden;
+  }
+  .player-progress-bar {
+    height: 100%;
+    width: 0%;
+    background: var(--accent);
+    border-radius: 2px;
+    box-shadow: 0 0 6px var(--accent-glow);
+    transition: width 0.1s linear;
+    pointer-events: none;
+  }
+  .player-progress-wrap:hover .player-progress-bar {
+    box-shadow: 0 0 12px var(--accent-glow);
+  }
+
+  .player-time {
+    font-size: 0.72rem;
+    color: var(--fg-subtle);
+    white-space: nowrap;
+    flex-shrink: 0;
+    font-variant-numeric: tabular-nums;
+    min-width: 70px;
+    text-align: center;
+  }
+
+  .player-hint {
+    font-size: 0.72rem;
+    color: var(--fg-subtle);
+    margin-top: 7px;
+    letter-spacing: 0.3px;
+  }
+
+  /* ── RUN NOTES ── */
+  .run-notes {
+    background: var(--accent-softer);
+    border: 1px solid var(--accent-border);
+    border-right: 3px solid var(--accent);
+    border-radius: var(--radius-md) 0 0 var(--radius-md);
+    padding: 12px 16px;
+    margin-bottom: 24px;
+    font-size: 0.875rem;
+    color: var(--fg-strong);
+  }
+  [dir="ltr"] .run-notes {
+    border-right: 1px solid var(--accent-border);
+    border-left: 3px solid var(--accent);
+    border-radius: 0 var(--radius-md) var(--radius-md) 0;
+  }
+  .run-notes ul { padding-right: 20px; margin-top: 6px; }
+  [dir="ltr"] .run-notes ul { padding-right: 0; padding-left: 20px; }
+
+  /* ── CARDS ── */
+  .card {
+    position: relative;
+    background: var(--accent-softer);
+    border: 1px solid var(--accent-border);
+    border-radius: var(--radius-lg);
+    margin-bottom: 16px;
+    transition: border-color var(--transition), background var(--transition), box-shadow var(--transition);
+  }
+  .card:hover {
+    border-color: var(--accent-border-hover);
+    background: rgba(34,197,94,0.07);
+    box-shadow: var(--shadow-glow-md), 0 12px 32px rgba(0,0,0,0.25);
+  }
+
+  .card__rank {
+    position: absolute;
+    top: -1px;
+    right: 20px;
+    background: var(--accent);
+    color: #0a1a0f;
+    font-size: 0.75rem;
+    font-weight: 700;
+    letter-spacing: 0.5px;
+    padding: 3px 10px;
+    border-radius: 0 0 var(--radius-sm) var(--radius-sm);
+  }
+  [dir="ltr"] .card__rank { right: auto; left: 20px; }
+
+  .card__body { padding: 28px 20px 20px; }
+
+  /* card header: title block + star stat */
+  .card__header {
+    display: flex;
+    align-items: flex-start;
+    gap: 12px;
+    margin-bottom: 10px;
+  }
+  .card__title-block { flex: 1; min-width: 0; }
+  .card__eyebrow {
+    font-size: 0.78rem;
+    font-weight: 500;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    color: var(--accent);
+    text-shadow: var(--text-glow);
+    margin-bottom: 4px;
+  }
+  .card__title {
+    font-size: 1.1rem;
+    font-weight: 600;
+    line-height: 1.35;
+  }
+  .card__title a {
+    color: var(--fg-strong);
+    text-decoration: none;
+    transition: color var(--transition-fast);
+    word-break: break-word;
+  }
+  .card__title a:hover { color: var(--accent); }
+  .card__org {
+    color: var(--fg-muted);
+    font-weight: 400;
+  }
+
+  .card__stats {
+    flex-shrink: 0;
+    text-align: center;
+    background: var(--accent-soft);
+    border: 1px solid var(--accent-border);
+    border-radius: var(--radius-md);
+    padding: 8px 12px;
+    min-width: 56px;
+  }
+  .card__stars {
+    color: #f0c674;
+    font-size: 1.1rem;
+    line-height: 1;
+  }
+  .stars-num {
+    display: block;
+    font-size: 0.85rem;
+    font-weight: 700;
+    color: var(--fg-strong);
+    margin-top: 2px;
+  }
+
+  .card__meta {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 4px 14px;
+    font-size: 0.78rem;
+    color: var(--fg-subtle);
+    margin-bottom: 10px;
+  }
+  .meta-icon { opacity: 0.5; }
+
+  .card__tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+    margin-bottom: 16px;
+  }
+  .tag {
+    display: inline-block;
+    padding: 3px 10px;
+    border-radius: var(--radius-pill);
+    background: var(--accent-soft);
+    border: 1px solid var(--accent-border);
+    color: var(--accent);
+    font-size: 0.72rem;
+    font-weight: 500;
+    letter-spacing: 0.3px;
+    white-space: nowrap;
+    transition: all var(--transition-fast);
+  }
+  .tag:hover {
+    background: rgba(34,197,94,0.16);
+    border-color: var(--accent);
+    box-shadow: 0 0 10px var(--accent-glow);
+  }
+
+  /* ── BRIEF SECTIONS ── */
+  .card__content { display: flex; flex-direction: column; gap: 0; }
+
+  .brief-section {
+    padding: 10px 0;
+    border-top: 1px solid var(--accent-border);
+  }
+  .brief-section:first-child { border-top: none; padding-top: 0; }
+
+  .brief-label {
+    font-size: 0.75rem;
+    font-weight: 600;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    color: var(--accent);
+    text-shadow: var(--text-glow);
+    margin-bottom: 4px;
+  }
+  .brief-text {
+    font-size: 0.9375rem;
+    color: var(--fg-muted);
+    font-weight: 300;
+    line-height: 1.7;
+  }
+
+  /* "Why it matters" gets a highlight treatment */
+  .brief-section--matters {
+    background: var(--accent-soft);
+    border: 1px solid var(--accent-border);
+    border-radius: var(--radius-md);
+    padding: 10px 14px;
+    margin-top: 8px;
+  }
+  .brief-section--matters .brief-label { margin-bottom: 3px; }
+  .brief-section--matters .brief-text {
+    color: var(--fg-strong);
+    font-weight: 400;
+  }
+
+  .desc { font-size: 0.9375rem; color: var(--fg-muted); font-weight: 300; line-height: 1.7; }
+  .label { color: var(--accent); font-weight: 600; }
+
+  /* ── FOOTER ── */
+  .site-footer {
+    margin-top: 40px;
+    font-size: 0.78rem;
+    color: var(--fg-subtle);
+    text-align: center;
+    border-top: 1px solid var(--accent-border);
+    padding-top: 20px;
+  }
+  a { color: var(--accent); }
+
+  /* ── NEWS ── */
+  .news {
+    margin-bottom: 32px;
+    border: 1px solid var(--accent-border);
+    border-radius: var(--radius-lg);
+    background: var(--accent-softer);
+    padding: 20px 18px 8px;
+  }
+  .news__eyebrow {
+    font-size: 0.72rem;
+    font-weight: 600;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: var(--accent);
+    text-shadow: var(--text-glow);
+    margin-bottom: 4px;
+  }
+  .news__sub {
+    font-size: 0.78rem;
+    color: var(--fg-subtle);
+    margin-bottom: 16px;
+  }
+  .news__item {
+    padding: 14px 0;
+    border-top: 1px solid var(--accent-border);
+  }
+  .news__item:first-of-type { border-top: none; padding-top: 0; }
+  .news__tag {
+    display: inline-block;
+    font-size: 0.62rem;
+    font-weight: 600;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    color: var(--accent);
+    background: var(--accent-soft);
+    border-radius: var(--radius-pill);
+    padding: 2px 10px;
+    margin-bottom: 6px;
+  }
+  .news__title {
+    font-size: 1rem;
+    font-weight: 600;
+    line-height: 1.45;
+    margin-bottom: 6px;
+  }
+  .news__title a { text-decoration: none; }
+  .news__title a:hover { text-shadow: var(--text-glow); }
+  .news__text { font-size: 0.88rem; line-height: 1.65; margin-bottom: 4px; }
+  .news__insight { font-size: 0.85rem; line-height: 1.7; color: var(--fg); margin-top: 8px;
+     padding-inline-start: 10px; border-inline-start: 2px solid var(--accent); }
+  .news__cta {
+    display: inline-block; margin-top: 10px; padding: 7px 15px;
+    border-radius: 999px; font-size: 0.78rem; font-weight: 600;
+    text-decoration: none; color: var(--accent);
+    border: 1px solid var(--accent-border); background: var(--accent-softer);
+    transition: background .15s ease, color .15s ease, border-color .15s ease;
+  }
+  .news__cta:hover { background: var(--accent); color: var(--bg); border-color: var(--accent); }
+  .news__source { font-size: 0.72rem; color: var(--fg-subtle); margin-top: 6px; }
+
+  /* ── SECTION HEADINGS ── */
+  .section-eyebrow {
+    font-size: 0.72rem;
+    font-weight: 600;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: var(--accent);
+    text-shadow: var(--text-glow);
+    margin-bottom: 4px;
+  }
+  .section-sub {
+    font-size: 0.78rem;
+    color: var(--fg-subtle);
+    margin-bottom: 14px;
+  }
+
+  /* ── MOBILE SAFETY ── */
+  img, video, audio { max-width: 100%; }
+  .card__title a { word-break: break-word; }
+  .news__title a { word-break: break-word; }
+  @media (max-width: 480px) {
+    .card__body { padding: 28px 14px 16px; }
+    .card__stats { padding: 6px 10px; min-width: 50px; }
+    .player-time { display: none; }
+    .news { padding: 16px 12px 6px; }
+  }
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <div class="top-bar">
+    <button class="lang-btn" id="langToggle" onclick="toggleLang()">EN</button>
+    <button class="share-btn" id="shareBtn" onclick="shareReport()" aria-label="Share">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <circle cx="18" cy="5" r="3"/><circle cx="6" cy="12" r="3"/><circle cx="18" cy="19" r="3"/>
+        <line x1="8.59" y1="13.51" x2="15.42" y2="17.49"/>
+        <line x1="15.41" y1="6.51" x2="8.59" y2="10.49"/>
+      </svg>
+      <span class="share-label i18n" data-he="שתף" data-en="Share">שתף</span>
+    </button>
+  </div>
+
+  <header class="site-header">
+    <p class="header-eyebrow i18n" data-he="עיכול AI שבועי" data-en="Weekly AI Digest">עיכול AI שבועי</p>
+    <h1 class="header-title i18n" data-he="&#128240; AI News" data-en="&#128240; AI News">&#128240; AI News</h1>
+    <!-- bdi, because in the RTL page "2026-W34 · 2026-08-22" reorders into
+         "W34 · 2026-08-22-2026". Isolating each run keeps them readable. -->
+    <p class="header-sub"><bdi>2026-W42</bdi> &middot; <bdi>2026-10-16</bdi></p>
+  </header>
+
+  <div class="player">
+    <audio id="audio" src="report.mp3" preload="none"></audio>
+    <div class="player-ui">
+      <button class="player-btn" id="playBtn" onclick="togglePlay()" aria-label="Play">
+        <svg id="iconPlay" viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
+        <svg id="iconPause" viewBox="0 0 24 24" style="display:none"><path d="M6 19h4V5H6zm8-14v14h4V5z"/></svg>
+      </button>
+      <div class="player-center">
+        <div class="player-track i18n" data-he="&#127911; האזן בדרך לעבודה" data-en="&#127911; Listen on your commute">&#127911; האזן בדרך לעבודה</div>
+        <div class="player-progress-wrap" id="progressWrap" onclick="seek(event)">
+          <div class="player-progress-bar" id="progressBar"></div>
+        </div>
+      </div>
+      <div class="player-time" id="playerTime">0:00 / 0:00</div>
+    </div>
+    <p class="player-hint i18n" data-he="לחץ להפעלה · גלול למטה לקריאה" data-en="Tap to play · scroll to read">לחץ להפעלה · גלול למטה לקריאה</p>
+  </div>
+
+  
+
+  
+  <section class="news">
+    <p class="news__eyebrow i18n" data-he="&#128240; 10 הכתבות המובילות" data-en="&#128240; Top 10 Articles">&#128240; 10 הכתבות המובילות</p>
+    <p class="news__sub i18n" data-he="הסיפורים הגדולים ביותר בעולם ה-Gen AI בשבוע האחרון" data-en="The biggest gen AI stories of the past week">הסיפורים הגדולים ביותר בעולם ה-Gen AI בשבוע האחרון</p>
+
+      <div class="news__item">
+        <span class="news__tag i18n" data-he="מודל" data-en="Model">מודל</span>
+        <p class="news__title">
+          <a href="https://the-decoder.com/google-wants-gemini-4-argon-to-be-the-only-ai-model-robots-need/" target="_blank" rel="noopener"
+             class="i18n" data-he="Gemini 4 Argon זמין גלובלית, גוגל רוצה שיהיה המודל היחיד שרובוטים צריכים" data-en="Gemini 4 Argon Goes Global, Aims to Be the Model Robots Run On">Gemini 4 Argon זמין גלובלית, גוגל רוצה שיהיה המודל היחיד שרובוטים צריכים</a>
+        </p>
+        <p class="news__text i18n" data-he="Gemini 4 Argon של Google זמין כעת בעולם כולו ויכול לשלוט ברובוטים, לייצר סימולציות מתמונות או סקיצות ולהעריך סרטוני אימון, עם ציון של 87% בבנצ&#x27;מרק ERQA של גוגל." data-en="Google&#x27;s Gemini 4 Argon is now globally available and can control robots, generate simulations from photos or sketches, and evaluate training videos; it scores 87% on Google&#x27;s ERQA benchmark.">Gemini 4 Argon של Google זמין כעת בעולם כולו ויכול לשלוט ברובוטים, לייצר סימולציות מתמונות או סקיצות ולהעריך סרטוני אימון, עם ציון של 87% בבנצ&#x27;מרק ERQA של גוגל.</p>
+        <p class="news__insight i18n" data-he="גוגל ממצבת את Argon כמודל יסוד אחד לרובוטיקה, שמכסה תפיסה, תכנון ושליטה, אבל הדמואים שפורסמו עדיין דורשים הרבה הכוונה אנושית. זה מראה את הפער בין ציוני בנצ&#x27;מרק לאוטונומיה אמיתית, וכדאי לעקוב אם זה יוביל לאיחוד מחסניות הרובוטיקה כמו שקרה עם טקסט." data-en="Google is positioning Argon as a single foundation model for robotics across perception, planning and control, but the published demos still require heavy human guidance, showing the gap between benchmark scores and real autonomy. Worth watching whether this consolidates robotics stacks the way LLMs consolidated text tasks.">גוגל ממצבת את Argon כמודל יסוד אחד לרובוטיקה, שמכסה תפיסה, תכנון ושליטה, אבל הדמואים שפורסמו עדיין דורשים הרבה הכוונה אנושית. זה מראה את הפער בין ציוני בנצ&#x27;מרק לאוטונומיה אמיתית, וכדאי לעקוב אם זה יוביל לאיחוד מחסניות הרובוטיקה כמו שקרה עם טקסט.</p>
+        <p class="news__source"><bdi>The Decoder</bdi> &middot; <bdi>2026-10-15</bdi></p>
+        <a class="news__cta i18n" href="https://the-decoder.com/google-wants-gemini-4-argon-to-be-the-only-ai-model-robots-need/" target="_blank" rel="noopener"
+           data-he="לכתבה המלאה &#8592;" data-en="Read the full article &#8594;">לכתבה המלאה &#8592;</a>
+      </div>
+      <div class="news__item">
+        <span class="news__tag i18n" data-he="מודל" data-en="Model">מודל</span>
+        <p class="news__title">
+          <a href="https://the-decoder.com/muse-spark-open-is-metas-answer-to-qwen-glm-and-kimi-in-the-open-weight-race/" target="_blank" rel="noopener"
+             class="i18n" data-he="Meta משיקה את Muse Spark Open, מודל פתוח עם 816 מיליארד פרמטרים שמתחרה ב-Qwen וב-GLM" data-en="Meta Releases Muse Spark Open, an 816B-Parameter Open-Weight Rival to Qwen and GLM">Meta משיקה את Muse Spark Open, מודל פתוח עם 816 מיליארד פרמטרים שמתחרה ב-Qwen וב-GLM</a>
+        </p>
+        <p class="news__text i18n" data-he="המודל הפתוח החדש של Meta, Muse Spark Open, מטפל בטקסט, תמונות, וידאו ואודיו עם עד מיליון טוקנים של הקשר, ומבצע בערך כמו המודלים הפתוחים הסינים המובילים." data-en="Meta&#x27;s new open-weight Muse Spark Open model handles text, images, video and audio with up to one million tokens of context, performing roughly on par with top open-weight Chinese models.">המודל הפתוח החדש של Meta, Muse Spark Open, מטפל בטקסט, תמונות, וידאו ואודיו עם עד מיליון טוקנים של הקשר, ומבצע בערך כמו המודלים הפתוחים הסינים המובילים.</p>
+        <p class="news__insight i18n" data-he="Meta נכנסת ישירות לתחרות על חזית המודלים הפתוחים ששלטו בה מעבדות סיניות, וזה חשוב למי שמריץ מודלים בעצמו או מכוון אותם ולא רק משתמש ב-API. שחקן מערבי רציני בגודל כזה פותח אפשרויות רישוי ופריסה חדשות למי שצריך להריץ מודלים בתשתית שלו." data-en="Meta is directly contesting the open-weight frontier that Chinese labs have dominated, which matters for anyone self-hosting or fine-tuning rather than relying on API access. A real Western open-weight contender at this scale changes licensing and deployment options for builders who need to run models on their own infrastructure.">Meta נכנסת ישירות לתחרות על חזית המודלים הפתוחים ששלטו בה מעבדות סיניות, וזה חשוב למי שמריץ מודלים בעצמו או מכוון אותם ולא רק משתמש ב-API. שחקן מערבי רציני בגודל כזה פותח אפשרויות רישוי ופריסה חדשות למי שצריך להריץ מודלים בתשתית שלו.</p>
+        <p class="news__source"><bdi>The Decoder</bdi> &middot; <bdi>2026-10-15</bdi></p>
+        <a class="news__cta i18n" href="https://the-decoder.com/muse-spark-open-is-metas-answer-to-qwen-glm-and-kimi-in-the-open-weight-race/" target="_blank" rel="noopener"
+           data-he="לכתבה המלאה &#8592;" data-en="Read the full article &#8594;">לכתבה המלאה &#8592;</a>
+      </div>
+      <div class="news__item">
+        <span class="news__tag i18n" data-he="מחקר" data-en="Research">מחקר</span>
+        <p class="news__title">
+          <a href="https://the-decoder.com/gpt-6-astra-solves-49-of-50-physics-research-problems-at-2-40-apiece/" target="_blank" rel="noopener"
+             class="i18n" data-he="GPT-6-Astra פותר 49 מתוך 50 בעיות פיזיקה תיאורטית בלתי מפורסמות במחיר של 2.40 דולר לבעיה" data-en="GPT-6-Astra Solves 49 of 50 Unpublished Physics Problems for $2.40 Each">GPT-6-Astra פותר 49 מתוך 50 בעיות פיזיקה תיאורטית בלתי מפורסמות במחיר של 2.40 דולר לבעיה</a>
+        </p>
+        <p class="news__text i18n" data-he="בבנצ&#x27;מרק החדש TheoPhysEval, GPT-6-Astra השתווה למומחים מובילים ב-49 מתוך 50 חישובי פיזיקה תיאורטית בלתי מפורסמים, וחלק מהכשלונות לכאורה התבררו כטעויות בפתרונות הייחוס של המומחים עצמם." data-en="On the new TheoPhysEval benchmark, GPT-6-Astra matched leading specialists on 49 of 50 unpublished theoretical physics calculations; some apparent failures turned out to be errors in the experts&#x27; own reference solutions.">בבנצ&#x27;מרק החדש TheoPhysEval, GPT-6-Astra השתווה למומחים מובילים ב-49 מתוך 50 חישובי פיזיקה תיאורטית בלתי מפורסמים, וחלק מהכשלונות לכאורה התבררו כטעויות בפתרונות הייחוס של המומחים עצמם.</p>
+        <p class="news__insight i18n" data-he="זה אינדיקטור חד יותר מרוב בנצ&#x27;מרקים של קוד או ידע כללי: פתרון בעיות פיזיקה תיאורטית ברמת מומחים, שלא פורסמו, במחיר ודיוק כאלה, מרמז שמודלי חזית הופכים לשותפי מחקר של ממש ולא רק עוזרים. ההסתייגות של החוקרים מליקוט מוטה והטעויות שהתגלו בפתרונות הייחוס מצדיקות זהירות, אבל הכיוון ברור." data-en="This is a sharper signal than most coding or trivia benchmarks: solving unpublished, expert-level theoretical problems at this cost and accuracy suggests frontier models are becoming usable research collaborators, not just assistants. The researchers&#x27; caveat about cherry-picking and the discovered reference errors means the result deserves scrutiny, but the direction is unmistakable.">זה אינדיקטור חד יותר מרוב בנצ&#x27;מרקים של קוד או ידע כללי: פתרון בעיות פיזיקה תיאורטית ברמת מומחים, שלא פורסמו, במחיר ודיוק כאלה, מרמז שמודלי חזית הופכים לשותפי מחקר של ממש ולא רק עוזרים. ההסתייגות של החוקרים מליקוט מוטה והטעויות שהתגלו בפתרונות הייחוס מצדיקות זהירות, אבל הכיוון ברור.</p>
+        <p class="news__source"><bdi>The Decoder</bdi> &middot; <bdi>2026-10-15</bdi></p>
+        <a class="news__cta i18n" href="https://the-decoder.com/gpt-6-astra-solves-49-of-50-physics-research-problems-at-2-40-apiece/" target="_blank" rel="noopener"
+           data-he="לכתבה המלאה &#8592;" data-en="Read the full article &#8594;">לכתבה המלאה &#8592;</a>
+      </div>
+      <div class="news__item">
+        <span class="news__tag i18n" data-he="חברה" data-en="Company">חברה</span>
+        <p class="news__title">
+          <a href="https://the-decoder.com/anthropics-q3-revenue-hits-16-8b-but-growth-slows-ahead-of-planned-november-ipo/" target="_blank" rel="noopener"
+             class="i18n" data-he="Anthropic מגיעה ל-16.8 מיליארד דולר הכנסות ברבעון, אבל הצמיחה מאטה לקראת ההנפקה בנובמבר" data-en="Anthropic Hits $16.8B Quarterly Revenue but Growth Slows Before November IPO">Anthropic מגיעה ל-16.8 מיליארד דולר הכנסות ברבעון, אבל הצמיחה מאטה לקראת ההנפקה בנובמבר</a>
+        </p>
+        <p class="news__text i18n" data-he="הכנסות Anthropic ברבעון השלישי הגיעו ל-16.8 מיליארד דולר, עלייה של 45% מהרבעון הקודם, האטה חדה לעומת הזינוק של 140% ברבעון השני, כאשר חלק מהמשקיעים כעת מצפים לשווי הנפקה מתחת ל-1.5 טריליון דולר." data-en="Anthropic&#x27;s Q3 revenue reached $16.8 billion, up 45% quarter over quarter, a sharp slowdown from Q2&#x27;s 140% surge, with some investors now expecting an IPO valuation below $1.5 trillion.">הכנסות Anthropic ברבעון השלישי הגיעו ל-16.8 מיליארד דולר, עלייה של 45% מהרבעון הקודם, האטה חדה לעומת הזינוק של 140% ברבעון השני, כאשר חלק מהמשקיעים כעת מצפים לשווי הנפקה מתחת ל-1.5 טריליון דולר.</p>
+        <p class="news__insight i18n" data-he="קפיצה רבעונית של 45% היא עדיין יוצאת דופן לפי כל אמת מידה רגילה, אבל ההאטה דווקא לפני הנפקה כה בולטת מסמנת שהשוק מתחיל לתמחר מעבדות AI כעסקים אמיתיים ולא רק כסיפורי צמיחה. כדאי לעקוב איך ההנפקה תתומחר ביחס ל-OpenAI כדי להבין איפה המשקיעים ממקמים את בועת מעבדות החזית." data-en="A 45% quarterly jump is still extraordinary by any normal company&#x27;s standard, but the deceleration right before a marquee IPO signals the market is starting to price AI labs like real businesses rather than pure growth stories. Watch how the IPO prices relative to OpenAI&#x27;s valuation for a read on where investors think the frontier-lab bubble actually sits.">קפיצה רבעונית של 45% היא עדיין יוצאת דופן לפי כל אמת מידה רגילה, אבל ההאטה דווקא לפני הנפקה כה בולטת מסמנת שהשוק מתחיל לתמחר מעבדות AI כעסקים אמיתיים ולא רק כסיפורי צמיחה. כדאי לעקוב איך ההנפקה תתומחר ביחס ל-OpenAI כדי להבין איפה המשקיעים ממקמים את בועת מעבדות החזית.</p>
+        <p class="news__source"><bdi>The Decoder</bdi> &middot; <bdi>2026-10-15</bdi></p>
+        <a class="news__cta i18n" href="https://the-decoder.com/anthropics-q3-revenue-hits-16-8b-but-growth-slows-ahead-of-planned-november-ipo/" target="_blank" rel="noopener"
+           data-he="לכתבה המלאה &#8592;" data-en="Read the full article &#8594;">לכתבה המלאה &#8592;</a>
+      </div>
+      <div class="news__item">
+        <span class="news__tag i18n" data-he="רגולציה" data-en="Policy">רגולציה</span>
+        <p class="news__title">
+          <a href="https://arstechnica.com/tech-policy/2026/10/ftc-probes-if-openai-anthropic-security-incidents-harmed-americans-report-says/" target="_blank" rel="noopener"
+             class="i18n" data-he="ה-FTC בודקת לכאורה את Anthropic ו-OpenAI אחרי שטראמפ תיאר את החששות מ-AI כ&quot;הונאה&quot;" data-en="FTC Reportedly Probing Anthropic and OpenAI After Trump Dismissed AI Risk Concerns">ה-FTC בודקת לכאורה את Anthropic ו-OpenAI אחרי שטראמפ תיאר את החששות מ-AI כ&quot;הונאה&quot;</a>
+        </p>
+        <p class="news__text i18n" data-he="לפי דיווח, ה-FTC חוקרת את Anthropic ו-OpenAI ועשויה להטיל עליהן קנסות בסדר גודל הדומה לקנסות על חברות שמאחרות בדיווח על פריצות מידע." data-en="According to a report, the FTC is investigating Anthropic and OpenAI and may fine them on a scale similar to companies that delay data breach disclosures.">לפי דיווח, ה-FTC חוקרת את Anthropic ו-OpenAI ועשויה להטיל עליהן קנסות בסדר גודל הדומה לקנסות על חברות שמאחרות בדיווח על פריצות מידע.</p>
+        <p class="news__insight i18n" data-he="זה סימן למעבר מדיון וולונטרי על בטיחות AI לשאלה של אכיפה רגולטורית ממשית בארה&quot;ב, גם תחת ממשל שמביע ספקנות פומבית לגבי סיכוני AI. מי שבונה על הפלטפורמות האלה כדאי שיעקוב אחרי דרישות גילוי או כללי אחריות שעלולים לנבוע מהחקירה הזו." data-en="This marks a shift from AI safety being a voluntary-commitments conversation to an actual regulatory enforcement question in the US, even under an administration publicly skeptical of AI risk. Anyone building on these platforms should watch for disclosure requirements or liability rules that could follow from this probe.">זה סימן למעבר מדיון וולונטרי על בטיחות AI לשאלה של אכיפה רגולטורית ממשית בארה&quot;ב, גם תחת ממשל שמביע ספקנות פומבית לגבי סיכוני AI. מי שבונה על הפלטפורמות האלה כדאי שיעקוב אחרי דרישות גילוי או כללי אחריות שעלולים לנבוע מהחקירה הזו.</p>
+        <p class="news__source"><bdi>Ars Technica AI</bdi> &middot; <bdi>2026-10-15</bdi></p>
+        <a class="news__cta i18n" href="https://arstechnica.com/tech-policy/2026/10/ftc-probes-if-openai-anthropic-security-incidents-harmed-americans-report-says/" target="_blank" rel="noopener"
+           data-he="לכתבה המלאה &#8592;" data-en="Read the full article &#8594;">לכתבה המלאה &#8592;</a>
+      </div>
+      <div class="news__item">
+        <span class="news__tag i18n" data-he="רגולציה" data-en="Policy">רגולציה</span>
+        <p class="news__title">
+          <a href="https://techcrunch.com/2026/10/15/anthropic-is-letting-metr-researchers-look-under-the-hood-with-employee-level-access/" target="_blank" rel="noopener"
+             class="i18n" data-he="Anthropic נותנת לצוות METR גישה ברמת עובד כדי לבקר את מדיניות הבטיחות שלה" data-en="Anthropic Gives METR Employee-Level Access to Audit Its Safety Practices">Anthropic נותנת לצוות METR גישה ברמת עובד כדי לבקר את מדיניות הבטיחות שלה</a>
+        </p>
+        <p class="news__text i18n" data-he="Anthropic העניקה לצוות מ-METR גישה ברמת עובד כדי להעריך את מדיניות הבטיחות, התקריות והסיכונים שלה, וויתרה על הזכות לחסום פרסומים עצמאיים של METR." data-en="Anthropic has given a team from METR employee-like access to assess its safety practices, incidents and risks, and has given up the right to block METR&#x27;s independent publications.">Anthropic העניקה לצוות מ-METR גישה ברמת עובד כדי להעריך את מדיניות הבטיחות, התקריות והסיכונים שלה, וויתרה על הזכות לחסום פרסומים עצמאיים של METR.</p>
+        <p class="news__insight i18n" data-he="ויתור על זכות וטו על ממצאי גורם חיצוני הוא מחויבות בטיחותית משמעותית יותר מדוחות שקיפות עצמיים רגילים, וזה קובע רף שלפיו ישוו מעבדות אחרות. כדאי לעקוב אחרי מה שMETR תפרסם בפועל, כי זה יהיה מסלול הביקורת החיצונית האמיתי הראשון למעבדת חזית." data-en="Giving up veto power over an outside evaluator&#x27;s findings is a meaningfully stronger safety commitment than the usual self-reported transparency reports, and it sets a bar other labs will be compared against. Worth tracking what METR actually publishes, since that will be the first real outside audit trail for a frontier lab.">ויתור על זכות וטו על ממצאי גורם חיצוני הוא מחויבות בטיחותית משמעותית יותר מדוחות שקיפות עצמיים רגילים, וזה קובע רף שלפיו ישוו מעבדות אחרות. כדאי לעקוב אחרי מה שMETR תפרסם בפועל, כי זה יהיה מסלול הביקורת החיצונית האמיתי הראשון למעבדת חזית.</p>
+        <p class="news__source"><bdi>TechCrunch AI</bdi> &middot; <bdi>2026-10-15</bdi></p>
+        <a class="news__cta i18n" href="https://techcrunch.com/2026/10/15/anthropic-is-letting-metr-researchers-look-under-the-hood-with-employee-level-access/" target="_blank" rel="noopener"
+           data-he="לכתבה המלאה &#8592;" data-en="Read the full article &#8594;">לכתבה המלאה &#8592;</a>
+      </div>
+      <div class="news__item">
+        <span class="news__tag i18n" data-he="חברה" data-en="Company">חברה</span>
+        <p class="news__title">
+          <a href="https://the-decoder.com/bank-of-america-puts-4000-people-on-fixing-vulnerabilities-uncovered-by-anthropics-mythos-and-other-ai-models/" target="_blank" rel="noopener"
+             class="i18n" data-he="Bank of America מפעיל 4,000 אנשי צוות לתיקון פרצות שאותרו על ידי Mythos של Anthropic" data-en="Bank of America Puts 4,000 People to Work Fixing Bugs Found by Anthropic&#x27;s Mythos">Bank of America מפעיל 4,000 אנשי צוות לתיקון פרצות שאותרו על ידי Mythos של Anthropic</a>
+        </p>
+        <p class="news__text i18n" data-he="Bank of America גייס 1,000 קבלני חוץ בנוסף לצוות הקיים, בסך הכל 4,000 אנשים, כדי לתקן פרצות אבטחה שאותרו על ידי מודלי AI כולל Mythos של Anthropic, לפי CNBC." data-en="Bank of America hired 1,000 outside contractors on top of existing staff, totaling 4,000 people, to fix software vulnerabilities uncovered by AI models including Anthropic&#x27;s Mythos, according to CNBC.">Bank of America גייס 1,000 קבלני חוץ בנוסף לצוות הקיים, בסך הכל 4,000 אנשים, כדי לתקן פרצות אבטחה שאותרו על ידי מודלי AI כולל Mythos של Anthropic, לפי CNBC.</p>
+        <p class="news__insight i18n" data-he="זהו נתון קונקרטי על ההשפעה האמיתית של AI באבטחת מידע: צוואר הבקבוק עבר מאיתור פרצות ליכולת להעסיק מספיק אנשים כדי לתקן את מה שהמודלים מוצאים. זו הצצה לאיך נראית בדיקת קוד אגנטית בקנה מידה ארגוני, ותזכורת שתפוקת AI עדיין דורשת צינורות תיקון אנושיים גדולים." data-en="This is a concrete data point on AI&#x27;s real-world impact in security: the bottleneck has shifted from finding vulnerabilities to having enough humans to fix what the models surface. It is a preview of what agentic code review looks like at enterprise scale, and a reminder that AI output still needs large human remediation pipelines.">זהו נתון קונקרטי על ההשפעה האמיתית של AI באבטחת מידע: צוואר הבקבוק עבר מאיתור פרצות ליכולת להעסיק מספיק אנשים כדי לתקן את מה שהמודלים מוצאים. זו הצצה לאיך נראית בדיקת קוד אגנטית בקנה מידה ארגוני, ותזכורת שתפוקת AI עדיין דורשת צינורות תיקון אנושיים גדולים.</p>
+        <p class="news__source"><bdi>The Decoder</bdi> &middot; <bdi>2026-10-15</bdi></p>
+        <a class="news__cta i18n" href="https://the-decoder.com/bank-of-america-puts-4000-people-on-fixing-vulnerabilities-uncovered-by-anthropics-mythos-and-other-ai-models/" target="_blank" rel="noopener"
+           data-he="לכתבה המלאה &#8592;" data-en="Read the full article &#8594;">לכתבה המלאה &#8592;</a>
+      </div>
+      <div class="news__item">
+        <span class="news__tag i18n" data-he="טכניקה" data-en="Technique">טכניקה</span>
+        <p class="news__title">
+          <a href="https://www.latent.space/p/claude-dynamic-workflows" target="_blank" rel="noopener"
+             class="i18n" data-he="Anthropic מסבירה איך Dynamic Workflows מתאמים בין כמה סוכני Claude" data-en="Anthropic Explains How Dynamic Workflows Coordinate Multiple Claude Agents">Anthropic מסבירה איך Dynamic Workflows מתאמים בין כמה סוכני Claude</a>
+        </p>
+        <p class="news__text i18n" data-he="בכנס AI Engineer בניו יורק, Anthropic הציגה את גישת Dynamic Workflows, שמסתמכת על לקחי עיצוב מ-Unix ו-Linux כדי לאפשר לכמה סוכני Claude להתמודד עם פרויקטים גדולים בלי להציף מפתחים." data-en="At AI Engineer New York, Anthropic presented its Dynamic Workflows approach, drawing on Unix and Linux design lessons to let multiple Claude agents tackle large projects without overwhelming developers.">בכנס AI Engineer בניו יורק, Anthropic הציגה את גישת Dynamic Workflows, שמסתמכת על לקחי עיצוב מ-Unix ו-Linux כדי לאפשר לכמה סוכני Claude להתמודד עם פרויקטים גדולים בלי להציף מפתחים.</p>
+        <p class="news__insight i18n" data-he="זהו מדריך מעשי וישיר למי שמתזמר מערכות רב-סוכניות עם Claude ולא רק לולאת סוכן בודד, בדיוק הבעיה שעולה כשמנסים להרחיב ארכיטקטורות סוכנים מעבר להדגמות קטנות. מסגרת החשיבה בהשראת Unix שווה &quot;גניבה&quot; לארכיטקטורות סוכנים מבוססות MCP." data-en="This is a direct, practical playbook for anyone orchestrating multi-agent Claude systems rather than single-agent loops, the exact problem Avi runs into when scaling agent workflows past toy demos. The Unix-inspired composability framing is worth stealing for MCP-based agent architectures.">זהו מדריך מעשי וישיר למי שמתזמר מערכות רב-סוכניות עם Claude ולא רק לולאת סוכן בודד, בדיוק הבעיה שעולה כשמנסים להרחיב ארכיטקטורות סוכנים מעבר להדגמות קטנות. מסגרת החשיבה בהשראת Unix שווה &quot;גניבה&quot; לארכיטקטורות סוכנים מבוססות MCP.</p>
+        <p class="news__source"><bdi>Latent Space</bdi> &middot; <bdi>2026-10-12</bdi></p>
+        <a class="news__cta i18n" href="https://www.latent.space/p/claude-dynamic-workflows" target="_blank" rel="noopener"
+           data-he="לכתבה המלאה &#8592;" data-en="Read the full article &#8594;">לכתבה המלאה &#8592;</a>
+      </div>
+      <div class="news__item">
+        <span class="news__tag i18n" data-he="כלי" data-en="Tool">כלי</span>
+        <p class="news__title">
+          <a href="https://simonwillison.net/2026/Oct/13/redesigning-source-control-at-anthropic/" target="_blank" rel="noopener"
+             class="i18n" data-he="Anthropic בנתה מערכת בקרת גרסאות משלה כדי להתמודד עם כמות הקוד ש-Claude מייצר" data-en="Anthropic Built Its Own Source Control System to Handle Claude&#x27;s Code Output">Anthropic בנתה מערכת בקרת גרסאות משלה כדי להתמודד עם כמות הקוד ש-Claude מייצר</a>
+        </p>
+        <p class="news__text i18n" data-he="Anthropic מתארת מדוע בנתה חלופה מותאמת ל-Git, ומציינת שעד מאי 2026 היא עמדה על כ-2,500 שינויי קוד ביום בממוצע, הרבה מעבר למה שבקרת גרסאות רגילה תוכננה לשאת." data-en="Anthropic describes why it built a custom alternative to Git, noting that by May 2026 it was averaging around 2,500 code changes per day, far beyond what standard version control was designed for.">Anthropic מתארת מדוע בנתה חלופה מותאמת ל-Git, ומציינת שעד מאי 2026 היא עמדה על כ-2,500 שינויי קוד ביום בממוצע, הרבה מעבר למה שבקרת גרסאות רגילה תוכננה לשאת.</p>
+        <p class="news__insight i18n" data-he="זה סימן קונקרטי לכך שתכנות אגנטי בקנה מידה גדול שובר הנחות שמוטמעות בכלי פיתוח בני עשרות שנים, לא רק בתהליכי עבודה. מי שמריץ שימוש כבד ב-Claude Code או Codex על פני צוות צריך לצפות לחיכוכים דומים סביב review, מיזוג והיסטוריה ככל שנפח ה-commits מסוכנים גדל." data-en="This is a concrete sign that agentic coding at scale breaks assumptions baked into decades-old developer tooling, not just workflows. Anyone running heavy Claude Code or Codex usage across a team should expect similar friction points around review, merge and history as agent-generated commit volume grows.">זה סימן קונקרטי לכך שתכנות אגנטי בקנה מידה גדול שובר הנחות שמוטמעות בכלי פיתוח בני עשרות שנים, לא רק בתהליכי עבודה. מי שמריץ שימוש כבד ב-Claude Code או Codex על פני צוות צריך לצפות לחיכוכים דומים סביב review, מיזוג והיסטוריה ככל שנפח ה-commits מסוכנים גדל.</p>
+        <p class="news__source"><bdi>Simon Willison</bdi> &middot; <bdi>2026-10-13</bdi></p>
+        <a class="news__cta i18n" href="https://simonwillison.net/2026/Oct/13/redesigning-source-control-at-anthropic/" target="_blank" rel="noopener"
+           data-he="לכתבה המלאה &#8592;" data-en="Read the full article &#8594;">לכתבה המלאה &#8592;</a>
+      </div>
+      <div class="news__item">
+        <span class="news__tag i18n" data-he="מוצר" data-en="Product">מוצר</span>
+        <p class="news__title">
+          <a href="https://www.theverge.com/ai-artificial-intelligence/1012510/openai-chatgpt-google-chrome-tabs" target="_blank" rel="noopener"
+             class="i18n" data-he="תוסף ה-Chrome של ChatGPT יכול עכשיו לקרוא את הכרטיסיות הפתוחות בדפדפן שלך" data-en="ChatGPT&#x27;s Chrome Extension Can Now Read Your Open Browser Tabs">תוסף ה-Chrome של ChatGPT יכול עכשיו לקרוא את הכרטיסיות הפתוחות בדפדפן שלך</a>
+        </p>
+        <p class="news__text i18n" data-he="בעקבות סגירת דפדפן ChatGPT Atlas, OpenAI שדרגה את תוסף ה-Chrome של ChatGPT כך שהוא יכול לראות כרטיסיות פתוחות בדפדפן כשמתייגים אותו בשיחה." data-en="Following the shutdown of the ChatGPT Atlas browser, OpenAI upgraded its ChatGPT Chrome extension so it can view open browser tabs when tagged in a chat.">בעקבות סגירת דפדפן ChatGPT Atlas, OpenAI שדרגה את תוסף ה-Chrome של ChatGPT כך שהוא יכול לראות כרטיסיות פתוחות בדפדפן כשמתייגים אותו בשיחה.</p>
+        <p class="news__insight i18n" data-he="OpenAI נסוגה מניסיון לבעלות על דפדפן שלם ובמקום זה משלבת הקשר ברמת כרטיסיות בתוסף שכבר קיים אצל משתמשים, דרך פרגמטית יותר להגיע לאותה מטרה של הקשר סביבתי. זה גם מעלה את אותן שאלות פרטיות כמו עוזרים תמידיים אחרים: כל מה שפתוח בדפדפן הופך לקלט פוטנציאלי למודל." data-en="OpenAI is retreating from owning the browser and instead embedding tab-level context into the extension people already use, a more pragmatic path to the same goal of ambient context. It also raises the same privacy questions as other always-on assistants: anything open in your browser becomes potential model input.">OpenAI נסוגה מניסיון לבעלות על דפדפן שלם ובמקום זה משלבת הקשר ברמת כרטיסיות בתוסף שכבר קיים אצל משתמשים, דרך פרגמטית יותר להגיע לאותה מטרה של הקשר סביבתי. זה גם מעלה את אותן שאלות פרטיות כמו עוזרים תמידיים אחרים: כל מה שפתוח בדפדפן הופך לקלט פוטנציאלי למודל.</p>
+        <p class="news__source"><bdi>The Verge AI</bdi> &middot; <bdi>2026-10-15</bdi></p>
+        <a class="news__cta i18n" href="https://www.theverge.com/ai-artificial-intelligence/1012510/openai-chatgpt-google-chrome-tabs" target="_blank" rel="noopener"
+           data-he="לכתבה המלאה &#8592;" data-en="Read the full article &#8594;">לכתבה המלאה &#8592;</a>
+      </div>
+  </section>
+
+  <p class="section-eyebrow i18n" data-he="&#128200; 3 ה-REPOS המובילים" data-en="&#128200; Top 3 Repos">&#128200; 3 ה-REPOS המובילים</p>
+  <p class="section-sub i18n" data-he="הפרויקטים שצוברים תאוצה בשבוע האחרון" data-en="The projects gaining the most momentum this week">הפרויקטים שצוברים תאוצה בשבוע האחרון</p>
+
+  <main id="repoList">
+
+    <article class="card">
+      <div class="card__rank">#1</div>
+      <div class="card__body">
+
+        <div class="card__header">
+          <div class="card__title-block">
+            <p class="card__eyebrow">TypeScript</p>
+            <h2 class="card__title">
+              <a href="https://github.com/morluto/rea" target="_blank" rel="noopener">
+                <span class="card__org">morluto/</span>rea
+              </a>
+            </h2>
+          </div>
+          <div class="card__stats">
+            <span class="card__stars">&#9733;<br><span class="stars-num">279,751</span></span>
+          </div>
+        </div>
+
+        <div class="card__meta">
+          <span class="meta-item"><span class="meta-icon">&#128197;</span> 2026-04-14</span>
+          <span class="meta-item"><span class="meta-icon">&#9679;</span> push 2026-10-16</span>
+        </div>
+
+        <div class="card__tags"><span class="tag">agent-skills</span><span class="tag">ai-agents</span><span class="tag">binary-analysis</span><span class="tag">claude-code</span></div>
+
+        <div class="card__content"><div class="brief-section"><p class="brief-label" data-he="מה זה עושה" data-en="What it does">מה זה עושה</p><p class="brief-text i18n" data-he="REA הוא כלי MCP אחד להנדסה לאחור שמאפשר לסוכני AI (כמו Claude Code) לנתח התנהגות אפליקציות ובינארים, מרמת הפיצ&amp;#x27;ר ועד רמת הקוד הבינארי. מותקן בפקודה אחת (npx rea-agents setup) ומשלב סוכנים, כלי ניתוח ו-decompiler תחת ממשק אחיד." data-en="REA is a single MCP for reverse engineering that lets AI agents (like Claude Code) analyze app behavior and native binaries, from a feature down to the binary level. It installs with one command (npx rea-agents setup) and bundles agents, analysis tools and decompiler integration under one interface.">REA הוא כלי MCP אחד להנדסה לאחור שמאפשר לסוכני AI (כמו Claude Code) לנתח התנהגות אפליקציות ובינארים, מרמת הפיצ&#x27;ר ועד רמת הקוד הבינארי. מותקן בפקודה אחת (npx rea-agents setup) ומשלב סוכנים, כלי ניתוח ו-decompiler תחת ממשק אחיד.</p></div><div class="brief-section"><p class="brief-label" data-he="למה זה בטרנד" data-en="Why it&#x27;s trending">למה זה בטרנד</p><p class="brief-text i18n" data-he="הריפו צבר כמות עצומה של כוכבים ותורגם לעשרות שפות, סימן לאימוץ רחב מאוד ולביקוש לכלים שמחברים סוכני AI לעבודת הנדסה לאחור מורכבת. השילוב עם Claude Code, agent-skills ו-MCP ממקם אותו בדיוק במגמה של סוכנים שמבצעים עבודה טכנית אמיתית." data-en="The repo has amassed an enormous number of stars and been translated into dozens of languages, signaling very broad adoption and demand for tools that connect AI agents to serious reverse-engineering work. Its integration with Claude Code, agent-skills and MCP places it squarely in the trend of agents doing real technical work.">הריפו צבר כמות עצומה של כוכבים ותורגם לעשרות שפות, סימן לאימוץ רחב מאוד ולביקוש לכלים שמחברים סוכני AI לעבודת הנדסה לאחור מורכבת. השילוב עם Claude Code, agent-skills ו-MCP ממקם אותו בדיוק במגמה של סוכנים שמבצעים עבודה טכנית אמיתית.</p></div><div class="brief-section"><p class="brief-label" data-he="דוגמת שימוש" data-en="Example use case">דוגמת שימוש</p><p class="brief-text i18n" data-he="מפתח רואה פיצ&amp;#x27;ר מעניין באפליקציה ורוצה להבין איך הוא בנוי: הוא מריץ את REA והסוכן חוקר את ההתנהגות בזמן ריצה ויורד עד לניתוח הבינארי עצמו, כולל חיבור לכלים כמו Hopper. כל זה מתבצע דרך ממשק MCP אחיד בלי להחליף כלים ידנית." data-en="A developer sees an interesting feature in an app and wants to understand how it works: they run REA and the agent investigates runtime behavior down to analyzing the native binary itself, including bridging into tools like Hopper. All of this happens through one unified MCP interface without manually switching tools.">מפתח רואה פיצ&#x27;ר מעניין באפליקציה ורוצה להבין איך הוא בנוי: הוא מריץ את REA והסוכן חוקר את ההתנהגות בזמן ריצה ויורד עד לניתוח הבינארי עצמו, כולל חיבור לכלים כמו Hopper. כל זה מתבצע דרך ממשק MCP אחיד בלי להחליף כלים ידנית.</p></div><div class="brief-section brief-section--matters"><p class="brief-label" data-he="למה זה רלוונטי לך" data-en="Why it matters for you">למה זה רלוונטי לך</p><p class="brief-text i18n" data-he="עבור אבי זה דוגמה מובהקת למגמה של סוכנים וכלי MCP שהופכים משימות טכניות מורכבות (הנדסה לאחור) לזרימת עבודה שסוכן AI יכול לבצע בעצמו. זה רלוונטי לנושא הליבה שלו: agents, MCP וכלי Claude שמבצעים עבודה אמיתית." data-en="For Avi this is a clear example of the trend of agents and MCP tooling turning complex technical tasks (reverse engineering) into a workflow an AI agent can execute itself. It is directly relevant to his core focus on agents, MCP and Claude tooling doing real work.">עבור אבי זה דוגמה מובהקת למגמה של סוכנים וכלי MCP שהופכים משימות טכניות מורכבות (הנדסה לאחור) לזרימת עבודה שסוכן AI יכול לבצע בעצמו. זה רלוונטי לנושא הליבה שלו: agents, MCP וכלי Claude שמבצעים עבודה אמיתית.</p></div></div>
+
+      </div>
+    </article>
+
+    <article class="card">
+      <div class="card__rank">#2</div>
+      <div class="card__body">
+
+        <div class="card__header">
+          <div class="card__title-block">
+            <p class="card__eyebrow">TypeScript</p>
+            <h2 class="card__title">
+              <a href="https://github.com/heygen-com/hyperframes" target="_blank" rel="noopener">
+                <span class="card__org">heygen-com/</span>hyperframes
+              </a>
+            </h2>
+          </div>
+          <div class="card__stats">
+            <span class="card__stars">&#9733;<br><span class="stars-num">64,850</span></span>
+          </div>
+        </div>
+
+        <div class="card__meta">
+          <span class="meta-item"><span class="meta-icon">&#128197;</span> 2026-03-10</span>
+          <span class="meta-item"><span class="meta-icon">&#9679;</span> push 2026-10-16</span>
+        </div>
+
+        <div class="card__tags"><span class="tag">ai</span><span class="tag">animation</span><span class="tag">ffmpeg</span><span class="tag">framework</span></div>
+
+        <div class="card__content"><div class="brief-section"><p class="brief-label" data-he="מה זה עושה" data-en="What it does">מה זה עושה</p><p class="brief-text i18n" data-he="HyperFrames היא ספריית קוד פתוח שהופכת HTML, CSS, מדיה ואנימציות ל-MP4 דטרמיניסטי. אפשר להשתמש בה דרך CLI מקומי, מתוך סוכני קידוד AI באמצעות skills, או כמנוע רינדור מאחורי כלי יצירה מתארחים." data-en="HyperFrames is an open-source framework that turns HTML, CSS, media, and seekable animations into deterministic MP4 videos. It can be used locally via CLI, from AI coding agents using skills, or as the rendering core behind hosted authoring workflows.">HyperFrames היא ספריית קוד פתוח שהופכת HTML, CSS, מדיה ואנימציות ל-MP4 דטרמיניסטי. אפשר להשתמש בה דרך CLI מקומי, מתוך סוכני קידוד AI באמצעות skills, או כמנוע רינדור מאחורי כלי יצירה מתארחים.</p></div><div class="brief-section"><p class="brief-label" data-he="למה זה בטרנד" data-en="Why it&#x27;s trending">למה זה בטרנד</p><p class="brief-text i18n" data-he="הפרויקט מתאים ישירות לגל הסוכנים: יש תמיכה רשמית ב-Claude Code plugin, סקילים ל-Copilot, Cursor, Gemini CLI ו-OpenCode, עם 21 skills מפורסמים וראוטר שמתקין workflows לפי דרישה. הכותרת &amp;#x27;Built for agents&amp;#x27; והאינטגרציה העמוקה עם MCP/Claude tooling הופכות אותו לדוגמה בולטת לכלי יצירה שנבנה מהיסוד עבור סוכני AI." data-en="The repo is built squarely for the agent wave: it offers a versioned Claude Code plugin, standalone skills for Copilot, Cursor, Gemini CLI, and OpenCode, with 21 published skills and a router that installs creation workflows on demand. The tagline &amp;#x27;Built for agents&amp;#x27; plus deep Claude/MCP tooling integration make it a standout example of a creative tool designed from the ground up for AI agents.">הפרויקט מתאים ישירות לגל הסוכנים: יש תמיכה רשמית ב-Claude Code plugin, סקילים ל-Copilot, Cursor, Gemini CLI ו-OpenCode, עם 21 skills מפורסמים וראוטר שמתקין workflows לפי דרישה. הכותרת &#x27;Built for agents&#x27; והאינטגרציה העמוקה עם MCP/Claude tooling הופכות אותו לדוגמה בולטת לכלי יצירה שנבנה מהיסוד עבור סוכני AI.</p></div><div class="brief-section"><p class="brief-label" data-he="דוגמת שימוש" data-en="Example use case">דוגמת שימוש</p><p class="brief-text i18n" data-he="דוגמה: מתקינים את ה-plugin עם `claude plugin install hyperframes@hyperframes`, מפעילים את `/hyperframes:hyperframes` ב-Claude Code, והסוכן יכול לכתוב HTML ולרנדר אותו ישירות לווידאו MP4 באמצעות ה-core skills." data-en="Example: install the plugin with `claude plugin install hyperframes@hyperframes`, run `/hyperframes:hyperframes` inside Claude Code, and the agent can write HTML that renders directly into an MP4 video using the core skills set.">דוגמה: מתקינים את ה-plugin עם `claude plugin install hyperframes@hyperframes`, מפעילים את `/hyperframes:hyperframes` ב-Claude Code, והסוכן יכול לכתוב HTML ולרנדר אותו ישירות לווידאו MP4 באמצעות ה-core skills.</p></div><div class="brief-section brief-section--matters"><p class="brief-label" data-he="למה זה רלוונטי לך" data-en="Why it matters for you">למה זה רלוונטי לך</p><p class="brief-text i18n" data-he="עבור אבי זה כלי שממחיש בדיוק את המעבר מיצירת תוכן ידנית לייצור וידאו אוטומטי על ידי סוכנים, רלוונטי גם ליצירה קריאטיבית וגם לעבודה עם MCP וכלי Claude. שווה לעקוב כדוגמה לאיך &amp;#x27;agentic creative production&amp;#x27; נראה בפועל." data-en="For Avi this is a clear example of the shift from manual content creation to agent-driven video production, relevant both to creative production and to the MCP/Claude tooling ecosystem he tracks. It&amp;#x27;s worth watching as a concrete instance of what &amp;#x27;agentic creative production&amp;#x27; looks like in practice.">עבור אבי זה כלי שממחיש בדיוק את המעבר מיצירת תוכן ידנית לייצור וידאו אוטומטי על ידי סוכנים, רלוונטי גם ליצירה קריאטיבית וגם לעבודה עם MCP וכלי Claude. שווה לעקוב כדוגמה לאיך &#x27;agentic creative production&#x27; נראה בפועל.</p></div></div>
+
+      </div>
+    </article>
+
+    <article class="card">
+      <div class="card__rank">#3</div>
+      <div class="card__body">
+
+        <div class="card__header">
+          <div class="card__title-block">
+            <p class="card__eyebrow">Python</p>
+            <h2 class="card__title">
+              <a href="https://github.com/Arekejoker/qwen21-nsfw-pose-skill" target="_blank" rel="noopener">
+                <span class="card__org">Arekejoker/</span>qwen21-nsfw-pose-skill
+              </a>
+            </h2>
+          </div>
+          <div class="card__stats">
+            <span class="card__stars">&#9733;<br><span class="stars-num">2,278</span></span>
+          </div>
+        </div>
+
+        <div class="card__meta">
+          <span class="meta-item"><span class="meta-icon">&#128197;</span> 2026-10-13</span>
+          <span class="meta-item"><span class="meta-icon">&#9679;</span> push 2026-10-16</span>
+        </div>
+
+        <div class="card__tags"><span class="tag">agent-skill</span><span class="tag">comfyui</span><span class="tag">image-generation</span><span class="tag">openclaw</span></div>
+
+        <div class="card__content"><div class="brief-section"><p class="brief-label" data-he="מה זה עושה" data-en="What it does">מה זה עושה</p><p class="brief-text i18n" data-he="חבילת מתכונים מקומית ליצירת תמונות עם Qwen-Image 2.1 על בסיס ComfyUI, הכוללת מבנה פרומפטים ברמת יוצר, LoRA ל-NSFW וספריית של 136 פוזות תלת-ממד עם בובת VNCCS לשליטה מדויקת בתנוחה תוך שמירה על זהות הדמות. הכלי פועל גם כ-agent skill עבור Claude Code, Codex, Cursor ו-OpenClaw וגם לשימוש ידני של בני אדם." data-en="A local recipe package for generating images with Qwen-Image 2.1 on top of ComfyUI, featuring author-level prompt structures, an NSFW LoRA, and a library of 136 3D poses with VNCCS doll control for precise posing while keeping character identity. It works both as an agent skill for Claude Code, Codex, Cursor and OpenClaw, and for manual human use.">חבילת מתכונים מקומית ליצירת תמונות עם Qwen-Image 2.1 על בסיס ComfyUI, הכוללת מבנה פרומפטים ברמת יוצר, LoRA ל-NSFW וספריית של 136 פוזות תלת-ממד עם בובת VNCCS לשליטה מדויקת בתנוחה תוך שמירה על זהות הדמות. הכלי פועל גם כ-agent skill עבור Claude Code, Codex, Cursor ו-OpenClaw וגם לשימוש ידני של בני אדם.</p></div><div class="brief-section"><p class="brief-label" data-he="למה זה בטרנד" data-en="Why it&#x27;s trending">למה זה בטרנד</p><p class="brief-text i18n" data-he="הריפו צבר 2,278 כוכבים כנראה הודות לשילוב בין יצירת תמונות NSFW מקומית ומבוקרת לבין אינטגרציה ישירה לתוך סוכני קוד פופולריים כמו Claude Code ו-Cursor. התיעוד כולל דוגמאות שחזור מאומתות מול תמונות מקור של יוצרים ב-Civitai, מה שמוסיף אמינות טכנית." data-en="The repo has gathered 2,278 stars likely thanks to combining controlled, local NSFW image generation with direct integration into popular coding agents like Claude Code and Cursor. Its documentation includes verified reproduction examples against original Civitai creator images, adding technical credibility.">הריפו צבר 2,278 כוכבים כנראה הודות לשילוב בין יצירת תמונות NSFW מקומית ומבוקרת לבין אינטגרציה ישירה לתוך סוכני קוד פופולריים כמו Claude Code ו-Cursor. התיעוד כולל דוגמאות שחזור מאומתות מול תמונות מקור של יוצרים ב-Civitai, מה שמוסיף אמינות טכנית.</p></div><div class="brief-section"><p class="brief-label" data-he="דוגמת שימוש" data-en="Example use case">דוגמת שימוש</p><p class="brief-text i18n" data-he="לדוגמה, פקודת בדיקה אחת (doctor.py) בודקת חיבור ל-ComfyUI, מודלים, LoRA, ספריית פוזות ותמיכת דפדפן, ולאחר מכן פקודה נוספת משחזרת תוך כ-5 דקות תמונת &amp;#x27;מקלחת&amp;#x27; של היוצר המקורי, עם פרומפט, seed ופרמטרים מלאים." data-en="For example, a single doctor.py check verifies ComfyUI connectivity, models, LoRA, pose library and browser backend, after which another command reproduces the original creator&amp;#x27;s &amp;#x27;shower&amp;#x27; image in about 5 minutes, with full prompt, seed and parameters.">לדוגמה, פקודת בדיקה אחת (doctor.py) בודקת חיבור ל-ComfyUI, מודלים, LoRA, ספריית פוזות ותמיכת דפדפן, ולאחר מכן פקודה נוספת משחזרת תוך כ-5 דקות תמונת &#x27;מקלחת&#x27; של היוצר המקורי, עם פרומפט, seed ופרמטרים מלאים.</p></div><div class="brief-section brief-section--matters"><p class="brief-label" data-he="למה זה רלוונטי לך" data-en="Why it matters for you">למה זה רלוונטי לך</p><p class="brief-text i18n" data-he="זה רלוונטי לאבי כי זה דוגמה חיה לייצור יצירתי (תמונה) בשילוב הנדסת פרומפטים, fine-tuning עם LoRA ושליטת פוזה מדויקת, כל זה ארוז כ-agent skill שעובד בתוך Claude Code, Codex, Cursor ו-OpenClaw. זה מראה איך טכניקות קונטקסט ופרומפט מתקדמות הופכות למוצר פרקטי בתוך כלי עבודה יומיומיים." data-en="This matters to Avi because it is a live example of creative production (image) combined with prompt engineering, LoRA fine-tuning and precise pose control, all packaged as an agent skill that plugs into Claude Code, Codex, Cursor and OpenClaw. It shows how advanced prompting and context techniques turn into a practical product inside everyday agentic coding tools.">זה רלוונטי לאבי כי זה דוגמה חיה לייצור יצירתי (תמונה) בשילוב הנדסת פרומפטים, fine-tuning עם LoRA ושליטת פוזה מדויקת, כל זה ארוז כ-agent skill שעובד בתוך Claude Code, Codex, Cursor ו-OpenClaw. זה מראה איך טכניקות קונטקסט ופרומפט מתקדמות הופכות למוצר פרקטי בתוך כלי עבודה יומיומיים.</p></div></div>
+
+      </div>
+    </article>
+  </main>
+
+  <footer class="site-footer">
+    <span class="i18n" data-he="עיכול אוטומטי שבועי · מקורות: GitHub + עדכוני חדשות Gen AI" data-en="Auto-generated weekly digest · Sources: GitHub + gen AI news feeds">עיכול אוטומטי שבועי · מקורות: GitHub + עדכוני חדשות Gen AI</span>
+    <p class="share-copied" id="shareCopied">&#128279; <span class="i18n" data-he="הקישור הועתק!" data-en="Link copied!">הקישור הועתק!</span></p>
+  </footer>
+
+</div>
+
+<script>
+// ── LANGUAGE TOGGLE ──
+var currentLang = 'he';
+function toggleLang() {
+  currentLang = currentLang === 'he' ? 'en' : 'he';
+  var isHe = currentLang === 'he';
+  document.documentElement.lang = currentLang;
+  document.documentElement.dir = isHe ? 'rtl' : 'ltr';
+  document.getElementById('langToggle').textContent = isHe ? 'EN' : 'עב';
+  document.querySelectorAll('.i18n').forEach(function(el) {
+    el.innerHTML = el.dataset[currentLang] || el.innerHTML;
+  });
+  // Flip brief labels
+  document.querySelectorAll('.brief-label').forEach(function(el) {
+    var he = el.dataset.he, en = el.dataset.en;
+    if (he && en) el.textContent = isHe ? he : en;
+  });
+}
+
+// ── SHARE ──
+function shareReport() {
+  var title = currentLang === 'he'
+    ? 'AI News – 2026-W42'
+    : 'AI News – 2026-W42';
+  var url = window.location.href;
+  if (navigator.share) {
+    navigator.share({ title: title, url: url }).catch(function(){});
+  } else {
+    navigator.clipboard.writeText(url).then(function() {
+      var el = document.getElementById('shareCopied');
+      el.classList.add('show');
+      setTimeout(function() { el.classList.remove('show'); }, 2500);
+    }).catch(function() {
+      prompt('Copy this link:', url);
+    });
+  }
+}
+
+// ── AUDIO PLAYER ──
+var audio = document.getElementById('audio');
+var playBtn = document.getElementById('playBtn');
+var iconPlay = document.getElementById('iconPlay');
+var iconPause = document.getElementById('iconPause');
+var progressBar = document.getElementById('progressBar');
+var progressWrap = document.getElementById('progressWrap');
+var playerTime = document.getElementById('playerTime');
+
+function fmt(s) {
+  s = Math.floor(s || 0);
+  return Math.floor(s/60) + ':' + ('0' + (s%60)).slice(-2);
+}
+function updateTime() {
+  var cur = audio.currentTime, dur = audio.duration;
+  progressBar.style.width = (dur ? (cur/dur*100) : 0) + '%';
+  playerTime.textContent = fmt(cur) + ' / ' + fmt(dur);
+}
+function togglePlay() {
+  if (audio.paused) { audio.play(); } else { audio.pause(); }
+}
+audio.addEventListener('play', function() {
+  iconPlay.style.display = 'none';
+  iconPause.style.display = 'block';
+});
+audio.addEventListener('pause', function() {
+  iconPlay.style.display = 'block';
+  iconPause.style.display = 'none';
+});
+audio.addEventListener('ended', function() {
+  iconPlay.style.display = 'block';
+  iconPause.style.display = 'none';
+  progressBar.style.width = '0%';
+});
+audio.addEventListener('timeupdate', updateTime);
+audio.addEventListener('loadedmetadata', updateTime);
+function seek(e) {
+  if (!audio.duration) return;
+  var rect = progressWrap.getBoundingClientRect();
+  var frac = (e.clientX - rect.left) / rect.width;
+  audio.currentTime = Math.max(0, Math.min(1, frac)) * audio.duration;
+}
+</script>
+</body>
+</html>
