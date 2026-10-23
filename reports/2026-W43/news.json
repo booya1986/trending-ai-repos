@@ -1,0 +1,855 @@
+{
+  "week": "2026-W43",
+  "since": "2026-10-16",
+  "generated_for": "2026-10-23",
+  "count": 80,
+  "sources_tried": 15,
+  "warnings": [
+    "feed 'AI News' parsed 0 items (format change?)",
+    "feed 'Google DeepMind' parsed 0 items (format change?)"
+  ],
+  "items": [
+    {
+      "title": "Anthropic takes on Grok Bot, Meta's Muse, and OpenAI's Dots with its always-on agent \"Claude Duet\"",
+      "url": "https://the-decoder.com/anthropic-takes-on-grok-bot-metas-muse-and-openais-dots-with-its-always-on-agent-claude-duet/",
+      "source": "The Decoder",
+      "published": "2026-10-22T08:35:22+00:00",
+      "summary": "Anthropic has launched Claude Duet, a proactive AI agent that handles tasks on its own, even when the user is offline. The app is built on Claude Opus 5.5 and connects to services like Gmail, Slack, and Stripe through more than 6,000 connectors. It asks for approval before sensitive actions like payments. With Duet, Anthropic is responding to similar products from xAI, Meta, and OpenAI. The article Anthropic takes on Grok Bot, Meta's Muse, and OpenAI's Dots with its always-on agent \"Claude Duet\" appeared first on The Decoder .",
+      "points": 0,
+      "score": 26.49
+    },
+    {
+      "title": "OpenAI models are coming to Google Cloud. We're bringing our frontier models and Codex agentic workflows to Google Cloud's Model Garden, so enterprises can use our technology where they already build. https://openai.com/",
+      "url": "https://x.com/OpenAI/status/2112988118471295323",
+      "source": "X @OpenAI",
+      "published": "2026-10-21T19:23:19+00:00",
+      "summary": "OpenAI models are coming to Google Cloud. We're bringing our frontier models and Codex agentic workflows to Google Cloud's Model Garden, so enterprises can use our technology where they already build. https://openai.com/index/openai-models-google-cloud/",
+      "points": 5494,
+      "score": 21.71
+    },
+    {
+      "title": "Donating Agent Skills to the Agentic AI Foundation",
+      "url": "https://simonwillison.net/2026/Oct/22/donating-agent-skills/",
+      "source": "Simon Willison",
+      "published": "2026-10-22T18:09:56+00:00",
+      "summary": "Donating Agent Skills to the Agentic AI Foundation News today from Anthropic: We’re committed to keeping Agent Skills open, community-driven, and vendor-neutral. Today, we are donating the standard to the Agentic AI Foundation (AAIF) under the Linux Foundation, which we co-founded with Block and OpenAI last year, and to which we donated the Model Context Protocol (MCP). I'm pleased to note I called this one last December , when Anthropic first declared skills to be an \"open standard\": I wouldn't be surprised to see this end up in the AAIF , recently the new home of the MCP specification. Fun s",
+      "points": 0,
+      "score": 21.69
+    },
+    {
+      "title": "Discord now formats Markdown previews right",
+      "url": "https://www.theverge.com/news/1017012/discord-markdown-previews-organize-servers-channels",
+      "source": "The Verge AI",
+      "published": "2026-10-22T18:58:19+00:00",
+      "summary": "Discord's latest update released today has a big improvement for Markdown previews: they should now render correctly instead of with \"a bunch of symbols,\" according to the company. LLMs and AI agents often rely on Markdown files for instructions and context, so these improved previews could be helpful for people sharing information about AI projects […]",
+      "points": 0,
+      "score": 16.7
+    },
+    {
+      "title": "New on our Frontier Red Team blog: using Claude to formally verify software at large scale. Formal verification can prove that code is free of certain bugs, but historically it has only been feasible for small codebases ",
+      "url": "https://x.com/AnthropicAI/status/2113390212911083894",
+      "source": "X @AnthropicAI",
+      "published": "2026-10-22T22:01:06+00:00",
+      "summary": "New on our Frontier Red Team blog: using Claude to formally verify software at large scale. Formal verification can prove that code is free of certain bugs, but historically it has only been feasible for small codebases (or required a lot of expert time). With AI models, however, this is beginning to change. In collaboration with @theoremlabs, we used Claude to prove security properties in over one hundred real-world open-source libraries over the span of a few weeks. Read our research in full here:",
+      "points": 7154,
+      "score": 16.27
+    },
+    {
+      "title": "New on our Science Blog: designing protein binders against scorpion neurotoxins. Scorpions sting about 1.2m people every year, and antivenoms are often costly or in short supply. Claude has made an early step toward find",
+      "url": "https://x.com/AnthropicAI/status/2112579251555721573",
+      "source": "X @AnthropicAI",
+      "published": "2026-10-20T16:18:38+00:00",
+      "summary": "New on our Science Blog: designing protein binders against scorpion neurotoxins. Scorpions sting about 1.2m people every year, and antivenoms are often costly or in short supply. Claude has made an early step toward finding new treatments. https://www.anthropic.com/research/claude-scorpion-toxin-binder-design",
+      "points": 7941,
+      "score": 16.15
+    },
+    {
+      "title": "Google's Agent Compute Engine gives every Gemini agent its own hardware-isolated micro virtual machine",
+      "url": "https://the-decoder.com/googles-agent-compute-engine-gives-every-gemini-agent-its-own-hardware-isolated-micro-virtual-machine/",
+      "source": "The Decoder",
+      "published": "2026-10-22T17:50:09+00:00",
+      "summary": "With Agent Compute Engine, Google is introducing a runtime environment designed specifically for AI agents, while also expanding the governance capabilities that enable companies to manage agents in cloud, hybrid, and on-premises environments. The article Google's Agent Compute Engine gives every Gemini agent its own hardware-isolated micro virtual machine appeared first on The Decoder .",
+      "points": 0,
+      "score": 15.68
+    },
+    {
+      "title": "OpenShell – A safe, private runtime for fleets of autonomous AI agents",
+      "url": "https://github.com/NVIDIA/OpenShell",
+      "source": "Hacker News",
+      "published": "2026-10-22T17:44:06+00:00",
+      "summary": "",
+      "points": 393,
+      "score": 15.61
+    },
+    {
+      "title": "OpenAI models helped researchers—operating as part of our Patch the Planet initiative—discover critical security flaws in PHP, an open-source programming language used to run an estimated 70% of websites. Over the past t",
+      "url": "https://x.com/OpenAI/status/2112907856018309586",
+      "source": "X @OpenAI",
+      "published": "2026-10-21T14:04:23+00:00",
+      "summary": "OpenAI models helped researchers—operating as part of our Patch the Planet initiative—discover critical security flaws in PHP, an open-source programming language used to run an estimated 70% of websites. Over the past two months, we led a coalition of maintainers, researchers, and security providers to prepare fixes and protections ahead of disclosure. This duration was necessary because the fix was quite intricate and required a major change to the PHP engine. Every site using PHP can now safely upgrade their version to stay secure, in addition to applying mitigations from various security vendors. Due to the severity of these flaws and PHP’s widespread use, we consider this bug to be one of the most impactful vulnerabilities in recent memory. It also marks a new phase, where AI can find security bugs with internet-scale impact. This is an example of the Defender’s Window in action: to our knowledge, frontier AI was able to find this vulnerability ahead of attackers, giving defenders time to prepare.",
+      "points": 17202,
+      "score": 15.6
+    },
+    {
+      "title": "OpenAI agents analyze mouse brain data in 32 minutes, a job that would take humans months",
+      "url": "https://the-decoder.com/openai-agents-analyze-mouse-brain-data-in-32-minutes-a-job-that-would-take-humans-months/",
+      "source": "The Decoder",
+      "published": "2026-10-22T10:01:53+00:00",
+      "summary": "OpenAI teamed up with PerturbAI and Scripps Research to deploy thousands of AI agents that analyzed biological data from millions of mouse cells. The article OpenAI agents analyze mouse brain data in 32 minutes, a job that would take humans months appeared first on The Decoder .",
+      "points": 0,
+      "score": 15.52
+    },
+    {
+      "title": "OpenAI's GPT-5.6 Sol and Google's Gemini 4 Argon found critical PHP flaw affecting millions of websites",
+      "url": "https://the-decoder.com/openais-gpt-5-6-sol-and-gemini-4-argon-discovered-the-critical-php-vulnerability-affecting-millions-of-websites/",
+      "source": "The Decoder",
+      "published": "2026-10-21T19:45:01+00:00",
+      "summary": "OpenAI's GPT-5.6 Sol discovered a critical PHP vulnerability as part of the Patch the Planet initiative that could affect millions of websites. Security firm Wiz independently found the same flaw using Google's Gemini 4 Argon. OpenAI warns that the same AI capabilities that find vulnerabilities can help attackers too. The article OpenAI's GPT-5.6 Sol and Google's Gemini 4 Argon found critical PHP flaw affecting millions of websites appeared first on The Decoder .",
+      "points": 0,
+      "score": 15.22
+    },
+    {
+      "title": "Timestral: Mistral's time-series foundation models",
+      "url": "https://mistral.ai/news/timestral/",
+      "source": "Hacker News",
+      "published": "2026-10-19T09:59:32+00:00",
+      "summary": "",
+      "points": 620,
+      "score": 15.02
+    },
+    {
+      "title": "1Password launches a way for AI agents to log in on your behalf without seeing your password",
+      "url": "https://techcrunch.com/2026/10/22/1password-launches-a-way-for-ai-agents-to-log-in-on-your-behalf-without-seeing-your-password/",
+      "source": "TechCrunch AI",
+      "published": "2026-10-22T19:07:09+00:00",
+      "summary": "The new feature allows agents to log into a customer's personal accounts while still protecting the private credentials that secure those accounts.",
+      "points": 0,
+      "score": 13.71
+    },
+    {
+      "title": "Gemini 4 Argon combined three open-source datasets to build an interactive 3D visualization of human anatomy. Toggle different layers in motion, isolate muscles, or zoom inside a beating heart.",
+      "url": "https://x.com/GoogleDeepMind/status/2112974723659247896",
+      "source": "X @GoogleDeepMind",
+      "published": "2026-10-21T18:30:05+00:00",
+      "summary": "Gemini 4 Argon combined three open-source datasets to build an interactive 3D visualization of human anatomy. Toggle different layers in motion, isolate muscles, or zoom inside a beating heart.",
+      "points": 3269,
+      "score": 13.69
+    },
+    {
+      "title": "Chinese hackers spied on thousands of companies after breaching IT giant ConnectWise",
+      "url": "https://techcrunch.com/2026/10/22/chinese-hackers-spied-on-thousands-of-companies-after-breaching-it-giant-connectwise/",
+      "source": "TechCrunch AI",
+      "published": "2026-10-22T16:47:17+00:00",
+      "summary": "Microsoft points the blame for ConnectWise's breach at a China-aligned hacker, which relied on AI agents to rapidly hack into thousands of its customers.",
+      "points": 0,
+      "score": 13.66
+    },
+    {
+      "title": "If you are wondering whether your website is affected, we have packaged a Codex skill to help check. Point your Codex at this repo to guide you through it: https://github.com/openai/php2shell-checker",
+      "url": "https://x.com/OpenAI/status/2112945805686604033",
+      "source": "X @OpenAI",
+      "published": "2026-10-21T16:35:11+00:00",
+      "summary": "If you are wondering whether your website is affected, we have packaged a Codex skill to help check. Point your Codex at this repo to guide you through it: https://github.com/openai/php2shell-checker",
+      "points": 10573,
+      "score": 13.65
+    },
+    {
+      "title": "GPT-Rosalind surfaced a new lead for drug discovery: could restoring cholesterol transport protect neurons from degeneration? DCTN1 is a gene linked to Perry syndrome, a rare neurodegenerative disorder. In mouse-brain da",
+      "url": "https://x.com/OpenAI/status/2112899854569762936",
+      "source": "X @OpenAI",
+      "published": "2026-10-21T13:32:35+00:00",
+      "summary": "GPT-Rosalind surfaced a new lead for drug discovery: could restoring cholesterol transport protect neurons from degeneration? DCTN1 is a gene linked to Perry syndrome, a rare neurodegenerative disorder. In mouse-brain data, disrupting it increased expression of genes involved in making cholesterol. GPT-Rosalind suggested a possible explanation: cholesterol may not be reaching where neurons need it. That gives scientists a specific mechanism to test and, if confirmed, a direction for developing new treatments for neurodegenerative disorders. With @perturbai_tx and @scrippsresearch, a team of thousands of GPT-Rosalind agents worked in parallel, connecting gene-expression results from millions of mouse brain cells with scientific literature in just 32 minutes. We’re now expanding this collaboration to identify new drug targets.",
+      "points": 7716,
+      "score": 13.59
+    },
+    {
+      "title": "DeepInfer: High-performance inference framework for DeepSeek models",
+      "url": "https://github.com/deepseek-ai/DeepInfer",
+      "source": "Hacker News",
+      "published": "2026-10-20T09:08:54+00:00",
+      "summary": "",
+      "points": 2335,
+      "score": 13.5
+    },
+    {
+      "title": "Four Gemini 4 Argon agents beat Minecraft from scratch in 27 hours. Operating in a sandbox using only code and text, they wrote 2,783 programs, divided up jobs over chat, shared notes, and debugged errors together - all ",
+      "url": "https://x.com/GoogleDeepMind/status/2111127991401247033",
+      "source": "X @GoogleDeepMind",
+      "published": "2026-10-16T16:11:50+00:00",
+      "summary": "Four Gemini 4 Argon agents beat Minecraft from scratch in 27 hours. Operating in a sandbox using only code and text, they wrote 2,783 programs, divided up jobs over chat, shared notes, and debugged errors together - all with no human help ↓",
+      "points": 2792,
+      "score": 13.15
+    },
+    {
+      "title": "Left alone with nothing to do, AI agents started playing",
+      "url": "https://techcrunch.com/2026/10/22/left-alone-with-nothing-to-do-ai-agents-started-playing/",
+      "source": "TechCrunch AI",
+      "published": "2026-10-23T00:45:37+00:00",
+      "summary": "MIT researchers marooned 13 AIs on a virtual island, and they responded by inventing games, mourning a lost ring and, eventually, getting better at their jobs.",
+      "points": 0,
+      "score": 12.82
+    },
+    {
+      "title": "Canva’s first AI image model plans designs before generating them",
+      "url": "https://www.theverge.com/ai-artificial-intelligence/1017151/canva-craft-in-house-ai-model",
+      "source": "The Verge AI",
+      "published": "2026-10-22T21:51:25+00:00",
+      "summary": "Canva is diving even deeper into AI with the launch of an image generation model that competes directly with those from OpenAI, Microsoft, and Google. The model, called Canva Craft, uses a two-stage architecture that allows it to plan a design before generating an image, allowing for \"greater precision, consistency and control,\" according to an […]",
+      "points": 0,
+      "score": 12.76
+    },
+    {
+      "title": "Major US banks are locking out AI agents that log in with customer credentials",
+      "url": "https://the-decoder.com/major-us-banks-are-locking-out-ai-agents-that-log-in-with-customer-credentials/",
+      "source": "The Decoder",
+      "published": "2026-10-22T18:26:02+00:00",
+      "summary": "Customers are letting AI agents use their credentials to access accounts at Morgan Stanley, JPMorgan, and other major U.S. banks, sometimes without direct instructions. Morgan Stanley has blocked agents, while other banks are restricting access. Most plan to limit agents to read-only access. The article Major US banks are locking out AI agents that log in with customer credentials appeared first on The Decoder .",
+      "points": 0,
+      "score": 12.69
+    },
+    {
+      "title": "In Meta’s version of the future, I’ll have my Muse call your Muse",
+      "url": "https://www.theverge.com/tech/1016905/meta-earnings-fall-2026-muse-network",
+      "source": "The Verge AI",
+      "published": "2026-10-22T18:15:00+00:00",
+      "summary": "Mark Zuckerberg is barrelling toward a future in which an autonomous network of AI agents will run our lives - shopping for us, working for us, talking to other people's AI agents for us. Are humans ready for this very specific and unrelenting vision of a life in which we communicate primarily through bot proxies? […]",
+      "points": 0,
+      "score": 12.69
+    },
+    {
+      "title": "Anthropic is a Public Benefit Corporation. Today, we’re publishing our annual Public Benefit Report. This report shares our five pillars and takes stock of the actions we’re taking to advance them. Read the full report a",
+      "url": "https://x.com/AnthropicAI/status/2112966949273801086",
+      "source": "X @AnthropicAI",
+      "published": "2026-10-21T17:59:12+00:00",
+      "summary": "Anthropic is a Public Benefit Corporation. Today, we’re publishing our annual Public Benefit Report. This report shares our five pillars and takes stock of the actions we’re taking to advance them. Read the full report at this page: https://www.anthropic.com/public-benefit-charter",
+      "points": 2717,
+      "score": 12.68
+    },
+    {
+      "title": "Using thousands of AI agents to uncover new leads in biological data",
+      "url": "https://openai.com/index/scaling-ai-research-for-complex-biological-data/",
+      "source": "Hacker News",
+      "published": "2026-10-21T13:37:00+00:00",
+      "summary": "",
+      "points": 157,
+      "score": 12.66
+    },
+    {
+      "title": "Dr. Christopher Stubbs is joining our Long-Term Benefit Trust. Chris is an experimental physicist and a former Dean of Science at Harvard University. He has also advised the US government on national security and arms co",
+      "url": "https://x.com/AnthropicAI/status/2112946750264676743",
+      "source": "X @AnthropicAI",
+      "published": "2026-10-21T16:38:56+00:00",
+      "summary": "Dr. Christopher Stubbs is joining our Long-Term Benefit Trust. Chris is an experimental physicist and a former Dean of Science at Harvard University. He has also advised the US government on national security and arms control. Read more: https://www.anthropic.com/news/christopher-stubbs-joins-long-term-benefit-trust",
+      "points": 2304,
+      "score": 12.65
+    },
+    {
+      "title": "Claude Duet 🤖, Anthropic API changes 👨‍💻, Recursive’s local model 💻",
+      "url": "https://tldr.tech/ai/2026-10-22",
+      "source": "TLDR AI",
+      "published": "2026-10-22T00:00:00+00:00",
+      "summary": "",
+      "points": 0,
+      "score": 12.31
+    },
+    {
+      "title": "Show HN: Omnara – Open-source alternative to Claude Managed Agents",
+      "url": "https://github.com/omnara-ai/omnara",
+      "source": "Hacker News",
+      "published": "2026-10-21T16:44:53+00:00",
+      "summary": "",
+      "points": 111,
+      "score": 12.27
+    },
+    {
+      "title": "We’re committing a portion of Anthropic’s shares to the Anthropic Public Benefit Fund, a new wholly owned entity dedicated entirely to the public benefit. It will start off with 5% of our shares. For every 50% increase i",
+      "url": "https://x.com/AnthropicAI/status/2111881963657412903",
+      "source": "X @AnthropicAI",
+      "published": "2026-10-18T18:07:51+00:00",
+      "summary": "We’re committing a portion of Anthropic’s shares to the Anthropic Public Benefit Fund, a new wholly owned entity dedicated entirely to the public benefit. It will start off with 5% of our shares. For every 50% increase in the company’s value over a set baseline, we can contribute up to an extra 2%, subject to our board’s discretion. In total, this means that roughly 20% of Anthropic’s shares are committed to the public good. Our co-founders have already pledged to donate 80% of their equity, and around half our employees are donating a portion of their equity as part of a donation matching program we’ve run since our founding. In the post below, we share more details about our new fund.",
+      "points": 23345,
+      "score": 12.19
+    },
+    {
+      "title": "Gemini 4 Argon built a 3D periodic table synced to Tom Lehrer’s song, “The Elements.” Created in @Antigravity, it animates orbiting electrons, atomic data, and light spectra.",
+      "url": "https://x.com/GoogleDeepMind/status/2112557925264752930",
+      "source": "X @GoogleDeepMind",
+      "published": "2026-10-20T14:53:53+00:00",
+      "summary": "Gemini 4 Argon built a 3D periodic table synced to Tom Lehrer’s song, “The Elements.” Created in @Antigravity, it animates orbiting electrons, atomic data, and light spectra.",
+      "points": 5201,
+      "score": 12.12
+    },
+    {
+      "title": "Uber brings ChatGPT Work to all employees with OpenAI",
+      "url": "https://openai.com/index/uber-chatgpt-work-rollout",
+      "source": "OpenAI",
+      "published": "2026-10-22T00:00:00+00:00",
+      "summary": "Uber is rolling out ChatGPT Work to more than 30,000 employees, helping teams research, analyze data, create presentations, and complete complex workflows.",
+      "points": 0,
+      "score": 11.81
+    },
+    {
+      "title": "OpenAI working on new $30B raise at $1.25T valuation ahead of IPO",
+      "url": "https://techcrunch.com/2026/10/22/openai-working-on-new-30b-raise-at-1-25t-valuation-ahead-of-ipo/",
+      "source": "TechCrunch AI",
+      "published": "2026-10-22T22:08:24+00:00",
+      "summary": "Should OpenAI command an over $1 trillion valuation with this round, it would break records as the most highly valued private company ever.",
+      "points": 0,
+      "score": 11.77
+    },
+    {
+      "title": "Designing an AI serving harness built to last",
+      "url": "https://www.technologyreview.com/2026/10/22/1146109/designing-an-ai-serving-harness-built-to-last/",
+      "source": "MIT Tech Review",
+      "published": "2026-10-22T21:17:29+00:00",
+      "summary": "The next competitive advantage in enterprise AI has less to do with which model you choose than with what you build around it. That’s an important shift. For the past several years, much of the AI conversation has centered on model capability: bigger models, better reasoning, larger context windows, higher benchmark scores. Those advances have…",
+      "points": 0,
+      "score": 11.75
+    },
+    {
+      "title": "OpenAI makes its Jev competitor widely available as decision model competition heats up",
+      "url": "https://techcrunch.com/2026/10/22/openai-makes-its-jev-competitor-widely-available-as-decision-model-competition-heats-up/",
+      "source": "TechCrunch AI",
+      "published": "2026-10-22T19:00:00+00:00",
+      "summary": "OpenAI is launching its decision model to the world. Can it compete with the original Jev?",
+      "points": 0,
+      "score": 11.7
+    },
+    {
+      "title": "Recursive shows first result of its AI-driven research process with Flint",
+      "url": "https://the-decoder.com/recursive-shows-first-result-of-its-ai-driven-research-process-with-flint/",
+      "source": "The Decoder",
+      "published": "2026-10-22T14:40:16+00:00",
+      "summary": "The AI startup Recursive is unveiling Flint, its first language model, a 40-billion-parameter MoE for local coding developed by former DeepMind researchers. It was created in four months using the company's in-house AI system, \"Eureka Machine,\" which independently tests and optimizes architectures. Recursive has yet to prove whether this approach will actually lead to self-improving AI. The article Recursive shows first result of its AI-driven research process with Flint appeared first on The Decoder .",
+      "points": 0,
+      "score": 11.61
+    },
+    {
+      "title": "AI adoption by industry shows what other sectors can learn",
+      "url": "https://www.technologyreview.com/2026/10/20/1145423/ai-adoption-by-industry-shows-what-other-sectors-can-learn/",
+      "source": "MIT Tech Review",
+      "published": "2026-10-20T12:00:00+00:00",
+      "summary": "The current narrative around artificial intelligence in the workplace is largely driven by Silicon Valley. But treating the tech sector as an island misses the actual trends in technology adoption–tech is just the first industry in line. As generative AI and automation tools mature, the shifts currently reshaping software engineering and product management will inevitably…",
+      "points": 0,
+      "score": 11.56
+    },
+    {
+      "title": "Hugging Face’s New AI Biology Model Lets You Chat With DNA",
+      "url": "https://www.wired.com/story/hugging-face-new-ai-biology-model-chat-with-dna/",
+      "source": "Wired AI",
+      "published": "2026-10-22T10:00:00+00:00",
+      "summary": "The new open-source model speaks the language of DNA and can help researchers understand the effects of any changes on gene activity and health.",
+      "points": 0,
+      "score": 11.52
+    },
+    {
+      "title": "[AINews] OpenAI’s Patch the Planet program is 1 of 2 parties to discover PHP2Shell vulnerabilities in core PHP affecting 70% of the web, using GPT-5.6 Sol; coordinated response over 2 months",
+      "url": "https://www.latent.space/p/ainews-openais-patch-the-planet-program",
+      "source": "Latent Space",
+      "published": "2026-10-22T07:42:44+00:00",
+      "summary": "The Big Hardening begins",
+      "points": 0,
+      "score": 11.47
+    },
+    {
+      "title": "WhatsApp's help pages hid LLM instructions: dont recommend a regulator",
+      "url": "https://redact.dev/blog/whatsapp-help-pages-hidden-ai-instructions",
+      "source": "Hacker News",
+      "published": "2026-10-19T23:22:18+00:00",
+      "summary": "",
+      "points": 741,
+      "score": 11.29
+    },
+    {
+      "title": "Making the internet better for AI agents might make it worse for everyone else",
+      "url": "https://www.technologyreview.com/2026/10/19/1147186/making-the-internet-better-for-ai-agents-might-make-it-worse-for-everyone-else/",
+      "source": "MIT Tech Review",
+      "published": "2026-10-19T18:22:47+00:00",
+      "summary": "This story originally appeared in The Algorithm, our weekly newsletter on AI. To get stories like this in your inbox first, sign up here. Until recently, you could divide internet users into just two categories: bots and people. Websites have long allowed bots to perform automated tasks, like capturing the content of web pages, but rules…",
+      "points": 0,
+      "score": 11.19
+    },
+    {
+      "title": "DeepSeek banned from U.S. federal civilian agencies under new DHS order",
+      "url": "https://www.reuters.com/technology/us-banning-chinese-ai-deepseek-government-agency-it-systems-2026-10-19/",
+      "source": "Hacker News",
+      "published": "2026-10-19T16:16:46+00:00",
+      "summary": "",
+      "points": 579,
+      "score": 11.15
+    },
+    {
+      "title": "Every AI model has the same \"controversial\" take on humans",
+      "url": "https://www.modelcompare.ai/blog/ai-models-controversial-take-on-humans",
+      "source": "Hacker News",
+      "published": "2026-10-22T16:08:00+00:00",
+      "summary": "",
+      "points": 409,
+      "score": 10.73
+    },
+    {
+      "title": "The Foundations of Scalable AI",
+      "url": "https://www.technologyreview.com/2026/10/22/1146103/the-foundations-of-scalable-ai/",
+      "source": "MIT Tech Review",
+      "published": "2026-10-22T18:48:04+00:00",
+      "summary": "A scalable AI system requires a strong foundation. Data, engineering, platforms, operating models, and governance must converge to work as one. This session from MIT Technology Review’s EmTech Future conference explores what it takes to build that foundation in a highly regulated environment and how a responsible, trustworthy implementation can turn emerging capabilities, including agentic…",
+      "points": 0,
+      "score": 10.7
+    },
+    {
+      "title": "Qwen4 and Kimi3.1 on Arena apperantly",
+      "url": "https://x.com/luminabench/status/2113217029675085963?s=46",
+      "source": "r/LocalLLaMA",
+      "published": "2026-10-22T13:47:14+00:00",
+      "summary": "",
+      "points": 0,
+      "score": 10.6
+    },
+    {
+      "title": "Mistral Large 4",
+      "url": "https://mistral.ai/news/mistral-large-4/",
+      "source": "Hacker News",
+      "published": "2026-10-21T19:20:55+00:00",
+      "summary": "",
+      "points": 326,
+      "score": 10.47
+    },
+    {
+      "title": "[AINews] not much happened today",
+      "url": "https://www.latent.space/p/ainews-not-much-happened-today-f09",
+      "source": "Latent Space",
+      "published": "2026-10-20T05:21:52+00:00",
+      "summary": "Congrats to DeepSeek V4.1 Flash 1017, MiniMax M3.1 Flash, and Mercury 3 (details below) but they’re not going to be in super wide use just yet.",
+      "points": 0,
+      "score": 10.42
+    },
+    {
+      "title": "Publish fake stats, get cited in LLMs",
+      "url": "https://peec.ai/blog/publish-stats-get-cited-the-tactic-that-put-my-data-all-over-the-web",
+      "source": "Hacker News",
+      "published": "2026-10-20T13:06:22+00:00",
+      "summary": "",
+      "points": 366,
+      "score": 10.24
+    },
+    {
+      "title": "[AINews] DeepSeek DeepInfer: Open Source SOTA Inference running 155T toks/day/cluster making $22m/day at ~80% margin for a 81 day payback",
+      "url": "https://www.latent.space/p/ainews-deepseek-deepinfer-open-source",
+      "source": "Latent Space",
+      "published": "2026-10-21T06:54:09+00:00",
+      "summary": "An open source “bomb” drops from China",
+      "points": 0,
+      "score": 9.95
+    },
+    {
+      "title": "CERN and Mistral sign a statement of intent to establish a strategic partnership",
+      "url": "https://home.cern/cern-and-mistral-join-forces-to-accelerate-ai-for-science/",
+      "source": "Hacker News",
+      "published": "2026-10-19T15:28:24+00:00",
+      "summary": "",
+      "points": 362,
+      "score": 9.75
+    },
+    {
+      "title": "Someone hacked the Switch 2 by using an old game and AI",
+      "url": "https://www.theverge.com/games/1016862/nintendo-switch-2-jailbreak-ai",
+      "source": "The Verge AI",
+      "published": "2026-10-22T17:21:31+00:00",
+      "summary": "The Nintendo Switch 2 has apparently been jailbroken, and a modder has already shown the console running a custom version of Mario Kart World featuring new playable characters like Cinnamoroll, the red Angry Bird, Peter Griffin, and Steve from Minecraft. OpenAI's Codex helped make this \"ns2jb\" jailbreak, according to Sammy Hajhamid, aka \"pepsipu.\" It's a […]",
+      "points": 0,
+      "score": 9.67
+    },
+    {
+      "title": "A visit to Samsung’s massive new semiconductor hub",
+      "url": "https://www.technologyreview.com/2026/10/20/1145916/dispatch-visit-to-samsung-massive-new-semiconductor-hub/",
+      "source": "MIT Tech Review",
+      "published": "2026-10-20T09:00:00+00:00",
+      "summary": "Generative AI models run on powerful chips known as GPUs, which depend on stacks of specialized memory chips packaged with the processor. To meet growing demand for memory, Samsung is building a massive new semiconductor manufacturing complex in Pyeongtaek, South Korea. Three fabs already operate around the clock, and a fourth is coming online. Construction…",
+      "points": 0,
+      "score": 9.5
+    },
+    {
+      "title": "Patch the Planet: global response coordination as agents uncover critical vulnerabilities",
+      "url": "https://openai.com/index/coordinated-disclosure-of-critical-vulnerabilities",
+      "source": "OpenAI",
+      "published": "2026-10-21T07:00:00+00:00",
+      "summary": "Patch the Planet connects security researchers, maintainers, and incident responders to help address critical vulnerabilities across open source.",
+      "points": 0,
+      "score": 9.45
+    },
+    {
+      "title": "OpenAI and Poland’s NASK partner to advance AI safety and security",
+      "url": "https://openai.com/index/openai-nask-ai-safety-security-partnership",
+      "source": "OpenAI",
+      "published": "2026-10-23T00:00:00+00:00",
+      "summary": "OpenAI and Poland’s NASK are partnering on AI safety, security, and technical research to strengthen safeguards and support a more resilient digital ecosystem.",
+      "points": 0,
+      "score": 9.31
+    },
+    {
+      "title": "Turning Database Grading into RL Rewards: Post-Training Agents with ThinkingBox",
+      "url": "https://huggingface.co/blog/microsoft/thinkingbox-training",
+      "source": "Hugging Face",
+      "published": "2026-10-22T22:24:34+00:00",
+      "summary": "",
+      "points": 0,
+      "score": 9.27
+    },
+    {
+      "title": "Judge rejects Trump’s wild claim EPA can dismiss data center pollution lawsuits",
+      "url": "https://arstechnica.com/tech-policy/2026/10/judge-rejects-trumps-wild-claim-epa-can-dismiss-data-center-pollution-lawsuits/",
+      "source": "Ars Technica AI",
+      "published": "2026-10-21T18:20:40+00:00",
+      "summary": "Trump’s EPA can't unilaterally dismiss SpaceXAI pollution lawsuit, court rules.",
+      "points": 0,
+      "score": 9.19
+    },
+    {
+      "title": "deepseek-ai/DeepSeek-V4.1-Flash-1017 · Hugging Face",
+      "url": "https://huggingface.co/deepseek-ai/DeepSeek-V4.1-Flash-1017",
+      "source": "r/LocalLLaMA",
+      "published": "2026-10-17T08:09:21+00:00",
+      "summary": "",
+      "points": 0,
+      "score": 8.98
+    },
+    {
+      "title": "What FDE means at OpenAI",
+      "url": "https://openai.com/index/forward-deployed-engineering-means",
+      "source": "OpenAI",
+      "published": "2026-10-22T06:00:00+00:00",
+      "summary": "What forward deployed engineering means at OpenAI",
+      "points": 0,
+      "score": 8.93
+    },
+    {
+      "title": "AI for the Fortune 2000: How Tenex Builds an AI-Native SDLC — Alex Lieberman & CJ Hess",
+      "url": "https://www.latent.space/p/tenex",
+      "source": "Latent Space",
+      "published": "2026-10-21T05:01:26+00:00",
+      "summary": "Listen now (44 mins) | Paying for outcomes, building with agents, and the last mile of enterprise AI adoption",
+      "points": 0,
+      "score": 8.91
+    },
+    {
+      "title": "DeepSeek’s new Flash ⚡, Replit drops Anthropic 🔄, Anthropic’s workforce 💼",
+      "url": "https://tldr.tech/ai/2026-10-19",
+      "source": "TLDR AI",
+      "published": "2026-10-19T00:00:00+00:00",
+      "summary": "",
+      "points": 0,
+      "score": 8.81
+    },
+    {
+      "title": "Broad access through consistent standards",
+      "url": "https://openai.com/index/broad-access-through-consistent-standards",
+      "source": "OpenAI",
+      "published": "2026-10-21T21:00:00+00:00",
+      "summary": "How OpenAI works with distribution partners to uphold consistent safeguards, support responsible access, and clarify expectations in our Usage Policies.",
+      "points": 0,
+      "score": 8.75
+    },
+    {
+      "title": "Meta’s AI could still scrape news sites, legal experts say",
+      "url": "https://www.theverge.com/tech/1017082/meta-terms-update-ai-training-concerns",
+      "source": "The Verge AI",
+      "published": "2026-10-22T20:32:05+00:00",
+      "summary": "Meta has tweaked its business terms to remove language suggesting that it could freely train its AI models on news sites, like The Verge - but legal experts say these changes aren't enough to address their concerns. \"This does nothing to restrict the 'associated with your products or services' [language] that would let Meta scrape […]",
+      "points": 0,
+      "score": 8.74
+    },
+    {
+      "title": "How AT&T is rethinking in-house legal work with OpenAI",
+      "url": "https://openai.com/index/att-legal",
+      "source": "OpenAI",
+      "published": "2026-10-21T17:00:00+00:00",
+      "summary": "AT&T is working with OpenAI to make legal knowledge easier to access. Learn how its LegalEdge team is rethinking intake and scaling legal judgment.",
+      "points": 0,
+      "score": 8.66
+    },
+    {
+      "title": "Show HN: Qwen3-4B with the AI writing tics trained out",
+      "url": "https://100toolkit.com/blog/deslop-model/",
+      "source": "Hacker News",
+      "published": "2026-10-19T13:00:47+00:00",
+      "summary": "",
+      "points": 158,
+      "score": 8.66
+    },
+    {
+      "title": "Quoting Armin Ronacher",
+      "url": "https://simonwillison.net/2026/Oct/22/armin-ronacher/",
+      "source": "Simon Willison",
+      "published": "2026-10-22T15:34:13+00:00",
+      "summary": "As fun as AI is, we built so much bad software over the last 30 years, and now the universe is punishing us for our sins. — Armin Ronacher Tags: security , generative-ai , armin-ronacher , ai , ai-security-research , llms",
+      "points": 0,
+      "score": 8.63
+    },
+    {
+      "title": "Making the case for context-aware AI",
+      "url": "https://www.technologyreview.com/2026/10/22/1146812/making-the-case-for-context-aware-ai/",
+      "source": "MIT Tech Review",
+      "published": "2026-10-22T10:00:00+00:00",
+      "summary": "Enterprise AI can generate recommendations, automate tasks, and help organizations make decisions faster. But without an understanding of how a business actually operates, even powerful models can miss the constraints and relationships that determine whether a decision is the right one. As companies look to move AI from experimentation into everyday operations, the challenge ahead…",
+      "points": 0,
+      "score": 8.52
+    },
+    {
+      "title": "AI’s hidden storage bill: What inference leaves behind",
+      "url": "https://www.technologyreview.com/2026/10/22/1146948/ais-hidden-storage-bill-what-inference-leaves-behind/",
+      "source": "MIT Tech Review",
+      "published": "2026-10-22T08:41:18+00:00",
+      "summary": "Ask most executives to picture the cost of AI and they’ll likely see GPUs—racks of accelerators with gigawatts of power—and a waitlist for silicon. But that picture leaves something out: Data storage costs. What happens to data after a model responds? Much of the back-end data that’s generated—from billions of daily prompts, images, and videos—needs…",
+      "points": 0,
+      "score": 8.49
+    },
+    {
+      "title": "Man arrested after telling AI chatbot about ‘plans for mass shooting’ | A 29-year-old man has been remanded in custody after Interpol flagged his conversation with Claude",
+      "url": "https://www.independent.co.uk/news/world/australasia/australia-mass-shooting-bondi-beach-b3069860.html",
+      "source": "r/ClaudeAI",
+      "published": "2026-10-21T16:20:50+00:00",
+      "summary": "",
+      "points": 0,
+      "score": 8.15
+    },
+    {
+      "title": "This Startup Is All In on Recursive Self-Improvement. Its Latest Model Is Scary Good",
+      "url": "https://www.wired.com/story/recursive-self-improvement-flint-latest-model-scary-good/",
+      "source": "Wired AI",
+      "published": "2026-10-21T16:00:00+00:00",
+      "summary": "Recursive makes the case that the benefits of using AI to build AI outweigh the risks.",
+      "points": 0,
+      "score": 8.14
+    },
+    {
+      "title": "Uber rival inDrive eyes 2027 robotaxi tests in Central Asia with Pony.ai and Nvidia",
+      "url": "https://techcrunch.com/2026/10/22/uber-rival-indrive-eyes-2027-robotaxi-tests-in-central-asia-with-pony-ai-and-nvidia/",
+      "source": "TechCrunch AI",
+      "published": "2026-10-23T04:00:00+00:00",
+      "summary": "inDrive plans to begin testing Pony.ai's robotaxis in Kazakhstan's capital in the first half of 2027.",
+      "points": 0,
+      "score": 7.89
+    },
+    {
+      "title": "Gemini's Personal Intelligence is coming to cars",
+      "url": "https://arstechnica.com/google/2026/10/geminis-personal-intelligence-is-coming-to-cars/",
+      "source": "Ars Technica AI",
+      "published": "2026-10-20T20:00:33+00:00",
+      "summary": "It's probably time to audit your Gemini settings.",
+      "points": 0,
+      "score": 7.72
+    },
+    {
+      "title": "The Social Society Helping Women Join the AI Boom",
+      "url": "https://www.wired.com/story/aged-intelligence-society-interview/",
+      "source": "Wired AI",
+      "published": "2026-10-22T19:56:32+00:00",
+      "summary": "WIRED spoke with the founders of the Aged Intelligence Society, a fast-growing events startup that brings women together to “solve midlife problems using frontier tools.”",
+      "points": 0,
+      "score": 7.72
+    },
+    {
+      "title": "Battle Drones - a vibe coded RTS with audio-based multiplayer",
+      "url": "https://simonwillison.net/2026/Oct/20/battledrones/",
+      "source": "Simon Willison",
+      "published": "2026-10-20T19:34:19+00:00",
+      "summary": "My latest vibe coded game experiment is a Command & Conquer style RTS (Real Time Strategy) game called Battle Drones ( play it here ). Unlike my previous experiments , this one is actually fun to play . I'm somewhat embarrassed to admit that I got there by telling Claude to \"Make it a LOT more fun\". It also supports multiplayer between nearby devices using audio to synchronize game state! Here's what I've built so far, and some of the things I learned along the way. Battle Drones How I built this v1: the initial prototype v2: full sprites v3: varied terrain v4: the fun update v5: Battle Drones",
+      "points": 0,
+      "score": 7.72
+    },
+    {
+      "title": "Microsoft’s Mustafa Suleyman says its AI outperforms doctors on hard cases as he chases ‘medical superintelligence’",
+      "url": "https://techcrunch.com/2026/10/22/microsofts-mustafa-suleyman-says-its-ai-outperforms-doctors-on-hard-cases-as-he-chases-medical-superintelligence/",
+      "source": "TechCrunch AI",
+      "published": "2026-10-22T18:43:53+00:00",
+      "summary": "Microsoft’s new AI diagnostic system beat generalist doctors on hard cases, according to a study in Science. But most of the improvement seems to come from the AI models underneath, not from Microsoft’s system itself.",
+      "points": 0,
+      "score": 7.7
+    },
+    {
+      "title": "Tmux and Claude Code: Sessions, Send-Keys, and the Ceiling",
+      "url": "https://crystl.dev/guides/tmux-for-ai-agents/",
+      "source": "Hacker News",
+      "published": "2026-10-19T05:55:31+00:00",
+      "summary": "",
+      "points": 172,
+      "score": 7.65
+    },
+    {
+      "title": "The obscure trust looming over Anthropic's IPO",
+      "url": "https://www.wsj.com/tech/ai/anthropic-ipo-private-trust-188f41f7?st=RtdGHg&reflink=desktopwebshare_permalink",
+      "source": "Hacker News",
+      "published": "2026-10-19T12:06:03+00:00",
+      "summary": "",
+      "points": 153,
+      "score": 7.59
+    },
+    {
+      "title": "My obituary for programming",
+      "url": "https://simonwillison.net/2026/Oct/19/my-obituary-for-programming/",
+      "source": "Simon Willison",
+      "published": "2026-10-19T23:58:25+00:00",
+      "summary": "My obituary for programming Jeremy Scheff poignantly captures the key loss caused by coding agents for career programmers who enjoyed the puzzle of developing code: Programming turned into one of the greatest jobs you could imagine. You got paid to work on tricky little logic puzzles. The trickier the puzzle, the more you got paid. But even pretty simple puzzles were worth a lot of money because regular people just couldn't do it! No, they needed us. They would give us a problem and we would solve it the way we wanted. We set the strategy, we made the timeline, we defined what was and was not ",
+      "points": 0,
+      "score": 7.31
+    },
+    {
+      "title": "Gemini 4 Argon credited for \"invaluable contributions\" to PHP2Shell vulnerability discovery",
+      "url": "https://www.wiz.io/blog/php2shell-php-rce",
+      "source": "r/GeminiAI",
+      "published": "2026-10-21T18:19:18+00:00",
+      "summary": "",
+      "points": 0,
+      "score": 7.19
+    },
+    {
+      "title": "The $15 billion ad-powered AI startup your doctor may already be using",
+      "url": "https://arstechnica.com/ai/2026/10/the-15-billion-ad-powered-ai-startup-your-doctor-may-already-be-using/",
+      "source": "Ars Technica AI",
+      "published": "2026-10-21T15:14:07+00:00",
+      "summary": "OpenEvidence is booming despite questions about accuracy and ads.",
+      "points": 0,
+      "score": 7.13
+    },
+    {
+      "title": "Claude Mods: Flipping the Harness Inside Out",
+      "url": "https://www.latent.space/p/claude-mods",
+      "source": "Latent Space",
+      "published": "2026-10-21T13:04:19+00:00",
+      "summary": "Claude Mods is an early form of the Attention Interface. It flips the agent harness paradigm from the harness facing the machine, to the harness facing the human.",
+      "points": 0,
+      "score": 7.08
+    },
+    {
+      "title": "DeepSeek DeepInfer 🐋, PyTorch on TPUs ⚡, Ramp’s agent framework 👨‍💻",
+      "url": "https://tldr.tech/ai/2026-10-21",
+      "source": "TLDR AI",
+      "published": "2026-10-21T00:00:00+00:00",
+      "summary": "",
+      "points": 0,
+      "score": 6.81
+    }
+  ],
+  "stories": [
+    {
+      "headline_he": "Anthropic משיקה את Claude Duet, סוכן פרואקטיבי שפועל גם כשאתה לא מחובר",
+      "headline_en": "Anthropic Launches Claude Duet, an Always-On Proactive Agent",
+      "summary_he": "Anthropic השיקה את Claude Duet, סוכן המבוסס על Claude Opus 5.5 שמבצע משימות באופן עצמאי גם כשהמשתמש אינו מחובר, ומתחבר ליותר מ-6,000 שירותים כמו Gmail, Slack ו-Stripe תוך בקשת אישור לפני פעולות רגישות.",
+      "summary_en": "Anthropic launched Claude Duet, built on Claude Opus 5.5, which handles tasks autonomously even while the user is offline, connecting to over 6,000 services like Gmail, Slack and Stripe while asking approval before sensitive actions.",
+      "insight_he": "זהו צעד ישיר של Anthropic למרוץ הסוכנים התמידיים מול Grok Bot של Meta ו-Dots של OpenAI, סימן שעוזרי צ'אט פסיביים מתחלפים בסוכנים שפועלים בשמך סביב השעון. מנגנון האישור לפני פעולות רגישות הופך לתבנית בטיחות סטנדרטית שכדאי לאמץ בכל מערכת סוכנים.",
+      "insight_en": "This pushes Anthropic directly into the always-on agent race against Meta's Muse and OpenAI's Dots, signaling that passive chat assistants are being replaced by agents acting on your behalf around the clock. The approval-gate pattern before sensitive actions is becoming a standard safety mechanism worth copying in any agent build.",
+      "category": "product",
+      "url": "https://the-decoder.com/anthropic-takes-on-grok-bot-metas-muse-and-openais-dots-with-its-always-on-agent-claude-duet/",
+      "source": "The Decoder",
+      "published": "2026-10-22T08:35:22+00:00"
+    },
+    {
+      "headline_he": "OpenAI במגעים לגיוס של 30 מיליארד דולר בשווי שיא של 1.25 טריליון דולר לקראת הנפקה",
+      "headline_en": "OpenAI in Talks for $30B Raise at Record $1.25T Valuation Ahead of IPO",
+      "summary_he": "על פי דיווחים, OpenAI עובדת על סבב גיוס חדש של 30 מיליארד דולר בשווי של 1.25 טריליון דולר, מה שיהפוך אותה לחברה הפרטית בעלת השווי הגבוה ביותר בהיסטוריה.",
+      "summary_en": "OpenAI is reportedly working on a new $30 billion funding round at a $1.25 trillion valuation, which would make it the most highly valued private company in history.",
+      "insight_he": "השווי הזה מבסס את מעמדה של OpenAI ככוח הדומיננטי ב-AI גנרטיבי לקראת הנפקה, וילחיץ את Anthropic, Google ואחרות להתחרות על גישה להון. למי שבונה מעל הפלטפורמות הללו כדאי לצפות להמשך השקעה אגרסיבית בחומרת מחשוב וכישרון.",
+      "insight_en": "This valuation cements OpenAI's position as the dominant force in generative AI heading into a public listing and will intensify pressure on Anthropic, Google and others to match capital access. Builders on these platforms should expect continued aggressive spending on compute and talent.",
+      "category": "company",
+      "url": "https://techcrunch.com/2026/10/22/openai-working-on-new-30b-raise-at-1-25t-valuation-ahead-of-ipo/",
+      "source": "TechCrunch AI",
+      "published": "2026-10-22T22:08:24+00:00"
+    },
+    {
+      "headline_he": "GPT-5.6 Sol ו-Gemini 4 Argon גילו באופן עצמאי את אותה פרצת אבטחה קריטית ב-PHP",
+      "headline_en": "GPT-5.6 Sol and Gemini 4 Argon Independently Found the Same Critical PHP Flaw",
+      "summary_he": "מודל GPT-5.6 Sol של OpenAI גילה פרצת אבטחה קריטית ב-PHP הפוגעת במיליוני אתרים במסגרת יוזמת Patch the Planet, וחברת האבטחה Wiz גילתה באופן עצמאי את אותה פרצה בעזרת Gemini 4 Argon של Google.",
+      "summary_en": "OpenAI's GPT-5.6 Sol discovered a critical PHP vulnerability affecting millions of websites as part of the 'Patch the Planet' initiative, and security firm Wiz independently found the same flaw using Google's Gemini 4 Argon.",
+      "insight_he": "שני מודלים מתחרים שמגיעים לאותה פרצת יום-אפס אמיתית מראים שגילוי פגיעויות בעזרת AI עבר מדמו מחקרי ליכולת ייצורית, גם עבור תוקפים וגם עבור מגינים. כדאי לצפות שביקורת קוד מבוססת AI תהפוך לחלק סטנדרטי מתהליכי אבטחה כבר בטווח הקרוב.",
+      "insight_en": "Two competing models converging on the same real-world zero-day shows AI-assisted vulnerability discovery has crossed from research demo into production capability, for attackers and defenders alike. Expect AI-driven code auditing to become standard practice in security workflows very soon.",
+      "category": "research",
+      "url": "https://the-decoder.com/openais-gpt-5-6-sol-and-gemini-4-argon-discovered-the-critical-php-vulnerability-affecting-millions-of-websites/",
+      "source": "The Decoder",
+      "published": "2026-10-21T19:45:01+00:00"
+    },
+    {
+      "headline_he": "Google משיקה את Agent Compute Engine: מיקרו-VM מבודד לכל סוכן AI",
+      "headline_en": "Google Launches Agent Compute Engine: Isolated Micro-VMs for Every AI Agent",
+      "summary_he": "Google הציגה את Agent Compute Engine, סביבת ריצה שמעניקה לכל סוכן Gemini מיקרו-מכונה וירטואלית מבודדת ברמת החומרה, לצד כלי ממשל מורחבים לניהול סוכנים בענן, בסביבות היברידיות ובמקום.",
+      "summary_en": "Google introduced Agent Compute Engine, a runtime that gives each Gemini agent its own hardware-isolated micro virtual machine, alongside expanded governance tools for managing agents across cloud, hybrid and on-premises environments.",
+      "insight_he": "בידוד ברמת חומרה לכל סוכן פותר אחת החסימות הגדולות בפריסת סוכנים אוטונומיים בקנה מידה: הגבלת הנזק כשסוכן משתבש או נפרץ. זהו סוג התשתית שעשוי להפוך לסטנדרט בכל פלטפורמת סוכנים רצינית, כולל פריסות מבוססות Claude.",
+      "insight_en": "Hardware-level isolation per agent addresses one of the biggest blockers to deploying autonomous agents at scale: containing the blast radius when an agent misbehaves or is compromised. This kind of infrastructure layer is likely to become table stakes for any serious agent platform, Claude-based included.",
+      "category": "tool",
+      "url": "https://the-decoder.com/googles-agent-compute-engine-gives-every-gemini-agent-its-own-hardware-isolated-micro-virtual-machine/",
+      "source": "The Decoder",
+      "published": "2026-10-22T17:50:09+00:00"
+    },
+    {
+      "headline_he": "Anthropic תורמת את תקן Agent Skills לקרן Agentic AI Foundation של Linux Foundation",
+      "headline_en": "Anthropic Donates Agent Skills Standard to the Linux Foundation's Agentic AI Foundation",
+      "summary_he": "Anthropic הודיעה שהיא תורמת את תקן Agent Skills שלה לקרן Agentic AI Foundation החדשה, שהוקמה בשיתוף עם Linux Foundation, תוך מחויבות לשמור עליו פתוח, מונחה-קהילה וניטרלי מבחינת ספקים.",
+      "summary_en": "Anthropic announced it is donating its Agent Skills standard to the newly co-founded Agentic AI Foundation under the Linux Foundation, committing to keep it open, community-driven and vendor-neutral.",
+      "insight_he": "זה מזכיר את מה ש-MCP עשה עבור חיבוריות כלים: הפיכת מוסכמה קניינית לתקן פתוח משותף מקטינה נעילה לספק ומאפשרת ניידות בין פלטפורמות סוכנים. למי שבונה היום זרימות עבודה עם Skills כדאי להתייחס אליהן כפורמט חוצה-פלטפורמות לטווח ארוך ולא כתכונה ייחודית ל-Anthropic.",
+      "insight_en": "This mirrors what MCP did for tool connectivity: turning a proprietary convention into a shared, vendor-neutral standard reduces lock-in and enables portability across agent frameworks. Builders should treat Skills as a long-term, cross-platform format rather than an Anthropic-only feature.",
+      "category": "technique",
+      "url": "https://simonwillison.net/2026/Oct/22/donating-agent-skills/",
+      "source": "Simon Willison",
+      "published": "2026-10-22T18:09:56+00:00"
+    },
+    {
+      "headline_he": "Canva משיקה את Craft, מודל התמונות הראשון שלה שמתכנן לפני שהוא יוצר",
+      "headline_en": "Canva Launches Craft, Its First Image Model That Plans Before Generating",
+      "summary_he": "Canva השיקה את Canva Craft, מודל יצירת תמונות דו-שלבי שמתכנן תחילה את פריסת העיצוב לפני יצירת התמונה הסופית, בתחרות ישירה מול מודלי התמונות של OpenAI, Microsoft ו-Google.",
+      "summary_en": "Canva launched Canva Craft, a two-stage image generation model that first plans a design layout before generating the final image, competing directly with OpenAI, Microsoft and Google's image models.",
+      "insight_he": "פלטפורמת עיצוב שבונה מודל יסוד משלה (ולא רק עוטפת מודלים קיימים) מראה שחברות אנכיות רואות ביצירה קניינית צורך תחרותי ולא רק תוספת נחמדה. הארכיטקטורה של תכנון-ואז-יצירה גם משמשת תבנית שימושית לכל מי שבונה כלים יצירתיים מובנים שבהם שליטה בקומפוזיציה חשובה יותר מאסתטיקה גולמית.",
+      "insight_en": "A design-first platform building its own foundation model, rather than just wrapping others', signals that vertical players now see proprietary generation as a competitive necessity. The plan-then-generate architecture is also a useful pattern for anyone building structured creative tools where composition control matters most.",
+      "category": "creative",
+      "url": "https://www.theverge.com/ai-artificial-intelligence/1017151/canva-craft-in-house-ai-model",
+      "source": "The Verge AI",
+      "published": "2026-10-22T21:51:25+00:00"
+    },
+    {
+      "headline_he": "בנקים גדולים בארה\"ב חוסמים סוכני AI שמתחברים עם פרטי הלקוחות",
+      "headline_en": "Major US Banks Start Blocking AI Agents That Log In With Customer Credentials",
+      "summary_he": "לקוחות איפשרו לסוכני AI להתחבר לחשבונות ב-Morgan Stanley, JPMorgan ובנקים גדולים נוספים בארה\"ב באמצעות פרטי ההזדהות שלהם, לעיתים ללא הנחיה מפורשת; Morgan Stanley חסם לחלוטין גישת סוכנים, ובנקים אחרים מגבילים אותה לקריאה בלבד.",
+      "summary_en": "Customers have been letting AI agents log into accounts at Morgan Stanley, JPMorgan and other major US banks using their credentials, sometimes without explicit instructions; Morgan Stanley has now blocked agent access entirely, and other banks are restricting it to read-only.",
+      "insight_he": "זו הפעם הראשונה שבה מוסדות גדולים דוחפים אחורה בקנה מידה נגד סוכנים אוטונומיים שפועלים עם אישורי התחברות אמיתיים, והיא חושפת את הפער בין מה שסוכנים יכולים לעשות טכנית לבין מה שתעשיות מפוקחות יסבלו. זה גם מחזק את הצורך בגישות ללא חשיפת סיסמה, כמו הפיצ'ר החדש של 1Password.",
+      "insight_en": "This is the first large-scale institutional pushback against autonomous agents acting with real credentials, exposing the gap between what agent frameworks can technically do and what regulated industries will tolerate. It also underscores why credential-free delegation approaches, like 1Password's new feature, are becoming necessary rather than optional.",
+      "category": "policy",
+      "url": "https://the-decoder.com/major-us-banks-are-locking-out-ai-agents-that-log-in-with-customer-credentials/",
+      "source": "The Decoder",
+      "published": "2026-10-22T18:26:02+00:00"
+    },
+    {
+      "headline_he": "Meta מקדמת חזון של סוכני AI אוטונומיים שמנהלים משא ומתן זה עם זה",
+      "headline_en": "Meta Pushes a Vision of Autonomous AI Agents Negotiating With Each Other",
+      "summary_he": "מארק צוקרברג מקדם עתיד הבנוי סביב Muse של Meta, רשת סוכני AI אוטונומיים שיקנו, יעבדו ויתקשרו עם סוכני AI של אנשים אחרים בשם המשתמשים.",
+      "summary_en": "Mark Zuckerberg is promoting a future built around Meta's Muse, a network of autonomous AI agents that would shop, work and communicate with other people's agents on users' behalf.",
+      "insight_he": "זה ממסגר את קרב הפלטפורמות הבא כאינטראקציה בין סוכנים ולא כצ'אט בין אדם ל-AI, בדיוק באותו שבוע שבו Claude Duet ו-Dots הופיעו. שלוש מעבדות גדולות שמתכנסות על 'סוכנים מדברים עם סוכנים' באותו הזמן מרמזות שזה הקטגוריה הבאה של מוצרים, לא רק מהלך שיווקי של Meta.",
+      "insight_en": "This frames the next platform battle as agent-to-agent interaction rather than human-to-AI chat, echoing Anthropic's Claude Duet and OpenAI's Dots in the same week. Three major labs converging on 'agents talking to agents' at once suggests this is the next real product category, not just a Meta marketing angle.",
+      "category": "company",
+      "url": "https://www.theverge.com/tech/1016905/meta-earnings-fall-2026-muse-network",
+      "source": "The Verge AI",
+      "published": "2026-10-22T18:15:00+00:00"
+    },
+    {
+      "headline_he": "1Password מאפשרת לסוכני AI להתחבר לחשבונות שלך בלי שיראו את הסיסמה",
+      "headline_en": "1Password Lets AI Agents Log Into Your Accounts Without Ever Seeing Your Password",
+      "summary_he": "1Password השיקה תכונה שמאפשרת לסוכני AI להתחבר לחשבונות אישיים של לקוח בשמו, תוך שמירה על פרטי ההזדהות עצמם מוסתרים מהסוכן.",
+      "summary_en": "1Password launched a feature that lets AI agents log into a customer's personal accounts on their behalf while keeping the actual credentials hidden from the agent.",
+      "insight_he": "זו תשובה מעשית בדיוק לבעיה שחשיפת הבנקים חשפה: לאפשר לסוכנים לפעול בלי לחשוף אי פעם סודות גולמיים. כדאי לצפות שתבניות תיווך-פרטי-הזדהות כאלה יהפכו לחלק נדרש בכל מערכת סוכנים רצינית שמטפלת בחשבונות אמיתיים, בין אם מבוססת Claude או אחרת.",
+      "insight_en": "This is a practical answer to the exact problem the banking lockouts just exposed: letting agents act without ever exposing raw secrets. Expect credential-brokering patterns like this to become a required piece of any serious agent stack handling real accounts, Claude-based or otherwise.",
+      "category": "tool",
+      "url": "https://techcrunch.com/2026/10/22/1password-launches-a-way-for-ai-agents-to-log-in-on-your-behalf-without-seeing-your-password/",
+      "source": "TechCrunch AI",
+      "published": "2026-10-22T19:07:09+00:00"
+    },
+    {
+      "headline_he": "Anthropic משתמשת ב-Claude לתכנון חלבונים נגד רעלני עקרבים",
+      "headline_en": "Anthropic Uses Claude to Design Protein Binders Against Scorpion Neurotoxins",
+      "summary_he": "צוות המחקר של Anthropic השתמש ב-Claude כדי לבצע צעדים ראשוניים בתכנון חלבונים קושרים נגד רעלני עקרבים, במטרה לטפל במצב שפוגע בכ-1.2 מיליון בני אדם בשנה שלרוב חסרים גישה לנסיוב זול.",
+      "summary_en": "Anthropic's research team used Claude to take early steps toward designing protein binders against scorpion neurotoxins, aiming to address a condition affecting about 1.2 million people a year who often lack access to affordable antivenom.",
+      "insight_he": "זו דוגמה קונקרטית למודל שפה מתקדם שתורם ישירות לביולוגיה במעבדה רטובה ולא רק מסייע בסקירת ספרות או כתיבת קוד, בהמשך לנושא השבוע של AI שעושה עבודה מדעית והנדסית אמיתית. עבור Avi, זה סימן שאותן יכולות הסקה המשמשות לסוכני קוד מתחילות לעבור גם לתחומים כמו גילוי תרופות, עם תוצאות מוקדמות מדידות.",
+      "insight_en": "This is a concrete example of a frontier LLM contributing directly to wet-lab biology rather than just literature review or coding, echoing this week's broader theme of AI doing real scientific and engineering work. It signals that the same reasoning capabilities used for coding agents are starting to transfer into domains like drug discovery with measurable early results.",
+      "category": "research",
+      "url": "https://x.com/AnthropicAI/status/2112579251555721573",
+      "source": "X @AnthropicAI",
+      "published": "2026-10-20T16:18:38+00:00"
+    }
+  ]
+}
