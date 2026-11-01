@@ -43,11 +43,12 @@ engagement counts. Every source is optional and none can fail the build.
 | `GOOGLE_TTS_API_KEY` | MP3 narration | Optional |
 | `FIRECRAWL_API_KEY` | X only (Firecrawl refuses Reddit) | Optional; without it X goes quiet |
 
-## Variables
+## Recipients
 
-| Variable | Meaning |
+| Secret | Meaning |
 |---|---|
-| `DIGEST_TO` | Comma separated recipient list. Unset means Avi alone |
+| `DIGEST_TO` | Comma separated recipient list. Unset means Avi alone. A secret because this repo's Actions logs are public |
+| `DIGEST_CATCHUP_TO` | Optional and temporary. Who gets the current week when the workflow is dispatched with `catchup=true`, after a Sunday send |
 
 ## Reports
 

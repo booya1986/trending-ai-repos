@@ -19,7 +19,12 @@ on:
     # The per-week .email_sent dedup keeps this to one send regardless of how
     # many times it fires.
     - cron: "0 6-11 * * 0"
-  workflow_dispatch: {}   # allow manual run from the Actions tab
+  workflow_dispatch:      # allow manual run from the Actions tab
+    inputs:
+      catchup:
+        description: "Send this week only to the DIGEST_CATCHUP_TO secret (for someone who joined after the send)"
+        type: boolean
+        default: false
   # External-trigger path: a cloud routine (or anyone) with only contents:write
   # can fire the real SMTP send by pushing to .send-trigger. This does NOT need
   # actions:write (which workflow_dispatch via API would). The .email_sent dedup
@@ -75,6 +80,8 @@ jobs:
       - name: Send digest email (SMTP via App Password)
         env:
           GMAIL_APP_PASSWORD: ${{ secrets.GMAIL_APP_PASSWORD }}
+          DIGEST_TO: ${{ secrets.DIGEST_TO }}
+          DIGEST_CATCHUP_TO: ${{ inputs.catchup && secrets.DIGEST_CATCHUP_TO || '' }}
         run: |
           python3 scripts/send_digest_smtp.py "${{ steps.week.outputs.week }}"
 
