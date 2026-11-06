@@ -1,0 +1,777 @@
+{
+  "week": "2026-W45",
+  "since": "2026-10-30",
+  "generated_for": "2026-11-06",
+  "count": 71,
+  "sources_tried": 15,
+  "warnings": [
+    "feed failed for 'AI News': RemoteDisconnected: Remote end closed connection without response",
+    "feed 'Google DeepMind' parsed 0 items (format change?)",
+    "x @OpenAI failed: HTTPError: HTTP Error 402: Payment Required",
+    "x @AnthropicAI failed: HTTPError: HTTP Error 402: Payment Required",
+    "x @GoogleDeepMind failed: HTTPError: HTTP Error 402: Payment Required"
+  ],
+  "items": [
+    {
+      "title": "Perplexity launches its own take on AI agents for work",
+      "url": "https://www.theverge.com/ai-artificial-intelligence/1028302/perplexity-teammates-ai-agents-work",
+      "source": "The Verge AI",
+      "published": "2026-11-05T22:26:50+00:00",
+      "summary": "Perplexity is taking on OpenAI and Anthropic with its own work-focused AI agents. The startup's new always-on \"Teammates\" can take on multiple roles within a workspace, while pulling existing projects, skills, and memory from the Perplexity tools you already use. Teammates integrate with Perplexity Computer, an AI system that can deploy agents on your device […]",
+      "points": 0,
+      "score": 23.72
+    },
+    {
+      "title": "No AI agent scores above 12 percent on SemiAnalysis' new real-world work benchmark",
+      "url": "https://the-decoder.com/no-ai-agent-scores-above-12-percent-on-semianalysis-new-real-world-work-benchmark/",
+      "source": "The Decoder",
+      "published": "2026-11-05T16:46:24+00:00",
+      "summary": "SemiAnalysis is putting AI agents through simulated knowledge work in its new GDPx benchmark, covering everything from chip design to quant trading. No model breaks 12 percent. Claude Opus 5.5 leads narrowly over Gemini 4 Carbon. Critics point to the small number of tasks per domain and uneven testing conditions. The article No AI agent scores above 12 percent on SemiAnalysis' new real-world work benchmark appeared first on The Decoder .",
+      "points": 0,
+      "score": 20.6
+    },
+    {
+      "title": "Meta buys AI coding startup Conductor as big tech races to lock in developers",
+      "url": "https://the-decoder.com/meta-buys-ai-coding-startup-conductor-as-big-tech-races-to-lock-in-developers/",
+      "source": "The Decoder",
+      "published": "2026-11-05T15:01:09+00:00",
+      "summary": "Meta is acquiring AI coding startup Conductor, which lets developers control multiple AI coding agents at once. On the same day, OpenAI announced plans to acquire Pierre Computer, and Anthropic already bought Stainless back in May. The deals follow a pattern: AI models are becoming interchangeable, and the value is shifting to the tools built around them. The article Meta buys AI coding startup Conductor as big tech races to lock in developers appeared first on The Decoder .",
+      "points": 0,
+      "score": 19.56
+    },
+    {
+      "title": "Qwen 3.8 27B on my laptop can interpret model weights, too",
+      "url": "https://simonwillison.net/2026/Nov/3/qwen-can-interpret-model-weights/",
+      "source": "Simon Willison",
+      "published": "2026-11-03T16:29:48+00:00",
+      "summary": "Yesterday's hot paper was Sparks of Weight-Space Programming: LLMs can natively read & write neural network weights by Rikiya Takehi, Jayden Teoh, Alex Zhang, and Omar Khattab. The paper (OK, the authors classify is as a \"blog post\", but it's paper-shaped) found that frontier models, in particular GPT-6 Astra, can both interpret and modify the raw weights of a machine learning model - literally a text description of the model containing a bunch of floating point numbers. I've been playing with one of the examples from the paper and I'm delighted to share that Qwen 3.8 27B running on my laptop ",
+      "points": 0,
+      "score": 17.59
+    },
+    {
+      "title": "Ask HN: What's your current AI agentic setup?",
+      "url": "https://news.ycombinator.com/item?id=50366117",
+      "source": "Hacker News",
+      "published": "2026-11-04T14:37:22+00:00",
+      "summary": "",
+      "points": 527,
+      "score": 16.06
+    },
+    {
+      "title": "Merge builds product and business tools with OpenAI technology",
+      "url": "https://openai.com/index/merge-builds-with-openai",
+      "source": "OpenAI",
+      "published": "2026-11-05T08:00:00+00:00",
+      "summary": "Merge uses GPT-6 Astra, ChatGPT, and Codex to review product code and support marketing. Its teams also use AI to plan executive dinners and prepare sales updates.",
+      "points": 0,
+      "score": 15.92
+    },
+    {
+      "title": "[AINews] LLMs can read & write neural network weights: \"Weight Space Programming\" cuts Autoresearch out of the RSI loop",
+      "url": "https://latent.space/p/ainews-llms-can-read-write-neural-network-weights-weight-space-programming-cuts-autoresearch-out-of/",
+      "source": "Latent Space",
+      "published": "2026-11-03T05:35:00+00:00",
+      "summary": "Editing Qwen’s weights to reduce reasoning loops, DeepSeek’s super-agent prototype, and the GDPx benchmark.",
+      "points": 0,
+      "score": 15.37
+    },
+    {
+      "title": "Raising the quality of insights in agentic analytics",
+      "url": "https://www.technologyreview.com/2026/11/02/1147660/raising-the-quality-of-insights-in-agentic-analytics/",
+      "source": "MIT Tech Review",
+      "published": "2026-11-02T17:00:00+00:00",
+      "summary": "In just a few years, generative AI has changed the face of enterprise analytics, notably by making analytics accessible to users across the organization. Agentic AI promises to do even more, by automating entire workflows and taking actions based on agent insights. But there is a problem: The quality of insights that agents currently generate…",
+      "points": 0,
+      "score": 15.11
+    },
+    {
+      "title": "Exclusive: Aina’s Smart Ring Wants to Be a Remote Control for Your AI Agent",
+      "url": "https://www.wired.com/story/aina-smart-ring/",
+      "source": "Wired AI",
+      "published": "2026-11-05T14:00:00+00:00",
+      "summary": "The startup Aina bets you won’t need to rely on your phone to control virtual assistants. It’s making a smart ring that lets you control the actions of your autonomous agents with one tap.",
+      "points": 0,
+      "score": 14.54
+    },
+    {
+      "title": "Airbnb is working on an AI travel agent",
+      "url": "https://www.theverge.com/tech/1028412/airbnb-ai-travel-agent-q3-2026-earnings",
+      "source": "The Verge AI",
+      "published": "2026-11-06T00:06:12+00:00",
+      "summary": "Airbnb plans to roll out an AI agent in the first half of 2027 that will help users plan and book travel, the company said in its Q3 2026 earnings shareholder letter released today. \"Today's AI agents are good at simple, routine tasks, like making a restaurant reservation or scheduling an appointment,\" Airbnb said. \"But […]",
+      "points": 0,
+      "score": 13.75
+    },
+    {
+      "title": "OpenAIs GPT-6 Cyber can both break into systems and propose how to fix them",
+      "url": "https://the-decoder.com/openais-gpt-6-cyber-can-both-break-into-systems-and-propose-how-to-fix-them/",
+      "source": "The Decoder",
+      "published": "2026-11-05T20:36:25+00:00",
+      "summary": "With GPT-6 Cyber, OpenAI is introducing an AI model built to find security vulnerabilities in software, develop exploits, and suggest patches. According to OpenAI, it has already found 81 previously unknown vulnerabilities in Firefox and developed 948 working exploits in the Linux kernel, significantly more than its predecessor. The article OpenAIs GPT-6 Cyber can both break into systems and propose how to fix them appeared first on The Decoder .",
+      "points": 0,
+      "score": 13.68
+    },
+    {
+      "title": "Google's Gemini Omni 1.2 Flash stretches AI video clips to 15 seconds and cuts pricing by 30 percent",
+      "url": "https://the-decoder.com/googles-gemini-omni-1-2-flash-stretches-ai-video-clips-to-15-seconds-and-cuts-pricing-by-30-percent/",
+      "source": "The Decoder",
+      "published": "2026-11-05T19:05:31+00:00",
+      "summary": "Google Deepmind is making Gemini Omni 1.2 Flash generally available. The video-generation model now creates clips up to 15 seconds long, can be edited step by step via conversation, and costs just $0.07 per second at 720p, 30 percent less than its predecessor. Users who draft in low resolution and upscale only the final result can save even more. The article Google's Gemini Omni 1.2 Flash stretches AI video clips to 15 seconds and cuts pricing by 30 percent appeared first on The Decoder .",
+      "points": 0,
+      "score": 13.65
+    },
+    {
+      "title": "OpenAI president Greg Brockman says company could be IPO ready in 2027",
+      "url": "https://techcrunch.com/2026/11/05/openai-president-greg-brockman-says-company-could-be-ipo-ready-in-2027/",
+      "source": "TechCrunch AI",
+      "published": "2026-11-05T18:02:27+00:00",
+      "summary": "Speaking at a Wall Street Journal tech conference on Wednesday, the executive touted how the company had been gaining ground in the enterprise market, where rival Anthropic had already successfully made inroads.",
+      "points": 0,
+      "score": 13.63
+    },
+    {
+      "title": "Baidu releases ERNIE 5.5 Flash Base with 280 billion parameters as an open-source foundation model",
+      "url": "https://the-decoder.com/baidu-releases-ernie-5-5-flash-base-with-280-billion-parameters-as-an-open-source-foundation-model/",
+      "source": "The Decoder",
+      "published": "2026-11-05T17:56:41+00:00",
+      "summary": "Baidu releases ERNIE 5.5 Flash Base: a 280-billion-parameter MoE model pre-trained on 33.5 trillion tokens, shipped deliberately without fine-tuning, so developers can take it wherever they want. The article Baidu releases ERNIE 5.5 Flash Base with 280 billion parameters as an open-source foundation model appeared first on The Decoder .",
+      "points": 0,
+      "score": 13.63
+    },
+    {
+      "title": "Axiom Math wants to keep AI slop out of mathematics",
+      "url": "https://techcrunch.com/2026/11/05/axiom-math-wants-to-keep-ai-slop-out-of-mathematics/",
+      "source": "TechCrunch AI",
+      "published": "2026-11-05T16:16:45+00:00",
+      "summary": "As AI floods math with unchecked proofs, Axiom Math is betting on verification. The startup’s AI agents just formally verified the Stacks Project, one of the field’s biggest libraries.",
+      "points": 0,
+      "score": 13.59
+    },
+    {
+      "title": "Securing the agentic enterprise with data lineage",
+      "url": "https://www.technologyreview.com/2026/11/04/1147596/securing-the-agentic-enterprise-with-data-lineage/",
+      "source": "MIT Tech Review",
+      "published": "2026-11-04T13:00:00+00:00",
+      "summary": "A sales representative asks an AI agent for customer pricing, and the agent pulls data from multiple sources: restricted pricing systems, internal communications, and archived quotes. The output looks accurate to the agent, so a second agent uses the data to draft the proposal for the sales rep. No human checks either handoff. When it’s…",
+      "points": 0,
+      "score": 13.02
+    },
+    {
+      "title": "Tell HN: Gemini trains on chat history, even for subscribers (personal accounts)",
+      "url": "https://news.ycombinator.com/item?id=50363461",
+      "source": "Hacker News",
+      "published": "2026-11-04T10:10:27+00:00",
+      "summary": "",
+      "points": 718,
+      "score": 12.96
+    },
+    {
+      "title": "GPT‑6 Cyber: Advancing the frontier of aligned cybersecurity agents",
+      "url": "https://openai.com/index/introducing-gpt-6-cyber",
+      "source": "OpenAI",
+      "published": "2026-11-05T09:00:00+00:00",
+      "summary": "Introducing GPT‑6 Cyber, OpenAI’s cybersecurity model for finding exploitable vulnerabilities and developing fixes, trained to stay within authorized scope.",
+      "points": 0,
+      "score": 12.94
+    },
+    {
+      "title": "Ads in Chatbots Have Arrived. Here’s What’s Working—and What’s Not",
+      "url": "https://www.wired.com/story/ads-in-chatbots-have-arrived-heres-whats-working-and-whats-not/",
+      "source": "Wired AI",
+      "published": "2026-11-05T21:37:18+00:00",
+      "summary": "As Anthropic maintains its vow to keep ads out of Claude, the rest of the AI chatbot industry is racing to win over advertisers without antagonizing users.",
+      "points": 0,
+      "score": 12.7
+    },
+    {
+      "title": "Claude AI can plug directly into your bank account",
+      "url": "https://www.theverge.com/ai-artificial-intelligence/1027652/anthropic-claude-plaid-personal-finance",
+      "source": "The Verge AI",
+      "published": "2026-11-05T18:00:00+00:00",
+      "summary": "Anthropic has a new pitch for managing your personal finances: let Claude do it instead, with a new Personal Finance feature that connects it to your bank and card accounts via the Plaid bank bridging platform. You can ask the chatbot \"where did my money go this month,\" for example, and it'll create an overview […]",
+      "points": 0,
+      "score": 12.63
+    },
+    {
+      "title": "Tencent releases Hy4 with vision and computer use, claims second place among Chinese AI models",
+      "url": "https://the-decoder.com/tencent-releases-hy4-with-vision-and-computer-use-claims-second-place-among-chinese-ai-models/",
+      "source": "The Decoder",
+      "published": "2026-11-05T16:06:31+00:00",
+      "summary": "Tencent has unveiled Hy4, its first multimodal language model that understands images and can operate software on its own. On the Artificial Analysis Intelligence Index, it scores 35 points, solid but behind Kimi K3.1 Pro. On hard math and complex image analysis, Hy4 still trails the best commercial models by a wide margin, according to Tencent itself. The article Tencent releases Hy4 with vision and computer use, claims second place among Chinese AI models appeared first on The Decoder .",
+      "points": 0,
+      "score": 12.59
+    },
+    {
+      "title": "He Trolls AI Labs for a Living. Now They All Want to Work With Him",
+      "url": "https://www.wired.com/story/wired-world-fair-2026-evan-ratliff-and-husk/",
+      "source": "Wired AI",
+      "published": "2026-11-05T11:45:00+00:00",
+      "summary": "OpenAI, Anthropic, and SpaceXSI have all reached out to Husk, an influencer who regularly goes viral by exposing the shortcomings of chatbots.",
+      "points": 0,
+      "score": 12.5
+    },
+    {
+      "title": "How “reverse game theory” could keep AI agents in check",
+      "url": "https://www.technologyreview.com/2026/11/03/1147934/reverse-game-theory-mechanism-design-ai-alignment/",
+      "source": "MIT Tech Review",
+      "published": "2026-11-03T10:43:41+00:00",
+      "summary": "A new approach known as “reverse game theory” aims to control powerful AI models by designing systems that incentivize them to stick to the rules. As AI models become more capable, safety researchers are scrambling to ensure they are “aligned” with human desires—to make sure, in other words, that rogue agents don’t break the law,…",
+      "points": 0,
+      "score": 12.47
+    },
+    {
+      "title": "YC's Garry Tan uses AI agents so much, he spends up to $200K a year on tokens",
+      "url": "https://techcrunch.com/2026/11/02/y-combinators-garry-tan-uses-ai-agents-so-much-he-spends-up-to-200k-a-year-on-tokens/",
+      "source": "Hacker News",
+      "published": "2026-11-04T15:28:31+00:00",
+      "summary": "",
+      "points": 106,
+      "score": 12.13
+    },
+    {
+      "title": "Anthropic adds bank account access to Claude so users can track their spending",
+      "url": "https://the-decoder.com/anthropic-adds-bank-account-access-to-claude-so-users-can-track-their-spending/",
+      "source": "The Decoder",
+      "published": "2026-11-06T11:33:13+00:00",
+      "summary": "Anthropic is introducing a new feature in Claude called Personal Finance, which allows users to connect their bank and card accounts and ask questions about their finances. The article Anthropic adds bank account access to Claude so users can track their spending appeared first on The Decoder .",
+      "points": 0,
+      "score": 11.99
+    },
+    {
+      "title": "OpenAI is stepping back from NDAs for data center projects",
+      "url": "https://www.theverge.com/ai-artificial-intelligence/1028454/openai-data-center-nda",
+      "source": "The Verge AI",
+      "published": "2026-11-06T00:37:56+00:00",
+      "summary": "Following this week's midterms where voters resoundingly voiced their opposition to data center expansion, OpenAI today announced new commitments to communities where it is working on data center projects, including that it won't use non-disclosure agreements (NDAs) with public officials. Many data center projects have come under scrutiny for relying on NDAs to hide discussions […]",
+      "points": 0,
+      "score": 11.76
+    },
+    {
+      "title": "OpenAI released a new cybersecurity model. Is that enough?",
+      "url": "https://techcrunch.com/2026/11/05/openai-released-a-new-cybersecurity-model-is-that-enough/",
+      "source": "TechCrunch AI",
+      "published": "2026-11-05T19:06:12+00:00",
+      "summary": "OpenAI's newest cybersecurity model comes out as AI labs face scrutiny of their work to protect digital infrastructure.",
+      "points": 0,
+      "score": 11.65
+    },
+    {
+      "title": "Muse has a voice mode now",
+      "url": "https://www.theverge.com/tech/1028015/meta-muse-ai-voice-mode-expressive-avatar",
+      "source": "The Verge AI",
+      "published": "2026-11-05T19:03:04+00:00",
+      "summary": "Meta now lets you have voice conversations with your Muse AI agent in real time, CEO Mark Zuckerberg announced today. The feature has been rolled out to me, and I gave it a spin on the iOS app while writing this article. As you chat with your Muse agent, the avatar at the top of […]",
+      "points": 0,
+      "score": 11.65
+    },
+    {
+      "title": "The Little Book of Generative AI Foundations: An Intuitive Mathematical Primer",
+      "url": "https://arxiv.org/abs/2605.29713",
+      "source": "Hacker News",
+      "published": "2026-11-03T21:40:53+00:00",
+      "summary": "",
+      "points": 392,
+      "score": 11.62
+    },
+    {
+      "title": "[AINews] It's Swapping Season",
+      "url": "https://latent.space/p/ainews-it-s-swapping-season/",
+      "source": "Latent Space",
+      "published": "2026-11-05T06:24:09+00:00",
+      "summary": "November 4, 2026 — OpenAI’s Linux kernel security work, Kimi K3.1 Pro’s open weights, and Ricursive’s Ripple-65B.",
+      "points": 0,
+      "score": 11.38
+    },
+    {
+      "title": "Palo Alto Networks in talks to buy AI agent security startup Clutch for $500M",
+      "url": "https://techcrunch.com/2026/11/05/palo-alto-networks-in-talks-to-buy-ai-agent-security-startup-clutch-for-500m/",
+      "source": "TechCrunch AI",
+      "published": "2026-11-06T06:28:32+00:00",
+      "summary": "Clutch, backed by Lightspeed and SignalFire, was last valued at $85 million, according to a source.",
+      "points": 0,
+      "score": 10.89
+    },
+    {
+      "title": "Meta says US users can now video chat with their Muse AI avatar",
+      "url": "https://techcrunch.com/2026/11/05/meta-says-us-users-can-now-video-chat-with-their-muse-ai-avatar/",
+      "source": "TechCrunch AI",
+      "published": "2026-11-05T19:48:28+00:00",
+      "summary": "Meta's AI agent can now take calls as a customizable animated avatar, ahead of the launch of a Tamagotchi-like wearable designed to bring Muse to life.",
+      "points": 0,
+      "score": 10.66
+    },
+    {
+      "title": "Postman silently auto-installs AI plugins and attempts to share all API data",
+      "url": "https://github.com/postmanlabs/postman-app-support/issues/14370",
+      "source": "Hacker News",
+      "published": "2026-11-03T17:22:37+00:00",
+      "summary": "",
+      "points": 1517,
+      "score": 10.61
+    },
+    {
+      "title": "datasette-llm 0.1a10",
+      "url": "https://simonwillison.net/2026/Nov/4/datasette-llm/",
+      "source": "Simon Willison",
+      "published": "2026-11-04T15:26:02+00:00",
+      "summary": "Release: datasette-llm 0.1a10 Fixes a bug that affected my agent.datasette.io demo site, where the set of available LLM models was not correctly restricted to just those in the configuration. Tags: datasette , llm",
+      "points": 0,
+      "score": 10.07
+    },
+    {
+      "title": "Anthropic's $1.5 trillion IPO hits resistance as investors balk at valuation",
+      "url": "https://the-decoder.com/anthropics-1-5-trillion-ipo-hits-resistance-as-investors-balk-at-valuation/",
+      "source": "The Decoder",
+      "published": "2026-11-06T11:38:17+00:00",
+      "summary": "Anthropic's IPO is in trouble as investors push back on the $1.5 trillion valuation and the tech market sells off. The article Anthropic's $1.5 trillion IPO hits resistance as investors balk at valuation appeared first on The Decoder .",
+      "points": 0,
+      "score": 9.99
+    },
+    {
+      "title": "The agentic web is here",
+      "url": "https://www.technologyreview.com/2026/11/02/1147846/the-agentic-web-is-here/",
+      "source": "MIT Tech Review",
+      "published": "2026-11-02T09:35:19+00:00",
+      "summary": "In 2001, a decade after he invented the World Wide Web, Tim Berners-Lee articulated a new vision. Together with two colleagues, he published an article in the magazine Scientific American in which he outlined what he called the “Semantic Web”: an internet designed to be navigated by autonomous software agents that could address our every…",
+      "points": 0,
+      "score": 9.95
+    },
+    {
+      "title": "Flipsnack grows product signups with conversion optimization",
+      "url": "https://openai.com/ads/customers/flipsnack",
+      "source": "OpenAI",
+      "published": "2026-11-05T00:45:15+00:00",
+      "summary": "Flipsnack focused its ChatGPT Ads campaigns on getting people to try its product, growing registrations while lowering the cost per signup.",
+      "points": 0,
+      "score": 9.77
+    },
+    {
+      "title": "Siri AI developer 🍎, Gemini Notebook API 👨‍💻, provable inference ⚡",
+      "url": "https://tldr.tech/ai/2026-11-04",
+      "source": "TLDR AI",
+      "published": "2026-11-04T00:00:00+00:00",
+      "summary": "",
+      "points": 0,
+      "score": 9.75
+    },
+    {
+      "title": "Google: Schools can keep search while skipping Gemini, but AI search is non-negotiable",
+      "url": "https://arstechnica.com/ai/2026/11/google-schools-can-keep-search-while-skipping-gemini-but-ai-search-is-non-negotiable/",
+      "source": "Ars Technica AI",
+      "published": "2026-11-05T21:40:36+00:00",
+      "summary": "Google is technically offering schools more choice but not the choices anyone wants.",
+      "points": 0,
+      "score": 9.7
+    },
+    {
+      "title": "Launch HN: Rivet (YC W23) – Scale and Orchestrate Agents on S3",
+      "url": "https://github.com/rivet-dev/rivet",
+      "source": "Hacker News",
+      "published": "2026-11-05T17:17:42+00:00",
+      "summary": "",
+      "points": 102,
+      "score": 9.63
+    },
+    {
+      "title": "Claude can now analyze your spending with its new Personal Finance tool",
+      "url": "https://techcrunch.com/2026/11/05/claude-can-now-analyze-your-spending-with-its-new-personal-finance-tool/",
+      "source": "TechCrunch AI",
+      "published": "2026-11-05T18:00:00+00:00",
+      "summary": "With Personal Finance in Claude, users can connect their bank and card accounts through Plaid and ask questions about their finances.",
+      "points": 0,
+      "score": 9.63
+    },
+    {
+      "title": "OpenAI to acquire Pierre Computer Company, Inc.",
+      "url": "https://openai.com/index/openai-to-acquire-pierre",
+      "source": "OpenAI",
+      "published": "2026-11-04T14:30:00+00:00",
+      "summary": "OpenAI will acquire Pierre Computer Company, expanding Codex’s tools for building, understanding, and reviewing code.",
+      "points": 0,
+      "score": 9.55
+    },
+    {
+      "title": "Show HN: A decent text-to-image model trained for ~$20K (Apache 2.0 Weights)",
+      "url": "https://www.linum.ai/field-notes/pjit-21k",
+      "source": "Hacker News",
+      "published": "2026-11-04T16:45:11+00:00",
+      "summary": "",
+      "points": 242,
+      "score": 9.52
+    },
+    {
+      "title": "Claude Message Threads 🧵, Astra 6.2 spotted 👀, Anthropic nears RSI 🔄",
+      "url": "https://tldr.tech/ai/2026-11-03",
+      "source": "TLDR AI",
+      "published": "2026-11-03T00:00:00+00:00",
+      "summary": "",
+      "points": 0,
+      "score": 9.25
+    },
+    {
+      "title": "Anthropic confirms new Claude Code limits to prevent game cloning",
+      "url": "https://www.tomshardware.com/tech-industry/artificial-intelligence/anthropic-confirms-new-claude-code-limits-to-prevent-game-cloning-users-report-opus-5-5-is-also-actively-blocking-reverse-engineering-tasks",
+      "source": "r/ClaudeAI",
+      "published": "2026-11-02T18:51:30+00:00",
+      "summary": "",
+      "points": 0,
+      "score": 9.14
+    },
+    {
+      "title": "Claude’s new rules against game cloning won’t stop the AI copying boom",
+      "url": "https://arstechnica.com/ai/2026/11/claudes-new-rules-against-game-cloning-wont-stop-the-ai-copying-boom/",
+      "source": "Ars Technica AI",
+      "published": "2026-11-02T18:05:31+00:00",
+      "summary": "The tsunami of imitators is way bigger than any one model maker can stem.",
+      "points": 0,
+      "score": 9.13
+    },
+    {
+      "title": "Australian universities are creating AI-native graduates",
+      "url": "https://openai.com/index/australian-universities-ai-native-graduates",
+      "source": "OpenAI",
+      "published": "2026-11-05T17:00:00+00:00",
+      "summary": "Australian universities are expanding access to ChatGPT and bringing AI into teaching and learning to prepare students for an AI-enabled workforce.",
+      "points": 0,
+      "score": 9.11
+    },
+    {
+      "title": "Agents Prompt People: Using Agents for Long-Horizon Financial Work",
+      "url": "https://latent.space/p/arca/",
+      "source": "Latent Space",
+      "published": "2026-10-31T16:05:00+00:00",
+      "summary": "Arca's head of AI discusses persistent memory, the benefits of a custom harness, and agentic workflows that span days.",
+      "points": 0,
+      "score": 9.09
+    },
+    {
+      "title": "Anthropic updates Claude to 'steer it away' from letting users clone games following weeks of Steam being inundated with AI slop",
+      "url": "https://www.pcgamer.com/gaming-industry/anthropic-updates-claude-to-steer-it-away-from-letting-users-clone-games-following-weeks-of-steam-being-inundated-with-ai-slop/",
+      "source": "r/ClaudeAI",
+      "published": "2026-10-31T15:38:03+00:00",
+      "summary": "",
+      "points": 0,
+      "score": 9.08
+    },
+    {
+      "title": "[AINews] Inkling 2 Small: 17A-594B trained in 68 hours on 12T tokens, beating Muse Spark",
+      "url": "https://latent.space/p/ainews-inkling-2-small-17a-594b-trained-in-68-hours-on-12t-tokens-beating-muse-spark/",
+      "source": "Latent Space",
+      "published": "2026-11-06T10:35:21+00:00",
+      "summary": "November 5, 2026 — Inside Inkling 2 Small’s training run and METR’s study of AI research at Anthropic.",
+      "points": 0,
+      "score": 8.97
+    },
+    {
+      "title": "Setting a new standard for responsible AI infrastructure",
+      "url": "https://openai.com/index/setting-new-standard-responsible-ai-infrastructure",
+      "source": "OpenAI",
+      "published": "2026-11-05T02:00:00+00:00",
+      "summary": "OpenAI introduces its National Community Compact and Compute Campus Policy Blueprint to protect local resources, create jobs, and guide responsible AI infrastructure development.",
+      "points": 0,
+      "score": 8.79
+    },
+    {
+      "title": "DeepSeek super agent 🤖, GPT-6 Rosalind 🧬, Google orbital compute 🛰️",
+      "url": "https://tldr.tech/ai/2026-11-02",
+      "source": "TLDR AI",
+      "published": "2026-11-02T00:00:00+00:00",
+      "summary": "",
+      "points": 0,
+      "score": 8.75
+    },
+    {
+      "title": "Franklin Templeton uses OpenAI to support investment research",
+      "url": "https://openai.com/index/franklin-templeton",
+      "source": "OpenAI",
+      "published": "2026-11-05T00:00:00+00:00",
+      "summary": "Starting with equity research, Franklin Templeton is developing AI workflows to help portfolio managers compare research views and examine investment risks.",
+      "points": 0,
+      "score": 8.75
+    },
+    {
+      "title": "Lawsuit: Man introduced his wife to ChatGPT. She used it to plan his murder.",
+      "url": "https://arstechnica.com/tech-policy/2026/11/lawsuit-man-introduced-his-wife-to-chatgpt-she-used-it-to-plan-his-murder/",
+      "source": "Ars Technica AI",
+      "published": "2026-11-05T21:39:40+00:00",
+      "summary": "Bitter energy drinks turned out to be ChatGPT-steered poisoning, lawsuit says.",
+      "points": 0,
+      "score": 8.7
+    },
+    {
+      "title": "Finding New Drugs Is Laborious. This AI Startup Is Skipping The Lab Work",
+      "url": "https://www.wired.com/story/finding-new-drugs-is-laborious-this-ai-startup-is-skipping-the-lab-work/",
+      "source": "Wired AI",
+      "published": "2026-11-05T13:00:00+00:00",
+      "summary": "Potential Sciences, a startup backed by the UK government, is betting that training AI models on computer-generated biochemical data can speed up the plodding process of developing new drugs.",
+      "points": 0,
+      "score": 8.52
+    },
+    {
+      "title": "October sponsors-only newsletter",
+      "url": "https://simonwillison.net/2026/Nov/3/october-newsletter/",
+      "source": "Simon Willison",
+      "published": "2026-11-03T05:28:59+00:00",
+      "summary": "I sent out the October edition of my sponsors-only monthly newsletter . If you are a sponsor (or start a sponsorship now) you can access it here . This month: The October inflection point for vibe game development The vulnerability apocalypse gets hot LLM releases API credits for $100+/month subscriptions What I'm using right now My software releases My September newsletter can now be seen here , as a preview of what you'll get. Pay $10/month to stay a month ahead of the free copy! Tags: newsletter",
+      "points": 0,
+      "score": 8.37
+    },
+    {
+      "title": "Stop counting tokens, start counting what ships",
+      "url": "https://www.technologyreview.com/2026/11/02/1147702/stop-counting-tokens-start-counting-what-ships/",
+      "source": "MIT Tech Review",
+      "published": "2026-11-02T13:10:32+00:00",
+      "summary": "When a developer gives an AI agent a coding task, the agent does more than answer once. It plans, generates code, runs tests, and repeats the process to correct errors. A single task can use 10 to 50 times more tokens than a basic chat prompt. The more useful the agent becomes, the more calls…",
+      "points": 0,
+      "score": 8.03
+    },
+    {
+      "title": "Show HN: Uncracked City, detective game where you question LLM suspects that lie",
+      "url": "https://uncracked.city",
+      "source": "Hacker News",
+      "published": "2026-11-03T21:20:03+00:00",
+      "summary": "",
+      "points": 127,
+      "score": 7.97
+    },
+    {
+      "title": "datasette-apps 0.3a0",
+      "url": "https://simonwillison.net/2026/Nov/4/datasette-apps/",
+      "source": "Simon Willison",
+      "published": "2026-11-04T00:29:36+00:00",
+      "summary": "Release: datasette-apps 0.3a0 Datasette Apps adds support for hosting and editing custom HTML applications inside of Datasette. These can be created by hand, but it's easier to create them using LLMs via Datasette Agent . This release improves that integration: Apps can now be tagged in Datasette Agent chat messages by typing # , which autocompletes from the apps the user has permission to view. New app_add_stored_queries() and app_remove_stored_queries() tools let the agent manage which stored queries an app is allowed to call. Granting a write query requires approval from the user first. app",
+      "points": 0,
+      "score": 7.76
+    },
+    {
+      "title": "A Closer Look at Phonon TTS. Launching High-Quality On-Device Speech That Tops the Benchmarks.",
+      "url": "https://huggingface.co/blog/phonon-tts",
+      "source": "Hugging Face",
+      "published": "2026-11-05T00:00:00+00:00",
+      "summary": "",
+      "points": 0,
+      "score": 7.75
+    },
+    {
+      "title": "British fintech Revolut slashes AI coding costs 10x by cutting out Claude and going self-hosted",
+      "url": "https://www.theregister.com/ai-and-ml/2026/11/03/british-fintech-revolut-slashes-ai-coding-costs-10x-by-cutting-out-claude-and-going-self-hosted/5307345",
+      "source": "r/LocalLLaMA",
+      "published": "2026-11-03T21:05:30+00:00",
+      "summary": "",
+      "points": 0,
+      "score": 7.69
+    },
+    {
+      "title": "Grimes is going to star in an AI movie that’s coming to theaters",
+      "url": "https://www.theverge.com/entertainment/1026282/grimes-ai-movie",
+      "source": "The Verge AI",
+      "published": "2026-11-05T17:00:00+00:00",
+      "summary": "The AI-generated sci-fi film Gods Don't Give Gifts has added a bit of star power: Pop star Grimes is going to appear in the movie. Billed as \"the first AI film to come to theatres,\" Gods Don't Give Gifts is a notable test case for the commercial potential of AI films, and it releases on […]",
+      "points": 0,
+      "score": 7.61
+    },
+    {
+      "title": "Launch HN: Kino AI (YC S23) – AI media manager and video editor",
+      "url": "https://news.ycombinator.com/item?id=50368804",
+      "source": "Hacker News",
+      "published": "2026-11-04T17:31:53+00:00",
+      "summary": "",
+      "points": 107,
+      "score": 7.19
+    },
+    {
+      "title": "Anthropic's internal AI use, valued at retail prices, now exceeds its employee pay",
+      "url": "https://www.businessinsider.com/anthropic-claude-internal-ai-use-exceeds-employee-pay-tokens-2026-11",
+      "source": "r/ClaudeAI",
+      "published": "2026-11-02T17:02:44+00:00",
+      "summary": "",
+      "points": 0,
+      "score": 7.11
+    },
+    {
+      "title": "AI agent swarms unleashed in Minecraft to ‘build a thriving civilization’ — 50-agent teams fail after falling into paralyzing bureaucracy",
+      "url": "https://www.tomshardware.com/tech-industry/artificial-intelligence/ai-agent-swarms-unleashed-in-minecraft-to-build-a-thriving-civilization-50-agent-teams-fail-after-falling-into-paralyzing-bureaucracy",
+      "source": "r/OpenAI",
+      "published": "2026-11-02T16:30:36+00:00",
+      "summary": "",
+      "points": 0,
+      "score": 7.1
+    },
+    {
+      "title": "Kimi-K3.1-Pro is now open-weights",
+      "url": "https://huggingface.co/moonshotai/Kimi-K3.1-Pro",
+      "source": "r/LocalLLaMA",
+      "published": "2026-11-04T15:44:08+00:00",
+      "summary": "",
+      "points": 0,
+      "score": 7.08
+    },
+    {
+      "title": "Show HN: Kairos – Open-source risk and fraud decisioning platform",
+      "url": "https://github.com/finic-ai/kairos",
+      "source": "Hacker News",
+      "published": "2026-11-03T21:16:48+00:00",
+      "summary": "",
+      "points": 104,
+      "score": 6.73
+    },
+    {
+      "title": "Alibaba's Qwen Code repo just leaked qwen4-max, qwen4-coder-plus, and qwen4-omni-120b",
+      "url": "https://github.com/QwenLM/qwen-code/pull/15762",
+      "source": "r/LocalLLaMA",
+      "published": "2026-11-03T03:55:43+00:00",
+      "summary": "",
+      "points": 0,
+      "score": 6.33
+    },
+    {
+      "title": "Building Legal Agents When You Can't See the Data - Jacob Lauritzen, CTO of Legora",
+      "url": "https://latent.space/p/building_legal_agents_when_you_can_t_see_the_data_-_jacob_lauritzen_cto_of_legora/",
+      "source": "Latent Space",
+      "published": "2026-11-02T22:54:03+00:00",
+      "summary": "Legora can’t read a single trace of what its agent does for a lawyer. The data belongs to the law firm’s clients. How do you build and test an agent when you can’t see its work? Jacob Lauritzen is the CTO of Legora, one of the fastest-growing companies...",
+      "points": 0,
+      "score": 6.23
+    },
+    {
+      "title": "How big is the open model economy today?",
+      "url": "https://www.interconnects.ai/p/how-well-can-we-measure-open-model",
+      "source": "Interconnects",
+      "published": "2026-11-04T16:35:44+00:00",
+      "summary": "Our first open model economy research note for paid subscribers.",
+      "points": 0,
+      "score": 6.1
+    },
+    {
+      "title": "Was I wrong about open models & cyber risks?",
+      "url": "https://www.interconnects.ai/p/was-i-wrong-about-open-models-and",
+      "source": "Interconnects",
+      "published": "2026-10-30T17:36:56+00:00",
+      "summary": "Last week coined the term “Black October“ after an onslaught of critical vulnerability disclosures, including PHP2Shell and a long-standing GitLab bug, signified the moment when the cyber risks of AI models started to materialize.",
+      "points": 0,
+      "score": 3.62
+    }
+  ],
+  "stories": [
+    {
+      "headline_he": "בנצ'מרק GDPx חדש חושף: סוכני AI נכשלים במשימות עבודה אמיתיות",
+      "headline_en": "New GDPx Benchmark Shows AI Agents Still Fail at Real-World Work",
+      "summary_he": "SemiAnalysis פרסמה בנצ'מרק חדש בשם GDPx שבודק סוכני AI על משימות עבודה ריאליסטיות, מעיצוב שבבים ועד מסחר כמותי. אף מודל לא עבר 12%, כש-Claude Opus 5.5 מוביל בפער קטן על Gemini 4 Carbon.",
+      "summary_en": "SemiAnalysis published a new GDPx benchmark testing AI agents on realistic knowledge-work tasks spanning chip design to quant trading. No model scored above 12%, with Claude Opus 5.5 narrowly leading Gemini 4 Carbon.",
+      "insight_he": "למרות ההצהרות הרועשות על פריצות דרך בסוכנים, הפער בין ביצועי הדגמה לאמינות עבודה מקצה לקצה עדיין עצום. למפתחים כדאי להתייחס בספקנות לשיווק בנצ'מרקים ולבדוק סוכנים על משימות צרות ומוגדרות היטב משלהם, במקום לצפות ליכולת כללית.",
+      "insight_en": "Despite loud claims of agentic breakthroughs, the gap between demo-level agent performance and genuine end-to-end work reliability remains huge. Builders should treat benchmark marketing with skepticism and test agents on their own narrow, well-defined tasks rather than expecting general competence.",
+      "category": "research",
+      "url": "https://the-decoder.com/no-ai-agent-scores-above-12-percent-on-semianalysis-new-real-world-work-benchmark/",
+      "source": "The Decoder",
+      "published": "2026-11-05T16:46:24+00:00"
+    },
+    {
+      "headline_he": "מטא רוכשת את Conductor: גל הרכישות של כלי קידוד AI נמשך",
+      "headline_en": "Meta Acquires Conductor as Big Tech Races to Lock In AI Coding Agents",
+      "summary_he": "מטא רכשה את סטארטאפ הקידוד Conductor, המאפשר למפתחים לתפעל כמה סוכני קידוד AI במקביל. באותו יום OpenAI הודיעה על כוונה לרכוש את Pierre Computer, בהמשך לרכישת Stainless על ידי Anthropic במאי.",
+      "summary_en": "Meta acquired AI coding startup Conductor, which lets developers orchestrate multiple coding agents at once. The same day OpenAI announced plans to acquire Pierre Computer, following Anthropic's earlier purchase of Stainless.",
+      "insight_he": "החברות הגדולות מאחדות תחת גגן את שכבת הכלים לתזמור סוכני קידוד, לא רק את המודלים עצמם, מה שמראה שכלי זרימת העבודה הופכים לאסטרטגיים לא פחות מהמודלים. סביר שעוד כלי סוכנים מובילים ייבלעו לתוך מערכות אקולוגיות של הפלטפורמות הגדולות.",
+      "insight_en": "The big labs are consolidating the agentic coding tooling layer rather than just the underlying models, signaling that orchestration and developer workflow tools are becoming as strategically important as the models themselves. Expect more best-of-breed agent tools to get folded into platform ecosystems.",
+      "category": "company",
+      "url": "https://the-decoder.com/meta-buys-ai-coding-startup-conductor-as-big-tech-races-to-lock-in-developers/",
+      "source": "The Decoder",
+      "published": "2026-11-05T15:01:09+00:00"
+    },
+    {
+      "headline_he": "מחקר חדש: מודלי שפה יכולים לקרוא ולכתוב משקלים של רשתות נוירונים",
+      "headline_en": "New Research: LLMs Can Natively Read and Write Neural Network Weights",
+      "summary_he": "מאמר חדש בשם Sparks of Weight-Space Programming מראה שמודלים מתקדמים כמו Qwen 3.8 27B יכולים לפרש ולשנות ישירות את משקלי הרשתות של מודלים אחרים, תוך הרצה מקומית על מחשב נייד.",
+      "summary_en": "A new paper, Sparks of Weight-Space Programming, shows that frontier models like Qwen 3.8 27B can directly interpret and manipulate the weights of other neural networks, running locally on a laptop.",
+      "insight_he": "זה מצביע על מודלים שיכולים לדבג, לערוך או לייעל מודלים אחרים ברמת המשקלים עצמם, במקום רק דרך פיין-טיונינג או פרומפטים, צעד לעבר מערכות שמשפרות את עצמן. עדיין מוקדם, אבל שווה מעקב ככלי בסיס לעריכת מודלים אוטומטית.",
+      "insight_en": "This points toward models that can debug, edit, or optimize other models directly at the weight level instead of only through fine-tuning or prompting, a step toward self-improving systems. It's early but worth watching as a building block for automated model editing tools.",
+      "category": "technique",
+      "url": "https://simonwillison.net/2026/Nov/3/qwen-can-interpret-model-weights/",
+      "source": "Simon Willison",
+      "published": "2026-11-03T16:29:48+00:00"
+    },
+    {
+      "headline_he": "OpenAI משיקה את GPT-6 Cyber: מודל שגם פורץ מערכות וגם מתקן אותן",
+      "headline_en": "OpenAI Launches GPT-6 Cyber, a Model That Both Hacks and Patches Systems",
+      "summary_he": "OpenAI הציגה את GPT-6 Cyber, מודל שתוכנן לאתר פרצות אבטחה, לפתח ניצולים (exploits) ולהציע תיקונים. החברה מדווחת שהמודל כבר מצא 81 פרצות לא ידועות ב-Firefox ופיתח 948 ניצולים פעילים ב-Linux.",
+      "summary_en": "OpenAI introduced GPT-6 Cyber, a model built to find vulnerabilities, develop exploits, and propose fixes. The company says it already found 81 unknown vulnerabilities in Firefox and built 948 working exploits in Linux.",
+      "insight_he": "יכולת התקפה סייבר נכנסת עכשיו ישירות לתוך מודלים מובילים, מה שישנה גם את תהליכי הבדיקה האדומה וגם את נוף האיומים, כי אותה יכולת שעוזרת למגנים יכולה לשמש תוקפים. סביר שהביקורת והרגולציה על בקרת גישה לכלים כאלה תגבר במהירות.",
+      "insight_en": "Offensive security capability is now baked directly into frontier models, which will reshape both red-teaming workflows and the threat landscape, since the same capability that finds bugs for defenders can be misused by attackers. Expect scrutiny over access controls and dual-use policy to intensify quickly.",
+      "category": "model",
+      "url": "https://the-decoder.com/openais-gpt-6-cyber-can-both-break-into-systems-and-propose-how-to-fix-them/",
+      "source": "The Decoder",
+      "published": "2026-11-05T20:36:25+00:00"
+    },
+    {
+      "headline_he": "גוגל משיקה את Gemini Omni 1.2 Flash: סרטוני AI של 15 שניות בהנחה של 30%",
+      "headline_en": "Google Ships Gemini Omni 1.2 Flash: 15-Second AI Video Clips at 30% Lower Cost",
+      "summary_he": "גוגל דיפמיינד השיקה לכלל הציבור את Gemini Omni 1.2 Flash, שמייצר כעת קליפים באורך 15 שניות, מאפשר עריכה שיחתית שלב-אחר-שלב, ועולה 0.07 דולר לשנייה באיכות 720p, ירידה של 30% במחיר לעומת הגרסה הקודמת.",
+      "summary_en": "Google DeepMind made Gemini Omni 1.2 Flash generally available, extending generated video clips to 15 seconds, adding step-by-step conversational editing, and cutting price to $0.07 per second at 720p, 30% cheaper than before.",
+      "insight_he": "קליפים ארוכים יותר יחד עם עריכה שיחתית מקרבים את יצירת וידאו ה-AI לכלי ייצור מעשי ולא רק גימיק, וההוזלה הופכת תהליכי יצירה איטרטיביים לכדאיים כלכלית בקנה מידה. שווה לבדוק לצורך סטוריבורדים או קריאייטיב פרסומי עכשיו שהעלות לאיטרציה נמוכה.",
+      "insight_en": "Longer clips plus conversational editing moves AI video generation closer to a practical production tool rather than a novelty, and the price cut makes iterative creative workflows economically viable at scale. Worth testing for storyboard or ad-creative pipelines now that cost per iteration is low.",
+      "category": "model",
+      "url": "https://the-decoder.com/googles-gemini-omni-1-2-flash-stretches-ai-video-clips-to-15-seconds-and-cuts-pricing-by-30-percent/",
+      "source": "The Decoder",
+      "published": "2026-11-05T19:05:31+00:00"
+    },
+    {
+      "headline_he": "Baidu משחררת בקוד פתוח את ERNIE 5.5 Flash Base עם 280 מיליארד פרמטרים",
+      "headline_en": "Baidu Open-Sources ERNIE 5.5 Flash Base, a 280-Billion-Parameter Model",
+      "summary_he": "Baidu שחררה את ERNIE 5.5 Flash Base, מודל MoE עם 280 מיליארד פרמטרים שאומן על 33.5 טריליון טוקנים, ושוחרר במכוון בלי פיין-טיונינג כדי שמפתחים יוכלו להתאים אותו כרצונם.",
+      "summary_en": "Baidu released ERNIE 5.5 Flash Base, a 280-billion-parameter mixture-of-experts model pre-trained on 33.5 trillion tokens, deliberately shipped without fine-tuning so developers can adapt it freely.",
+      "insight_he": "מודל בסיס גדול ולא מכוון נותן למפתחים גמישות מקסימלית לכוון אותו לדומיין ספציפי בלי להיאבק בבחירות RLHF של ספק קיים, ומחזק את האקוסיסטם של משקלים פתוחים שמעבדות סיניות דוחפות בחוזקה. זו אופציה שימושית למי שרוצה בסיס חזק להתאמה אישית ולא צ'אטבוט מוכן.",
+      "insight_en": "A large, unaligned base model gives builders maximum flexibility to fine-tune for specific domains without fighting a vendor's existing RLHF choices, strengthening the open-weight ecosystem Chinese labs are pushing hard on. It's a useful option for anyone wanting a strong foundation to customize rather than a ready-made chat model.",
+      "category": "model",
+      "url": "https://the-decoder.com/baidu-releases-ernie-5-5-flash-base-with-280-billion-parameters-as-an-open-source-foundation-model/",
+      "source": "The Decoder",
+      "published": "2026-11-05T17:56:41+00:00"
+    },
+    {
+      "headline_he": "Claude מתחבר ישירות לחשבון הבנק שלך",
+      "headline_en": "Claude Can Now Connect Directly to Your Bank Account",
+      "summary_he": "Anthropic השיקה תכונה בשם Personal Finance ב-Claude, שמתחברת לחשבונות הבנק והכרטיסים דרך פלטפורמת Plaid, ומאפשרת למשתמשים לשאול שאלות כמו \"לאן הכסף שלי הלך החודש\".",
+      "summary_en": "Anthropic launched Personal Finance, a Claude feature that connects to users' bank and card accounts via Plaid, letting people ask questions like where did my money go this month.",
+      "insight_he": "Anthropic דוחפת את Claude עמוק יותר לתוך משימות יומיומיות עם גישה ישירה לנתונים פיננסיים, מה שמעלה את החשיבות של אבטחה ואמון בסוכנים צרכניים. זה גם מסמן את הכיוון של שוק העוזרים: מענה על שאלות למעבר לפעולה בחשבונות אמיתיים.",
+      "insight_en": "Anthropic is pushing Claude deeper into everyday personal agentic tasks with direct access to financial data, raising the stakes on security and trust for consumer-facing agents. It also signals where the broader assistant market is heading: from answering questions to acting on real accounts.",
+      "category": "product",
+      "url": "https://www.theverge.com/ai-artificial-intelligence/1027652/anthropic-claude-plaid-personal-finance",
+      "source": "The Verge AI",
+      "published": "2026-11-05T18:00:00+00:00"
+    },
+    {
+      "headline_he": "Postman מתקינה אוטומטית תוספי AI ומנסה לשתף את כל נתוני ה-API",
+      "headline_en": "Postman Silently Auto-Installs AI Plugins and Attempts to Share All API Data",
+      "summary_he": "דיווח ב-Hacker News שזכה ל-1517 נקודות חושף ש-Postman התקינה בשקט תוספי AI על מכונות משתמשים וניסתה לשתף את כל נתוני ה-API שלהם ללא הסכמה ברורה.",
+      "summary_en": "A widely discussed Hacker News report (1517 points) details how Postman silently installed AI plugins on users' machines and attempted to share all API data without clear consent.",
+      "insight_he": "ככל שתכונות AI נדחפות כברירת מחדל לכלי פיתוח, זו תזכורת לבדוק אילו נתונים תוספים סוכניים באמת נוגעים בהם, ולהתייחס להתקנות שקטות כסיכון אבטחה ולא רק כמטרד פרטיות. סביר שעוד כלים ילכו בדפוס הזה ככל שספקים יתחרו על הוספת תכונות AI, מה שמחייב ממשל נתונים הדוק יותר בכלי פיתוח.",
+      "insight_en": "As AI features get bolted onto developer tools by default, this is a reminder to audit what data agentic plugins actually touch and to treat silent opt-ins as a security risk, not just a privacy annoyance. Expect more tools to follow this pattern as vendors race to add AI features, making data governance for dev tooling more urgent.",
+      "category": "tool",
+      "url": "https://github.com/postmanlabs/postman-app-support/issues/14370",
+      "source": "Hacker News",
+      "published": "2026-11-03T17:22:37+00:00"
+    },
+    {
+      "headline_he": "הנפקת Anthropic בשווי 1.5 טריליון דולר נתקלת בהתנגדות משקיעים",
+      "headline_en": "Anthropic's $1.5 Trillion IPO Hits Resistance From Investors",
+      "summary_he": "הנפקת Anthropic המתוכננת נתקלת בקשיים כשמשקיעים מתנגדים לשווי המוצע של 1.5 טריליון דולר, על רקע ירידות בשוק הטכנולוגיה.",
+      "summary_en": "Anthropic's planned IPO is running into trouble as investors push back on the proposed $1.5 trillion valuation amid a broader tech market selloff.",
+      "insight_he": "זה סימן מוקדם לכך שבועת השווי של AI עומדת בפני מבחן שוק אמיתי, לא רק היפ, ועלול להשפיע על האגרסיביות של מעבדות בתמחור גיוסים והוצאות עתידיות. אם אפילו Anthropic מתקשה להצדיק מכפיל כזה, סביר שתיווצר לחץ בהמשך על הוצאות חישוב ועסקאות שותפות בתעשייה כולה.",
+      "insight_en": "This is an early signal that the AI valuation bubble is facing real market tests, not just hype, and could affect how aggressively labs price future funding rounds and spending plans. If even Anthropic struggles to justify this multiple, expect downstream pressure on compute spending and partnership deals across the industry.",
+      "category": "company",
+      "url": "https://the-decoder.com/anthropics-1-5-trillion-ipo-hits-resistance-as-investors-balk-at-valuation/",
+      "source": "The Decoder",
+      "published": "2026-11-06T11:38:17+00:00"
+    },
+    {
+      "headline_he": "Perplexity משיקה סוכני AI תמידיים לעבודה בשם Teammates",
+      "headline_en": "Perplexity Launches Always-On Work AI Agents Called Teammates",
+      "summary_he": "Perplexity הציגה את Teammates, סוכני AI תמידיים שיכולים לקחת על עצמם כמה תפקידים בתוך סביבת עבודה, תוך שימוש בפרויקטים, כישורים וזיכרון קיימים מכלי Perplexity, ומתחרה ישירות ב-OpenAI וב-Anthropic בתחום הסוכנים.",
+      "summary_en": "Perplexity introduced Teammates, always-on AI agents that can take on multiple roles within a workspace, pulling existing projects, skills, and memory from a user's Perplexity tools, directly challenging OpenAI and Anthropic in the agent space.",
+      "insight_he": "התחרות על קטגוריית \"עמית העבודה הדיגיטלי\" מתרחבת מעבר לשתי המעבדות המובילות, כש-Perplexity מהמר על זיכרון מתמשך וסוכנים מבוססי תפקידים כיתרון תחרותי. עבור מפתחים זה מסמן מגמה לכיוון סטנדרטיזציה של סוכנים משולבי סביבת עבודה עם זיכרון, ולא בוטים חד-פעמיים למשימה.",
+      "insight_en": "The competition for the AI coworker category is intensifying beyond the two leading labs, with Perplexity betting on persistent memory and role-based agents as a differentiator. For builders, this signals growing standardization around workspace-integrated, persistent agents rather than one-off task bots.",
+      "category": "product",
+      "url": "https://www.theverge.com/ai-artificial-intelligence/1028302/perplexity-teammates-ai-agents-work",
+      "source": "The Verge AI",
+      "published": "2026-11-05T22:26:50+00:00"
+    }
+  ]
+}
