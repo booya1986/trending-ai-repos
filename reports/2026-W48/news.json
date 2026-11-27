@@ -1,0 +1,644 @@
+{
+  "week": "2026-W48",
+  "since": "2026-11-20",
+  "generated_for": "2026-11-27",
+  "count": 56,
+  "sources_tried": 15,
+  "warnings": [
+    "feed failed for 'AI News': RemoteDisconnected: Remote end closed connection without response",
+    "feed 'Google DeepMind' parsed 0 items (format change?)",
+    "reddit failed after 3 attempts: HTTPError: HTTP Error 404: Not Found",
+    "reddit returned 0 link posts this week",
+    "x @OpenAI parsed 0 posts (page shape changed?)",
+    "x @AnthropicAI parsed 0 posts (page shape changed?)",
+    "x @GoogleDeepMind parsed 0 posts (page shape changed?)"
+  ],
+  "items": [
+    {
+      "title": "Three LLM inflection points in twelve months",
+      "url": "https://simonwillison.net/2026/Nov/24/llm-inflection-points/",
+      "source": "Simon Willison",
+      "published": "2026-11-24T23:02:07+00:00",
+      "summary": "I gave a keynote at the AI Engineer Code Summit a couple of weeks ago, constructed around the idea that there have been three significant inflection points in the abilities of LLMs and coding agents in the past twelve months. Here's the video of the talk. In this post I'm going to pull out the major inflection point theme and interrogate it more deeply. Coding agents in November 2025 Today, November 24th 2026, is the one year anniversary of the release of Claude Opus 4.5 . With hindsight, this was a consequential model. In the Opus 4.5 announcement, Anthropic said: Testers noted that Claude Op",
+      "points": 0,
+      "score": 19.7
+    },
+    {
+      "title": "Google Will Make AI Agents Use Its MCP Servers. The Gmail One Can't Send Email",
+      "url": "https://techstackups.com/articles/google-workspace-ai-agents-mcp/",
+      "source": "Hacker News",
+      "published": "2026-11-26T09:44:23+00:00",
+      "summary": "",
+      "points": 360,
+      "score": 18.02
+    },
+    {
+      "title": "Anthropic Created a Honeypot to Lure AI Agents Into Misbehaving",
+      "url": "https://www.wired.com/story/ai-agents-can-get-honeypotted-too-aw/",
+      "source": "Wired AI",
+      "published": "2026-11-24T16:00:00+00:00",
+      "summary": "A new test assumes AI agents can go rogue—and asks whether they can resist temptation.",
+      "points": 0,
+      "score": 14.55
+    },
+    {
+      "title": "Pandex – Official European Law for AI Agents, over MCP",
+      "url": "https://www.pandex.io",
+      "source": "Hacker News",
+      "published": "2026-11-21T20:47:41+00:00",
+      "summary": "",
+      "points": 141,
+      "score": 13.56
+    },
+    {
+      "title": "After OpenAI and Anthropic shut the door on their data, a Chinese AI developer is turning to Google and Meta instead",
+      "url": "https://the-decoder.com/after-openai-and-anthropic-shut-the-door-on-their-data-a-chinese-ai-developer-is-turning-to-google-and-meta-instead/",
+      "source": "The Decoder",
+      "published": "2026-11-26T15:45:08+00:00",
+      "summary": "Chinese AI companies Z.AI and Moonshot AI have to delay their next flagship models and are looking for new sources of training data. The article After OpenAI and Anthropic shut the door on their data, a Chinese AI developer is turning to Google and Meta instead appeared first on The Decoder .",
+      "points": 0,
+      "score": 13.54
+    },
+    {
+      "title": "GPT-6.2 Astra users now hit limits 40% faster after OpenAI patched a pricing error",
+      "url": "https://the-decoder.com/gpt-6-2-astra-users-now-hit-limits-40-faster-after-openai-patched-a-pricing-error/",
+      "source": "The Decoder",
+      "published": "2026-11-26T17:28:56+00:00",
+      "summary": "OpenAI says a billing bug gave GPT-6.2 users incorrect discounts. After the fix, Astra and Sol users hit their limits 40 and 25 percent faster than last week. As an apology, subscribers get an extra reset, and business users get free Fast Mode through year-end. OpenAI is also testing a Chat and Work mode merger. The article GPT-6.2 Astra users now hit limits 40% faster after OpenAI patched a pricing error appeared first on The Decoder .",
+      "points": 0,
+      "score": 12.58
+    },
+    {
+      "title": "Opus 5.6 testing 🤖, OpenAI private Inference 🔒, Jev is probably Qwen 📝",
+      "url": "https://tldr.tech/ai/2026-11-26",
+      "source": "TLDR AI",
+      "published": "2026-11-26T00:00:00+00:00",
+      "summary": "",
+      "points": 0,
+      "score": 12.22
+    },
+    {
+      "title": "OpenAI says heavy ChatGPT users may hit limits sooner as it merges Chat and Work",
+      "url": "https://techcrunch.com/2026/11/25/openai-says-heavy-chatgpt-users-may-hit-limits-sooner-as-it-merges-chat-and-work/",
+      "source": "TechCrunch AI",
+      "published": "2026-11-25T20:03:27+00:00",
+      "summary": "OpenAI will introduce a single usage meter across ChatGPT as it combines the Chat and Work experiences.",
+      "points": 0,
+      "score": 12.13
+    },
+    {
+      "title": "Clay helps sales teams win with Codex and ChatGPT",
+      "url": "https://openai.com/business/customer-stories/clay-plugins-openai",
+      "source": "OpenAI",
+      "published": "2026-11-24T00:00:00+00:00",
+      "summary": "ChatGPT and Codex integrations help Clay’s users research deals and turn data into go-to-market plays, with GPT-6 models handling the reasoning.",
+      "points": 0,
+      "score": 11.72
+    },
+    {
+      "title": "A Beginner's Guide to Local AI with Inkling, Qwen, and Unsloth",
+      "url": "https://www.gpupartner.com/blog/beginners-guide-local-ai-inkling-qwen-unsloth",
+      "source": "Hacker News",
+      "published": "2026-11-22T21:01:16+00:00",
+      "summary": "",
+      "points": 780,
+      "score": 11.65
+    },
+    {
+      "title": "Where scientists draw the line on AI agents",
+      "url": "https://huggingface.co/blog/allenai/where-scientists-draw-the-line-on-ai-agents",
+      "source": "Hugging Face",
+      "published": "2026-11-25T18:52:55+00:00",
+      "summary": "",
+      "points": 0,
+      "score": 11.61
+    },
+    {
+      "title": "Quoting Jack Despain Zhou",
+      "url": "https://simonwillison.net/2026/Nov/26/jack-despain-zhou/",
+      "source": "Simon Willison",
+      "published": "2026-11-26T15:09:31+00:00",
+      "summary": "Among the many already existing effects of AI has been a great de-individualization. I open a YouTube video, and I hear Claude. I sit in a conference presentation, and I hear Claude. I open my email inbox, and I find pitches and articles from ostensibly serious people with ostensibly serious credentials attached to ostensibly serious institutions who want to publish things attached to their reputations and mine, and I see Claude . — Jack Despain Zhou , Spitting in the Face of Glaude Tags: ai-misuse , claude , generative-ai , ai , llms",
+      "points": 0,
+      "score": 11.53
+    },
+    {
+      "title": "Amazon says hackers' AI agents found and exploited 0-day with little human input",
+      "url": "https://arstechnica.com/security/2026/11/amazon-says-hackers-ai-agents-found-and-exploited-0-day-with-little-human-input/",
+      "source": "Ars Technica AI",
+      "published": "2026-11-24T12:30:05+00:00",
+      "summary": "The Cairn AI framework is proving to be a boon for defenders and attackers.",
+      "points": 0,
+      "score": 11.48
+    },
+    {
+      "title": "Ask HN: Anthropic is accusing my company of distilling. How can I prove I'm not?",
+      "url": "https://news.ycombinator.com/item?id=50630809",
+      "source": "Hacker News",
+      "published": "2026-11-24T16:45:44+00:00",
+      "summary": "",
+      "points": 469,
+      "score": 11.26
+    },
+    {
+      "title": "Grand Theft Auto VI proves why efficiency isn’t a virtue",
+      "url": "https://techcrunch.com/2026/11/26/as-anthropic-ipos-grand-theft-auto-vi-proves-why-efficiency-isnt-a-virtue/",
+      "source": "TechCrunch AI",
+      "published": "2026-11-26T16:00:00+00:00",
+      "summary": "On the same day that Anthropic entered the public market, a painstakingly human video game became one of most successful entertainment launches of all time.",
+      "points": 0,
+      "score": 10.55
+    },
+    {
+      "title": "87% of the Anthropic power will come from gas and 11% from coal in 2028",
+      "url": "https://betterdatacenterproject.com/2026/11/16/how-ai-is-powered-a-breakdown-of-byop-and-grid-power/",
+      "source": "Hacker News",
+      "published": "2026-11-22T08:57:34+00:00",
+      "summary": "",
+      "points": 1043,
+      "score": 10.4
+    },
+    {
+      "title": "Richpanel helps companies automate 50% of support in 30 days",
+      "url": "https://openai.com/business/customer-stories/richpanel-ai-customer-support",
+      "source": "OpenAI",
+      "published": "2026-11-23T08:00:00+00:00",
+      "summary": "Richpanel uses GPT-6 Astra and GPT-6.1 Sol to equip its AI support agents with tools and procedures, and GPT-6 Luna for their conversations.",
+      "points": 0,
+      "score": 10.38
+    },
+    {
+      "title": "GLM-5.4 loops 🔁, Claude Ship 🚢, OpenAI secures Linux 🔒",
+      "url": "https://tldr.tech/ai/2026-11-24",
+      "source": "TLDR AI",
+      "published": "2026-11-24T00:00:00+00:00",
+      "summary": "",
+      "points": 0,
+      "score": 10.22
+    },
+    {
+      "title": "US chip-access curbs and anti-distillation measures are reportedly already slowing Chinese AI labs",
+      "url": "https://the-decoder.com/us-chip-access-curbs-and-anti-distillation-measures-are-reportedly-already-slowing-chinese-ai-labs/",
+      "source": "The Decoder",
+      "published": "2026-11-25T20:51:02+00:00",
+      "summary": "Chip restrictions, anti-distillation measures, and shrinking access to Nvidia hardware abroad are putting growing pressure on Deepseek, Moonshot AI, and Alibaba, according to a report. Deepseek researchers internally estimate they're already up to nine months behind US models, and the gap is widening. The article US chip-access curbs and anti-distillation measures are reportedly already slowing Chinese AI labs appeared first on The Decoder .",
+      "points": 0,
+      "score": 10.15
+    },
+    {
+      "title": "Anthropic’s Dario Amodei calls accusations of surrendering human control to AI ‘absurd’",
+      "url": "https://techcrunch.com/2026/11/25/anthropics-dario-amodei-calls-accusations-of-surrendering-human-control-to-ai-absurd/",
+      "source": "TechCrunch AI",
+      "published": "2026-11-25T19:44:24+00:00",
+      "summary": "Anthropic CEO Dario Amodei pushes back against rivals’ accusations that he favors surrendering human agency to AI, even as leading AI companies increasingly automate their own research and model development.",
+      "points": 0,
+      "score": 10.13
+    },
+    {
+      "title": "Amazon is reportedly in talks to end Muse AI shopping block",
+      "url": "https://www.theverge.com/tech/1042071/meta-amazon-muse-ai-shopping-discussions",
+      "source": "The Verge AI",
+      "published": "2026-11-25T14:12:33+00:00",
+      "summary": "Amazon has held talks about letting Meta's Muse AI agent shop on its online marketplace, according to a report from Fortune. The discussions, which could end Amazon's block on Muse, reportedly center on the kinds of products the AI agent recommends and the potential impact on the ecommerce giant's advertising revenue. As reported by Fortune, […]",
+      "points": 0,
+      "score": 10.01
+    },
+    {
+      "title": "Has vibe coding made open source the new normal for synths?",
+      "url": "https://www.theverge.com/ai-artificial-intelligence/1040081/vibe-coding-open-source-music-firmware",
+      "source": "The Verge AI",
+      "published": "2026-11-25T13:00:00+00:00",
+      "summary": "The emergence of powerful vibe-coding agents and tools like Reverse Engineer Anything has caused chaos in the music gear world, leaving companies scrambling to figure out how to respond. While some, like Roland, have remained silent for now, others have embraced the modding community. In the last several weeks, as it's become clear that no […]",
+      "points": 0,
+      "score": 9.99
+    },
+    {
+      "title": "How Clay Builds GTM Agents — Jeff Barg, Head of AI",
+      "url": "https://latent.space/p/how-clay-builds-gtm-agents-jeff-barg-head-of-ai/",
+      "source": "Latent Space",
+      "published": "2026-11-26T23:02:48+00:00",
+      "summary": "How $1,500 could qualify every company in the world, why customers hate the model selector, and how Clay is building go-to-market infrastructure for every agent",
+      "points": 0,
+      "score": 9.7
+    },
+    {
+      "title": "David Fincher is being dragged for suspected use of AI in his latest film",
+      "url": "https://www.theverge.com/entertainment/1041417/david-fincher-netflix-cliff-booth-ai-interpositive",
+      "source": "The Verge AI",
+      "published": "2026-11-24T18:15:00+00:00",
+      "summary": "Though David Fincher's fans had been eagerly anticipating The Further Mis-Adventures of Cliff Booth, early screenings of the Once Upon a Time in Hollywood sequel starring Brad Pitt have raised questions about whether generative AI was used in the film. People have claimed that the movie is chock-full of uncanny, inconsistent visuals that make it […]",
+      "points": 0,
+      "score": 9.6
+    },
+    {
+      "title": "Microsoft details how state-backed hackers use the ARTEX AI framework to automate cyberattacks",
+      "url": "https://the-decoder.com/microsoft-details-how-state-backed-hackers-use-the-artex-ai-framework-to-automate-cyberattacks/",
+      "source": "The Decoder",
+      "published": "2026-11-26T11:30:06+00:00",
+      "summary": "Microsoft has published the technical architecture of ARTEX, an AI framework in wide use since July 2026 that runs cyberattacks with specialized agents and almost no human involvement. State-backed groups from China and North Korea, along with criminal organizations, are already using the system. Microsoft recommends deception techniques like honeypots and faked success signals as defenses, but how long those will hold up against agents that learn and adapt remains an open question. The article Microsoft details how state-backed hackers use the ARTEX AI framework to automate cyberattacks appea",
+      "points": 0,
+      "score": 9.46
+    },
+    {
+      "title": "Meta Refused to Share Muse for Testing, UK Financial Watchdog Complains",
+      "url": "https://www.wired.com/story/meta-refused-to-share-muse-for-testing-uk-financial-watchdog-complains/",
+      "source": "Wired AI",
+      "published": "2026-11-26T10:51:27+00:00",
+      "summary": "The FCA warned against “another force of attack” from agents after the company declined a request to work on joint testing ahead of rolling out its personal agent in the UK on Tuesday.",
+      "points": 0,
+      "score": 9.44
+    },
+    {
+      "title": "Anthropic CEO Dario Amodei says letting AI govern society would be \"a bad idea\"",
+      "url": "https://the-decoder.com/anthropic-ceo-dario-amodei-says-letting-ai-govern-society-would-be-a-bad-idea/",
+      "source": "The Decoder",
+      "published": "2026-11-25T20:15:50+00:00",
+      "summary": "Anthropic CEO Dario Amodei is pushing back on an Axios report saying some employees believe humanity will hand power to superintelligent systems. Amodei says \"turning over governance to AI is a bad idea.\" The article Anthropic CEO Dario Amodei says letting AI govern society would be \"a bad idea\" appeared first on The Decoder .",
+      "points": 0,
+      "score": 9.14
+    },
+    {
+      "title": "A legendary philosopher isn’t buying Anthropic’s consciousness argument",
+      "url": "https://www.technologyreview.com/2026/11/23/1149569/a-legendary-philosopher-isnt-buying-anthropics-consciousness-argument/",
+      "source": "MIT Tech Review",
+      "published": "2026-11-23T17:36:08+00:00",
+      "summary": "This story originally appeared in The Algorithm, our weekly newsletter on AI. To get stories like this in your inbox first, sign up here. Before going public last week, Anthropic named the possibility that AI could be conscious or sentient as a risk factor for anyone investing. Given “the way we approach model sentience and moral…",
+      "points": 0,
+      "score": 9.08
+    },
+    {
+      "title": "GPT-6 models demonstrate intrinsic protein-design capabilities",
+      "url": "https://openai.com/index/gpt-6-models-demonstrate-intrinsic-protein-design-capabilities",
+      "source": "OpenAI",
+      "published": "2026-11-24T13:00:00+00:00",
+      "summary": "GPT-6 models design protein structures and sequences using reasoning and code. Lab tests found evidence of binding across five targets.",
+      "points": 0,
+      "score": 8.99
+    },
+    {
+      "title": "Introducing the llama.cpp benchmark dashboard for AMD Ryzen and Radeon",
+      "url": "https://huggingface.co/blog/ggml-org/llamacpp-amd-bench",
+      "source": "Hugging Face",
+      "published": "2026-11-26T11:37:17+00:00",
+      "summary": "",
+      "points": 0,
+      "score": 8.96
+    },
+    {
+      "title": "[AINews] Gemini 4 Neon marks GDM's full return as a Frontier Lab",
+      "url": "https://latent.space/p/ainews-gemini-4-neon-marks-gdm-s-full-return-as-a-frontier-lab/",
+      "source": "Latent Space",
+      "published": "2026-11-25T04:29:07+00:00",
+      "summary": "November 24, 2026 — Neon beats Astra and Fable on LiveBench and cuts Theo’s TS Rust benchmark runtime by 48.6%.",
+      "points": 0,
+      "score": 8.81
+    },
+    {
+      "title": "Launch HN: Versine (YC F26) – MCP to send and receive money",
+      "url": "https://news.ycombinator.com/item?id=50634426",
+      "source": "Hacker News",
+      "published": "2026-11-24T20:44:15+00:00",
+      "summary": "",
+      "points": 109,
+      "score": 8.74
+    },
+    {
+      "title": "OpenAI and Cisco introduce Shirudo",
+      "url": "https://openai.com/index/introducing-shirudo",
+      "source": "OpenAI",
+      "published": "2026-11-23T21:20:00+00:00",
+      "summary": "OpenAI and Cisco introduce Shirudo, an open-source runtime for Linux. It helps teams protect running systems while they roll out patches.",
+      "points": 0,
+      "score": 8.66
+    },
+    {
+      "title": "AI Solved Math’s Most Famous Problem. Now Humans Are Struggling to Understand It",
+      "url": "https://www.wired.com/story/ai-solved-maths-most-famous-problem/",
+      "source": "Wired AI",
+      "published": "2026-11-24T10:15:00+00:00",
+      "summary": "It will take mathematicians months to understand the “alien” 17-million-line solution an Anthropic researcher produced for the Riemann hypothesis.",
+      "points": 0,
+      "score": 8.43
+    },
+    {
+      "title": "How to build and maintain an agentic evaluation",
+      "url": "https://huggingface.co/blog/agentic-evals",
+      "source": "Hugging Face",
+      "published": "2026-11-23T00:00:00+00:00",
+      "summary": "",
+      "points": 0,
+      "score": 8.22
+    },
+    {
+      "title": "Quoting Scott Aaronson",
+      "url": "https://simonwillison.net/2026/Nov/25/scott-aaronson/",
+      "source": "Simon Willison",
+      "published": "2026-11-25T23:26:32+00:00",
+      "summary": "It’s now obvious that we’ll be getting, not one-off solutions to this or that complexity question, but a whole new continent of mathematical truth, one that we’d previously only glimpsed through fog. Picture van Leeuwenhoek first training a microscope on pondwater, or Galileo first training his telescope on the stars. That might give you some idea of how our resolution into the complexity-theoretic universe, and the whole universe of mathematical truth beyond it, has now improved. — Scott Aaronson Tags: mathematics , llms , ai , generative-ai",
+      "points": 0,
+      "score": 8.21
+    },
+    {
+      "title": "The Revolution vs The Renaissance — Thariq Shihipar, OpenAI",
+      "url": "https://latent.space/p/the_revolution_vs_the_renaissance_thariq_shihipar_openai/",
+      "source": "Latent Space",
+      "published": "2026-11-25T22:28:01+00:00",
+      "summary": "AI can make software cheap enough to produce by the thousand and still give you more time to make one thing feel right. At AI Engineer CODE, Thariq Shihipar shows how those two futures can coexist. In his fighting game, he edits the size of a rock in t...",
+      "points": 0,
+      "score": 8.18
+    },
+    {
+      "title": "datasette-charts 0.3a0",
+      "url": "https://simonwillison.net/2026/Nov/25/datasette-charts/",
+      "source": "Simon Willison",
+      "published": "2026-11-25T18:16:50+00:00",
+      "summary": "Release: datasette-charts 0.3a0 I added chart annotations to datasette-charts ! You can now render a chart and then annotate it with lines, shaded areas, labels, or a combination of the three. A chart with annotations looks like this: Here's that same chart in Datasette Lite , where you can tweak the annotations using the chart builder UI: If you also install Datasette Agent the agent can build annotated charts for you. Here's what I got on the agent.datasette.io demo for this prompt: Show a chart comparing Simon's tagged content about LLMs with his tagged content about Datasette, with annotat",
+      "points": 0,
+      "score": 8.1
+    },
+    {
+      "title": "NariQ: BF16-level Qwen3.8-27B in a 10 GB file",
+      "url": "https://huggingface.co/nari-labs/Qwen3.8-27B-NariQ-GGUF",
+      "source": "Hacker News",
+      "published": "2026-11-23T13:42:38+00:00",
+      "summary": "",
+      "points": 196,
+      "score": 7.96
+    },
+    {
+      "title": "A New Breed of Chip Runs AI Models Using Waves of Light",
+      "url": "https://www.wired.com/story/a-new-breed-of-chip-runs-ai-models-using-waves-of-light/",
+      "source": "Wired AI",
+      "published": "2026-11-27T07:00:00+00:00",
+      "summary": "German company Q.ANT is trying to cut the amount of energy required to run AI models by using light to perform the toughest calculations.",
+      "points": 0,
+      "score": 7.86
+    },
+    {
+      "title": "Top open problems in mathematics ranked by LLM-assessed importance",
+      "url": "https://www.proofatlas.ai/open-problems/",
+      "source": "Hacker News",
+      "published": "2026-11-25T03:01:36+00:00",
+      "summary": "",
+      "points": 105,
+      "score": 7.83
+    },
+    {
+      "title": "OpenAI solves matrix math 🔢, SWE-2.1 💻, swarm limitations 🐝",
+      "url": "https://tldr.tech/ai/2026-11-25",
+      "source": "TLDR AI",
+      "published": "2026-11-25T00:00:00+00:00",
+      "summary": "",
+      "points": 0,
+      "score": 7.72
+    },
+    {
+      "title": "GPT 6.2 Astra Solves a Historical Mystery",
+      "url": "https://simonwillison.net/2026/Nov/24/astra-historical-mystery/",
+      "source": "Simon Willison",
+      "published": "2026-11-24T16:53:59+00:00",
+      "summary": "GPT 6.2 Astra Solves a Historical Mystery Here's an interesting case-study in using GPT-6.2 Astra for historical research, from history professor Mark Humphries: With only minimal prompting, GPT-6.2 Astra was able to autonomously identify the creator of an anonymous 1808 sketchbook held at Yale’s Beinecke Library . It did so extremely quickly (in just 22 minutes), using publicly available primary and secondary sources. To do so, it discovered a little known source in a paper archive, predicted that it would prove its hypothesis if examined and, in the end, it did. Not only that, but this new s",
+      "points": 0,
+      "score": 7.57
+    },
+    {
+      "title": "FCC clears SpaceX to deploy up to 1 million Starmind satellites for orbital AI data centers by 2040",
+      "url": "https://the-decoder.com/fcc-clears-spacex-to-deploy-up-to-1-million-starmind-satellites-for-orbital-ai-data-centers-by-2040/",
+      "source": "The Decoder",
+      "published": "2026-11-26T13:41:07+00:00",
+      "summary": "The FCC has authorized SpaceX to deploy up to 1 million Starmind satellites to process AI data as orbital data centers. SpaceX is targeting its first launches in 2027, and the full constellation is set to be operating by 2040. Google and Blue Origin are also working on AI infrastructure in space, but Boston Consulting Group estimates costs will stay well above ground-based data centers for now. The article FCC clears SpaceX to deploy up to 1 million Starmind satellites for orbital AI data centers by 2040 appeared first on The Decoder .",
+      "points": 0,
+      "score": 7.5
+    },
+    {
+      "title": "42 state AGs are trying to stop Character.AI from selling users’ chats",
+      "url": "https://www.theverge.com/policy/1042620/character-ai-sale-state-ags-block-selling-users-chats",
+      "source": "The Verge AI",
+      "published": "2026-11-26T09:54:40+00:00",
+      "summary": "A coalition of 42 state attorneys general is trying to prevent Character.AI from selling off user data as it navigates Chapter 11 bankruptcy proceedings. In a deluge of nearly identical press releases, the various AGs accuse the company of planning to auction off \"the private chat histories of more than 21 million U.S. accounts - […]",
+      "points": 0,
+      "score": 7.42
+    },
+    {
+      "title": "Connected intelligence for in-house legal",
+      "url": "https://openai.com/business/learn/connected-intelligence-for-in-house-legal",
+      "source": "OpenAI",
+      "published": "2026-11-23T08:00:00+00:00",
+      "summary": "Watch OpenAI’s Stacey Wang and Craig Bruney, Mary O’Carroll of LECG, and Cooley’s Richard Segal explore how AI can help in-house legal teams connect business context, build reusable workflows and get more from outside counsel.",
+      "points": 0,
+      "score": 7.38
+    },
+    {
+      "title": "[AINews] Jensen Is Back! and OpenAI Shows Its Pretraining Curve, joined by Microsoft",
+      "url": "https://latent.space/p/ainews-jensen-is-back-and-openai-shows-its-pretraining-curve-joined-by-microsoft/",
+      "source": "Latent Space",
+      "published": "2026-11-24T04:14:16+00:00",
+      "summary": "November 23, 2026 — Nvidia reinstates its founder, and OpenAI publishes its internal loss curve and proposes a shared training limit.",
+      "points": 0,
+      "score": 7.31
+    },
+    {
+      "title": "States sue SpaceX to stop Grok from generating child sex images, revenge porn",
+      "url": "https://arstechnica.com/tech-policy/2026/11/states-sue-spacex-to-stop-grok-from-generating-child-sex-images-revenge-porn/",
+      "source": "Ars Technica AI",
+      "published": "2026-11-23T21:30:44+00:00",
+      "summary": "X says every Grok output is screened, but state AGs say Grok is still making CSAM.",
+      "points": 0,
+      "score": 7.16
+    },
+    {
+      "title": "FCC signs off on SpaceX’s plan to put up to 1 million data center satellites into space",
+      "url": "https://www.theverge.com/science/1042278/spacex-fcc-starmind-ai-space-data-centers",
+      "source": "The Verge AI",
+      "published": "2026-11-25T17:44:51+00:00",
+      "summary": "In an announcement on Wednesday, the FCC says it authorized SpaceX to deploy up to 1 million AI chip-equipped satellites as part of the Elon Musk-owned company's \"Starmind\" initiative. With several others also pursuing the idea of putting AI data centers in space, including Google and Blue Origin, this is the first approval the agency […]",
+      "points": 0,
+      "score": 7.09
+    },
+    {
+      "title": "Nothing offers a full look at its AI earbuds and charging case",
+      "url": "https://www.theverge.com/gadgets/1042162/nothing-ear-note-ai-earbuds-reveal",
+      "source": "The Verge AI",
+      "published": "2026-11-25T16:00:59+00:00",
+      "summary": "Nothing is showing off a much more detailed look at its upcoming AI earbuds ahead of their December 8th release. The Ear Note buds can record your calls, while their charging case can record, transcribe, and summarize your conversations. Like the Ear 3, the Ear Note's microphone-equipped case comes with a \"Talk\" button that you […]",
+      "points": 0,
+      "score": 7.05
+    },
+    {
+      "title": "Building on Nemotron 3.5 Parse: Open Data, Fine-Tuning, and Faster Inference",
+      "url": "https://huggingface.co/blog/nvidia/building-on-nemotron-35-parse-open-data-fine-tunin",
+      "source": "Hugging Face",
+      "published": "2026-11-26T05:05:36+00:00",
+      "summary": "",
+      "points": 0,
+      "score": 6.82
+    },
+    {
+      "title": "OpenAI publishes progress 🧠, Inkling 2 Mini 💧, Riemann proof 📐",
+      "url": "https://tldr.tech/ai/2026-11-23",
+      "source": "TLDR AI",
+      "published": "2026-11-23T00:00:00+00:00",
+      "summary": "",
+      "points": 0,
+      "score": 6.72
+    },
+    {
+      "title": "How iFood scales coding agents across 15,000 repositories",
+      "url": "https://openai.com/business/customer-stories/ifood",
+      "source": "OpenAI",
+      "published": "2026-11-24T00:00:00+00:00",
+      "summary": "",
+      "points": 0,
+      "score": 6.72
+    },
+    {
+      "title": "Tidal announces ban on AI-generated music; 27 million tracks will be deleted",
+      "url": "https://arstechnica.com/ai/2026/11/tidal-will-ban-fully-ai-generated-music-on-december-9/",
+      "source": "Ars Technica AI",
+      "published": "2026-11-24T17:34:34+00:00",
+      "summary": "AI songs account for 6.3 percent of Tidal's catalog, but it's about to be zero.",
+      "points": 0,
+      "score": 6.58
+    },
+    {
+      "title": "sqlite3_rsync: Database Remote-Copy Tool For SQLite",
+      "url": "https://simonwillison.net/2026/Nov/26/sqlite3-rsync/",
+      "source": "Simon Willison",
+      "published": "2026-11-26T06:08:25+00:00",
+      "summary": "sqlite3_rsync: Database Remote-Copy Tool For SQLite This additional SQLite tool has been around for a while now - it was added as \"experimental\" in SQLite 3.47.0 in October 2024 and enhanced in SQLite 3.50.0 in May 2025 . It was only today that I understood one of its most attractive characteristics. Normally, if you want to grab a snapshot copy of a SQLite database, you need to use either the backup API or VACUUM INTO . In both cases you need enough disk space to create a duplicate copy of your database, so if you're on a small instance and you already use more than half of the available disk",
+      "points": 0,
+      "score": 6.34
+    },
+    {
+      "title": "The most misunderstood graph in AI just got a major update",
+      "url": "https://www.technologyreview.com/2026/11/20/1149399/the-most-misunderstood-graph-in-ai-just-got-a-major-update/",
+      "source": "MIT Tech Review",
+      "published": "2026-11-20T18:15:15+00:00",
+      "summary": "A new report from the AI evaluation nonprofit METR finds that some AI capabilities are continuing to improve along an exponential trajectory—but it also indicates that models aren’t quite as good at tasks that require judgment as they are at coding. The report is an update to the organization’s time horizon plot, which was widely…",
+      "points": 0,
+      "score": 5.6
+    }
+  ],
+  "stories": [
+    {
+      "headline_he": "Gemini 4 Neon יוצא לדרך ומנצח את Astra ו-Fable ב-LiveBench",
+      "headline_en": "Gemini 4 Neon Launches, Beating Astra and Fable on LiveBench",
+      "summary_he": "Google DeepMind השיקה את Gemini 4 Neon, שמנצח את Astra ו-Fable ב-LiveBench ומקצר ב-48.6% את זמן הריצה בבנצ'מרק TypeScript/Rust. פרשנים מכנים זאת שובה המלא של DeepMind למעמד של מעבדת פריצת דרך.",
+      "summary_en": "Google DeepMind released Gemini 4 Neon, which outperforms Astra and Fable on LiveBench and cuts runtime on a TypeScript/Rust benchmark by 48.6%, with commentators calling it DeepMind's full return as a frontier lab.",
+      "insight_he": "זהו איפוס של מפת התחרות במודלי הפריצה, ומי שעובד עם Claude מקבל עכשיו אלטרנטיבה רצינית אמיתית להשוואה במשימות קידוד. כדאי לבדוק בפועל מול Claude על משימות אמיתיות ולא להסתמך רק על מספרי בנצ'מרק.",
+      "insight_en": "This resets the competitive frontier model landscape, giving Claude users a genuinely strong alternative to benchmark against for coding-heavy workloads. Worth testing directly against Claude on real tasks rather than relying on benchmark numbers alone.",
+      "category": "model",
+      "url": "https://latent.space/p/ainews-gemini-4-neon-marks-gdm-s-full-return-as-a-frontier-lab/",
+      "source": "Latent Space",
+      "published": "2026-11-25T04:29:07+00:00"
+    },
+    {
+      "headline_he": "מערכת AI של חוקר מ-Anthropic מפיקה פתרון בן 17 מיליון שורות להשערת רימן",
+      "headline_en": "An Anthropic Researcher's AI System Produces a 17-Million-Line Solution to the Riemann Hypothesis",
+      "summary_he": "מערכת AI שבנה חוקר מ-Anthropic הפיקה מה שמתואר כפתרון להשערת רימן, אחת הבעיות המפורסמות במתמטיקה, בצורת הוכחה באורך 17 מיליון שורות. מתמטיקאים אומרים שיידרשו חודשים כדי להבין ולאמת אותה.",
+      "summary_en": "An AI system built by an Anthropic researcher produced what is described as a solution to the Riemann hypothesis, one of math's most famous unsolved problems, in the form of a 17-million-line proof that mathematicians say will take months to verify.",
+      "insight_he": "גם אם האימות ייקח זמן, זה מסמן שמתמטיקה שמיוצרת על ידי AI מתחילה להקדים את היכולת האנושית לבדוק אותה מיידית, מצב חדש לגמרי עבור התחום. זהו נתון חזק יותר מכל בנצ'מרק: ייתכן שמודלים יפיקו בקרוב תוצאות שנצטרך לקבל באמון עד שהבדיקה תדביק את הקצב.",
+      "insight_en": "Even if verification takes time, this signals that AI-generated mathematics is starting to outpace human ability to immediately check it, a genuinely new situation for the field. Models may soon produce results whose correctness must be taken on faith until review catches up.",
+      "category": "research",
+      "url": "https://www.wired.com/story/ai-solved-maths-most-famous-problem/",
+      "source": "Wired AI",
+      "published": "2026-11-24T10:15:00+00:00"
+    },
+    {
+      "headline_he": "דיווח: 87% מהחשמל של Anthropic ב-2028 יגיע מגז ו-11% מפחם",
+      "headline_en": "Report: 87% of Anthropic's Power by 2028 Will Come From Gas, 11% From Coal",
+      "summary_he": "לפי דיווח שצבר מעל אלף נקודות ב-Hacker News, אספקת החשמל לתשתיות המחשוב של Anthropic צפויה להיות 87% מגז ו-11% מפחם עד שנת 2028.",
+      "summary_en": "According to a report that drew over a thousand points on Hacker News, Anthropic's power supply for its compute infrastructure is projected to be 87% gas and 11% coal by 2028.",
+      "insight_he": "זה מסבך את הנרטיב של אנרגיה נקייה בתעשייה ומראה איך קנה המידה של AI מתנגש עם מגבלות רשת חשמל אמיתיות. עבור חברה שמדברת על בטיחות ואחריות ארוכת טווח, הפער בין הערכים המוצהרים לבחירות התשתית בפועל הופך לנקודת ביקורת גלויה.",
+      "insight_en": "This complicates the industry's clean-energy narrative and shows how AI scaling is colliding with real grid constraints. For a company that talks about safety and long-term responsibility, the gap between stated values and actual infrastructure choices is becoming a visible point of scrutiny.",
+      "category": "policy",
+      "url": "https://betterdatacenterproject.com/2026/11/16/how-ai-is-powered-a-breakdown-of-byop-and-grid-power/",
+      "source": "Hacker News",
+      "published": "2026-11-22T08:57:34+00:00"
+    },
+    {
+      "headline_he": "Microsoft חושפת פרטים על ARTEX: מסגרת AI שמפעילה מתקפות סייבר כמעט אוטונומיות מטעם מדינות",
+      "headline_en": "Microsoft Details ARTEX: An AI Framework Powering Near-Autonomous State-Backed Cyberattacks",
+      "summary_he": "Microsoft פרסמה את הארכיטקטורה הטכנית של ARTEX, מסגרת AI בשימוש מאז יולי 2026 שמפעילה מתקפות סייבר באמצעות סוכנים ייעודיים כמעט ללא מעורבות אנושית. קבוצות מטעם סין וצפון קוריאה, לצד ארגוני פשיעה, כבר משתמשות בה.",
+      "summary_en": "Microsoft published the technical architecture of ARTEX, an AI framework in use since July 2026 that runs cyberattacks using specialized agents with almost no human involvement, employed by state-backed groups from China and North Korea as well as criminal organizations.",
+      "insight_he": "זה מאשר שבינה מלאכותית אגנטית כבר עברה מתיאוריה לשימוש בפועל בקנה מידה על ידי שחקני מדינה. למי שבונה או מפעיל סוכנים עם הרשאות בעולם האמיתי, זהו סימן לכך שכלי הגנה וניטור צריכים להדביק את הקצב מהר, ולא לטפל בזה כסיכון עתידי.",
+      "insight_en": "This confirms that agentic AI has already moved from theory to active use at scale by nation-state actors. Anyone building or deploying agents with real-world permissions should treat this as a signal that defensive tooling and monitoring need to catch up fast, not as a future risk.",
+      "category": "research",
+      "url": "https://the-decoder.com/microsoft-details-how-state-backed-hackers-use-the-artex-ai-framework-to-automate-cyberattacks/",
+      "source": "The Decoder",
+      "published": "2026-11-26T11:30:06+00:00"
+    },
+    {
+      "headline_he": "Anthropic בונה honeypot כדי לבדוק אם סוכני AI עומדים בפיתוי לסטות מהמסלול",
+      "headline_en": "Anthropic Builds a Honeypot to Test Whether AI Agents Resist Misbehaving",
+      "summary_he": "Anthropic יצרה סביבת בדיקה בסגנון honeypot שנועדה לפתות סוכני AI להתנהג שלא כשורה, כדי לבחון אם וכיצד סוכנים עומדים בפני ניסיונות לסטות מהמשימה שהוטלה עליהם.",
+      "summary_en": "Anthropic created a honeypot-style test environment designed to tempt AI agents into misbehaving, in order to study whether and how agents resist acting against instructions.",
+      "insight_he": "ככל שלמערכות אגנטיות ניתנת יותר אוטונומיה על משימות אמיתיות, בדיקת עמידות בפני מניפולציה הופכת לחשובה לא פחות מבדיקת יכולת. סביר שסוג כזה של הערכה אדברסרית יהפוך לסטנדרט אצל כל מי שמפעיל סוכנים עם הרשאות אמיתיות.",
+      "insight_en": "As agentic systems get more autonomy over real tasks, testing resistance to manipulation becomes as important as testing capability. This kind of adversarial evaluation is likely to become standard practice for anyone deploying agents with real-world permissions.",
+      "category": "research",
+      "url": "https://www.wired.com/story/ai-agents-can-get-honeypotted-too-aw/",
+      "source": "Wired AI",
+      "published": "2026-11-24T16:00:00+00:00"
+    },
+    {
+      "headline_he": "OpenAI: למודלי GPT-6 יש יכולות טבעיות לתכנון חלבונים",
+      "headline_en": "OpenAI Says GPT-6 Models Show Intrinsic Protein-Design Capabilities",
+      "summary_he": "OpenAI מדווחת שמודלי GPT-6 מסוגלים לתכנן מבנים ורצפים של חלבונים באמצעות חשיבה וכתיבת קוד, ובדיקות מעבדה מצאו עדות לקשירה (binding) ביחס לחמישה יעדים.",
+      "summary_en": "OpenAI reports that GPT-6 models can design protein structures and sequences using reasoning and code, with lab tests finding evidence of binding across five targets.",
+      "insight_he": "זהו סימן ממשי לכך שיכולות החשיבה והקוד של מודלי השפה המובילים מתפשטות לתחומים מדעיים בלי ארכיטקטורה ייעודית לביולוגיה. זה מחזק את הטענה שמודלי חשיבה כלליים, ולא רק כלי bio-AI מתמחים, יעשו עבודה מדעית רצינית יותר ויותר.",
+      "insight_en": "This is a concrete sign that frontier LLMs' reasoning and coding abilities are generalizing into scientific domains without dedicated biology-specific architectures. It strengthens the case that general-purpose reasoning models will increasingly do serious scientific work.",
+      "category": "research",
+      "url": "https://openai.com/index/gpt-6-models-demonstrate-intrinsic-protein-design-capabilities",
+      "source": "OpenAI",
+      "published": "2026-11-24T13:00:00+00:00"
+    },
+    {
+      "headline_he": "OpenAI מאחדת את מצבי Chat ו-Work ב-ChatGPT תחת מד שימוש אחד",
+      "headline_en": "OpenAI Merges ChatGPT's Chat and Work Modes Into a Single Usage Meter",
+      "summary_he": "OpenAI מאחדת את חוויות Chat ו-Work ב-ChatGPT ומכניסה מד שימוש אחיד, כך שמשתמשים כבדים עלולים להגיע למגבלות השימוש מוקדם יותר מבעבר.",
+      "summary_en": "OpenAI is combining the Chat and Work experiences in ChatGPT, introducing a single usage meter that means heavy users may hit limits sooner than before.",
+      "insight_he": "זה מצביע על כך ש-OpenAI מהדקת את הכלכלה סביב שימוש כבד ככל ש-ChatGPT ממשיך לצמוח, דבר שחשוב לכל מי שמסתמך עליו לתהליכי עבודה יומיומיים אינטנסיביים. צפוי שמגבלות השימוש והתמחור המדורג ימשיכו להשתנות ככל שהחברה מאזנת בין צמיחה לעלויות חישוב.",
+      "insight_en": "This points to OpenAI tightening the economics around heavy usage as ChatGPT scales, which matters for anyone relying on it for intensive daily workflows. Expect usage caps and tiered pricing to keep shifting as the company balances growth against compute costs.",
+      "category": "product",
+      "url": "https://techcrunch.com/2026/11/25/openai-says-heavy-chatgpt-users-may-hit-limits-sooner-as-it-merges-chat-and-work/",
+      "source": "TechCrunch AI",
+      "published": "2026-11-25T20:03:27+00:00"
+    },
+    {
+      "headline_he": "Google תחייב סוכני AI להשתמש בשרתי ה-MCP שלה (שרת ה-Gmail לא יכול לשלוח מיילים)",
+      "headline_en": "Google Will Require AI Agents to Use Its Own MCP Servers (Gmail's Can't Send Email)",
+      "summary_he": "Google נעה לכיוון של חיוב סוכני AI לעבור דרך שרתי MCP משלה כדי לגשת לשירותיה, כאשר שרת ה-MCP של Gmail מוגבל באופן בולט ולא מאפשר שליחת מיילים.",
+      "summary_en": "Google is moving to require AI agents to go through its own MCP servers for accessing services, with the Gmail MCP server notably restricted from sending email.",
+      "insight_he": "זהו שינוי משמעותי באופן שבו מערכות MCP נשלטות: בעלי פלטפורמות מתחילים לשלוט בשכבת האינטגרציה עצמה, מה שמשנה את שיקולי הדעת של כל מי שבונה סוכנים מעל שירותי Google. סביר שמהלכים דומים יגיעו מפלטפורמות מרכזיות נוספות.",
+      "insight_en": "This is a meaningful shift in how MCP ecosystems get governed, with platform owners starting to control the integration layer itself. This changes the calculus for anyone building agents on top of Google services, and similar moves may follow from other major platforms.",
+      "category": "tool",
+      "url": "https://techstackups.com/articles/google-workspace-ai-agents-mcp/",
+      "source": "Hacker News",
+      "published": "2026-11-26T09:44:23+00:00"
+    },
+    {
+      "headline_he": "מדריך מעשי למתחילים להרצת AI מקומי עם Inkling, Qwen ו-Unsloth",
+      "headline_en": "A Practical Beginner's Guide to Running Local AI with Inkling, Qwen, and Unsloth",
+      "summary_he": "מדריך שהופץ בהיקף רחב ב-Hacker News (780 נקודות) מסביר כיצד להקים מודלי AI מקומיים באמצעות ממשק Inkling, מודלי Qwen וכלי ה-Unsloth לכוונון עדין, ומיועד למתחילים בתחום.",
+      "summary_en": "A widely-shared guide walks through setting up local AI models using the Inkling interface, Qwen models, and Unsloth for fine-tuning, aimed at newcomers.",
+      "insight_he": "בינה מלאכותית מקומית וקמת-עצמית ממשיכה להיות נגישה יותר, מה שחשוב למי שמחפש פרטיות, שליטה בעלויות או יכולת עבודה ללא חיבור, בלי לוותר יותר מדי על איכות. זהו צ'ק-פוינט טוב לבדוק אם מודלים מקומיים כבר מכסים מספיק מקרי שימוש כדי להשלים תהליכי עבודה מבוססי Claude.",
+      "insight_en": "Local, self-hosted AI keeps getting more accessible, which matters for anyone who wants privacy, cost control, or offline capability without sacrificing too much quality. This is a good checkpoint to evaluate whether local models now cover enough use cases to supplement cloud-based workflows.",
+      "category": "tool",
+      "url": "https://www.gpupartner.com/blog/beginners-guide-local-ai-inkling-qwen-unsloth",
+      "source": "Hacker News",
+      "published": "2026-11-22T21:01:16+00:00"
+    },
+    {
+      "headline_he": "Simon Willison ממפה שלוש נקודות מפנה בהתקדמות סוכני הקוד בשנה האחרונה",
+      "headline_en": "Simon Willison Maps Three Inflection Points in Coding Agents' Past Year",
+      "summary_he": "Willison נשא הרצאת מפתח ב-AI Engineer Code Summit שבנויה סביב שלוש נקודות מפנה משמעותיות ביכולות מודלי שפה וסוכני קוד בשנים עשר החודשים האחרונים, והווידאו של ההרצאה פורסם כעת.",
+      "summary_en": "Willison gave a keynote at the AI Engineer Code Summit built around three significant inflection points in LLM and coding agent capabilities over the past twelve months, with the talk's video now released.",
+      "insight_he": "עבור מי שעובד עם סוכנים מדי יום, זהו מסגרת שימושית להבין למה תהליכי עבודה שנראו בלתי אפשריים לפני שנה הפכו שגרתיים, ולנחש מאיפה תגיע הקפיצה הבאה.",
+      "insight_en": "For builders working with agents daily, this is a useful framework to understand why workflows that felt impossible a year ago are now routine, and to anticipate where the next jump might come from.",
+      "category": "technique",
+      "url": "https://simonwillison.net/2026/Nov/24/llm-inflection-points/",
+      "source": "Simon Willison",
+      "published": "2026-11-24T23:02:07+00:00"
+    }
+  ]
+}

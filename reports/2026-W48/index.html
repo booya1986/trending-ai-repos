@@ -1,0 +1,886 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="theme-color" content="#1b1b1b">
+<title>AI News 2026-W48</title>
+<meta name="description" content="ה-repos והחדשות הבולטים בעולם ה-AI השבוע. פותח ב: elementalsouls/Claude-BugHunter">
+<link rel="canonical" href="https://booya1986.github.io/trending-ai-repos/reports/2026-W48/">
+
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="AI News">
+<meta property="og:locale" content="he_IL">
+<meta property="og:url" content="https://booya1986.github.io/trending-ai-repos/reports/2026-W48/">
+<meta property="og:title" content="AI News — 2026-W48">
+<meta property="og:description" content="ה-repos והחדשות הבולטים בעולם ה-AI השבוע. פותח ב: elementalsouls/Claude-BugHunter">
+<meta property="og:image" content="https://booya1986.github.io/trending-ai-repos/reports/2026-W48/og.png">
+<meta property="og:image:secure_url" content="https://booya1986.github.io/trending-ai-repos/reports/2026-W48/og.png">
+<meta property="og:image:type" content="image/png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="AI News — 2026-W48">
+
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="AI News — 2026-W48">
+<meta name="twitter:description" content="ה-repos והחדשות הבולטים בעולם ה-AI השבוע. פותח ב: elementalsouls/Claude-BugHunter">
+<meta name="twitter:image" content="https://booya1986.github.io/trending-ai-repos/reports/2026-W48/og.png">
+
+<link rel="icon" href="data:image/svg+xml,&lt;svg xmlns=&quot;http://www.w3.org/2000/svg&quot; viewBox=&quot;0 0 100 100&quot;&gt;&lt;text y=&quot;.9em&quot; font-size=&quot;90&quot;&gt;&#128293;&lt;/text&gt;&lt;/svg&gt;">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Hebrew:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg: #1b1b1b;
+    --bg-elevated: #232323;
+    --fg: #c5c1b9;
+    --fg-strong: #dcdad5;
+    --fg-muted: #a09d96;
+    --fg-subtle: #96928c;
+    --accent: #22c55e;
+    --accent-glow: rgba(34,197,94,0.6);
+    --accent-soft: rgba(34,197,94,0.12);
+    --accent-softer: rgba(34,197,94,0.04);
+    --accent-border: rgba(34,197,94,0.12);
+    --accent-border-hover: rgba(34,197,94,0.3);
+    --shadow-glow-md: 0 0 15px rgba(34,197,94,0.3), 0 0 40px rgba(34,197,94,0.1);
+    --text-glow: 0 0 8px rgba(34,197,94,0.6), 0 0 20px rgba(34,197,94,0.3);
+    --font-sans: 'Noto Sans Hebrew', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+    --radius-sm: 8px;
+    --radius-md: 12px;
+    --radius-lg: 16px;
+    --radius-pill: 999px;
+    --transition: 0.3s cubic-bezier(0.4,0,0.2,1);
+    --transition-fast: 0.15s cubic-bezier(0.4,0,0.2,1);
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html { -webkit-text-size-adjust: 100%; }
+
+  body {
+    background: var(--bg);
+    color: var(--fg);
+    font-family: var(--font-sans);
+    font-size: clamp(1rem, 2vw, 1.0625rem);
+    line-height: 1.7;
+    padding-top: env(safe-area-inset-top);
+    padding-bottom: env(safe-area-inset-bottom);
+  }
+
+  /* ── GRID BACKGROUND ── */
+  body::before {
+    content: '';
+    position: fixed;
+    inset: 0;
+    z-index: 0;
+    pointer-events: none;
+    background-image:
+      linear-gradient(rgba(34,197,94,0.03) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(34,197,94,0.03) 1px, transparent 1px);
+    background-size: 40px 40px;
+    mask-image: radial-gradient(ellipse 80% 60% at 50% 0%, black 40%, transparent 100%);
+    -webkit-mask-image: radial-gradient(ellipse 80% 60% at 50% 0%, black 40%, transparent 100%);
+  }
+
+  .wrap {
+    position: relative;
+    z-index: 1;
+    max-width: 720px;
+    margin: 0 auto;
+    padding: 24px 16px 80px;
+  }
+
+  /* ── TOP BAR ── */
+  .top-bar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 16px;
+    gap: 10px;
+  }
+  .lang-btn, .share-btn {
+    background: var(--accent-softer);
+    border: 1px solid var(--accent-border);
+    border-radius: var(--radius-pill);
+    color: var(--accent);
+    font-family: var(--font-sans);
+    font-size: 0.8rem;
+    font-weight: 600;
+    letter-spacing: 0.5px;
+    padding: 7px 16px;
+    cursor: pointer;
+    transition: all var(--transition-fast);
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    min-height: 44px;
+    -webkit-tap-highlight-color: transparent;
+  }
+  .lang-btn:hover, .share-btn:hover {
+    background: var(--accent-soft);
+    border-color: var(--accent);
+    box-shadow: 0 0 10px var(--accent-glow);
+  }
+  .share-btn svg { width: 16px; height: 16px; stroke: var(--accent); }
+  .share-btn.copied { background: var(--accent-soft); }
+  .share-copied {
+    font-size: 0.72rem;
+    color: var(--accent);
+    margin-top: 4px;
+    text-align: center;
+    opacity: 0;
+    transition: opacity 0.3s;
+  }
+  .share-copied.show { opacity: 1; }
+
+  /* ── HEADER ── */
+  .site-header { margin-bottom: 24px; }
+  .header-eyebrow {
+    font-size: 0.8rem;
+    font-weight: 500;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: var(--accent);
+    text-shadow: var(--text-glow);
+    margin-bottom: 6px;
+  }
+  .header-title {
+    font-size: clamp(1.6rem, 4vw, 2.2rem);
+    font-weight: 700;
+    color: var(--fg-strong);
+    line-height: 1.3;
+    text-shadow: 0 0 30px rgba(34,197,94,0.1);
+    margin-bottom: 4px;
+  }
+  .header-sub {
+    font-size: 0.875rem;
+    color: var(--fg-muted);
+    font-weight: 300;
+  }
+
+  /* ── CUSTOM AUDIO PLAYER ── */
+  .player {
+    position: sticky;
+    top: 0;
+    z-index: 10;
+    background: rgba(27,27,27,0.92);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border-bottom: 1px solid var(--accent-border);
+    padding: 12px 16px;
+    margin: 0 -16px 24px;
+  }
+  .player audio { display: none; }
+
+  .player-ui {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+  }
+  .player-btn {
+    flex-shrink: 0;
+    width: 44px;
+    height: 44px;
+    border-radius: 50%;
+    background: var(--accent);
+    border: none;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all var(--transition-fast);
+    box-shadow: 0 0 12px rgba(34,197,94,0.4);
+  }
+  .player-btn:hover {
+    transform: scale(1.08);
+    box-shadow: 0 0 20px rgba(34,197,94,0.6);
+  }
+  .player-btn svg { width: 18px; height: 18px; fill: #0a1a0f; }
+
+  .player-center { flex: 1; min-width: 0; }
+  .player-track {
+    font-size: 0.8rem;
+    font-weight: 500;
+    color: var(--fg-strong);
+    margin-bottom: 6px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+  .player-progress-wrap {
+    position: relative;
+    height: 4px;
+    background: rgba(255,255,255,0.1);
+    border-radius: 2px;
+    cursor: pointer;
+    overflow: hidden;
+  }
+  .player-progress-bar {
+    height: 100%;
+    width: 0%;
+    background: var(--accent);
+    border-radius: 2px;
+    box-shadow: 0 0 6px var(--accent-glow);
+    transition: width 0.1s linear;
+    pointer-events: none;
+  }
+  .player-progress-wrap:hover .player-progress-bar {
+    box-shadow: 0 0 12px var(--accent-glow);
+  }
+
+  .player-time {
+    font-size: 0.72rem;
+    color: var(--fg-subtle);
+    white-space: nowrap;
+    flex-shrink: 0;
+    font-variant-numeric: tabular-nums;
+    min-width: 70px;
+    text-align: center;
+  }
+
+  .player-hint {
+    font-size: 0.72rem;
+    color: var(--fg-subtle);
+    margin-top: 7px;
+    letter-spacing: 0.3px;
+  }
+
+  /* ── RUN NOTES ── */
+  .run-notes {
+    background: var(--accent-softer);
+    border: 1px solid var(--accent-border);
+    border-right: 3px solid var(--accent);
+    border-radius: var(--radius-md) 0 0 var(--radius-md);
+    padding: 12px 16px;
+    margin-bottom: 24px;
+    font-size: 0.875rem;
+    color: var(--fg-strong);
+  }
+  [dir="ltr"] .run-notes {
+    border-right: 1px solid var(--accent-border);
+    border-left: 3px solid var(--accent);
+    border-radius: 0 var(--radius-md) var(--radius-md) 0;
+  }
+  .run-notes ul { padding-right: 20px; margin-top: 6px; }
+  [dir="ltr"] .run-notes ul { padding-right: 0; padding-left: 20px; }
+
+  /* ── CARDS ── */
+  .card {
+    position: relative;
+    background: var(--accent-softer);
+    border: 1px solid var(--accent-border);
+    border-radius: var(--radius-lg);
+    margin-bottom: 16px;
+    transition: border-color var(--transition), background var(--transition), box-shadow var(--transition);
+  }
+  .card:hover {
+    border-color: var(--accent-border-hover);
+    background: rgba(34,197,94,0.07);
+    box-shadow: var(--shadow-glow-md), 0 12px 32px rgba(0,0,0,0.25);
+  }
+
+  .card__rank {
+    position: absolute;
+    top: -1px;
+    right: 20px;
+    background: var(--accent);
+    color: #0a1a0f;
+    font-size: 0.75rem;
+    font-weight: 700;
+    letter-spacing: 0.5px;
+    padding: 3px 10px;
+    border-radius: 0 0 var(--radius-sm) var(--radius-sm);
+  }
+  [dir="ltr"] .card__rank { right: auto; left: 20px; }
+
+  .card__body { padding: 28px 20px 20px; }
+
+  /* card header: title block + star stat */
+  .card__header {
+    display: flex;
+    align-items: flex-start;
+    gap: 12px;
+    margin-bottom: 10px;
+  }
+  .card__title-block { flex: 1; min-width: 0; }
+  .card__eyebrow {
+    font-size: 0.78rem;
+    font-weight: 500;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    color: var(--accent);
+    text-shadow: var(--text-glow);
+    margin-bottom: 4px;
+  }
+  .card__title {
+    font-size: 1.1rem;
+    font-weight: 600;
+    line-height: 1.35;
+  }
+  .card__title a {
+    color: var(--fg-strong);
+    text-decoration: none;
+    transition: color var(--transition-fast);
+    word-break: break-word;
+  }
+  .card__title a:hover { color: var(--accent); }
+  .card__org {
+    color: var(--fg-muted);
+    font-weight: 400;
+  }
+
+  .card__stats {
+    flex-shrink: 0;
+    text-align: center;
+    background: var(--accent-soft);
+    border: 1px solid var(--accent-border);
+    border-radius: var(--radius-md);
+    padding: 8px 12px;
+    min-width: 56px;
+  }
+  .card__stars {
+    color: #f0c674;
+    font-size: 1.1rem;
+    line-height: 1;
+  }
+  .stars-num {
+    display: block;
+    font-size: 0.85rem;
+    font-weight: 700;
+    color: var(--fg-strong);
+    margin-top: 2px;
+  }
+
+  .card__meta {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 4px 14px;
+    font-size: 0.78rem;
+    color: var(--fg-subtle);
+    margin-bottom: 10px;
+  }
+  .meta-icon { opacity: 0.5; }
+
+  .card__tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+    margin-bottom: 16px;
+  }
+  .tag {
+    display: inline-block;
+    padding: 3px 10px;
+    border-radius: var(--radius-pill);
+    background: var(--accent-soft);
+    border: 1px solid var(--accent-border);
+    color: var(--accent);
+    font-size: 0.72rem;
+    font-weight: 500;
+    letter-spacing: 0.3px;
+    white-space: nowrap;
+    transition: all var(--transition-fast);
+  }
+  .tag:hover {
+    background: rgba(34,197,94,0.16);
+    border-color: var(--accent);
+    box-shadow: 0 0 10px var(--accent-glow);
+  }
+
+  /* ── BRIEF SECTIONS ── */
+  .card__content { display: flex; flex-direction: column; gap: 0; }
+
+  .brief-section {
+    padding: 10px 0;
+    border-top: 1px solid var(--accent-border);
+  }
+  .brief-section:first-child { border-top: none; padding-top: 0; }
+
+  .brief-label {
+    font-size: 0.75rem;
+    font-weight: 600;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    color: var(--accent);
+    text-shadow: var(--text-glow);
+    margin-bottom: 4px;
+  }
+  .brief-text {
+    font-size: 0.9375rem;
+    color: var(--fg-muted);
+    font-weight: 300;
+    line-height: 1.7;
+  }
+
+  /* "Why it matters" gets a highlight treatment */
+  .brief-section--matters {
+    background: var(--accent-soft);
+    border: 1px solid var(--accent-border);
+    border-radius: var(--radius-md);
+    padding: 10px 14px;
+    margin-top: 8px;
+  }
+  .brief-section--matters .brief-label { margin-bottom: 3px; }
+  .brief-section--matters .brief-text {
+    color: var(--fg-strong);
+    font-weight: 400;
+  }
+
+  .desc { font-size: 0.9375rem; color: var(--fg-muted); font-weight: 300; line-height: 1.7; }
+  .label { color: var(--accent); font-weight: 600; }
+
+  /* ── FOOTER ── */
+  .site-footer {
+    margin-top: 40px;
+    font-size: 0.78rem;
+    color: var(--fg-subtle);
+    text-align: center;
+    border-top: 1px solid var(--accent-border);
+    padding-top: 20px;
+  }
+  a { color: var(--accent); }
+
+  /* ── NEWS ── */
+  .news {
+    margin-bottom: 32px;
+    border: 1px solid var(--accent-border);
+    border-radius: var(--radius-lg);
+    background: var(--accent-softer);
+    padding: 20px 18px 8px;
+  }
+  .news__eyebrow {
+    font-size: 0.72rem;
+    font-weight: 600;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: var(--accent);
+    text-shadow: var(--text-glow);
+    margin-bottom: 4px;
+  }
+  .news__sub {
+    font-size: 0.78rem;
+    color: var(--fg-subtle);
+    margin-bottom: 16px;
+  }
+  .news__item {
+    padding: 14px 0;
+    border-top: 1px solid var(--accent-border);
+  }
+  .news__item:first-of-type { border-top: none; padding-top: 0; }
+  .news__tag {
+    display: inline-block;
+    font-size: 0.62rem;
+    font-weight: 600;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    color: var(--accent);
+    background: var(--accent-soft);
+    border-radius: var(--radius-pill);
+    padding: 2px 10px;
+    margin-bottom: 6px;
+  }
+  .news__title {
+    font-size: 1rem;
+    font-weight: 600;
+    line-height: 1.45;
+    margin-bottom: 6px;
+  }
+  .news__title a { text-decoration: none; }
+  .news__title a:hover { text-shadow: var(--text-glow); }
+  .news__text { font-size: 0.88rem; line-height: 1.65; margin-bottom: 4px; }
+  .news__insight { font-size: 0.85rem; line-height: 1.7; color: var(--fg); margin-top: 8px;
+     padding-inline-start: 10px; border-inline-start: 2px solid var(--accent); }
+  .news__cta {
+    display: inline-block; margin-top: 10px; padding: 7px 15px;
+    border-radius: 999px; font-size: 0.78rem; font-weight: 600;
+    text-decoration: none; color: var(--accent);
+    border: 1px solid var(--accent-border); background: var(--accent-softer);
+    transition: background .15s ease, color .15s ease, border-color .15s ease;
+  }
+  .news__cta:hover { background: var(--accent); color: var(--bg); border-color: var(--accent); }
+  .news__source { font-size: 0.72rem; color: var(--fg-subtle); margin-top: 6px; }
+
+  /* ── SECTION HEADINGS ── */
+  .section-eyebrow {
+    font-size: 0.72rem;
+    font-weight: 600;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: var(--accent);
+    text-shadow: var(--text-glow);
+    margin-bottom: 4px;
+  }
+  .section-sub {
+    font-size: 0.78rem;
+    color: var(--fg-subtle);
+    margin-bottom: 14px;
+  }
+
+  /* ── MOBILE SAFETY ── */
+  img, video, audio { max-width: 100%; }
+  .card__title a { word-break: break-word; }
+  .news__title a { word-break: break-word; }
+  @media (max-width: 480px) {
+    .card__body { padding: 28px 14px 16px; }
+    .card__stats { padding: 6px 10px; min-width: 50px; }
+    .player-time { display: none; }
+    .news { padding: 16px 12px 6px; }
+  }
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <div class="top-bar">
+    <button class="lang-btn" id="langToggle" onclick="toggleLang()">EN</button>
+    <button class="share-btn" id="shareBtn" onclick="shareReport()" aria-label="Share">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <circle cx="18" cy="5" r="3"/><circle cx="6" cy="12" r="3"/><circle cx="18" cy="19" r="3"/>
+        <line x1="8.59" y1="13.51" x2="15.42" y2="17.49"/>
+        <line x1="15.41" y1="6.51" x2="8.59" y2="10.49"/>
+      </svg>
+      <span class="share-label i18n" data-he="שתף" data-en="Share">שתף</span>
+    </button>
+  </div>
+
+  <header class="site-header">
+    <p class="header-eyebrow i18n" data-he="עיכול AI שבועי" data-en="Weekly AI Digest">עיכול AI שבועי</p>
+    <h1 class="header-title i18n" data-he="&#128240; AI News" data-en="&#128240; AI News">&#128240; AI News</h1>
+    <!-- bdi, because in the RTL page "2026-W34 · 2026-08-22" reorders into
+         "W34 · 2026-08-22-2026". Isolating each run keeps them readable. -->
+    <p class="header-sub"><bdi>2026-W48</bdi> &middot; <bdi>2026-11-27</bdi></p>
+  </header>
+
+  <div class="player">
+    <audio id="audio" src="report.mp3" preload="none"></audio>
+    <div class="player-ui">
+      <button class="player-btn" id="playBtn" onclick="togglePlay()" aria-label="Play">
+        <svg id="iconPlay" viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
+        <svg id="iconPause" viewBox="0 0 24 24" style="display:none"><path d="M6 19h4V5H6zm8-14v14h4V5z"/></svg>
+      </button>
+      <div class="player-center">
+        <div class="player-track i18n" data-he="&#127911; האזן בדרך לעבודה" data-en="&#127911; Listen on your commute">&#127911; האזן בדרך לעבודה</div>
+        <div class="player-progress-wrap" id="progressWrap" onclick="seek(event)">
+          <div class="player-progress-bar" id="progressBar"></div>
+        </div>
+      </div>
+      <div class="player-time" id="playerTime">0:00 / 0:00</div>
+    </div>
+    <p class="player-hint i18n" data-he="לחץ להפעלה · גלול למטה לקריאה" data-en="Tap to play · scroll to read">לחץ להפעלה · גלול למטה לקריאה</p>
+  </div>
+
+  
+
+  
+  <section class="news">
+    <p class="news__eyebrow i18n" data-he="&#128240; 10 הכתבות המובילות" data-en="&#128240; Top 10 Articles">&#128240; 10 הכתבות המובילות</p>
+    <p class="news__sub i18n" data-he="הסיפורים הגדולים ביותר בעולם ה-Gen AI בשבוע האחרון" data-en="The biggest gen AI stories of the past week">הסיפורים הגדולים ביותר בעולם ה-Gen AI בשבוע האחרון</p>
+
+      <div class="news__item">
+        <span class="news__tag i18n" data-he="מודל" data-en="Model">מודל</span>
+        <p class="news__title">
+          <a href="https://latent.space/p/ainews-gemini-4-neon-marks-gdm-s-full-return-as-a-frontier-lab/" target="_blank" rel="noopener"
+             class="i18n" data-he="Gemini 4 Neon יוצא לדרך ומנצח את Astra ו-Fable ב-LiveBench" data-en="Gemini 4 Neon Launches, Beating Astra and Fable on LiveBench">Gemini 4 Neon יוצא לדרך ומנצח את Astra ו-Fable ב-LiveBench</a>
+        </p>
+        <p class="news__text i18n" data-he="Google DeepMind השיקה את Gemini 4 Neon, שמנצח את Astra ו-Fable ב-LiveBench ומקצר ב-48.6% את זמן הריצה בבנצ&#x27;מרק TypeScript/Rust. פרשנים מכנים זאת שובה המלא של DeepMind למעמד של מעבדת פריצת דרך." data-en="Google DeepMind released Gemini 4 Neon, which outperforms Astra and Fable on LiveBench and cuts runtime on a TypeScript/Rust benchmark by 48.6%, with commentators calling it DeepMind&#x27;s full return as a frontier lab.">Google DeepMind השיקה את Gemini 4 Neon, שמנצח את Astra ו-Fable ב-LiveBench ומקצר ב-48.6% את זמן הריצה בבנצ&#x27;מרק TypeScript/Rust. פרשנים מכנים זאת שובה המלא של DeepMind למעמד של מעבדת פריצת דרך.</p>
+        <p class="news__insight i18n" data-he="זהו איפוס של מפת התחרות במודלי הפריצה, ומי שעובד עם Claude מקבל עכשיו אלטרנטיבה רצינית אמיתית להשוואה במשימות קידוד. כדאי לבדוק בפועל מול Claude על משימות אמיתיות ולא להסתמך רק על מספרי בנצ&#x27;מרק." data-en="This resets the competitive frontier model landscape, giving Claude users a genuinely strong alternative to benchmark against for coding-heavy workloads. Worth testing directly against Claude on real tasks rather than relying on benchmark numbers alone.">זהו איפוס של מפת התחרות במודלי הפריצה, ומי שעובד עם Claude מקבל עכשיו אלטרנטיבה רצינית אמיתית להשוואה במשימות קידוד. כדאי לבדוק בפועל מול Claude על משימות אמיתיות ולא להסתמך רק על מספרי בנצ&#x27;מרק.</p>
+        <p class="news__source"><bdi>Latent Space</bdi> &middot; <bdi>2026-11-25</bdi></p>
+        <a class="news__cta i18n" href="https://latent.space/p/ainews-gemini-4-neon-marks-gdm-s-full-return-as-a-frontier-lab/" target="_blank" rel="noopener"
+           data-he="לכתבה המלאה &#8592;" data-en="Read the full article &#8594;">לכתבה המלאה &#8592;</a>
+      </div>
+      <div class="news__item">
+        <span class="news__tag i18n" data-he="מחקר" data-en="Research">מחקר</span>
+        <p class="news__title">
+          <a href="https://www.wired.com/story/ai-solved-maths-most-famous-problem/" target="_blank" rel="noopener"
+             class="i18n" data-he="מערכת AI של חוקר מ-Anthropic מפיקה פתרון בן 17 מיליון שורות להשערת רימן" data-en="An Anthropic Researcher&#x27;s AI System Produces a 17-Million-Line Solution to the Riemann Hypothesis">מערכת AI של חוקר מ-Anthropic מפיקה פתרון בן 17 מיליון שורות להשערת רימן</a>
+        </p>
+        <p class="news__text i18n" data-he="מערכת AI שבנה חוקר מ-Anthropic הפיקה מה שמתואר כפתרון להשערת רימן, אחת הבעיות המפורסמות במתמטיקה, בצורת הוכחה באורך 17 מיליון שורות. מתמטיקאים אומרים שיידרשו חודשים כדי להבין ולאמת אותה." data-en="An AI system built by an Anthropic researcher produced what is described as a solution to the Riemann hypothesis, one of math&#x27;s most famous unsolved problems, in the form of a 17-million-line proof that mathematicians say will take months to verify.">מערכת AI שבנה חוקר מ-Anthropic הפיקה מה שמתואר כפתרון להשערת רימן, אחת הבעיות המפורסמות במתמטיקה, בצורת הוכחה באורך 17 מיליון שורות. מתמטיקאים אומרים שיידרשו חודשים כדי להבין ולאמת אותה.</p>
+        <p class="news__insight i18n" data-he="גם אם האימות ייקח זמן, זה מסמן שמתמטיקה שמיוצרת על ידי AI מתחילה להקדים את היכולת האנושית לבדוק אותה מיידית, מצב חדש לגמרי עבור התחום. זהו נתון חזק יותר מכל בנצ&#x27;מרק: ייתכן שמודלים יפיקו בקרוב תוצאות שנצטרך לקבל באמון עד שהבדיקה תדביק את הקצב." data-en="Even if verification takes time, this signals that AI-generated mathematics is starting to outpace human ability to immediately check it, a genuinely new situation for the field. Models may soon produce results whose correctness must be taken on faith until review catches up.">גם אם האימות ייקח זמן, זה מסמן שמתמטיקה שמיוצרת על ידי AI מתחילה להקדים את היכולת האנושית לבדוק אותה מיידית, מצב חדש לגמרי עבור התחום. זהו נתון חזק יותר מכל בנצ&#x27;מרק: ייתכן שמודלים יפיקו בקרוב תוצאות שנצטרך לקבל באמון עד שהבדיקה תדביק את הקצב.</p>
+        <p class="news__source"><bdi>Wired AI</bdi> &middot; <bdi>2026-11-24</bdi></p>
+        <a class="news__cta i18n" href="https://www.wired.com/story/ai-solved-maths-most-famous-problem/" target="_blank" rel="noopener"
+           data-he="לכתבה המלאה &#8592;" data-en="Read the full article &#8594;">לכתבה המלאה &#8592;</a>
+      </div>
+      <div class="news__item">
+        <span class="news__tag i18n" data-he="רגולציה" data-en="Policy">רגולציה</span>
+        <p class="news__title">
+          <a href="https://betterdatacenterproject.com/2026/11/16/how-ai-is-powered-a-breakdown-of-byop-and-grid-power/" target="_blank" rel="noopener"
+             class="i18n" data-he="דיווח: 87% מהחשמל של Anthropic ב-2028 יגיע מגז ו-11% מפחם" data-en="Report: 87% of Anthropic&#x27;s Power by 2028 Will Come From Gas, 11% From Coal">דיווח: 87% מהחשמל של Anthropic ב-2028 יגיע מגז ו-11% מפחם</a>
+        </p>
+        <p class="news__text i18n" data-he="לפי דיווח שצבר מעל אלף נקודות ב-Hacker News, אספקת החשמל לתשתיות המחשוב של Anthropic צפויה להיות 87% מגז ו-11% מפחם עד שנת 2028." data-en="According to a report that drew over a thousand points on Hacker News, Anthropic&#x27;s power supply for its compute infrastructure is projected to be 87% gas and 11% coal by 2028.">לפי דיווח שצבר מעל אלף נקודות ב-Hacker News, אספקת החשמל לתשתיות המחשוב של Anthropic צפויה להיות 87% מגז ו-11% מפחם עד שנת 2028.</p>
+        <p class="news__insight i18n" data-he="זה מסבך את הנרטיב של אנרגיה נקייה בתעשייה ומראה איך קנה המידה של AI מתנגש עם מגבלות רשת חשמל אמיתיות. עבור חברה שמדברת על בטיחות ואחריות ארוכת טווח, הפער בין הערכים המוצהרים לבחירות התשתית בפועל הופך לנקודת ביקורת גלויה." data-en="This complicates the industry&#x27;s clean-energy narrative and shows how AI scaling is colliding with real grid constraints. For a company that talks about safety and long-term responsibility, the gap between stated values and actual infrastructure choices is becoming a visible point of scrutiny.">זה מסבך את הנרטיב של אנרגיה נקייה בתעשייה ומראה איך קנה המידה של AI מתנגש עם מגבלות רשת חשמל אמיתיות. עבור חברה שמדברת על בטיחות ואחריות ארוכת טווח, הפער בין הערכים המוצהרים לבחירות התשתית בפועל הופך לנקודת ביקורת גלויה.</p>
+        <p class="news__source"><bdi>Hacker News</bdi> &middot; <bdi>2026-11-22</bdi></p>
+        <a class="news__cta i18n" href="https://betterdatacenterproject.com/2026/11/16/how-ai-is-powered-a-breakdown-of-byop-and-grid-power/" target="_blank" rel="noopener"
+           data-he="לדיון ב-Hacker News &#8592;" data-en="View the Hacker News thread &#8594;">לדיון ב-Hacker News &#8592;</a>
+      </div>
+      <div class="news__item">
+        <span class="news__tag i18n" data-he="מחקר" data-en="Research">מחקר</span>
+        <p class="news__title">
+          <a href="https://the-decoder.com/microsoft-details-how-state-backed-hackers-use-the-artex-ai-framework-to-automate-cyberattacks/" target="_blank" rel="noopener"
+             class="i18n" data-he="Microsoft חושפת פרטים על ARTEX: מסגרת AI שמפעילה מתקפות סייבר כמעט אוטונומיות מטעם מדינות" data-en="Microsoft Details ARTEX: An AI Framework Powering Near-Autonomous State-Backed Cyberattacks">Microsoft חושפת פרטים על ARTEX: מסגרת AI שמפעילה מתקפות סייבר כמעט אוטונומיות מטעם מדינות</a>
+        </p>
+        <p class="news__text i18n" data-he="Microsoft פרסמה את הארכיטקטורה הטכנית של ARTEX, מסגרת AI בשימוש מאז יולי 2026 שמפעילה מתקפות סייבר באמצעות סוכנים ייעודיים כמעט ללא מעורבות אנושית. קבוצות מטעם סין וצפון קוריאה, לצד ארגוני פשיעה, כבר משתמשות בה." data-en="Microsoft published the technical architecture of ARTEX, an AI framework in use since July 2026 that runs cyberattacks using specialized agents with almost no human involvement, employed by state-backed groups from China and North Korea as well as criminal organizations.">Microsoft פרסמה את הארכיטקטורה הטכנית של ARTEX, מסגרת AI בשימוש מאז יולי 2026 שמפעילה מתקפות סייבר באמצעות סוכנים ייעודיים כמעט ללא מעורבות אנושית. קבוצות מטעם סין וצפון קוריאה, לצד ארגוני פשיעה, כבר משתמשות בה.</p>
+        <p class="news__insight i18n" data-he="זה מאשר שבינה מלאכותית אגנטית כבר עברה מתיאוריה לשימוש בפועל בקנה מידה על ידי שחקני מדינה. למי שבונה או מפעיל סוכנים עם הרשאות בעולם האמיתי, זהו סימן לכך שכלי הגנה וניטור צריכים להדביק את הקצב מהר, ולא לטפל בזה כסיכון עתידי." data-en="This confirms that agentic AI has already moved from theory to active use at scale by nation-state actors. Anyone building or deploying agents with real-world permissions should treat this as a signal that defensive tooling and monitoring need to catch up fast, not as a future risk.">זה מאשר שבינה מלאכותית אגנטית כבר עברה מתיאוריה לשימוש בפועל בקנה מידה על ידי שחקני מדינה. למי שבונה או מפעיל סוכנים עם הרשאות בעולם האמיתי, זהו סימן לכך שכלי הגנה וניטור צריכים להדביק את הקצב מהר, ולא לטפל בזה כסיכון עתידי.</p>
+        <p class="news__source"><bdi>The Decoder</bdi> &middot; <bdi>2026-11-26</bdi></p>
+        <a class="news__cta i18n" href="https://the-decoder.com/microsoft-details-how-state-backed-hackers-use-the-artex-ai-framework-to-automate-cyberattacks/" target="_blank" rel="noopener"
+           data-he="לכתבה המלאה &#8592;" data-en="Read the full article &#8594;">לכתבה המלאה &#8592;</a>
+      </div>
+      <div class="news__item">
+        <span class="news__tag i18n" data-he="מחקר" data-en="Research">מחקר</span>
+        <p class="news__title">
+          <a href="https://www.wired.com/story/ai-agents-can-get-honeypotted-too-aw/" target="_blank" rel="noopener"
+             class="i18n" data-he="Anthropic בונה honeypot כדי לבדוק אם סוכני AI עומדים בפיתוי לסטות מהמסלול" data-en="Anthropic Builds a Honeypot to Test Whether AI Agents Resist Misbehaving">Anthropic בונה honeypot כדי לבדוק אם סוכני AI עומדים בפיתוי לסטות מהמסלול</a>
+        </p>
+        <p class="news__text i18n" data-he="Anthropic יצרה סביבת בדיקה בסגנון honeypot שנועדה לפתות סוכני AI להתנהג שלא כשורה, כדי לבחון אם וכיצד סוכנים עומדים בפני ניסיונות לסטות מהמשימה שהוטלה עליהם." data-en="Anthropic created a honeypot-style test environment designed to tempt AI agents into misbehaving, in order to study whether and how agents resist acting against instructions.">Anthropic יצרה סביבת בדיקה בסגנון honeypot שנועדה לפתות סוכני AI להתנהג שלא כשורה, כדי לבחון אם וכיצד סוכנים עומדים בפני ניסיונות לסטות מהמשימה שהוטלה עליהם.</p>
+        <p class="news__insight i18n" data-he="ככל שלמערכות אגנטיות ניתנת יותר אוטונומיה על משימות אמיתיות, בדיקת עמידות בפני מניפולציה הופכת לחשובה לא פחות מבדיקת יכולת. סביר שסוג כזה של הערכה אדברסרית יהפוך לסטנדרט אצל כל מי שמפעיל סוכנים עם הרשאות אמיתיות." data-en="As agentic systems get more autonomy over real tasks, testing resistance to manipulation becomes as important as testing capability. This kind of adversarial evaluation is likely to become standard practice for anyone deploying agents with real-world permissions.">ככל שלמערכות אגנטיות ניתנת יותר אוטונומיה על משימות אמיתיות, בדיקת עמידות בפני מניפולציה הופכת לחשובה לא פחות מבדיקת יכולת. סביר שסוג כזה של הערכה אדברסרית יהפוך לסטנדרט אצל כל מי שמפעיל סוכנים עם הרשאות אמיתיות.</p>
+        <p class="news__source"><bdi>Wired AI</bdi> &middot; <bdi>2026-11-24</bdi></p>
+        <a class="news__cta i18n" href="https://www.wired.com/story/ai-agents-can-get-honeypotted-too-aw/" target="_blank" rel="noopener"
+           data-he="לכתבה המלאה &#8592;" data-en="Read the full article &#8594;">לכתבה המלאה &#8592;</a>
+      </div>
+      <div class="news__item">
+        <span class="news__tag i18n" data-he="מחקר" data-en="Research">מחקר</span>
+        <p class="news__title">
+          <a href="https://openai.com/index/gpt-6-models-demonstrate-intrinsic-protein-design-capabilities" target="_blank" rel="noopener"
+             class="i18n" data-he="OpenAI: למודלי GPT-6 יש יכולות טבעיות לתכנון חלבונים" data-en="OpenAI Says GPT-6 Models Show Intrinsic Protein-Design Capabilities">OpenAI: למודלי GPT-6 יש יכולות טבעיות לתכנון חלבונים</a>
+        </p>
+        <p class="news__text i18n" data-he="OpenAI מדווחת שמודלי GPT-6 מסוגלים לתכנן מבנים ורצפים של חלבונים באמצעות חשיבה וכתיבת קוד, ובדיקות מעבדה מצאו עדות לקשירה (binding) ביחס לחמישה יעדים." data-en="OpenAI reports that GPT-6 models can design protein structures and sequences using reasoning and code, with lab tests finding evidence of binding across five targets.">OpenAI מדווחת שמודלי GPT-6 מסוגלים לתכנן מבנים ורצפים של חלבונים באמצעות חשיבה וכתיבת קוד, ובדיקות מעבדה מצאו עדות לקשירה (binding) ביחס לחמישה יעדים.</p>
+        <p class="news__insight i18n" data-he="זהו סימן ממשי לכך שיכולות החשיבה והקוד של מודלי השפה המובילים מתפשטות לתחומים מדעיים בלי ארכיטקטורה ייעודית לביולוגיה. זה מחזק את הטענה שמודלי חשיבה כלליים, ולא רק כלי bio-AI מתמחים, יעשו עבודה מדעית רצינית יותר ויותר." data-en="This is a concrete sign that frontier LLMs&#x27; reasoning and coding abilities are generalizing into scientific domains without dedicated biology-specific architectures. It strengthens the case that general-purpose reasoning models will increasingly do serious scientific work.">זהו סימן ממשי לכך שיכולות החשיבה והקוד של מודלי השפה המובילים מתפשטות לתחומים מדעיים בלי ארכיטקטורה ייעודית לביולוגיה. זה מחזק את הטענה שמודלי חשיבה כלליים, ולא רק כלי bio-AI מתמחים, יעשו עבודה מדעית רצינית יותר ויותר.</p>
+        <p class="news__source"><bdi>OpenAI</bdi> &middot; <bdi>2026-11-24</bdi></p>
+        <a class="news__cta i18n" href="https://openai.com/index/gpt-6-models-demonstrate-intrinsic-protein-design-capabilities" target="_blank" rel="noopener"
+           data-he="לכתבה המלאה &#8592;" data-en="Read the full article &#8594;">לכתבה המלאה &#8592;</a>
+      </div>
+      <div class="news__item">
+        <span class="news__tag i18n" data-he="מוצר" data-en="Product">מוצר</span>
+        <p class="news__title">
+          <a href="https://techcrunch.com/2026/11/25/openai-says-heavy-chatgpt-users-may-hit-limits-sooner-as-it-merges-chat-and-work/" target="_blank" rel="noopener"
+             class="i18n" data-he="OpenAI מאחדת את מצבי Chat ו-Work ב-ChatGPT תחת מד שימוש אחד" data-en="OpenAI Merges ChatGPT&#x27;s Chat and Work Modes Into a Single Usage Meter">OpenAI מאחדת את מצבי Chat ו-Work ב-ChatGPT תחת מד שימוש אחד</a>
+        </p>
+        <p class="news__text i18n" data-he="OpenAI מאחדת את חוויות Chat ו-Work ב-ChatGPT ומכניסה מד שימוש אחיד, כך שמשתמשים כבדים עלולים להגיע למגבלות השימוש מוקדם יותר מבעבר." data-en="OpenAI is combining the Chat and Work experiences in ChatGPT, introducing a single usage meter that means heavy users may hit limits sooner than before.">OpenAI מאחדת את חוויות Chat ו-Work ב-ChatGPT ומכניסה מד שימוש אחיד, כך שמשתמשים כבדים עלולים להגיע למגבלות השימוש מוקדם יותר מבעבר.</p>
+        <p class="news__insight i18n" data-he="זה מצביע על כך ש-OpenAI מהדקת את הכלכלה סביב שימוש כבד ככל ש-ChatGPT ממשיך לצמוח, דבר שחשוב לכל מי שמסתמך עליו לתהליכי עבודה יומיומיים אינטנסיביים. צפוי שמגבלות השימוש והתמחור המדורג ימשיכו להשתנות ככל שהחברה מאזנת בין צמיחה לעלויות חישוב." data-en="This points to OpenAI tightening the economics around heavy usage as ChatGPT scales, which matters for anyone relying on it for intensive daily workflows. Expect usage caps and tiered pricing to keep shifting as the company balances growth against compute costs.">זה מצביע על כך ש-OpenAI מהדקת את הכלכלה סביב שימוש כבד ככל ש-ChatGPT ממשיך לצמוח, דבר שחשוב לכל מי שמסתמך עליו לתהליכי עבודה יומיומיים אינטנסיביים. צפוי שמגבלות השימוש והתמחור המדורג ימשיכו להשתנות ככל שהחברה מאזנת בין צמיחה לעלויות חישוב.</p>
+        <p class="news__source"><bdi>TechCrunch AI</bdi> &middot; <bdi>2026-11-25</bdi></p>
+        <a class="news__cta i18n" href="https://techcrunch.com/2026/11/25/openai-says-heavy-chatgpt-users-may-hit-limits-sooner-as-it-merges-chat-and-work/" target="_blank" rel="noopener"
+           data-he="לכתבה המלאה &#8592;" data-en="Read the full article &#8594;">לכתבה המלאה &#8592;</a>
+      </div>
+      <div class="news__item">
+        <span class="news__tag i18n" data-he="כלי" data-en="Tool">כלי</span>
+        <p class="news__title">
+          <a href="https://techstackups.com/articles/google-workspace-ai-agents-mcp/" target="_blank" rel="noopener"
+             class="i18n" data-he="Google תחייב סוכני AI להשתמש בשרתי ה-MCP שלה (שרת ה-Gmail לא יכול לשלוח מיילים)" data-en="Google Will Require AI Agents to Use Its Own MCP Servers (Gmail&#x27;s Can&#x27;t Send Email)">Google תחייב סוכני AI להשתמש בשרתי ה-MCP שלה (שרת ה-Gmail לא יכול לשלוח מיילים)</a>
+        </p>
+        <p class="news__text i18n" data-he="Google נעה לכיוון של חיוב סוכני AI לעבור דרך שרתי MCP משלה כדי לגשת לשירותיה, כאשר שרת ה-MCP של Gmail מוגבל באופן בולט ולא מאפשר שליחת מיילים." data-en="Google is moving to require AI agents to go through its own MCP servers for accessing services, with the Gmail MCP server notably restricted from sending email.">Google נעה לכיוון של חיוב סוכני AI לעבור דרך שרתי MCP משלה כדי לגשת לשירותיה, כאשר שרת ה-MCP של Gmail מוגבל באופן בולט ולא מאפשר שליחת מיילים.</p>
+        <p class="news__insight i18n" data-he="זהו שינוי משמעותי באופן שבו מערכות MCP נשלטות: בעלי פלטפורמות מתחילים לשלוט בשכבת האינטגרציה עצמה, מה שמשנה את שיקולי הדעת של כל מי שבונה סוכנים מעל שירותי Google. סביר שמהלכים דומים יגיעו מפלטפורמות מרכזיות נוספות." data-en="This is a meaningful shift in how MCP ecosystems get governed, with platform owners starting to control the integration layer itself. This changes the calculus for anyone building agents on top of Google services, and similar moves may follow from other major platforms.">זהו שינוי משמעותי באופן שבו מערכות MCP נשלטות: בעלי פלטפורמות מתחילים לשלוט בשכבת האינטגרציה עצמה, מה שמשנה את שיקולי הדעת של כל מי שבונה סוכנים מעל שירותי Google. סביר שמהלכים דומים יגיעו מפלטפורמות מרכזיות נוספות.</p>
+        <p class="news__source"><bdi>Hacker News</bdi> &middot; <bdi>2026-11-26</bdi></p>
+        <a class="news__cta i18n" href="https://techstackups.com/articles/google-workspace-ai-agents-mcp/" target="_blank" rel="noopener"
+           data-he="לדיון ב-Hacker News &#8592;" data-en="View the Hacker News thread &#8594;">לדיון ב-Hacker News &#8592;</a>
+      </div>
+      <div class="news__item">
+        <span class="news__tag i18n" data-he="כלי" data-en="Tool">כלי</span>
+        <p class="news__title">
+          <a href="https://www.gpupartner.com/blog/beginners-guide-local-ai-inkling-qwen-unsloth" target="_blank" rel="noopener"
+             class="i18n" data-he="מדריך מעשי למתחילים להרצת AI מקומי עם Inkling, Qwen ו-Unsloth" data-en="A Practical Beginner&#x27;s Guide to Running Local AI with Inkling, Qwen, and Unsloth">מדריך מעשי למתחילים להרצת AI מקומי עם Inkling, Qwen ו-Unsloth</a>
+        </p>
+        <p class="news__text i18n" data-he="מדריך שהופץ בהיקף רחב ב-Hacker News (780 נקודות) מסביר כיצד להקים מודלי AI מקומיים באמצעות ממשק Inkling, מודלי Qwen וכלי ה-Unsloth לכוונון עדין, ומיועד למתחילים בתחום." data-en="A widely-shared guide walks through setting up local AI models using the Inkling interface, Qwen models, and Unsloth for fine-tuning, aimed at newcomers.">מדריך שהופץ בהיקף רחב ב-Hacker News (780 נקודות) מסביר כיצד להקים מודלי AI מקומיים באמצעות ממשק Inkling, מודלי Qwen וכלי ה-Unsloth לכוונון עדין, ומיועד למתחילים בתחום.</p>
+        <p class="news__insight i18n" data-he="בינה מלאכותית מקומית וקמת-עצמית ממשיכה להיות נגישה יותר, מה שחשוב למי שמחפש פרטיות, שליטה בעלויות או יכולת עבודה ללא חיבור, בלי לוותר יותר מדי על איכות. זהו צ&#x27;ק-פוינט טוב לבדוק אם מודלים מקומיים כבר מכסים מספיק מקרי שימוש כדי להשלים תהליכי עבודה מבוססי Claude." data-en="Local, self-hosted AI keeps getting more accessible, which matters for anyone who wants privacy, cost control, or offline capability without sacrificing too much quality. This is a good checkpoint to evaluate whether local models now cover enough use cases to supplement cloud-based workflows.">בינה מלאכותית מקומית וקמת-עצמית ממשיכה להיות נגישה יותר, מה שחשוב למי שמחפש פרטיות, שליטה בעלויות או יכולת עבודה ללא חיבור, בלי לוותר יותר מדי על איכות. זהו צ&#x27;ק-פוינט טוב לבדוק אם מודלים מקומיים כבר מכסים מספיק מקרי שימוש כדי להשלים תהליכי עבודה מבוססי Claude.</p>
+        <p class="news__source"><bdi>Hacker News</bdi> &middot; <bdi>2026-11-22</bdi></p>
+        <a class="news__cta i18n" href="https://www.gpupartner.com/blog/beginners-guide-local-ai-inkling-qwen-unsloth" target="_blank" rel="noopener"
+           data-he="לדיון ב-Hacker News &#8592;" data-en="View the Hacker News thread &#8594;">לדיון ב-Hacker News &#8592;</a>
+      </div>
+      <div class="news__item">
+        <span class="news__tag i18n" data-he="טכניקה" data-en="Technique">טכניקה</span>
+        <p class="news__title">
+          <a href="https://simonwillison.net/2026/Nov/24/llm-inflection-points/" target="_blank" rel="noopener"
+             class="i18n" data-he="Simon Willison ממפה שלוש נקודות מפנה בהתקדמות סוכני הקוד בשנה האחרונה" data-en="Simon Willison Maps Three Inflection Points in Coding Agents&#x27; Past Year">Simon Willison ממפה שלוש נקודות מפנה בהתקדמות סוכני הקוד בשנה האחרונה</a>
+        </p>
+        <p class="news__text i18n" data-he="Willison נשא הרצאת מפתח ב-AI Engineer Code Summit שבנויה סביב שלוש נקודות מפנה משמעותיות ביכולות מודלי שפה וסוכני קוד בשנים עשר החודשים האחרונים, והווידאו של ההרצאה פורסם כעת." data-en="Willison gave a keynote at the AI Engineer Code Summit built around three significant inflection points in LLM and coding agent capabilities over the past twelve months, with the talk&#x27;s video now released.">Willison נשא הרצאת מפתח ב-AI Engineer Code Summit שבנויה סביב שלוש נקודות מפנה משמעותיות ביכולות מודלי שפה וסוכני קוד בשנים עשר החודשים האחרונים, והווידאו של ההרצאה פורסם כעת.</p>
+        <p class="news__insight i18n" data-he="עבור מי שעובד עם סוכנים מדי יום, זהו מסגרת שימושית להבין למה תהליכי עבודה שנראו בלתי אפשריים לפני שנה הפכו שגרתיים, ולנחש מאיפה תגיע הקפיצה הבאה." data-en="For builders working with agents daily, this is a useful framework to understand why workflows that felt impossible a year ago are now routine, and to anticipate where the next jump might come from.">עבור מי שעובד עם סוכנים מדי יום, זהו מסגרת שימושית להבין למה תהליכי עבודה שנראו בלתי אפשריים לפני שנה הפכו שגרתיים, ולנחש מאיפה תגיע הקפיצה הבאה.</p>
+        <p class="news__source"><bdi>Simon Willison</bdi> &middot; <bdi>2026-11-24</bdi></p>
+        <a class="news__cta i18n" href="https://simonwillison.net/2026/Nov/24/llm-inflection-points/" target="_blank" rel="noopener"
+           data-he="לכתבה המלאה &#8592;" data-en="Read the full article &#8594;">לכתבה המלאה &#8592;</a>
+      </div>
+  </section>
+
+  <p class="section-eyebrow i18n" data-he="&#128200; 3 ה-REPOS המובילים" data-en="&#128200; Top 3 Repos">&#128200; 3 ה-REPOS המובילים</p>
+  <p class="section-sub i18n" data-he="הפרויקטים שצוברים תאוצה בשבוע האחרון" data-en="The projects gaining the most momentum this week">הפרויקטים שצוברים תאוצה בשבוע האחרון</p>
+
+  <main id="repoList">
+
+    <article class="card">
+      <div class="card__rank">#1</div>
+      <div class="card__body">
+
+        <div class="card__header">
+          <div class="card__title-block">
+            <p class="card__eyebrow">Python</p>
+            <h2 class="card__title">
+              <a href="https://github.com/elementalsouls/Claude-BugHunter" target="_blank" rel="noopener">
+                <span class="card__org">elementalsouls/</span>Claude-BugHunter
+              </a>
+            </h2>
+          </div>
+          <div class="card__stats">
+            <span class="card__stars">&#9733;<br><span class="stars-num">25,439</span></span>
+          </div>
+        </div>
+
+        <div class="card__meta">
+          <span class="meta-item"><span class="meta-icon">&#128197;</span> 2026-05-05</span>
+          <span class="meta-item"><span class="meta-icon">&#9679;</span> push 2026-11-27</span>
+        </div>
+
+        <div class="card__tags"><span class="tag">ai-security</span><span class="tag">anthropic</span><span class="tag">application-security</span><span class="tag">bug-bounty</span></div>
+
+        <div class="card__content"><div class="brief-section"><p class="brief-label" data-he="מה זה עושה" data-en="What it does">מה זה עושה</p><p class="brief-text i18n" data-he="חבילת סקילים ל-Claude Code המיועדת לציד באגים ולעבודות צוות אדום: 85 סקילים, 16 פקודות סלאש ו-681 דפוסים מתוך דוחות שפורסמו, הפרושים על פני 24 מחלקות פגיעויות ליבה. הכלי כולל גם מטריצות תקיפה לזהות ארגונית ותשתיות, אינטגרציית Burp MCP ומבנה תיקיות לעבודה." data-en="A Claude Code skill bundle for bug hunting and external red-team work: 85 skills, 16 slash commands, and 681 disclosed-report patterns across 24 core vulnerability classes. It also includes enterprise identity and infrastructure attack matrices, Burp MCP integration, and engagement-folder scaffolding.">חבילת סקילים ל-Claude Code המיועדת לציד באגים ולעבודות צוות אדום: 85 סקילים, 16 פקודות סלאש ו-681 דפוסים מתוך דוחות שפורסמו, הפרושים על פני 24 מחלקות פגיעויות ליבה. הכלי כולל גם מטריצות תקיפה לזהות ארגונית ותשתיות, אינטגרציית Burp MCP ומבנה תיקיות לעבודה.</p></div><div class="brief-section"><p class="brief-label" data-he="למה זה בטרנד" data-en="Why it&#x27;s trending">למה זה בטרנד</p><p class="brief-text i18n" data-he="הכלי הופך את Claude Code מצ&amp;#x27;אטבוט לחוקר אבטחה בכיר, עם זיהוי אוטומטי של הסקיל הרלוונטי לפי התיאור בשפה טבעית. השילוב של 681 דוחות מאומתים מ-HackerOne עם כיסוי מעשי של פלטפורמות ארגוניות אמיתיות (M365, Okta, vCenter) הופך אותו לרלוונטי ביותר לקהילת האבטחה." data-en="It turns Claude Code from a chatbot into a senior bug-hunting researcher by auto-triggering the right skill from plain-English descriptions of what&amp;#x27;s being tested. Combining 681 verified HackerOne-derived patterns with real enterprise platform CVE chains (M365, Okta, vCenter) makes it highly practical for security teams.">הכלי הופך את Claude Code מצ&#x27;אטבוט לחוקר אבטחה בכיר, עם זיהוי אוטומטי של הסקיל הרלוונטי לפי התיאור בשפה טבעית. השילוב של 681 דוחות מאומתים מ-HackerOne עם כיסוי מעשי של פלטפורמות ארגוניות אמיתיות (M365, Okta, vCenter) הופך אותו לרלוונטי ביותר לקהילת האבטחה.</p></div><div class="brief-section"><p class="brief-label" data-he="דוגמת שימוש" data-en="Example use case">דוגמת שימוש</p><p class="brief-text i18n" data-he="משתמש יכול לתאר יעד בדיקה בשפה טבעית, למשל &amp;#x27;אני בודק אפליקציית SharePoint&amp;#x27;, וה-Claude טוען אוטומטית את הסקילים הרלוונטיים כולל דפוסי זיהוי, payloads וטבלאות עקיפה ללא צורך בקריאה ישירה לשם הסקיל." data-en="A user can describe a target in plain English, like &amp;#x27;I&amp;#x27;m testing a SharePoint app&amp;#x27;, and Claude automatically loads the relevant skills, including detection patterns, payloads, and bypass tables, without needing to invoke them by name.">משתמש יכול לתאר יעד בדיקה בשפה טבעית, למשל &#x27;אני בודק אפליקציית SharePoint&#x27;, וה-Claude טוען אוטומטית את הסקילים הרלוונטיים כולל דפוסי זיהוי, payloads וטבלאות עקיפה ללא צורך בקריאה ישירה לשם הסקיל.</p></div><div class="brief-section brief-section--matters"><p class="brief-label" data-he="למה זה רלוונטי לך" data-en="Why it matters for you">למה זה רלוונטי לך</p><p class="brief-text i18n" data-he="עבור אבי, זהו דוגמה מובהקת לאיך agent tooling ו-skills הופכים מודל שפה לכלי עבודה אמיתי שמבצע משימות מורכבות באופן אוטונומי. זה גם ממחיש כיצד context engineering (סקילים הנטענים אוטומטית לפי הקשר) משפר ביצועים בפועל." data-en="For Avi, this is a clear example of how agent tooling and skills turn a language model into a real work tool that autonomously performs complex tasks. It also illustrates how context engineering (auto-loaded skills based on context) improves real-world performance.">עבור אבי, זהו דוגמה מובהקת לאיך agent tooling ו-skills הופכים מודל שפה לכלי עבודה אמיתי שמבצע משימות מורכבות באופן אוטונומי. זה גם ממחיש כיצד context engineering (סקילים הנטענים אוטומטית לפי הקשר) משפר ביצועים בפועל.</p></div></div>
+
+      </div>
+    </article>
+
+    <article class="card">
+      <div class="card__rank">#2</div>
+      <div class="card__body">
+
+        <div class="card__header">
+          <div class="card__title-block">
+            <p class="card__eyebrow">JavaScript</p>
+            <h2 class="card__title">
+              <a href="https://github.com/DietrichGebert/ponytail" target="_blank" rel="noopener">
+                <span class="card__org">DietrichGebert/</span>ponytail
+              </a>
+            </h2>
+          </div>
+          <div class="card__stats">
+            <span class="card__stars">&#9733;<br><span class="stars-num">199,721</span></span>
+          </div>
+        </div>
+
+        <div class="card__meta">
+          <span class="meta-item"><span class="meta-icon">&#128197;</span> 2026-06-12</span>
+          <span class="meta-item"><span class="meta-icon">&#9679;</span> push 2026-11-22</span>
+        </div>
+
+        <div class="card__tags"><span class="tag">agent-skills</span><span class="tag">ai-agents</span><span class="tag">claude</span><span class="tag">claude-code</span></div>
+
+        <div class="card__content"><div class="brief-section"><p class="brief-label" data-he="מה זה עושה" data-en="What it does">מה זה עושה</p><p class="brief-text i18n" data-he="Ponytail הוא agent-skill שגורם לסוכן AI לכתוב קוד כמו מפתח סניור עצלן: כמה שפחות שורות, בלי קוד מיותר, אבל עם בדיקות למקומות הקריטיים. הוא עובד כתוסף בתוך Claude Code, Cursor וסוכנים נוספים (לפי התגיות: 20 סוכנים נתמכים)." data-en="Ponytail is an agent-skill that makes an AI coding agent act like a lazy senior developer: write the minimum code needed, skip unnecessary work, but still test risky logic. It plugs into Claude Code, Cursor and other agents (described as working with 20 agents).">Ponytail הוא agent-skill שגורם לסוכן AI לכתוב קוד כמו מפתח סניור עצלן: כמה שפחות שורות, בלי קוד מיותר, אבל עם בדיקות למקומות הקריטיים. הוא עובד כתוסף בתוך Claude Code, Cursor וסוכנים נוספים (לפי התגיות: 20 סוכנים נתמכים).</p></div><div class="brief-section"><p class="brief-label" data-he="למה זה בטרנד" data-en="Why it&#x27;s trending">למה זה בטרנד</p><p class="brief-text i18n" data-he="המדדים שפורסמו מרשימים: ירידה של 53% בכמות הקוד, 41% בזמן, 26% בעלות ו-45% בטוקנים, תוך שמירה על 98% כיסוי בדיקות לקוד מסוכן (לעומת 68% בלי הכלי). זה בדיוק סוג התוצאה הקונקרטית שגורמת לקהילת ה-dev tools לשים לב." data-en="The published benchmarks are striking: -53% code, -41% time, -26% cost, -45% tokens, while still shipping tests on 98% of risky logic versus 68% without it. Concrete, measurable efficiency gains like this are exactly what drives attention in the dev-tools community.">המדדים שפורסמו מרשימים: ירידה של 53% בכמות הקוד, 41% בזמן, 26% בעלות ו-45% בטוקנים, תוך שמירה על 98% כיסוי בדיקות לקוד מסוכן (לעומת 68% בלי הכלי). זה בדיוק סוג התוצאה הקונקרטית שגורמת לקהילת ה-dev tools לשים לב.</p></div><div class="brief-section"><p class="brief-label" data-he="דוגמת שימוש" data-en="Example use case">דוגמת שימוש</p><p class="brief-text i18n" data-he="לפי התיאור, המדידה נעשתה על אותו סוכן (Claude Code, Opus) עם ובלי ה-skill, על 39 משימות כולל ריפו אמיתי של FastAPI + React, והשוואת הקוד, הזמן, העלות והטוקנים בין שני המצבים." data-en="Per the README, the benchmark compared the same agent (Claude Code, Opus) with and without the skill across 39 tasks, including a real FastAPI + React repository, measuring code volume, time, cost and tokens in each case.">לפי התיאור, המדידה נעשתה על אותו סוכן (Claude Code, Opus) עם ובלי ה-skill, על 39 משימות כולל ריפו אמיתי של FastAPI + React, והשוואת הקוד, הזמן, העלות והטוקנים בין שני המצבים.</p></div><div class="brief-section brief-section--matters"><p class="brief-label" data-he="למה זה רלוונטי לך" data-en="Why it matters for you">למה זה רלוונטי לך</p><p class="brief-text i18n" data-he="לאבי זה רלוונטי כי זו דוגמה ישירה ל&amp;#x27;context engineering&amp;#x27; וכלים שמשפרים את האופן שבו סוכני קוד עובדים בפועל, לא רק פרומפט חד פעמי אלא skill קבוע שמשנה התנהגות. זה גם מחזק את הטרנד של Claude Code plugins וכלי agent-skills כתשתית עבודה אמיתית." data-en="This matters to Avi because it is a direct example of context engineering and tooling that reshapes how coding agents actually behave, not a one-off prompt but a persistent skill that changes default behavior. It also reinforces the trend of Claude Code plugins and agent-skills becoming real production infrastructure.">לאבי זה רלוונטי כי זו דוגמה ישירה ל&#x27;context engineering&#x27; וכלים שמשפרים את האופן שבו סוכני קוד עובדים בפועל, לא רק פרומפט חד פעמי אלא skill קבוע שמשנה התנהגות. זה גם מחזק את הטרנד של Claude Code plugins וכלי agent-skills כתשתית עבודה אמיתית.</p></div></div>
+
+      </div>
+    </article>
+
+    <article class="card">
+      <div class="card__rank">#3</div>
+      <div class="card__body">
+
+        <div class="card__header">
+          <div class="card__title-block">
+            <p class="card__eyebrow">Python</p>
+            <h2 class="card__title">
+              <a href="https://github.com/zhouxiaoka/autoclip" target="_blank" rel="noopener">
+                <span class="card__org">zhouxiaoka/</span>autoclip
+              </a>
+            </h2>
+          </div>
+          <div class="card__stats">
+            <span class="card__stars">&#9733;<br><span class="stars-num">17,376</span></span>
+          </div>
+        </div>
+
+        <div class="card__meta">
+          <span class="meta-item"><span class="meta-icon">&#128197;</span> 2025-07-08</span>
+          <span class="meta-item"><span class="meta-icon">&#9679;</span> push 2026-11-27</span>
+        </div>
+
+        <div class="card__tags"><span class="tag">ai-agent</span><span class="tag">ai-video-editor</span><span class="tag">claude-code</span><span class="tag">content-repurposing</span></div>
+
+        <div class="card__content"><div class="brief-section"><p class="brief-label" data-he="מה זה עושה" data-en="What it does">מה זה עושה</p><p class="brief-text i18n" data-he="AutoClip הוא כלי שולחני בקוד פתוח שהופך וידאו ארוך (פודקאסטים, ראיונות, שידורי גיימינג) לקליפים קצרים מוכנים לפרסום, כולל כתוביות, כיסויים, כותרות והתאמה אוטומטית לפלטפורמות כמו טיקטוק, אינסטגרם ריל ויוטיוב שורטס. הכלי פועל מקומית (local-first) ללא מנוי או תשלום, ומגיע עם שרת MCP מובנה לסוכני AI." data-en="AutoClip is an open-source, local-first desktop tool that turns long videos, links, or live streams into ready-to-post short clips, complete with smart reframing, captions, covers, and titles. It auto-adapts output for Douyin, Instagram Reels, TikTok, and YouTube Shorts, with no subscriptions, and ships a built-in MCP server for AI agents.">AutoClip הוא כלי שולחני בקוד פתוח שהופך וידאו ארוך (פודקאסטים, ראיונות, שידורי גיימינג) לקליפים קצרים מוכנים לפרסום, כולל כתוביות, כיסויים, כותרות והתאמה אוטומטית לפלטפורמות כמו טיקטוק, אינסטגרם ריל ויוטיוב שורטס. הכלי פועל מקומית (local-first) ללא מנוי או תשלום, ומגיע עם שרת MCP מובנה לסוכני AI.</p></div><div class="brief-section"><p class="brief-label" data-he="למה זה בטרנד" data-en="Why it&#x27;s trending">למה זה בטרנד</p><p class="brief-text i18n" data-he="הריפו קפץ ל-17,376 כוכבים כאלטרנטיבה בקוד פתוח ל-OpusClip, כלי בתשלום פופולרי, ומושך משתמשים שרוצים עריכת וידאו אוטומטית בחינם ובלי ענן. התמיכה המובנית ב-MCP ובסוכני AI, לצד תרגום ל-13 שפות, הופכת אותו רלוונטי גם לעולם האוטומציה והסוכנים." data-en="The repo surged to 17,376 stars as a free, open-source alternative to the paid OpusClip, appealing to creators who want automated video clipping without cloud lock-in or subscription fees. Its built-in MCP server for AI agents and support for 13 languages make it relevant to the growing agent-tooling ecosystem.">הריפו קפץ ל-17,376 כוכבים כאלטרנטיבה בקוד פתוח ל-OpusClip, כלי בתשלום פופולרי, ומושך משתמשים שרוצים עריכת וידאו אוטומטית בחינם ובלי ענן. התמיכה המובנית ב-MCP ובסוכני AI, לצד תרגום ל-13 שפות, הופכת אותו רלוונטי גם לעולם האוטומציה והסוכנים.</p></div><div class="brief-section"><p class="brief-label" data-he="דוגמת שימוש" data-en="Example use case">דוגמת שימוש</p><p class="brief-text i18n" data-he="משתמש יכול להדביק קישור לפודקאסט או לשידור חי, והכלי יחתוך אוטומטית רגעים מתאימים לקליפים, יוסיף כתוביות וכיסוי, וייצר כותרת ונוסח פרסום לכל רשת חברתית. בזכות ה-MCP, סוכן AI (למשל Claude) יכול להפעיל את כל התהליך הזה ישירות דרך שיחה." data-en="A user pastes a link to a podcast or livestream, and the tool automatically cuts suitable moments into clips, adds captions and a cover, and generates a title plus post copy for each social network. Thanks to the built-in MCP server, an AI agent (like Claude) can trigger this whole pipeline directly from a conversation.">משתמש יכול להדביק קישור לפודקאסט או לשידור חי, והכלי יחתוך אוטומטית רגעים מתאימים לקליפים, יוסיף כתוביות וכיסוי, וייצר כותרת ונוסח פרסום לכל רשת חברתית. בזכות ה-MCP, סוכן AI (למשל Claude) יכול להפעיל את כל התהליך הזה ישירות דרך שיחה.</p></div><div class="brief-section brief-section--matters"><p class="brief-label" data-he="למה זה רלוונטי לך" data-en="Why it matters for you">למה זה רלוונטי לך</p><p class="brief-text i18n" data-he="לאבי זה רלוונטי כי זה בדיוק הצטלבות בין יצירת תוכן (וידאו, כתוביות, כיסויים) לבין כלי עבודה יומיומי שחוסך שעות עריכה. העובדה שיש שרת MCP מובנה הופכת אותו לדוגמה מובהקת לאיך סוכני AI יכולים לבצע עבודה אמיתית במקום רק לייעץ." data-en="This matters to Avi because it sits right at the intersection of creative production (video, captions, covers) and everyday productivity tooling that saves real editing hours. The built-in MCP server makes it a concrete example of AI agents performing actual work, not just advising, which is central to his coverage.">לאבי זה רלוונטי כי זה בדיוק הצטלבות בין יצירת תוכן (וידאו, כתוביות, כיסויים) לבין כלי עבודה יומיומי שחוסך שעות עריכה. העובדה שיש שרת MCP מובנה הופכת אותו לדוגמה מובהקת לאיך סוכני AI יכולים לבצע עבודה אמיתית במקום רק לייעץ.</p></div></div>
+
+      </div>
+    </article>
+  </main>
+
+  <footer class="site-footer">
+    <span class="i18n" data-he="עיכול אוטומטי שבועי · מקורות: GitHub + עדכוני חדשות Gen AI" data-en="Auto-generated weekly digest · Sources: GitHub + gen AI news feeds">עיכול אוטומטי שבועי · מקורות: GitHub + עדכוני חדשות Gen AI</span>
+    <p class="share-copied" id="shareCopied">&#128279; <span class="i18n" data-he="הקישור הועתק!" data-en="Link copied!">הקישור הועתק!</span></p>
+  </footer>
+
+</div>
+
+<script>
+// ── LANGUAGE TOGGLE ──
+var currentLang = 'he';
+function toggleLang() {
+  currentLang = currentLang === 'he' ? 'en' : 'he';
+  var isHe = currentLang === 'he';
+  document.documentElement.lang = currentLang;
+  document.documentElement.dir = isHe ? 'rtl' : 'ltr';
+  document.getElementById('langToggle').textContent = isHe ? 'EN' : 'עב';
+  document.querySelectorAll('.i18n').forEach(function(el) {
+    el.innerHTML = el.dataset[currentLang] || el.innerHTML;
+  });
+  // Flip brief labels
+  document.querySelectorAll('.brief-label').forEach(function(el) {
+    var he = el.dataset.he, en = el.dataset.en;
+    if (he && en) el.textContent = isHe ? he : en;
+  });
+}
+
+// ── SHARE ──
+function shareReport() {
+  var title = currentLang === 'he'
+    ? 'AI News – 2026-W48'
+    : 'AI News – 2026-W48';
+  var url = window.location.href;
+  if (navigator.share) {
+    navigator.share({ title: title, url: url }).catch(function(){});
+  } else {
+    navigator.clipboard.writeText(url).then(function() {
+      var el = document.getElementById('shareCopied');
+      el.classList.add('show');
+      setTimeout(function() { el.classList.remove('show'); }, 2500);
+    }).catch(function() {
+      prompt('Copy this link:', url);
+    });
+  }
+}
+
+// ── AUDIO PLAYER ──
+var audio = document.getElementById('audio');
+var playBtn = document.getElementById('playBtn');
+var iconPlay = document.getElementById('iconPlay');
+var iconPause = document.getElementById('iconPause');
+var progressBar = document.getElementById('progressBar');
+var progressWrap = document.getElementById('progressWrap');
+var playerTime = document.getElementById('playerTime');
+
+function fmt(s) {
+  s = Math.floor(s || 0);
+  return Math.floor(s/60) + ':' + ('0' + (s%60)).slice(-2);
+}
+function updateTime() {
+  var cur = audio.currentTime, dur = audio.duration;
+  progressBar.style.width = (dur ? (cur/dur*100) : 0) + '%';
+  playerTime.textContent = fmt(cur) + ' / ' + fmt(dur);
+}
+function togglePlay() {
+  if (audio.paused) { audio.play(); } else { audio.pause(); }
+}
+audio.addEventListener('play', function() {
+  iconPlay.style.display = 'none';
+  iconPause.style.display = 'block';
+});
+audio.addEventListener('pause', function() {
+  iconPlay.style.display = 'block';
+  iconPause.style.display = 'none';
+});
+audio.addEventListener('ended', function() {
+  iconPlay.style.display = 'block';
+  iconPause.style.display = 'none';
+  progressBar.style.width = '0%';
+});
+audio.addEventListener('timeupdate', updateTime);
+audio.addEventListener('loadedmetadata', updateTime);
+function seek(e) {
+  if (!audio.duration) return;
+  var rect = progressWrap.getBoundingClientRect();
+  var frac = (e.clientX - rect.left) / rect.width;
+  audio.currentTime = Math.max(0, Math.min(1, frac)) * audio.duration;
+}
+</script>
+</body>
+</html>
